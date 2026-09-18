@@ -1,0 +1,2 @@
+export type RoadActivity = {id:string;days:number[];title:string;towers:string[];systems:string[];timing:string;detail:string;source:string;sourceTitle:string;sourceExcerpt:string;steps:{title:string;detail:string}[];challenges:string[];flowNote:string};
+export type RoadCycle = {id:string;title:string;short:string;description:string;stops:{day:number;label:string;title:string}[];phases:string[];note:string;activities:RoadActivity[]};

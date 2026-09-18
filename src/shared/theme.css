@@ -1,0 +1,222 @@
+/* ==========================================================================
+   GFS KL design layer. Loaded last on every page, after the page's own styles.
+   Principles: instant press feedback, translucent materials for floating chrome,
+   system typography with size-specific tracking, symmetric enter/exit paths,
+   and gentler (never absent) motion under reduced-motion / transparency / contrast.
+   ========================================================================== */
+:root {
+  --font-system: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-geist-sans: var(--font-system);
+  --sw-font-display: var(--font-system);
+  --sw-font-body: var(--font-system);
+  --ink: #1d1f1d;
+  --ink-2: #5c625b;
+  --accent: #830051;
+  --accent-soft: #f3e6ed;
+  --surface: #f2f2f0;
+  --line: rgba(29, 31, 29, 0.09);
+  /* Materials: light glass for floating controls, thick glass for large surfaces. */
+  --glass: rgba(255, 255, 255, 0.58);
+  --glass-strong: rgba(250, 250, 248, 0.78);
+  --glass-edge: rgba(255, 255, 255, 0.55);
+  --glass-blur: blur(20px) saturate(180%);
+  --glass-blur-thick: blur(28px) saturate(170%);
+  --shadow-chip: 0 1px 2px rgba(29, 31, 29, 0.05), 0 6px 20px rgba(29, 31, 29, 0.07);
+  --shadow-sheet: 0 2px 8px rgba(29, 31, 29, 0.06), 0 30px 80px rgba(37, 25, 33, 0.22);
+  --radius-pill: 999px;
+  --radius-card: 18px;
+  --radius-sheet: 24px;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-spring: cubic-bezier(0.34, 1.2, 0.64, 1); /* small overshoot: momentum interactions only */
+}
+
+/* Typography ----------------------------------------------------------- */
+html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; font-optical-sizing: auto; }
+body { font-family: var(--font-system); color: var(--ink); }
+h1, h2, h3 { font-weight: 600; text-wrap: balance; }
+h1 { letter-spacing: -0.028em; line-height: 1.06; }
+h2 { letter-spacing: -0.022em; line-height: 1.15; }
+h3 { letter-spacing: -0.012em; }
+p, li, dd { text-wrap: pretty; }
+small, .building-day, .calendar-day small, .dialog-calendar small, .testing-tower-metrics dt, .testing-caption-content > span,
+.testing-dialog-category, .infusion-step, .calendar-systems span, .day-activity dt { letter-spacing: 0.02em; }
+
+/* Press feedback: instant on pointer-down, everywhere ------------------- */
+button, [role="button"], .sw-btn, .site-nav-links a {
+  transition: transform 100ms var(--ease-out), background-color 160ms ease, color 160ms ease, border-color 160ms ease, box-shadow 160ms ease, opacity 160ms ease;
+}
+button:active:not(:disabled), .sw-btn:active { transform: scale(0.97); transition-duration: 60ms; }
+button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+/* Landing ----------------------------------------------------------------- */
+body[data-page="landing"] .sw-copy__eyebrow { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+body[data-page="landing"] .sw-copy__title { font-weight: 600; letter-spacing: -0.035em; line-height: 1.02; font-size: clamp(2.2rem, 3.8vw, 4.2rem); }
+body[data-page="landing"] .sw-copy__body { color: var(--ink-2); font-size: clamp(1rem, 1.05vw, 1.2rem); line-height: 1.6; letter-spacing: 0; margin-top: 22px; }
+body[data-page="landing"] .sw-copy__tagline { font-weight: 500; letter-spacing: -0.015em; }
+body[data-page="landing"] .sw-copy__cta .sw-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border: 1px solid rgba(131, 0, 81, 0.28); border-radius: var(--radius-pill); background: var(--glass); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); box-shadow: inset 0 1px 0 var(--glass-edge), var(--shadow-chip); color: var(--accent); font-size: 0.9rem; font-weight: 600; }
+body[data-page="landing"] .sw-copy__cta .sw-btn:hover { background: rgba(255, 255, 255, 0.82); color: var(--accent); border-color: rgba(131, 0, 81, 0.45); transform: translateY(-1px); }
+body[data-page="landing"] .fallback h1 { font-weight: 600; letter-spacing: -0.035em; }
+
+/* Roadmap ----------------------------------------------------------------- */
+.roadmap-page { padding-top: 8px; color: var(--ink); }
+.cycle-header { margin: 34px auto 20px; }
+.cycle-header h1 { font-size: clamp(30px, 3.4vw, 44px); font-weight: 600; letter-spacing: -0.03em; margin-bottom: 10px; }
+.cycle-header p { font-size: 16px; line-height: 1.6; color: var(--ink-2); }
+/* Segmented control: glass track, solid sliding pill on the selected tab. */
+.cycle-tabs { background: rgba(29, 31, 29, 0.055); border: 0; border-radius: var(--radius-pill); padding: 4px; gap: 2px; box-shadow: inset 0 1px 1px rgba(29, 31, 29, 0.06); }
+.cycle-tabs button { border-radius: var(--radius-pill); padding: 9px 18px; font-size: 13px; font-weight: 500; color: var(--ink-2); border: 0; }
+.cycle-tabs button[aria-selected="true"] { background: #fff; color: var(--ink); border: 0; box-shadow: 0 1px 2px rgba(29, 31, 29, 0.10), 0 4px 12px rgba(29, 31, 29, 0.08); font-weight: 600; }
+.cycle-tabs button[aria-selected="true"]:hover { background: #fff; }
+.cycle-context p { font-size: 13px; color: var(--ink-2); }
+/* Secondary actions are quiet text buttons: no box until hovered. */
+.cycle-context button, .cycle-loading button, .roadmap-no-milestone button { border-radius: var(--radius-pill); padding: 9px 12px; font-weight: 500; font-size: 13px; background: transparent; border: 0; box-shadow: none; color: var(--accent); gap: 6px; }
+.cycle-context button:hover, .cycle-loading button:hover, .roadmap-no-milestone button:hover { background: rgba(131, 0, 81, 0.07); }
+.cycle-context button svg { transition: transform 200ms var(--ease-out); }
+.cycle-context button:hover svg { transform: translateX(2px); }
+.roadmap-controls > div:first-child { font-weight: 600; }
+.roadmap-current-title { font-weight: 400; }
+.building-day { font-weight: 600; letter-spacing: -0.01em; }
+/* Day preview: a glass card that grows up and out of the building. */
+.calendar-preview { background: var(--glass-strong); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border: 1px solid rgba(255, 255, 255, 0.7); border-radius: var(--radius-card); box-shadow: inset 0 1px 0 var(--glass-edge), var(--shadow-chip), 0 24px 50px rgba(37, 25, 33, 0.12); transform-origin: 20% top; }
+.calendar-preview.opens-left { transform-origin: 80% top; }
+.calendar-heading { font-weight: 600; letter-spacing: 0.01em; }
+.calendar-day strong { font-weight: 600; letter-spacing: -0.02em; }
+.calendar-towers button { border-radius: var(--radius-pill); font-weight: 500; background: var(--accent-soft); border-color: rgba(131, 0, 81, 0.18); }
+.road-sign-face { border-radius: 10px; font-weight: 600; letter-spacing: 0.005em; }
+/* Day details sheet: thick glass over a dimmed, blurred scrim; materializes in. */
+.ui-dialog-overlay { background: rgba(30, 20, 28, 0.28); backdrop-filter: blur(6px) saturate(120%); -webkit-backdrop-filter: blur(6px) saturate(120%); }
+.roadmap-dialog[data-slot="dialog-content"] { background: var(--glass-strong); backdrop-filter: var(--glass-blur-thick); -webkit-backdrop-filter: var(--glass-blur-thick); border: 1px solid rgba(255, 255, 255, 0.75); border-radius: var(--radius-sheet); box-shadow: inset 0 1px 0 var(--glass-edge), var(--shadow-sheet); }
+.roadmap-dialog-header { border-bottom-color: var(--line); padding: 24px 68px 22px 28px; }
+.dialog-calendar { border-radius: 12px; border-color: rgba(131, 0, 81, 0.22); background: rgba(255, 255, 255, 0.7); }
+.dialog-calendar small { font-weight: 600; }
+.dialog-calendar strong { font-weight: 600; letter-spacing: -0.02em; }
+.roadmap-dialog [data-slot="dialog-title"] { font-weight: 600; letter-spacing: -0.025em; }
+.roadmap-modal-close { border-radius: var(--radius-pill); background: rgba(29, 31, 29, 0.06); width: 34px; height: 34px; top: 22px; right: 22px; }
+.roadmap-modal-close:hover { background: rgba(29, 31, 29, 0.11); }
+.day-tower-filters button { border-radius: var(--radius-pill); font-weight: 500; padding: 7px 13px; background: rgba(255, 255, 255, 0.5); border-color: var(--line); }
+.day-tower-filters button[aria-pressed="true"] { background: var(--accent); color: #fff; border-color: var(--accent); }
+.day-activity { border-bottom-color: var(--line); }
+.day-activity h2 { font-weight: 600; letter-spacing: -0.022em; }
+.day-activity dd { font-weight: 600; }
+.day-activity pre { border-radius: 12px; background: rgba(29, 31, 29, 0.05); }
+.roadmap-challenges { border-radius: 14px; }
+.roadmap-dialog[data-slot="dialog-content"][data-starting-style] { opacity: 0; scale: 0.96; translate: -50% calc(-50% + 12px); }
+.roadmap-dialog[data-slot="dialog-content"][data-ending-style] { opacity: 0; scale: 0.98; translate: -50% calc(-50% + 12px); }
+.roadmap-dialog[data-slot="dialog-content"] { transition: opacity 240ms var(--ease-out), scale 240ms var(--ease-out), translate 240ms var(--ease-out); }
+.ui-dialog-overlay { transition: opacity 240ms var(--ease-out); }
+/* Scroll edge for the day sheet: content fades under the header instead of a hard line. */
+.roadmap-dialog-body { mask-image: linear-gradient(to bottom, transparent, black 14px, black calc(100% - 14px), transparent); -webkit-mask-image: linear-gradient(to bottom, transparent, black 14px, black calc(100% - 14px), transparent); }
+
+/* Roadmap day sheet: one typeface, one scale, no bold. Hierarchy comes from size,
+   colour and spacing only. ------------------------------------------------ */
+.roadmap-dialog, .roadmap-dialog * { font-family: var(--font-system); }
+.roadmap-dialog strong, .roadmap-dialog b, .roadmap-dialog dd, .roadmap-dialog summary, .roadmap-dialog h2,
+.roadmap-dialog .source-bullets strong, .roadmap-dialog .dialog-calendar small, .roadmap-dialog .dialog-calendar strong,
+.roadmap-dialog [data-slot="dialog-title"], .roadmap-dialog .day-tower-filters button, .roadmap-dialog .roadmap-challenges summary { font-weight: 400; }
+/* Two tiers of weight for structure; prose and keyword marks stay regular. */
+.roadmap-dialog [data-slot="dialog-title"], .day-activity h2 { font-weight: 600; }
+.day-activity dt, .day-activity summary, .roadmap-process-steps details summary, .roadmap-dialog .roadmap-challenges > summary,
+.dialog-calendar strong, .dialog-calendar small, .day-tower-filters button[aria-pressed="true"] { font-weight: 500; }
+.day-activity dt { color: var(--ink); }
+.day-activity dd { color: var(--ink-2); }
+.roadmap-dialog { font-size: 14px; line-height: 1.6; color: var(--ink); }
+.roadmap-dialog-header { gap: 18px; padding: 26px 68px 22px 32px; }
+.dialog-calendar { width: 92px; border: 1px solid var(--line); background: rgba(255, 255, 255, 0.6); border-radius: 12px; }
+.dialog-calendar small { font-size: 10px; letter-spacing: 0.08em; color: var(--ink-2); background: rgba(29, 31, 29, 0.05); padding: 6px 4px; }
+.dialog-calendar strong { font-size: 22px; letter-spacing: -0.02em; padding: 9px 4px; color: var(--accent); }
+.roadmap-dialog [data-slot="dialog-title"] { font-size: 22px; letter-spacing: -0.022em; line-height: 1.25; margin-bottom: 4px; color: var(--ink); }
+.roadmap-dialog [data-slot="dialog-description"] { font-size: 13px; color: var(--ink-2); }
+.roadmap-dialog-body { padding: 24px 32px 32px; }
+.day-tower-filters { gap: 6px; margin-bottom: 26px; }
+.day-tower-filters button { font-size: 13px; padding: 7px 14px; color: var(--ink-2); background: rgba(29, 31, 29, 0.04); border: 1px solid transparent; }
+.day-tower-filters button[aria-pressed="true"] { background: var(--accent); color: #fff; }
+.day-activity { padding-bottom: 28px; margin-bottom: 28px; }
+.day-activity h2 { font-size: 19px; letter-spacing: -0.018em; line-height: 1.3; margin: 0 0 6px; }
+.day-activity .activity-timing { font-size: 13px; color: var(--ink-2); margin: 0 0 12px; line-height: 1.55; }
+.day-activity .activity-timing strong { color: inherit; }
+.day-activity p, .day-activity .source-bullets { font-size: 14px; line-height: 1.65; color: var(--ink); }
+.day-activity > .source-bullets, .roadmap-process-steps .source-bullets { color: var(--ink); }
+.day-activity .source-bullets > li { margin-bottom: 0.45em; }
+.day-activity .source-bullets > li::marker { color: var(--ink-2); }
+.day-activity dl { margin: 18px 0 20px; gap: 8px; }
+.day-activity dl > div { grid-template-columns: 120px 1fr; gap: 16px; align-items: baseline; }
+.day-activity dt { font-size: 13px; color: var(--ink-2); }
+.day-activity dd { font-size: 14px; color: var(--ink); }
+.day-activity .activity-flow-note { font-size: 13px; color: var(--ink-2); }
+/* Disclosure rows: quiet chevron, no marker triangle, same size as body. */
+.day-activity summary { list-style: none; display: flex; align-items: center; gap: 8px; min-height: 36px; font-size: 14px; color: var(--ink); cursor: pointer; }
+.day-activity summary::-webkit-details-marker { display: none; }
+.day-activity summary::before { content: ""; width: 6px; height: 6px; border-right: 1.5px solid var(--ink-2); border-bottom: 1.5px solid var(--ink-2); transform: rotate(-45deg); margin: 0 4px 0 2px; transition: transform 160ms var(--ease-out); flex: none; }
+.day-activity details[open] > summary::before { transform: rotate(45deg); }
+.roadmap-process-steps, .roadmap-challenges, .day-activity > details { margin: 6px 0 0; padding: 0; border: 0; background: none; border-radius: 0; color: var(--ink); }
+.roadmap-process-steps > summary, .roadmap-challenges > summary, .day-activity > details > summary { font-size: 14px; }
+.roadmap-process-steps > p { font-size: 13px; color: var(--ink-2); margin: 2px 0 6px 20px; }
+.roadmap-process-steps details { margin: 0 0 0 20px; padding: 2px 0 2px 14px; border-left: 1px solid var(--line); }
+.roadmap-process-steps details summary { font-size: 14px; min-height: 34px; }
+.roadmap-process-steps details .source-bullets { margin: 4px 0 10px 20px; font-size: 13px; }
+.roadmap-challenges summary { color: var(--ink); }
+.roadmap-challenges ul { margin: 4px 0 8px 20px; padding-left: 18px; font-size: 13px; line-height: 1.6; color: var(--ink); }
+.roadmap-challenges .source-bullets strong { color: inherit; }
+.day-activity details > p { font-size: 13px; color: var(--ink-2); margin: 6px 0 8px 20px; }
+.day-activity pre { margin: 6px 0 4px 20px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 12px; line-height: 1.6; color: var(--ink-2); background: rgba(29, 31, 29, 0.04); border-radius: 10px; padding: 14px 16px; }
+.roadmap-no-milestone h2 { font-weight: 400; }
+.roadmap-dialog-body { scrollbar-width: thin; scrollbar-color: rgba(29, 31, 29, 0.18) transparent; }
+@media (max-width: 767px) { .roadmap-dialog-header { padding: 22px 56px 18px 20px; } .roadmap-dialog-body { padding: 20px 20px 28px; } .day-activity dl > div { grid-template-columns: 1fr; gap: 2px; } }
+
+/* Tower overview ------------------------------------------------------------- */
+.testing { --test-accent: var(--accent); --test-line: var(--line); --test-text: var(--ink); --test-muted: var(--ink-2); }
+.testing .testing-intro h1 { font-weight: 600; letter-spacing: -0.035em; line-height: 1.02; }
+.testing .testing-intro > p { color: var(--ink-2); line-height: 1.6; font-size: 14px; }
+.testing-tower-metrics dt { font-size: 11px; font-weight: 600; color: var(--ink-2); }
+.testing-tower-metrics dd { font-weight: 600; letter-spacing: -0.03em; }
+.testing-collab-chip { border-radius: var(--radius-pill); font-weight: 500; }
+.testing .tower-name { font-weight: 600; letter-spacing: -0.015em; }
+.testing .organ-name { font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; font-weight: 600; }
+.testing-available { font-weight: 500; }
+/* Floating chrome: glass pills that sit over the scene. */
+/* Floating actions over the scene: quiet text buttons; one solid primary ("All processes"). */
+.testing-back, .testing-journey > button, .testing-caption-content button {
+  border-radius: var(--radius-pill); background: transparent; border: 0; box-shadow: none; color: var(--accent); font-weight: 500; font-size: 13px;
+}
+.testing-back { padding: 9px 14px 9px 10px; gap: 6px; }
+.testing-caption-content button { padding: 9px 12px; margin-left: -12px; display: inline-flex; align-items: center; gap: 6px; }
+.testing-caption-content button svg { transition: transform 200ms var(--ease-out); }
+.testing-caption-content button:hover svg { transform: translateX(2px); }
+.testing-back:hover, .testing-caption-content button:hover { background: rgba(131, 0, 81, 0.07); }
+.testing-journey .testing-process-list { padding: 11px 18px; height: auto; border-radius: var(--radius-pill); border: 0; background: var(--accent); color: #fff; font-weight: 500; font-size: 13px; box-shadow: 0 1px 2px rgba(131, 0, 81, 0.2), 0 6px 18px rgba(131, 0, 81, 0.18); }
+.testing-journey .testing-process-list:hover { background: #6f0045; }
+.testing-caption-content h2 { font-weight: 600; letter-spacing: -0.028em; }
+.testing-caption-content > span { font-size: 11px; font-weight: 600; text-transform: uppercase; color: var(--accent); }
+.testing-neuron .testing-node-title, .testing-node-plus { background: var(--glass-strong); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border: 1px solid rgba(255, 255, 255, 0.7); box-shadow: inset 0 1px 0 var(--glass-edge), var(--shadow-chip); }
+.testing-neuron .testing-node-title { border-radius: 10px; font-weight: 500; }
+/* Sliders: thin track, round thumb. */
+.testing input[type="range"] { -webkit-appearance: none; appearance: none; height: 3px; border-radius: 2px; background: rgba(29, 31, 29, 0.14); }
+.testing input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; border-radius: 50%; background: #fff; border: 1px solid rgba(29, 31, 29, 0.12); box-shadow: 0 1px 3px rgba(29, 31, 29, 0.18), 0 4px 10px rgba(29, 31, 29, 0.1); transition: transform 120ms var(--ease-out); }
+.testing input[type="range"]:active::-webkit-slider-thumb { transform: scale(1.15); }
+/* Process sheets: thick glass, dimmed scrim; grows from the bottom edge and leaves the same way. */
+.testing-dialog { background: var(--glass-strong); backdrop-filter: var(--glass-blur-thick); -webkit-backdrop-filter: var(--glass-blur-thick); border: 1px solid rgba(255, 255, 255, 0.75); border-radius: var(--radius-sheet); box-shadow: inset 0 1px 0 var(--glass-edge), var(--shadow-sheet); }
+.testing-dialog::backdrop { background: rgba(30, 20, 28, 0.28); backdrop-filter: blur(6px) saturate(120%); -webkit-backdrop-filter: blur(6px) saturate(120%); }
+.testing-dialog h2 { font-weight: 600; letter-spacing: -0.028em; }
+.testing-close { background: rgba(29, 31, 29, 0.06); border: 0; }
+.testing-close:hover { background: rgba(29, 31, 29, 0.11); }
+.testing-picker > div > button { border-radius: 14px; background: rgba(255, 255, 255, 0.55); border: 1px solid rgba(255, 255, 255, 0.7); box-shadow: 0 1px 2px rgba(29, 31, 29, 0.04); }
+.testing-picker > div > button:hover { background: #fff; border-color: rgba(131, 0, 81, 0.2); }
+.testing-picker-copy strong { font-weight: 600; letter-spacing: -0.012em; }
+.infusion-system { border-radius: var(--radius-pill); }
+.testing-dialog details summary { font-weight: 600; }
+
+/* Accessibility: transparency and contrast preferences ---------------------- */
+@media (prefers-reduced-transparency: reduce) {
+  :root { --glass: #fbfbf9; --glass-strong: #fbfbf9; --glass-blur: none; --glass-blur-thick: none; }
+  .calendar-preview, .roadmap-dialog[data-slot="dialog-content"], .testing-dialog, .testing-neuron .testing-node-title, .testing-node-plus, body[data-page="landing"] .sw-copy__cta .sw-btn { backdrop-filter: none; -webkit-backdrop-filter: none; background: #fbfbf9; }
+  .ui-dialog-overlay, .testing-dialog::backdrop { backdrop-filter: none; -webkit-backdrop-filter: none; background: rgba(30, 20, 28, 0.45); }
+}
+@media (prefers-contrast: more) {
+  :root { --line: rgba(29, 31, 29, 0.35); --ink-2: #3b403a; }
+  .calendar-preview, .roadmap-dialog[data-slot="dialog-content"], .testing-dialog { background: #fff; border: 1px solid #1d1f1d; }
+}
+@media (prefers-reduced-motion: reduce) {
+  button:active:not(:disabled), .sw-btn:active { transform: none; }
+  .roadmap-dialog[data-slot="dialog-content"][data-starting-style], .roadmap-dialog[data-slot="dialog-content"][data-ending-style] { scale: 1; translate: -50% -50%; }
+}

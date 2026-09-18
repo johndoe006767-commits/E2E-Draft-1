@@ -1,0 +1,1863 @@
+{
+  "name": "R2R",
+  "organ": "lungs",
+  "tagline": "Closing the books, reporting the numbers and evidencing the controls behind every period end.",
+  "pickerTitle": "R2R Processes",
+  "pickerIntro": "Period close, journals, intercompany, group reporting and controls activities run by the R2R team.",
+  "context": [
+    {
+      "label": "Solutions",
+      "text": "Period close runs in SAP ECC with BlackLine for manual journals and AJD auto-postings, Nintex for NTI intercompany requests, ERH for group reporting and IRM for control attestation, supported by Power BI dashboards for the month-end timetable, inventory data quality and the BSI Pack."
+    },
+    {
+      "label": "Automation",
+      "text": "Documented automation includes BlackLine AJD postings (Concur T&E, China accruals, ABACUS clinical accruals), Python scripts for SAP data extraction (VAT, FX, BSR, payroll evidence), Power Automate email approvals, the Speedy Bot SAP-to-ERH reconciliation and Excel macros for divestment extracts and distribution cycles."
+    },
+    {
+      "label": "AI",
+      "text": "SubZero is listed as the AI opportunity for manual journal preparation in BlackLine. No other deployed AI capability is documented, though the team asks whether the Speedy Bot could take over the quarterly ERH 101 and 102 new-line check."
+    },
+    {
+      "label": "Cross-Functional Collaboration",
+      "text": "R2R works with GFR, Embedded Finance, the Middle Office, the GFS Process Towers, P2P, HR and payroll providers, SAP IT and DMT, the Capex and Clinical Finance Warsaw teams, FP&A, GBS, FCCG and Compliance, and external auditors across close, reporting and controls."
+    }
+  ],
+  "metrics": {
+    "solutions": 22,
+    "automated": 16,
+    "ai": 0
+  },
+  "collaborators": [
+    "brain",
+    "liver",
+    "stomach",
+    "kidneys",
+    "spleen"
+  ],
+  "processes": [
+    {
+      "id": "e7a954786cfc",
+      "title": "Period close communication",
+      "group": "Close preparation",
+      "purpose": "Each month the R2R team prepares stakeholders for period close by communicating the month-end timetable to every market and by reviewing the briefing notes published by GFR so that any key accounting items are considered as part of the close.\n\nThe outputs are the communication of period-end activities and the timetable, a shared briefing note summary, and an acknowledgement of the briefing note sent back to GFR. The audience is GFR, Embedded Finance, the Middle Offices and Transactional Finance.",
+      "cadence": "Monthly, ahead of period close, in accordance with the global close calendar.",
+      "stages": [
+        {
+          "title": "Communicate the month-end timetable",
+          "detail": "1. On a monthly basis, the team will communicate the month-end timetable to each market, highlighting the key closing timeline across critical activities in accordance to global close calendar.",
+          "owner": "",
+          "challenges": [
+            "Manual effort is required to prepare and send out the monthly timetable to stakeholders via email."
+          ],
+          "systems": [
+            "Email"
+          ],
+          "displayTitle": "Communicate the month-end timetable",
+          "description": "Using the global close calendar as the input, communicate the month-end timetable to each market, highlighting the key closing timeline across the critical activities.\n\nThe timetable is prepared and sent to stakeholders by email each month."
+        },
+        {
+          "title": "Review the GFR briefing notes",
+          "detail": "2. Review the briefing notes published by GFR and ensure any key accounting items are considered as part of period close.",
+          "owner": "",
+          "challenges": [
+            "The GFR Briefing Note call (part of the control procedure) involves a high volume of participants running through the briefing note instead of self-reading it."
+          ],
+          "systems": [],
+          "displayTitle": "Review the GFR briefing notes",
+          "description": "Review the briefing notes published by GFR and confirm that any key accounting items they raise are considered as part of the period close.\n\nThe briefing note is also covered on the GFR Briefing Note call, which forms part of the control procedure."
+        },
+        {
+          "title": "Share the briefing summary and acknowledge to GFR",
+          "detail": "3. Share the briefing note and summary to stakeholders. | Communication of period-end activities and timetable Send briefing note acknowledgement to GFR | GFREmbedded Finance Middle Offices Transactional Finance",
+          "owner": "",
+          "challenges": [],
+          "systems": [],
+          "displayTitle": "Share the briefing summary and acknowledge to GFR",
+          "description": "Share the briefing note and a summary with stakeholders: GFR, Embedded Finance, the Middle Offices and Transactional Finance.\n\nSend the briefing note acknowledgement to GFR to complete the communication of period-end activities and the timetable."
+        }
+      ],
+      "challenges": [
+        "Manual effort is required to prepare and send out the monthly timetable to stakeholders via email.",
+        "The GFR Briefing Note call (part of the control procedure) involves a high volume of participants running through the briefing note instead of self-reading it."
+      ],
+      "improvements": [
+        "Documented improvements: Power BI Month-End Timetable Dashboard.",
+        "Documented improvements: FCF control on the briefing note descoped; self-read encouraged, with the call focused on new items in the GFR Briefing Notes."
+      ],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: R2R Ops E2E Process Summary(R2R E2E Summary ).csv\n\n- Path: `Tower Subprocesses/R2R/R2R Ops E2E Process Summary(R2R E2E Summary ).csv`\n- Format: CSV\n\n| Column 1 | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 | Column 7 | Column 8 | Column 9 |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Process Sub-Area | Input | Brief description of activity | Output | Customer | Pain points/ Areas for improvement | Areas digitalized/improved | TPI  2026 | AI opportunity (Global support) |\n| Prepare for period close and communicate period-end activities and timetable to stakeholders, together with briefing note review | Global Close Calendar GFR Briefing Note | 1. On a monthly basis, the team will communicate the month-end timetable to each market, highlighting the key closing timeline across critical activities in accordance to global close calendar. 2. Review the briefing notes published by GFR and ensure any key accounting items are considered as part of period close. 3. Share the briefing note and summary to stakeholders. | Communication of period-end activities and timetable Send briefing note acknowledgement to GFR | GFREmbedded Finance Middle Offices Transactional Finance | - Manual effort required to prepare and send out monthly timetable to stakeholders via email. - GFR Briefing Note call (as part of control procedure) - high volume of participants to run through the briefing note instead of self-read | Power BI Month-End Timetable Dashboard FCF control on briefing note descoped, encouraged self-read and focused on calling up new items in the GFR Briefing Notes. |  |  |\n",
+      "sourceFile": "R2R - Raw Data.md",
+      "purposeSummary": "Communicate the **month-end timetable** to each market and review **GFR briefing notes** so key accounting items are covered at close.",
+      "cadenceSummary": "**Monthly**, ahead of period close, following the **global close calendar**."
+    },
+    {
+      "id": "2cc25add9b1f",
+      "title": "Manual journals in BlackLine",
+      "group": "Journals & adjustments",
+      "purpose": "The team prepares and submits manual journals through BlackLine for approval and posting to SAP. The scope covers payroll balance sheet allocation, bonus accrual, payroll clearing, cost allocation, Coupa PO, stuck invoice and invoice pending receipt accruals, and T&E accruals.\n\nJournal requests come from Middle Office Controlling, FP&A and Ops Embedded Finance and the payroll service provider, with data drawn from BlackLine, Concur, Workday, Coupa and local systems. The outcome is that journal requests are reviewed and posted or reversed as requested, and that journals are reflected accurately and on time in SAP for Embedded Finance and the GFS Process Towers, mainly for month-end review and analysis.",
+      "cadence": "Journals support month-end review and analysis; the source does not specify a fixed timetable for preparation and approval.",
+      "stages": [
+        {
+          "title": "Collect journal requests and supporting data",
+          "detail": "People:Middle Office Controlling, FP&A/ Ops Embedded Finance Payroll Service Provider System:BlackLineConcurWorkdayCoupa Local system",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "BlackLine",
+            "Concur",
+            "Workday",
+            "Coupa"
+          ],
+          "displayTitle": "Collect journal requests and supporting data",
+          "description": "Receive journal requests from Middle Office Controlling, FP&A and Ops Embedded Finance and the payroll service provider.\n\nSource data comes from BlackLine, Concur, Workday, Coupa and local systems."
+        },
+        {
+          "title": "Prepare and submit manual journals in BlackLine",
+          "detail": "The team prepare and submit manual journals via BlackLine for approval. The scope of manual journals include, payroll BS allocation, bonus accrual, payroll clearing, cost allocation, Coupa PO, Stuck Invoice, Invoice Pending Receipt accruals, T&E acruals etc.",
+          "owner": "",
+          "challenges": [
+            "Opportunity to automate journal entries is still to be considered."
+          ],
+          "systems": [
+            "BlackLine"
+          ],
+          "displayTitle": "Prepare and submit manual journals in BlackLine",
+          "description": "Prepare the manual journals and submit them in BlackLine for approval.\n\nThe scope includes payroll balance sheet allocation, bonus accrual, payroll clearing, cost allocation, Coupa PO accrual, stuck invoice accrual, invoice pending receipt accrual and T&E accruals.",
+          "challengeScope": "Process-wide challenge; the source does not assign it to an individual step."
+        },
+        {
+          "title": "Approve and post or reverse in SAP",
+          "detail": "- Journals requests submitted for review and posted / reversed as requested. | Leveraged on BlackLine Automated Journal Definition (\"AJD\") function to automatically generate financial journal entries and post to SAP",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "BlackLine",
+            "SAP"
+          ],
+          "displayTitle": "Approve and post or reverse in SAP",
+          "description": "Journal requests are reviewed and approved in BlackLine, then posted to SAP or reversed as requested.\n\nWhere the BlackLine Automated Journal Definition (AJD) function is in use (Concur T&E accruals, China 13th month salary accrual, China labour union accrual and the reclassification of the pension opening balance), entries are generated and posted to SAP automatically."
+        },
+        {
+          "title": "Check posting status and confirm in SAP",
+          "detail": "- Journals reflected accurately and timely in SAP | Embedded Finance GFS Process Towers - mainly for month end review and analysis | Journal in BlackLine with posting error but confirmed as posted in SAP ... The BL administrator will manually update the BlackLine journal status to \"Posted\" via a Journal Status file import.",
+          "owner": "",
+          "challenges": [
+            "Journals in BlackLine can show a posting error while being confirmed as posted in SAP, often due to interface performance between SAP and BlackLine. Effort is required to check that these journals are not reprocessed and duplicated; the BlackLine administrator manually updates the journal status to \"Posted\" via a Journal Status file import, pending a permanent fix from the AZ IT team."
+          ],
+          "systems": [
+            "BlackLine",
+            "SAP"
+          ],
+          "displayTitle": "Check posting status and confirm in SAP",
+          "description": "Check journals that show a posting error in BlackLine but are confirmed as posted in SAP, so that they are not reprocessed and duplicated. The BlackLine administrator updates the journal status to \"Posted\" via a Journal Status file import.\n\nJournals are then reflected accurately and on time in SAP for Embedded Finance and the GFS Process Towers, mainly for month-end review and analysis."
+        }
+      ],
+      "challenges": [
+        "Opportunity to automate journal entries is still to be considered.",
+        "Journals in BlackLine can show a posting error while being confirmed as posted in SAP, often due to interface performance between SAP and BlackLine. Effort is required to check that these journals are not reprocessed and duplicated; the BlackLine administrator manually updates the journal status to \"Posted\" via a Journal Status file import, pending a permanent fix from the AZ IT team."
+      ],
+      "improvements": [
+        "Documented improvements: BlackLine Automated Journal Definition (AJD) used to generate and post journals to SAP automatically for Concur T&E accruals, China 13th month salary accrual, China labour union accrual and the reclassification of the pension opening balance.",
+        "AI opportunity (proposal): SubZero."
+      ],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: R2R Ops E2E Process Summary(R2R E2E Summary ).csv\n\n- Path: `Tower Subprocesses/R2R/R2R Ops E2E Process Summary(R2R E2E Summary ).csv`\n- Format: CSV\n\n| Column 1 | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 | Column 7 | Column 8 | Column 9 |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Process Sub-Area | Input | Brief description of activity | Output | Customer | Pain points/ Areas for improvement | Areas digitalized/improved | TPI  2026 | AI opportunity (Global support) |\n| Prepare and approve journals (BlackLine) | People:Middle Office Controlling, FP&A/ Ops Embedded Finance Payroll Service Provider System:BlackLineConcurWorkdayCoupa Local system | The team prepare and submit manual journals via BlackLine for approval. The scope of manual journals include, payroll BS allocation, bonus accrual, payroll clearing, cost allocation, Coupa PO, Stuck Invoice, Invoice Pending Receipt accruals, T&E acruals etc. | - Journals requests submitted for review and posted / reversed as requested.- Journals reflected accurately and timely in SAP | Embedded Finance GFS Process Towers - mainly for month end review and analysis | - Consider opportunity to automate journal entries- Journal in BlackLine with posting error but confirmed as posted in SAP, often due to system interface performance between SAP and BL. Effort is required for the team to check and ensure those journals with posting error but posted, are not reprocessed again to avoid duplications. The BL administrator will manually update the BlackLine journal status to \"Posted\" via a Journal Status file import. Pending permanent fix from AZ IT team. | Leveraged on BlackLine Automated Journal Definition (\"AJD\") function to automatically generate financial journal entries and post to SAP - Concur T&E accruals- China 13th month salary accrual- China labour union accrual - Reclassification of pension opening balance |  | SubZero |\n",
+      "sourceFile": "R2R - Raw Data.md",
+      "purposeSummary": "Prepare and approve **manual journals in BlackLine** covering payroll, allocations, Coupa and T&E accruals, posted accurately to SAP.",
+      "cadenceSummary": "Supports **month-end review and analysis**; a fixed timetable is not specified in the supplied file."
+    },
+    {
+      "id": "0530b5dcd395",
+      "title": "Mass journal reversal",
+      "group": "Journals & adjustments",
+      "purpose": "Accrual journals posted with document type S1 carry a reversal date. A scheduled SAP run of t-code F.81 reverses every document whose reversal date falls in the current month, and the team confirms that the reversals have posted and follows up any failures with the journal owner.\n\nThe outcome is that reversal documents are completed on the defined reversal date for Embedded Finance and the GFS Process Towers.",
+      "cadence": "Run via an SAP scheduled job for documents whose reversal date falls in the current month.",
+      "stages": [
+        {
+          "title": "Run the scheduled reversal job",
+          "detail": "1. Journal reversal t-code F.81 executed via SAP scheduled run to reverse doc type with reversal date inputed as current month.This mainly for doc type S1.",
+          "owner": "",
+          "challenges": [
+            "Manual SAP accrual via t-code."
+          ],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Run the scheduled reversal job",
+          "description": "The SAP scheduled run executes journal reversal t-code F.81 for documents whose reversal date is the current month. This mainly applies to document type S1 accruals with a reversal date.",
+          "challengeScope": "Process-wide challenge; the source does not assign it to an individual step."
+        },
+        {
+          "title": "Confirm the reversals in SAP",
+          "detail": "2. Once completed, the team will check in SAP to ensure the reversal is completed. Reversal doc is reflected as S8 (manual accrual reversal doc)",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Confirm the reversals in SAP",
+          "description": "Once the run has completed, check in SAP that the reversals are complete. Reversal documents are reflected as document type S8 (manual accrual reversal document)."
+        },
+        {
+          "title": "Resolve failed reversals with journal owners",
+          "detail": "3. Any reversal fails, the team will investigate and where applicable, notify the journal owner and agree on action plan. | Reversal doc are completed based on the defined reversal date | Embedded Finance GFS Process Towers",
+          "owner": "",
+          "challenges": [],
+          "systems": [],
+          "displayTitle": "Resolve failed reversals with journal owners",
+          "description": "Investigate any reversal that fails and, where applicable, notify the journal owner and agree an action plan.\n\nThe result is that reversal documents are completed on the defined reversal date for Embedded Finance and the GFS Process Towers."
+        }
+      ],
+      "challenges": [
+        "Manual SAP accrual via t-code."
+      ],
+      "improvements": [],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: R2R Ops E2E Process Summary(R2R E2E Summary ).csv\n\n- Path: `Tower Subprocesses/R2R/R2R Ops E2E Process Summary(R2R E2E Summary ).csv`\n- Format: CSV\n\n| Column 1 | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 | Column 7 | Column 8 | Column 9 |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Process Sub-Area | Input | Brief description of activity | Output | Customer | Pain points/ Areas for improvement | Areas digitalized/improved | TPI  2026 | AI opportunity (Global support) |\n| Mass journal reversal in SAP | SAP S1 doc type with reversal date | 1. Journal reversal t-code F.81 executed via SAP scheduled run to reverse doc type with reversal date inputed as current month.This mainly for doc type S1. 2. Once completed, the team will check in SAP to ensure the reversal is completed. Reversal doc is reflected as S8 (manual accrual reversal doc)3. Any reversal fails, the team will investigate and where applicable, notify the journal owner and agree on action plan. | Reversal doc are completed based on the defined reversal date | Embedded Finance GFS Process Towers | Manual SAP accrual via t-code |  |  |  |\n",
+      "sourceFile": "R2R - Raw Data.md",
+      "purposeSummary": "Reverse **S1 accrual journals** on their reversal date through a **scheduled SAP F.81 run**, then confirm and follow up failures.",
+      "cadenceSummary": "**SAP scheduled run** each month for documents with a reversal date in the **current month**."
+    },
+    {
+      "id": "2be97c41a161",
+      "title": "AP and AR regrouping",
+      "group": "Journals & adjustments",
+      "purpose": "At the end of each reporting period, after the AP and AR subledgers are closed, the team verifies vendor and customer accounts to determine whether a reclassification is required. Customers with a credit balance are reclassified to vendors and vendors with a debit balance are reclassified to customers, in both cases through journals to GL accounts defined solely for these month-end reclassification postings.\n\nThe process is executed through specific SAP t-codes. The outcome is that the regrouping is posted and the reporting position for both customers and vendors is recorded accurately for GFS Middle Office, Embedded Finance and GFR, supporting ERH reporting in compliance with IFRS.",
+      "cadence": "Monthly, at the end of the reporting period, after the AP and AR subledgers are closed.",
+      "stages": [
+        {
+          "title": "Verify vendor and customer balances after subledger close",
+          "detail": "At the end of reporting period, the team performs a monthly verification in vendor and customer accounts in order to determine if a reclassification is required, after AP and AR subledgers are closed. Any customers with a credit balance are identified and reclassified to vendors and any vendors with a debit balance are identified and reclassified to customers, both via journals to specifically defined GL accounts solely used for these reclassification postings at month end.",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Verify vendor and customer balances after subledger close",
+          "description": "After the AP and AR subledgers are closed, verify the vendor and customer accounts to determine whether a reclassification is required. Customers with a credit balance are to be reclassified to vendors and vendors with a debit balance to customers, via journals to the GL accounts used solely for these month-end reclassification postings."
+        },
+        {
+          "title": "Identify company codes requiring reclassification",
+          "detail": "1. T-codes as follows to determine the company codes where the reclassification is required, in case any balances are identified. S_ALR_87012172 - Customer Balance in Local Currency S_ALR_87012082 - Vendor Balance in Local Currency",
+          "owner": "",
+          "challenges": [
+            "The t-codes are executed repeatedly for each single entity, involving multiple preparers and approvers."
+          ],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Identify company codes requiring reclassification",
+          "description": "Run S_ALR_87012172 (Customer Balance in Local Currency) and S_ALR_87012082 (Vendor Balance in Local Currency) to determine the company codes where a reclassification is required, in case any balances are identified."
+        },
+        {
+          "title": "Run the reclassification test run",
+          "detail": "2. Execute t-code \\FAGLF101 to perform customer & vendor balance reclassification for test run",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Run the reclassification test run",
+          "description": "Execute t-code FAGLF101 to perform the customer and vendor balance reclassification as a test run."
+        },
+        {
+          "title": "Investigate differences",
+          "detail": "3. Investigate if any difference found and provide necessary explanation",
+          "owner": "",
+          "challenges": [],
+          "systems": [],
+          "displayTitle": "Investigate differences",
+          "description": "Investigate any difference found in the test run and provide the necessary explanation."
+        },
+        {
+          "title": "Submit the test run for review",
+          "detail": "4. Submit test run for review via email",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "Email"
+          ],
+          "displayTitle": "Submit the test run for review",
+          "description": "Submit the test run results to the approver for review via email."
+        },
+        {
+          "title": "Post the regrouping entries",
+          "detail": "5. Once test result is approved, execute T-code SM35 to post the regrouping entries",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Post the regrouping entries",
+          "description": "Once the test result is approved, execute t-code SM35 to post the regrouping entries."
+        },
+        {
+          "title": "Confirm completion to stakeholders",
+          "detail": "6. Email completion status updates and posting details to stakeholders | Regrouping posted and reporting position for both customers and vendors are recorded accurately | GFS Middle OfficeEmbedded Finance GFR - ERH reporting in compliance to IFRS requirement",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "Email"
+          ],
+          "displayTitle": "Confirm completion to stakeholders",
+          "description": "Email the completion status and posting details to stakeholders.\n\nThe regrouping is now posted and the reporting position for both customers and vendors is recorded accurately for GFS Middle Office, Embedded Finance and GFR (ERH reporting in compliance with IFRS)."
+        }
+      ],
+      "challenges": [
+        "The t-codes are executed repeatedly for each single entity, involving multiple preparers and approvers."
+      ],
+      "improvements": [
+        "Documented improvements: Automated and centralised SAP t-code data extraction (customer and vendor balances) for all entities, with the AP/AR regrouping t-code executed by a single preparer."
+      ],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: R2R Ops E2E Process Summary(R2R E2E Summary ).csv\n\n- Path: `Tower Subprocesses/R2R/R2R Ops E2E Process Summary(R2R E2E Summary ).csv`\n- Format: CSV\n\n| Column 1 | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 | Column 7 | Column 8 | Column 9 |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Process Sub-Area | Input | Brief description of activity | Output | Customer | Pain points/ Areas for improvement | Areas digitalized/improved | TPI  2026 | AI opportunity (Global support) |\n| Period-end regrouping and reclassifcation - AP AR regrouping | SAP AP and AR subledgers data | At the end of reporting period, the team performs a monthly verification in vendor and customer accounts in order to determine if a reclassification is required, after AP and AR subledgers are closed. Any customers with a credit balance are identified and reclassified to vendors and any vendors with a debit balance are identified and reclassified to customers, both via journals to specifically defined GL accounts solely used for these reclassification postings at month end.This process is executed via specific SAP t-codes. The team needs to run:1. T-codes as follows to determine the company codes where the reclassification is required, in case any balances are identified. S_ALR_87012172 - Customer Balance in Local Currency S_ALR_87012082 - Vendor Balance in Local Currency 2. Execute t-code \\FAGLF101 to perform customer & vendor balance reclassification for test run3. Investigate if any difference found and provide necessary explanation4. Submit test run for review via email 5. Once test result is approved, execute T-code SM35 to post the regrouping entries 6. Email completion status updates and posting details to stakeholders | Regrouping posted and reporting position for both customers and vendors are recorded accurately | GFS Middle OfficeEmbedded Finance GFR - ERH reporting in compliance to IFRS requirement | Repeated process to execute the t-codes for single entity, involving multiple preparers and approvers. | Automated and centralised SAP t-code data extraction (customer and vendor balance) for all entities and execution AP/AR regrouping t-code by single preparer. |  |  |\n",
+      "sourceFile": "R2R - Raw Data.md",
+      "purposeSummary": "Reclassify **customer credit balances** and **vendor debit balances** after subledger close so the reporting position complies with IFRS.",
+      "cadenceSummary": "**Monthly, at period end**, after the **AP and AR subledgers are closed**."
+    },
+    {
+      "id": "f0252134d9d0",
+      "title": "VAT reclassification",
+      "group": "Journals & adjustments",
+      "purpose": "At period end the team determines whether each entity's input and output VAT nets to a payable or a recoverable position and posts a clearing entry so that VAT is presented on a net basis.\n\nThe posting transfers balances from the input VAT/GST recoverable accounts (17120100 and 17120101) and the output VAT/GST payable accounts (22310100 and 22310101) to either 17120300 Net VAT Recoverable Domestic or 22310400 Net VAT Payable Domestic, depending on whether the net balance is payable or receivable. The result is that VAT is captured in either a net payable or a net recoverable position for the Middle Office, TDT and Embedded Finance.",
+      "cadence": "At period end, once the VAT balances are captured in SAP; approval is obtained before the clearing entry is posted.",
+      "stages": [
+        {
+          "title": "Determine the net VAT position",
+          "detail": "1. Generate F.01 to determine position of Net Payables/ Recoverable for Input/ Output VAT amount.",
+          "owner": "",
+          "challenges": [
+            "Manual data extraction from SAP and email approval by market."
+          ],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Determine the net VAT position",
+          "description": "Generate F.01 to determine the net payable or recoverable position for the input and output VAT amounts captured in SAP."
+        },
+        {
+          "title": "Run the VAT clearing test run and send for review",
+          "detail": "2. Execute t-code S_ALR_87012357 for VAT clearing - test run and send to approver for review.",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "SAP",
+            "Email"
+          ],
+          "displayTitle": "Run the VAT clearing test run and send for review",
+          "description": "Execute t-code S_ALR_87012357 for VAT clearing as a test run and send the result to the approver for review by email."
+        },
+        {
+          "title": "Post the net VAT clearing entry",
+          "detail": "3. Once approved, to post net off liability / assets to VAT clearing account via SAP t-code SM35. This process will transfer transactions from the following GL accounts 17120100 Input VAT/GST Recoverable 17120101 Input VAT/GST Recoverable Manual Posting 22310100 Output VAT/GST Payable 22310101 Output VAT/GST Payable Manual Posting to either of the following GL accounts dependent on whether the net balance is payable or receivable 17120300 Net VAT Recoverable Domestic 22310400 Net VAT Payable Domestic",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Post the net VAT clearing entry",
+          "description": "Once approved, post the net liability or asset to the VAT clearing account via t-code SM35.\n\nThe posting moves balances from 17120100 Input VAT/GST Recoverable, 17120101 Input VAT/GST Recoverable Manual Posting, 22310100 Output VAT/GST Payable and 22310101 Output VAT/GST Payable Manual Posting to 17120300 Net VAT Recoverable Domestic or 22310400 Net VAT Payable Domestic, depending on whether the net balance is payable or receivable."
+        },
+        {
+          "title": "Verify the posting and hand over",
+          "detail": "4. Re-run F.01 to ensure the posting posted and reflected correctly. | VAT is captured either in net payables or recoverable position | Middle Office TDTEmbedded Finance",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Verify the posting and hand over",
+          "description": "Re-run F.01 to confirm that the posting has been made and is reflected correctly.\n\nVAT is now captured in either a net payable or a net recoverable position for the Middle Office, TDT and Embedded Finance."
+        }
+      ],
+      "challenges": [
+        "Manual data extraction from SAP and email approval by market."
+      ],
+      "improvements": [
+        "Documented improvements: Process steps automated via a Python script for SAP data extraction and Power Automate for email approval."
+      ],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: R2R Ops E2E Process Summary(R2R E2E Summary ).csv\n\n- Path: `Tower Subprocesses/R2R/R2R Ops E2E Process Summary(R2R E2E Summary ).csv`\n- Format: CSV\n\n| Column 1 | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 | Column 7 | Column 8 | Column 9 |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Process Sub-Area | Input | Brief description of activity | Output | Customer | Pain points/ Areas for improvement | Areas digitalized/improved | TPI  2026 | AI opportunity (Global support) |\n| Period-end regrouping and reclassifcation - VAT reclass | VAT balance captured in SAP | 1. Generate F.01 to determine position of Net Payables/ Recoverable for Input/ Output VAT amount.2. Execute t-code S_ALR_87012357 for VAT clearing - test run and send to approver for review. 3. Once approved, to post net off liability / assets to VAT clearing account via SAP t-code SM35.4. Re-run F.01 to ensure the posting posted and reflected correctly. This process will transfer transactions from the following GL accounts 17120100 Input VAT/GST Recoverable 17120101 Input VAT/GST Recoverable Manual Posting 22310100 Output VAT/GST Payable 22310101 Output VAT/GST Payable Manual Posting to either of the following GL accounts dependent on whether the net balance is payable or receivable 17120300 Net VAT Recoverable Domestic 22310400 Net VAT Payable Domestic | VAT is captured either in net payables or recoverable position | Middle Office TDTEmbedded Finance | Manual data extraction from SAP and email approval by market. | Automated the process steps via Python script for SAP data extraction and Power Automate for email approval. |  |  |\n",
+      "sourceFile": "R2R - Raw Data.md",
+      "purposeSummary": "Net **input and output VAT** into a single **payable or recoverable position** through an approved SAP clearing entry.",
+      "cadenceSummary": "At **period end**, once VAT balances are captured in SAP; approval precedes posting."
+    },
+    {
+      "id": "f0b6bf0b3797",
+      "title": "Payroll interface load",
+      "group": "Journals & adjustments",
+      "purpose": "The post-payroll process takes the payroll files submitted by the payroll providers through a simulation posting in SAP, resolves any errors, and then authorises the production run so that payroll is posted correctly. Parties involved are GBS Payroll Services, local HR, the external payroll service providers and SAP IT, with the R2R team coordinating error resolution and authorisation.\n\nThe outcome is a validated payroll file interfaced into SAP, with the SAP payroll data extracted and shared with HR, Embedded Finance and the Middle Office.",
+      "cadence": "Triggered each time a payroll provider submits a simulation file. Each load takes around 2 hours to complete and there are around 900 loads per year.",
+      "stages": [
+        {
+          "title": "Receive the payroll simulation file",
+          "detail": "1. The Post Payroll process begins when the payroll provider submits a simulation payroll file for SAP processing. | Payroll simulation file Payroll production file GBS Payroll Services Local HRExternal payroll service providers SAP IT",
+          "owner": "Payroll provider",
+          "challenges": [
+            "High volume of simulation and production load files requiring monitoring: about 2 hours for each load to complete and around 900 loads per year."
+          ],
+          "systems": [],
+          "displayTitle": "Receive the payroll simulation file",
+          "description": "The process begins when the payroll provider submits a simulation payroll file for SAP processing. Inputs are the payroll simulation and production files from GBS Payroll Services, local HR and the external payroll service providers."
+        },
+        {
+          "title": "Run the simulation posting and distribute results",
+          "detail": "2. SAP IT executes the simulation payroll posting and distributes the results to stakeholders for review.",
+          "owner": "SAP IT",
+          "challenges": [],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Run the simulation posting and distribute results",
+          "description": "SAP IT executes the simulation payroll posting and distributes the results to stakeholders for review."
+        },
+        {
+          "title": "Analyse and resolve simulation errors",
+          "detail": "3. In case of error, R2R analyzes any simulation errors, coordinates resolution with relevant teams such as DMT, Embedded Finance, Middle Office, and the Payroll Provider, and ensures all issues are resolved through re-simulation where required.",
+          "owner": "R2R",
+          "challenges": [
+            "Simulation runs often fail due to the payroll enigma table issue (mainly missing product brand).",
+            "Increasing effort from the DMT team to process the enigma update, and the R2R team has to stay beyond working hours to resolve the issue."
+          ],
+          "systems": [],
+          "displayTitle": "Analyse and resolve simulation errors",
+          "description": "Where the simulation errors, R2R analyses the errors and coordinates resolution with the relevant teams, such as DMT, Embedded Finance, the Middle Office and the payroll provider, and ensures all issues are resolved through re-simulation where required."
+        },
+        {
+          "title": "Authorise the production run",
+          "detail": "4. Once the simulation run is completed successfully without errors, R2R authorises the payroll provider to proceed with the production run.",
+          "owner": "R2R",
+          "challenges": [],
+          "systems": [],
+          "displayTitle": "Authorise the production run",
+          "description": "Once the simulation run completes successfully without errors, R2R authorises the payroll provider to proceed with the production run."
+        },
+        {
+          "title": "Post the production payroll in SAP",
+          "detail": "5. Upon receipt of the production payroll file, SAP IT executes the final payroll posting in SAP and issues confirmation of successful completion to stakeholders.",
+          "owner": "SAP IT",
+          "challenges": [
+            "Delays in payroll posting create downstream impact."
+          ],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Post the production payroll in SAP",
+          "description": "On receipt of the production payroll file, SAP IT executes the final payroll posting in SAP and confirms successful completion to stakeholders."
+        },
+        {
+          "title": "Extract SAP payroll data and share with stakeholders",
+          "detail": "6. R2R extract SAP payroll data and send it to stakeholders. | Validated payroll file is interfaced. SAP payroll data is extracted and shared with stakeholders. | HREmbedded Finance  Middle Office",
+          "owner": "R2R",
+          "challenges": [],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Extract SAP payroll data and share with stakeholders",
+          "description": "R2R extracts the SAP payroll data and sends it to stakeholders.\n\nThe validated payroll file is now interfaced and the SAP payroll data is shared with HR, Embedded Finance and the Middle Office."
+        }
+      ],
+      "challenges": [
+        "High volume of simulation and production load files requiring monitoring: about 2 hours for each load to complete and around 900 loads per year.",
+        "Simulation runs often fail due to the payroll enigma table issue (mainly missing product brand).",
+        "Increasing effort from the DMT team to process the enigma update, and the R2R team has to stay beyond working hours to resolve the issue.",
+        "Delays in payroll posting create downstream impact."
+      ],
+      "improvements": [
+        "TPI 2026: Explored with SAP FICO having brand code 9999 populate automatically (as for journal posting) to mitigate the enigma issue; change request approved, pending production release.",
+        "TPI 2026: Explored with the payroll OSP proceeding on receipt of the \"Successful\" status from SAP, without waiting for R2R MEC confirmation.",
+        "TPI 2026: Automated SAP data extraction via Python (report for control evidence)."
+      ],
+      "loopFrom": 2,
+      "loopTo": 1,
+      "loopLabel": "Simulation errors: re-simulate until the run completes without errors",
+      "source": "## Source file: R2R Ops E2E Process Summary(R2R E2E Summary ).csv\n\n- Path: `Tower Subprocesses/R2R/R2R Ops E2E Process Summary(R2R E2E Summary ).csv`\n- Format: CSV\n\n| Column 1 | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 | Column 7 | Column 8 | Column 9 |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Process Sub-Area | Input | Brief description of activity | Output | Customer | Pain points/ Areas for improvement | Areas digitalized/improved | TPI  2026 | AI opportunity (Global support) |\n| Receive and check to ensure successful payroll file interface load | Payroll simulation file Payroll production file GBS Payroll Services Local HRExternal payroll service providers SAP IT | 1. The Post Payroll process begins when the payroll provider submits a simulation payroll file for SAP processing. 2. SAP IT executes the simulation payroll posting and distributes the results to stakeholders for review. 3. In case of error, R2R analyzes any simulation errors, coordinates resolution with relevant teams such as DMT, Embedded Finance, Middle Office, and the Payroll Provider, and ensures all issues are resolved through re-simulation where required. 4. Once the simulation run is completed successfully without errors, R2R authorises the payroll provider to proceed with the production run. 5. Upon receipt of the production payroll file, SAP IT executes the final payroll posting in SAP and issues confirmation of successful completion to stakeholders.6. R2R extract SAP payroll data and send it to stakeholders. | Validated payroll file is interfaced. SAP payroll data is extracted and shared with stakeholders. | HREmbedded Finance  Middle Office | - High volume of simulation and production load file which require monitoring - 2 hours for each load to be completed - ~900 loads per year- Simulation runs often fail due to payroll enigma table issue (mainly missing product brand)- Increasing effort from DMT team to process the enigma update and R2R team to stay up beyond working hour to resolve the issue- Delay in payroll posting creating downstream impact. |  | 1. Explored with SAP FICO to have the brand code 9999 populate automatically (similar like journal posting) to mitigate enigma issue. CR approved - pending prod release.2. Explored with Payroll OSP to proceed upon receiving the “Successful” status from SAP, without waiting for R2R MEC’s confirmation. 3. Automated SAP data extraction via Python (report for control evidence) |  |\n",
+      "sourceFile": "R2R - Raw Data.md",
+      "purposeSummary": "Take **payroll files** through SAP simulation, resolve errors and authorise the **production posting**, then share the SAP payroll data.",
+      "cadenceSummary": "Triggered per **payroll file submission**; around **900 loads per year**, each taking about **2 hours** to complete."
+    },
+    {
+      "id": "0306e3211e00",
+      "title": "Coupa period-end accruals",
+      "group": "Journals & adjustments",
+      "purpose": "Each month the team prepares the Coupa-related accruals that replaced the open PO / GR accrual: the Coupa PO accrual (via BlackLine AJD, preliminary and actual), the Coupa stuck invoice accrual (via BlackLine AJD, actual only) and the Coupa invoice pending receipt accrual (via BlackLine manual journal, preliminary and actual). If a BlackLine AJD fails, the journal is prepared manually.\n\nFor each accrual type the team prepares the associated reports for a preliminary run without SAP posting on WD-7 and an actual run with SAP posting on WD-3, and emails them to stakeholders: in total 5 reports and 5 emails per entity. Ops IT and GFS Technology System Delivery support the process, which relies on Celonis, BlackLine and SAP. The outcome is that provisions, accrual adjustments, regrouping and reclassification are posted for Embedded Finance.",
+      "cadence": "Monthly: preliminary run (without SAP posting) on WD-7 and actual run (with SAP posting) on WD-3.",
+      "stages": [
+        {
+          "title": "Prepare the preliminary run on WD-7",
+          "detail": "2. For each type of coupa accrual above, the team will need to prepare the associated reports for preliminary run (without SAP posting) ... on WD-7 | People:Ops ITGFS Technology - System Delivery System: CelonisBlackLine SAP",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "Celonis",
+            "BlackLine",
+            "SAP",
+            "Coupa"
+          ],
+          "displayTitle": "Prepare the preliminary run on WD-7",
+          "description": "Prepare the Coupa PO accrual and invoice pending receipt accrual reports for the preliminary run on WD-7, without SAP posting. Ops IT and GFS Technology System Delivery support the process, which draws on Celonis, BlackLine and SAP."
+        },
+        {
+          "title": "Generate Coupa PO and stuck invoice accruals via AJD",
+          "detail": "- Coupa PO accrual (via BlackLine AJD - prelim & actual)- Coupa Stuck Invoice accrual (via BlackLine AJD - actual only) ... Note: If BlackLine AJD fails, the team will need to prepare the journal manually.",
+          "owner": "",
+          "challenges": [
+            "The stuck invoice accrual BlackLine AJD fails due to a data integration issue, resulting in manual effort to prepare the accrual journal.",
+            "Duplication of the stuck invoice accrual due to the data interface issue between SAP and Coupa: invoices posted successfully in SAP whose status is not reflected in Coupa are accrued again, as the Coupa report is the source data for the AJD run.",
+            "Because BlackLine cannot capture special characters from Coupa, the PO description is not included in the AJD field, so stakeholders must manually map the accrual posted to the related PO for analysis."
+          ],
+          "systems": [
+            "BlackLine",
+            "Coupa"
+          ],
+          "displayTitle": "Generate Coupa PO and stuck invoice accruals via AJD",
+          "description": "Generate the Coupa PO accrual (preliminary and actual) and the Coupa stuck invoice accrual (actual only) through the BlackLine Automated Journal Definition. If the AJD fails, prepare the journal manually."
+        },
+        {
+          "title": "Prepare the invoice pending receipt accrual manually",
+          "detail": "- Coupa Invoice Pending Receipt accrual (via BlackLine manual journal - prelim & actual))",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "BlackLine",
+            "Coupa"
+          ],
+          "displayTitle": "Prepare the invoice pending receipt accrual manually",
+          "description": "Prepare the Coupa invoice pending receipt accrual as a BlackLine manual journal for both the preliminary and the actual run."
+        },
+        {
+          "title": "Run the actual accrual posting on WD-3",
+          "detail": "... and actual run (with SAP posting) on WD-7 and WD-3 respectively",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "BlackLine",
+            "SAP"
+          ],
+          "displayTitle": "Run the actual accrual posting on WD-3",
+          "description": "Prepare the reports for the actual run on WD-3 and post the accruals to SAP."
+        },
+        {
+          "title": "Send the accrual reports to stakeholders",
+          "detail": "... and send the reports to stakeholders via email, in total, 5 reports and 5 emails per entity. | Provisions, accruals adjustments, regrouping and reclassification posted | Embedded Finance",
+          "owner": "",
+          "challenges": [
+            "Multiple reports and status updates are sent to stakeholders by email: 5 reports sent out separately by entity each month, with repetitive steps."
+          ],
+          "systems": [
+            "Email"
+          ],
+          "displayTitle": "Send the accrual reports to stakeholders",
+          "description": "Send the preliminary and actual run reports to stakeholders by email: in total 5 reports and 5 emails per entity.\n\nThe provisions, accrual adjustments, regrouping and reclassification are now posted for Embedded Finance."
+        }
+      ],
+      "challenges": [
+        "The stuck invoice accrual BlackLine AJD fails due to a data integration issue, resulting in manual effort to prepare the accrual journal.",
+        "Duplication of the stuck invoice accrual due to the data interface issue between SAP and Coupa: invoices posted successfully in SAP whose status is not reflected in Coupa are accrued again, as the Coupa report is the source data for the AJD run.",
+        "Because BlackLine cannot capture special characters from Coupa, the PO description is not included in the AJD field, so stakeholders must manually map the accrual posted to the related PO for analysis.",
+        "Multiple reports and status updates are sent to stakeholders by email: 5 reports sent out separately by entity each month, with repetitive steps."
+      ],
+      "improvements": [
+        "Documented improvements: The stuck invoice integration issue (pain points 1 and 2) has been looked into globally and improved; no major issue at this point.",
+        "TPI 2026: Building a Power BI dashboard that shows the preliminary and actual run view at one glance, replacing multiple emails with a consolidated Coupa accrual view by entity and improving user experience (pain points 3 and 4).",
+        "TPI 2026: Incorporating the PO description in the dashboard to overcome the BlackLine AJD posting limitation (missing PO description)."
+      ],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: R2R Ops E2E Process Summary(R2R E2E Summary ).csv\n\n- Path: `Tower Subprocesses/R2R/R2R Ops E2E Process Summary(R2R E2E Summary ).csv`\n- Format: CSV\n\n| Column 1 | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 | Column 7 | Column 8 | Column 9 |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Process Sub-Area | Input | Brief description of activity | Output | Customer | Pain points/ Areas for improvement | Areas digitalized/improved | TPI  2026 | AI opportunity (Global support) |\n| Prepare and post COUPA period end adjustments (replacement for Open PO/GR accrual) | People:Ops ITGFS Technology - System Delivery System: CelonisBlackLine SAP | 1. On a monthly basis, the team will need to prepare Coupa related accruals.- Coupa PO accrual (via BlackLine AJD - prelim & actual)- Coupa Stuck Invoice accrual (via BlackLine AJD - actual only)- Coupa Invoice Pending Receipt accrual (via BlackLine manual journal - prelim & actual)) Note: If BlackLine AJD fails, the team will need to prepare the journal manually. 2. For each type of coupa accrual above, the team will need to prepare  the associated reports for preliminary run (without SAP posting) and actual run (with SAP posting) on WD-7 and WD-3 respectively and send the reports to stakeholders via email, in total, 5 reports and 5 emails per entity. | Provisions, accruals adjustments, regrouping and reclassification posted | Embedded Finance | 1. Stuck Invoice Accrual BlackLine AJD fail due to data integration issue resulted in manual effort to prepare the accrual journal. 2. Duplication of stuck invoice accrual due to the data interface issue between SAP to Coupa (i.e., invoices posted successfully in SAP but the status was not reflected in Coupa resulted duplicate accruals as Coupa report is the source data for accrual AJD run.) 3. Due to the limitation of BlackLine to capture special character from Coupa, PO description is not included in the AJD field, resulted in manual effort from stakeholder to map the accrual posted to the related PO for analysis purposes. 4. Multiple reports preparation and status update to stakeholder via emails - 5 reports sent out separately by entity each month - repetitive steps | 1/2 - Stuck invoice integration issue has been looked into globally and improved - no major issue at this point. | 3/4 - Building a Power BI dashboard to provide the preliminary and actual run view at one glance, replacing multiple emails to provide consolidated Coupa accrual view by entity and improve user experience. - Incorporating PO description in the dashboard to overcome the limitation of BL AJD posting (missing PO description). |  |\n",
+      "sourceFile": "R2R - Raw Data.md",
+      "purposeSummary": "Prepare **Coupa PO, stuck invoice and invoice pending receipt accruals** via BlackLine AJD and manual journals, with preliminary and actual runs.",
+      "cadenceSummary": "**Monthly**: preliminary run on **WD-7** (no SAP posting) and actual run on **WD-3** (with SAP posting)."
+    },
+    {
+      "id": "8c39f806c254",
+      "title": "Recurring intercompany recharges",
+      "group": "Intercompany",
+      "purpose": "Recurring intercompany recharges are raised as NTI (non-trade intercompany) requests in Nintex, supported by an intercompany recharge agreement between the selling and purchasing entities and a recharge basis such as SAP transaction listings for an agreed cost centre range, the counterparty approver and the methodology or calculation. Requests originate from the Middle Office and Embedded Finance.\n\nOnce approved, the NTI flows either to automated processing in BlackLine or to manual processing by the Intercompany Delivery Team, and AP and AR are posted in SAP for both parties. The outcome is an NTI raised and approved in Nintex and posted into SAP for both the selling and purchasing entities, serving the Middle Office, Embedded Finance and the entities themselves.",
+      "cadence": "Recurring; the source does not give a fixed timetable, but notes that users raising at least 20 NTIs each quarter can request multiple NTIs at once using the mass upload template.",
+      "stages": [
+        {
+          "title": "Establish the intercompany recharge agreement",
+          "detail": "1. Intercompany recharge agreements are established by Selling Entity and confirmed by Purchasing Entity. | Intercompany recharge requests from Middle Offie and Embedded Finance Intercompany agreementsBasis and supporting (SAP transactions listing, cost centre range, approver from counterparty, methodology/calculation)",
+          "owner": "Selling and purchasing entity",
+          "challenges": [
+            "Complexity of intra-China cost recharges due to the expansion of entities."
+          ],
+          "systems": [],
+          "displayTitle": "Establish the intercompany recharge agreement",
+          "description": "The intercompany recharge agreement is established by the selling entity and confirmed by the purchasing entity. Recharge requests come from the Middle Office and Embedded Finance, with the agreement, basis and supporting information (SAP transaction listing, cost centre range, counterparty approver, methodology or calculation) as inputs."
+        },
+        {
+          "title": "Acquire the recharge basis and raise the NTI",
+          "detail": "2. Taking the intercompany recharge agreement as the supporting, the team will acquire the recharge basis (e.g.,SAP data by agreed cost centre range) and raise the NTI form via Nintex.",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "SAP",
+            "Nintex"
+          ],
+          "displayTitle": "Acquire the recharge basis and raise the NTI",
+          "description": "Taking the intercompany recharge agreement as the supporting document, acquire the recharge basis (for example SAP data for the agreed cost centre range) and raise the NTI form via Nintex."
+        },
+        {
+          "title": "Complete and submit the NTI form",
+          "detail": "3. The team is required to fill up all the mandatory fields in the NTI form. Once the NTI request has been submitted with all mandatory fields, an email will be triggered to the Requestor and Approver to indicate creation of NTI request and request approver to review and approve. Note: For users requesting high volume of NTIs each quarter (at least 20 NTIs) there is additional functionality requesting multiple NTIs at the same time using Mass Upload Template",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "Nintex",
+            "Email"
+          ],
+          "displayTitle": "Complete and submit the NTI form",
+          "description": "Fill in all mandatory fields in the NTI form. On submission an email is triggered to the requestor and the approver to confirm creation of the request and ask the approver to review and approve.\n\nUsers requesting a high volume of NTIs each quarter (at least 20) can request multiple NTIs at the same time using the mass upload template."
+        },
+        {
+          "title": "Review and approve the NTI request",
+          "detail": "4. Once NTI was submitted, the approver will e-mail receive notification on the NTI request pending for approval. 5. The approver will then fill up the required information and approve the NTI request.",
+          "owner": "Approver",
+          "challenges": [],
+          "systems": [
+            "Nintex",
+            "Email"
+          ],
+          "displayTitle": "Review and approve the NTI request",
+          "description": "The approver receives an email notification that the NTI request is pending approval, fills in the required information and approves the request."
+        },
+        {
+          "title": "Route to automated or manual processing",
+          "detail": "6. Once the request has been approved, NTI will be directed to the processing flow - automated processing flow executed by Blackline and manual processing flow executed by Intercompany Delivery Team. Note: NTI not in scope for automated posting is directed to manual processing.",
+          "owner": "",
+          "challenges": [
+            "NTI auto-posting: China is out of scope because the automated solution cannot factor in VAT."
+          ],
+          "systems": [
+            "BlackLine"
+          ],
+          "displayTitle": "Route to automated or manual processing",
+          "description": "Once approved, the NTI is directed to the processing flow: an automated flow executed by BlackLine, or a manual flow executed by the Intercompany Delivery Team. NTIs not in scope for automated posting are directed to manual processing."
+        },
+        {
+          "title": "Post AP and AR in SAP for both parties",
+          "detail": "7. AP and AR for NTI posted in SAP for both parties. | NTI raised, approved in Nintex and posted into SAP for both Selling and Purchasing entities. | Middle OfficeEmbedded Finance Selling and Purchasing Entity",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Post AP and AR in SAP for both parties",
+          "description": "AP and AR for the NTI are posted in SAP for both parties.\n\nThe NTI is now raised and approved in Nintex and posted into SAP for both the selling and purchasing entities, for the Middle Office, Embedded Finance and the entities concerned."
+        }
+      ],
+      "challenges": [
+        "Complexity of intra-China cost recharges due to the expansion of entities.",
+        "NTI auto-posting: China is out of scope because the automated solution cannot factor in VAT."
+      ],
+      "improvements": [
+        "Documented improvements: Global initiative to automate NTI posting for both the selling and purchasing entity in SAP and the download of the SAP invoice PDF copy.",
+        "TPI 2026: Targeted for TPI 2027 - in the midst of exploring a solution with the Tech team."
+      ],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: R2R Ops E2E Process Summary(R2R E2E Summary ).csv\n\n- Path: `Tower Subprocesses/R2R/R2R Ops E2E Process Summary(R2R E2E Summary ).csv`\n- Format: CSV\n\n| Column 1 | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 | Column 7 | Column 8 | Column 9 |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Process Sub-Area | Input | Brief description of activity | Output | Customer | Pain points/ Areas for improvement | Areas digitalized/improved | TPI  2026 | AI opportunity (Global support) |\n| Intercompany Recharges - recurring | Intercompany recharge requests from Middle Offie and Embedded Finance Intercompany agreementsBasis and supporting (SAP transactions listing, cost centre range, approver from counterparty, methodology/calculation) | 1. Intercompany recharge agreements are established by Selling Entity and confirmed by Purchasing Entity. 2. Taking the intercompany recharge agreement as the supporting, the team will acquire the recharge basis (e.g.,SAP data by agreed cost centre range) and raise the NTI form via Nintex. 3. The team is required to fill up all the mandatory fields in the NTI form. Once the NTI request has been submitted with all mandatory fields, an email will be triggered to the Requestor and Approver to indicate creation of NTI request and request approver to review and approve. Note: For users requesting high volume of NTIs each quarter (at least 20 NTIs) there is additional functionality requesting multiple NTIs at the same time using Mass Upload Template4. Once NTI was submitted, the approver will e-mail receive notification on the NTI request pending for approval. 5. The approver will then fill up the required information and approve the NTI request.6. Once the request has been approved, NTI will be directed to the processing flow - automated processing flow executed by Blackline and manual processing flow executed by Intercompany Delivery Team. Note: NTI not in scope for automated posting is directed to manual processing.7. AP and AR for NTI posted in SAP for both parties. | NTI raised, approved in Nintex and posted into SAP for both Selling and Purchasing entities. | Middle OfficeEmbedded Finance Selling and Purchasing Entity | Complexity of Intra-China cost recharges due to expansion of entities NTI auto-posting - China is out of scope as the automated solution is not able to factor in VAT | Global initiative - automate NTI posting for both Selling and Purchasing entity in SAP and download of SAP invoice pdf copy | TPI 2027 - in the midst of exploring solution with Tech team. |  |\n",
+      "sourceFile": "R2R - Raw Data.md",
+      "purposeSummary": "Raise, approve and post **recurring NTI recharges** between selling and purchasing entities through **Nintex, BlackLine and SAP**.",
+      "cadenceSummary": "**Recurring**; no fixed timetable is given, though high-volume users raise **20 or more NTIs each quarter**."
+    },
+    {
+      "id": "0f8bc8b5c6c1",
+      "title": "Clinical and R&D recharges",
+      "group": "Intercompany",
+      "purpose": "For China and Hong Kong, the R2R MEC team prepares the clinical, medical and R&D recharge amounts from SAP and the ABACUS data supplied by the Clinical Warsaw team, and the R2R ICT team raises the NTI request on their behalf and has it approved. For the rest of the APAC entities this activity sits with the Warsaw Clinical Finance team.\n\nThe outcome is that all R&D recharges are recorded before SAP month-end close for the selling and purchasing entities.",
+      "cadence": "Monthly; all R&D recharges are recorded before SAP month-end close.",
+      "stages": [
+        {
+          "title": "Prepare the recharge amount",
+          "detail": "1. R2R MEC team prepare recharge amount and share the details with R2R ICT. | SAPABACUS data from Clinical Warsaw Team",
+          "owner": "R2R MEC team",
+          "challenges": [
+            "The scope of China and Hong Kong versus the other APAC markets needs to be realigned."
+          ],
+          "systems": [
+            "SAP",
+            "ABACUS"
+          ],
+          "displayTitle": "Prepare the recharge amount",
+          "description": "The R2R MEC team prepares the recharge amount from SAP and the ABACUS data provided by the Clinical Warsaw team, and shares the details with R2R ICT.",
+          "challengeScope": "Process-wide challenge; the source does not assign it to an individual step."
+        },
+        {
+          "title": "Raise and approve the NTI request",
+          "detail": "2. R2R ICT will raise the NTI request on behalf and have it approved. Note: This is for China and HK only. For the rest of APAC entities, the activity sits with Warsaw Clinical Finance team.",
+          "owner": "R2R ICT",
+          "challenges": [],
+          "systems": [],
+          "displayTitle": "Raise and approve the NTI request",
+          "description": "R2R ICT raises the NTI request on behalf of the MEC team and has it approved.\n\nThis applies to China and Hong Kong only; for the rest of the APAC entities the activity sits with the Warsaw Clinical Finance team."
+        },
+        {
+          "title": "Record the recharges before month-end close",
+          "detail": "All R&D recharge are recorded before SAP month end close. | Selling Entity and Purchasing Entity",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Record the recharges before month-end close",
+          "description": "All R&D recharges are recorded before SAP month-end close, for the selling and purchasing entities."
+        }
+      ],
+      "challenges": [
+        "The scope of China and Hong Kong versus the other APAC markets needs to be realigned."
+      ],
+      "improvements": [],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: R2R Ops E2E Process Summary(R2R E2E Summary ).csv\n\n- Path: `Tower Subprocesses/R2R/R2R Ops E2E Process Summary(R2R E2E Summary ).csv`\n- Format: CSV\n\n| Column 1 | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 | Column 7 | Column 8 | Column 9 |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Process Sub-Area | Input | Brief description of activity | Output | Customer | Pain points/ Areas for improvement | Areas digitalized/improved | TPI  2026 | AI opportunity (Global support) |\n| Prepare and raise Clinical, Medical and R&D recharges | SAPABACUS data from Clinical Warsaw Team | 1. R2R MEC team prepare recharge amount and share the details with R2R ICT. 2. R2R ICT will raise the NTI request on behalf and have it approved. Note: This is for China and HK only. For the rest of APAC entities, the activity sits with Warsaw Clinical Finance team. | All R&D recharge are recorded before SAP month end close. | Selling Entity and Purchasing Entity | To realign the scope of CN and HK vs other APAC markets |  |  |  |\n",
+      "sourceFile": "R2R - Raw Data.md",
+      "purposeSummary": "Prepare and raise **clinical, medical and R&D recharges** for **China and Hong Kong** so they are recorded before SAP month-end close.",
+      "cadenceSummary": "**Monthly**; all R&D recharges recorded before **SAP month-end close**."
+    },
+    {
+      "id": "108584a302d7",
+      "title": "Foreign currency revaluation",
+      "group": "Journals & adjustments",
+      "purpose": "Once foreign currency transaction posting is complete for the month and the exchange rates have been loaded in SAP and published on the AZ FX website, R2R checks that the rates in the SAP FI module agree to the FX Rates Site, corrects any differences, and runs the SAP foreign exchange revaluation.\n\nA month-on-month variance analysis of the revaluation, with any movement above USD 500k investigated, ensures the revaluation is complete and accurate in SAP by month-end for Embedded Finance and the GFS Process Towers.",
+      "cadence": "Monthly, once foreign currency transaction posting is complete; the revaluation is completed in SAP by month-end.",
+      "stages": [
+        {
+          "title": "Compare SAP exchange rates with the FX Rates Site",
+          "detail": "1. R2R compares the monthly exchange rates (month end spot rate and booking rate) between FI module and FX Rates Site. | - Completion of SAP foreign currency transaction posting by month end- Exchange Rates loaded in SAP and rates published in AZ FX Website",
+          "owner": "R2R",
+          "challenges": [
+            "Accuracy of the FX rate maintained in SAP versus the FX website depends on a manual control check performed solely by the KL team, raising ownership concerns."
+          ],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Compare SAP exchange rates with the FX Rates Site",
+          "description": "Compare the monthly exchange rates (month-end spot rate and booking rate) between the SAP FI module and the FX Rates Site. Pre-conditions are that foreign currency transaction posting is complete for the month and the rates are loaded in SAP and published on the AZ FX website."
+        },
+        {
+          "title": "Investigate differences and update rates in SAP",
+          "detail": "2. Any differences will be investigated. For any changes in exchange rate required, it will be updated in SAP accordingly.",
+          "owner": "",
+          "challenges": [
+            "Non-standard scope of work: the MDG/SAP FICO system accountant is relied on for the exchange rate upload in SAP."
+          ],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Investigate differences and update rates in SAP",
+          "description": "Investigate any differences. Where a change in exchange rate is required, update it in SAP accordingly."
+        },
+        {
+          "title": "Run the foreign exchange revaluation",
+          "detail": "3. Once the exchange rate checking is performed, the team will execute SAP t-code FAGL_FC_VAL to perform the foreign exchange revaluation.",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Run the foreign exchange revaluation",
+          "description": "Once the exchange rate check is complete, execute SAP t-code FAGL_FC_VAL to perform the foreign exchange revaluation."
+        },
+        {
+          "title": "Analyse revaluation variances and hand over",
+          "detail": "3. To ensure the revaluation is done accurately, the team will also perform a foreign exchange revaluation variance analyis by comparing the current month vs previous month. Any movement more than USD500k will be investigated to ensure the revaluation is recorded in a complete and accurate manner. | Foreign exchange revaluation is completed in an accurate manner in SAP by month-end. | Embedded FinanceGFS Process Towers",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Analyse revaluation variances and hand over",
+          "description": "Perform a foreign exchange revaluation variance analysis comparing the current month with the previous month. Investigate any movement above USD 500k to confirm the revaluation is recorded completely and accurately.\n\nThe revaluation is thereby completed accurately in SAP by month-end for Embedded Finance and the GFS Process Towers."
+        }
+      ],
+      "challenges": [
+        "Non-standard scope of work: the MDG/SAP FICO system accountant is relied on for the exchange rate upload in SAP.",
+        "Accuracy of the FX rate maintained in SAP versus the FX website depends on a manual control check performed solely by the KL team, raising ownership concerns."
+      ],
+      "improvements": [
+        "Documented improvements: Python script for SAP data extraction.",
+        "Documented improvements: Power Automate for email approval."
+      ],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: R2R Ops E2E Process Summary(R2R E2E Summary ).csv\n\n- Path: `Tower Subprocesses/R2R/R2R Ops E2E Process Summary(R2R E2E Summary ).csv`\n- Format: CSV\n\n| Column 1 | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 | Column 7 | Column 8 | Column 9 |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Process Sub-Area | Input | Brief description of activity | Output | Customer | Pain points/ Areas for improvement | Areas digitalized/improved | TPI  2026 | AI opportunity (Global support) |\n| Foreign currency revaluation | - Completion of SAP foreign currency transaction posting by month end- Exchange Rates loaded in SAP and rates published in AZ FX Website | 1. R2R compares the monthly exchange rates (month end spot rate and booking rate) between FI module and FX Rates Site. 2. Any differences will be investigated. For any changes in exchange rate required, it will be updated in SAP accordingly. 3. Once the exchange rate checking is performed, the team will execute SAP t-code FAGL_FC_VAL to perform the foreign exchange revaluation. 3. To ensure the revaluation is done accurately, the team will also perform a foreign exchange revaluation variance analyis by comparing the current month vs previous month. Any movement more than USD500k will be investigated to ensure the revaluation is recorded in a complete and accurate manner. | Foreign exchange revaluation is completed in an accurate manner in SAP by month-end. | Embedded FinanceGFS Process Towers | - Non-standard scope of work - MDG/SAP FICO system accountant on exchange rate upload in SAP- Accuracy of FX rate maintained in SAP vs FX website - manual controls check performed solely by KL team - ownership concerns | Python script for SAP data extractionPower automate for email approval |  |  |\n",
+      "sourceFile": "R2R - Raw Data.md",
+      "purposeSummary": "Check **month-end exchange rates** against the FX Rates Site and run the **SAP foreign exchange revaluation**, with variance analysis.",
+      "cadenceSummary": "**Monthly**; completed in SAP **by month-end** once foreign currency postings and exchange rate loads are done."
+    },
+    {
+      "id": "7f7cd1d67858",
+      "title": "Intercompany month-end process",
+      "group": "Intercompany",
+      "purpose": "The supplied file lists the intercompany month-end close as part of the R2R scope but does not describe its flow. It notes that the Tech team is to obtain the process directly from Dozuki (8.3.2.51 Intercompany Month-End Close), include the necessary process map and fit it into the site E2E map.",
+      "cadence": "",
+      "stages": [
+        {
+          "title": "Source coverage",
+          "detail": "Tech team to obtain directly from Dozuki and include the necessary process map. 8.3.2.51 Intercompany Month-End Close and fit in to site E2E map.",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "Dozuki"
+          ],
+          "displayTitle": "Source coverage",
+          "description": "The supplied file lists the intercompany month-end process but does not document its flow. The Tech team is to obtain the process directly from Dozuki (8.3.2.51 Intercompany Month-End Close), include the necessary process map and fit it into the site E2E map."
+        }
+      ],
+      "challenges": [],
+      "improvements": [],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: R2R Ops E2E Process Summary(R2R E2E Summary ).csv\n\n- Path: `Tower Subprocesses/R2R/R2R Ops E2E Process Summary(R2R E2E Summary ).csv`\n- Format: CSV\n\n| Column 1 | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 | Column 7 | Column 8 | Column 9 |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Process Sub-Area | Input | Brief description of activity | Output | Customer | Pain points/ Areas for improvement | Areas digitalized/improved | TPI  2026 | AI opportunity (Global support) |\n| Intercompany month-end process |  | Tech team to obtain directly from Dozuki and include the necessary process map. 8.3.2.51 Intercompany Month-End Close and fit in to site E2E map. |  |  |  |  |  |  |\n",
+      "sourceFile": "R2R - Raw Data.md",
+      "purposeSummary": "**Intercompany month-end close** listed for the site E2E map; the flow is to be sourced from **Dozuki 8.3.2.51**.",
+      "cadenceSummary": "**Timing and frequency are not specified** in the supplied file.",
+      "coverageNote": "The supplied file lists this process but documents no flow: the Tech team is to obtain the process map directly from Dozuki (8.3.2.51 Intercompany Month-End Close)."
+    },
+    {
+      "id": "f5dec75f9c8d",
+      "title": "Inventory data quality checks",
+      "group": "Period close",
+      "purpose": "As part of the inventory month-end process, the team performs SAP inventory data quality checks, covering SOAR COIN compliance and DQ checks, by comparing the SOAR report, SAP inventory data (F.01 and FBL3N for the current month) and the Inventory DQ Power BI dashboard.\n\nChecks cover COIN compliance, negative stock balances at SKU level, balances on 9999, missing plant or material, negative goods in transit or stock, provisions on divested stock and missing or unmatched profit centre / management unit. The outcome is that the checks are completed and any non-compliance is adjusted before SAP close, for the Global Inventory Process Owner.",
+      "cadence": "Monthly, completed before SAP close at WD+2 5pm.",
+      "stages": [
+        {
+          "title": "Download the SAP and SOAR inventory reports",
+          "detail": "1. Download SAP and SOAR Inventory reports | Inventory DQ Power BI Dasbboard SAP F.01 and FBL3N inventory data for current monthSOAR report",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "SAP",
+            "SOAR"
+          ],
+          "displayTitle": "Download the SAP and SOAR inventory reports",
+          "description": "Download the SAP inventory data for the current month (F.01 and FBL3N) and the SOAR report."
+        },
+        {
+          "title": "Export the DQ dashboard data",
+          "detail": "2. Access DQ Power BI Dashboard and export data in Excel",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "Power BI",
+            "Excel"
+          ],
+          "displayTitle": "Export the DQ dashboard data",
+          "description": "Access the Inventory DQ Power BI dashboard and export the data to Excel."
+        },
+        {
+          "title": "Perform the inventory data quality checks",
+          "detail": "2. Perform Inventory Data Quality checks on COIN compliance, neg stock balances at SKU level, no balances on 9999, missing plant/material, negative GiT/stock, provision on divested stock, missing/unmatch PC/MU etc. - SOAR vs SAP vs DQ Dashbaord",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "SAP",
+            "SOAR",
+            "Power BI"
+          ],
+          "displayTitle": "Perform the inventory data quality checks",
+          "description": "Perform the inventory data quality checks across SOAR, SAP and the DQ dashboard: COIN compliance, negative stock balances at SKU level, no balances on 9999, missing plant or material, negative goods in transit or stock, provision on divested stock, and missing or unmatched profit centre / management unit."
+        },
+        {
+          "title": "Request corrections from the relevant teams",
+          "detail": "3. In case any findings or adjustments required, reach out to the relevant teams for correction action",
+          "owner": "",
+          "challenges": [],
+          "systems": [],
+          "displayTitle": "Request corrections from the relevant teams",
+          "description": "Where findings or adjustments are required, reach out to the relevant teams for corrective action."
+        },
+        {
+          "title": "Perform the final DQ check before SAP close",
+          "detail": "4. Perform final DQ check | Inventory data quality checks are completed and any non-compliance is adjusted before SAP close | Global Inventory Process Owner",
+          "owner": "",
+          "challenges": [
+            "The DQ dashboard refreshes only every 3-4 hours and cannot provide an updated view before SAP close at WD+2 5pm, so the team performs a round of manual checks comparing SAP data against the DQ dashboard to ensure any gap requiring adjustment is addressed before SAP close."
+          ],
+          "systems": [
+            "SAP",
+            "Power BI"
+          ],
+          "displayTitle": "Perform the final DQ check before SAP close",
+          "description": "Perform the final data quality check, including a manual comparison of SAP data against the DQ dashboard, so that the checks are complete and any non-compliance is adjusted before SAP close for the Global Inventory Process Owner."
+        }
+      ],
+      "challenges": [
+        "The DQ dashboard refreshes only every 3-4 hours and cannot provide an updated view before SAP close at WD+2 5pm, so the team performs a round of manual checks comparing SAP data against the DQ dashboard to ensure any gap requiring adjustment is addressed before SAP close."
+      ],
+      "improvements": [],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: R2R Ops E2E Process Summary(R2R E2E Summary ).csv\n\n- Path: `Tower Subprocesses/R2R/R2R Ops E2E Process Summary(R2R E2E Summary ).csv`\n- Format: CSV\n\n| Column 1 | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 | Column 7 | Column 8 | Column 9 |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Process Sub-Area | Input | Brief description of activity | Output | Customer | Pain points/ Areas for improvement | Areas digitalized/improved | TPI  2026 | AI opportunity (Global support) |\n| Inventory month-end process - Perform Inventory SAP data quality checks (SOAR COIN Compliance checks and DQ checks) | Inventory DQ Power BI Dasbboard SAP F.01 and FBL3N inventory data for current monthSOAR report | 1. Download SAP and SOAR Inventory reports2. Access DQ Power BI Dashboard and export data in Excel2. Perform Inventory Data Quality checks on COIN compliance, neg stock balances at SKU level, no balances on 9999, missing plant/material, negative GiT/stock, provision on divested stock, missing/unmatch PC/MU etc. - SOAR vs SAP vs DQ Dashbaord3. In case any findings or adjustments required, reach out to the relevant teams for correction action4. Perform final DQ check | Inventory data quality checks are completed and any non-compliance is adjusted before SAP close | Global Inventory Process Owner | Refresh of DQ dashboard is every 3-4 hours, unable to provide updated view before SAP close at WD+2 5pm, hence the team will need to perform one round on manual check by comparing SAP data vs DQ Dashboard and ensure any gap required adjustment is addressed before SAP close. |  |  |  |\n",
+      "sourceFile": "R2R - Raw Data.md",
+      "purposeSummary": "Check **SAP inventory data quality** and **SOAR COIN compliance** against the DQ dashboard so non-compliance is fixed before SAP close.",
+      "cadenceSummary": "**Monthly**, completed before **SAP close at WD+2, 5pm**."
+    },
+    {
+      "id": "550562c6288a",
+      "title": "SAP module close",
+      "group": "Period close",
+      "purpose": "The team manages the overall global close calendar and owns the rollover activities in SAP. Each month it ensures that the SAP ECC modules close, via the SAP automated job run, according to the global timeline: AP third party at WD-3; fixed assets at WD-3 or WD-2 (Commercial or Ops unit); sales and billing and the MM module between WD-2 and WD+1 (varies by market model); MMPV/MMRV between WD-1 and WD+1; intercompany AP/AR at WD+1; and SAP GL at WD+2. The input is completed SAP posting across all GFS Process Towers and Embedded Finance.\n\nThe outcome is that the SAP modules are closed, the correct status is reflected on the R2R KPI dashboard, and Global KPI slides are prepared for the monthly R2R governance meeting, serving the GFS Process Towers, Embedded Finance and Global R2R.",
+      "cadence": "Monthly. Module closes run from AP third party at WD-3 through fixed assets (WD-3/WD-2), sales and billing and MM (WD-2 to WD+1), MMPV/MMRV (WD-1 to WD+1) and intercompany AP/AR (WD+1) to SAP GL close at WD+2. KPI slides are prepared for the monthly R2R governance meeting.",
+      "stages": [
+        {
+          "title": "Maintain the global close calendar and SAP rollover",
+          "detail": "The team manages the overall global close calendar and owns the rolloever activities in SAP. | SAP posting completed across all GFS Process Towers and Embedded Finance",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Maintain the global close calendar and SAP rollover",
+          "description": "Manage the overall global close calendar and carry out the rollover activities in SAP. The pre-condition is that SAP posting is completed across all GFS Process Towers and Embedded Finance."
+        },
+        {
+          "title": "Monitor the automated module close to the global timeline",
+          "detail": "On a monthly basis, the team ensure that the SAP ECC modules close (via SAP auto job run) is completed according to the global timeline as below. AP 3rd Party close: WD-3FA close: WD-3/WD-2 (by Commercial or Ops unit)Sales and Billing close: WD-2 to WD+1 (varies by market model)MM Module: WD-2 to WD+1 (varies by market model)MMPV/MMRV: WD-1 to WD+1Intercompany AP/AR close: WD+1 SAP GL close: WD+2",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Monitor the automated module close to the global timeline",
+          "description": "Ensure that the SAP ECC modules close via the SAP automated job run according to the global timeline: AP third party close at WD-3; FA close at WD-3 or WD-2 (by Commercial or Ops unit); sales and billing close from WD-2 to WD+1 (varies by market model); MM module from WD-2 to WD+1 (varies by market model); MMPV/MMRV from WD-1 to WD+1; intercompany AP/AR close at WD+1; SAP GL close at WD+2."
+        },
+        {
+          "title": "Check period close completion with OB52",
+          "detail": "1. After the global cut-off for each module, the team will execute OB52 to check the completion of the period close.",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Check period close completion with OB52",
+          "description": "After the global cut-off for each module, execute OB52 to check that the period close has completed."
+        },
+        {
+          "title": "Close modules manually if the automated job fails",
+          "detail": "2. In the event that SAP automated job run fails, the team will execute the SAP module close manually via specific SAP t-code.",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Close modules manually if the automated job fails",
+          "description": "If the SAP automated job run fails, execute the SAP module close manually via the specific SAP t-code."
+        },
+        {
+          "title": "Confirm the KPI dashboard reflects the close result",
+          "detail": "3. The team will also ensure KPI dashboard capture the close result accurately. | SAP modules closed and correct status reflected on R2R KPI Dashboard",
+          "owner": "",
+          "challenges": [
+            "The KPI dashboard does not reflect the close result accurately and often requires manual checking and intervention from the team; alignment with GBS and the R2R Process Manager to ensure KPIs are timely and accurate for reporting is under monitoring."
+          ],
+          "systems": [],
+          "displayTitle": "Confirm the KPI dashboard reflects the close result",
+          "description": "Ensure that the KPI dashboard captures the close result accurately, so that the SAP modules are closed and the correct status is reflected on the R2R KPI dashboard."
+        },
+        {
+          "title": "Prepare Global KPI slides for R2R governance",
+          "detail": "4. Prepare Global KPI slides for monthly R2R governance meeting. | Global KPI slides | GFS Process TowersEmbedded Finance Global R2R",
+          "owner": "",
+          "challenges": [],
+          "systems": [],
+          "displayTitle": "Prepare Global KPI slides for R2R governance",
+          "description": "Prepare the Global KPI slides for the monthly R2R governance meeting, for the GFS Process Towers, Embedded Finance and Global R2R."
+        }
+      ],
+      "challenges": [
+        "The KPI dashboard does not reflect the close result accurately and often requires manual checking and intervention from the team; alignment with GBS and the R2R Process Manager to ensure KPIs are timely and accurate for reporting is under monitoring."
+      ],
+      "improvements": [],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: R2R Ops E2E Process Summary(R2R E2E Summary ).csv\n\n- Path: `Tower Subprocesses/R2R/R2R Ops E2E Process Summary(R2R E2E Summary ).csv`\n- Format: CSV\n\n| Column 1 | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 | Column 7 | Column 8 | Column 9 |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Process Sub-Area | Input | Brief description of activity | Output | Customer | Pain points/ Areas for improvement | Areas digitalized/improved | TPI  2026 | AI opportunity (Global support) |\n| Close SAP module | SAP posting completed across all GFS Process Towers and Embedded Finance | The team manages the overall global close calendar and owns the rolloever activities in SAP. On a monthly basis, the team ensure that the SAP ECC modules close (via SAP auto job run) is completed according to the global timeline as below. AP 3rd Party close: WD-3FA close: WD-3/WD-2 (by Commercial or Ops unit)Sales and Billing close: WD-2 to WD+1 (varies by market model)MM Module: WD-2 to WD+1 (varies by market model)MMPV/MMRV: WD-1 to WD+1Intercompany AP/AR close: WD+1 SAP GL close: WD+21. After the global cut-off for each module, the team will execute OB52 to check the completion of the period close. 2. In the event that SAP automated job run fails, the team will execute the SAP module close manually via specific SAP t-code. 3. The team will also ensure KPI dashboard capture the close result accurately.4. Prepare Global KPI slides for monthly R2R governance meeting. | SAP modules closed and correct status reflected on R2R KPI DashboardGlobal KPI slides | GFS Process TowersEmbedded Finance Global R2R | KPI dashboard is not reflected accurately and often requires manual checking and intervention from the team. Alignment with GBS and R2R Process Manager to ensure KPI is reflected timely and accurate for reporting purposes - under monitoring |  |  |  |\n",
+      "sourceFile": "R2R - Raw Data.md",
+      "purposeSummary": "Close the **SAP ECC modules** to the global timeline, from **AP at WD-3 to GL at WD+2**, and report close KPIs to R2R governance.",
+      "cadenceSummary": "**Monthly**; modules close from **AP third party at WD-3** through to **SAP GL close at WD+2**, with KPI slides for the monthly governance meeting."
+    },
+    {
+      "id": "d7f8aa31b1f9",
+      "title": "AP third-party reopen and close",
+      "group": "Period close",
+      "purpose": "Between WD-3 and WD-1 the R2R team reopens the AP third-party module on request from P2P, to support the Auto Payment Run and China SCF in SAP, and closes it again the next morning after each reopen. Before closing, R2R checks for any unauthorised postings and has P2P take the necessary action, such as obtaining retrospective approval or reversing the entries.\n\nThe outcome is an AP module that is reported accurately with no unauthorised postings and no control issue, for P2P.",
+      "cadence": "Reopen requests from P2P fall between WD-3 and WD-1 each period; the module is closed the next morning after each reopen.",
+      "stages": [
+        {
+          "title": "Receive the reopen request from P2P",
+          "detail": "AP 3rd party reopen request from P2P | ... to support P2P team on Auto Payment Run & CN SCF in SAP",
+          "owner": "",
+          "challenges": [],
+          "systems": [],
+          "displayTitle": "Receive the reopen request from P2P",
+          "description": "Receive the AP third-party reopen request from the P2P team, raised to support the Auto Payment Run and China SCF in SAP."
+        },
+        {
+          "title": "Reopen the AP third-party module",
+          "detail": "1. AP 3rd party - Re-open the module from WD-3 up to WD-1 ad close the module the next day morning after each reopen to support P2P team on Auto Payment Run & CN SCF in SAP",
+          "owner": "",
+          "challenges": [
+            "Manual effort in executing the AP module reopen and close process across the 31 existing company codes."
+          ],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Reopen the AP third-party module",
+          "description": "Reopen the AP third-party module from WD-3 up to WD-1 as requested, for each of the company codes concerned."
+        },
+        {
+          "title": "Check for unauthorised postings",
+          "detail": "2. Before closing the module, R2R team will check if any unauthorised posting and get P2P to perform the necessary action(e.g. obtain restrospective approval, reverse the entries etc.)",
+          "owner": "R2R",
+          "challenges": [
+            "Duplication of checking and data extraction by both the P2P and R2R teams."
+          ],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Check for unauthorised postings",
+          "description": "Before closing the module, check for any unauthorised posting and have P2P perform the necessary action, for example obtaining retrospective approval or reversing the entries."
+        },
+        {
+          "title": "Close the AP module",
+          "detail": "3. Once all is good, R2R proceed to close the AP module. | AP module is reported accurately with no unauthorised postings (no control issue) | P2P",
+          "owner": "R2R",
+          "challenges": [],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Close the AP module",
+          "description": "Once all is in order, close the AP module the next morning after the reopen.\n\nThe AP module is thereby reported accurately with no unauthorised postings and no control issue, for P2P."
+        }
+      ],
+      "challenges": [
+        "Manual effort in executing the AP module reopen and close process across the 31 existing company codes.",
+        "Duplication of checking and data extraction by both the P2P and R2R teams."
+      ],
+      "improvements": [
+        "TPI 2026: Automate the AP third-party reopen/close SAP workflow and the vendor data extraction from SAP to SharePoint.",
+        "TPI 2026: Standardise reporting.",
+        "TPI 2026: Create a Power BI dashboard to detect unauthorised postings and display full-year trend analysis, reducing manual SAP navigation, fragmented working files and repetitive cross-checking."
+      ],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: R2R Ops E2E Process Summary(R2R E2E Summary ).csv\n\n- Path: `Tower Subprocesses/R2R/R2R Ops E2E Process Summary(R2R E2E Summary ).csv`\n- Format: CSV\n\n| Column 1 | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 | Column 7 | Column 8 | Column 9 |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Process Sub-Area | Input | Brief description of activity | Output | Customer | Pain points/ Areas for improvement | Areas digitalized/improved | TPI  2026 | AI opportunity (Global support) |\n| AP 3rd party - Re-open & Close (Auto Payment Run & CN SCF) | AP 3rd party reopen request from P2P | 1. AP 3rd party - Re-open the module from WD-3 up to WD-1 ad close the module the next day morning after each reopen to support P2P team on Auto Payment Run & CN SCF in SAP2. Before closing the module, R2R team will check if any unauthorised posting and get P2P to perform the necessary action(e.g. obtain restrospective approval, reverse the entries etc.)3. Once all is good, R2R proceed to close the AP module. | AP module is reported accurately with no unauthorised postings (no control issue) | P2P | Manual effort in executing the AP module reopen and close process across 31 existing company codes. Duplication of checking and data extraction by both P2P and R2R teams. | 1. Automate the AP 3rd Party reopen/close SAP workflow and vendor data extraction from SAP to SharePoint.2. Standardising reporting3. Creating a Power BI dashboard to detect unauthorized postings and display full year trend analysis. This reduces manual SAP navigation, fragmented working files, and repetitive cross-checking. |  |  |\n",
+      "sourceFile": "R2R - Raw Data.md",
+      "purposeSummary": "Reopen the **AP third-party module** for P2P payment runs between WD-3 and WD-1 and close it again with **no unauthorised postings**.",
+      "cadenceSummary": "Reopens between **WD-3 and WD-1** on P2P request; closed the **next morning** after each reopen."
+    },
+    {
+      "id": "f87df83c6e7b",
+      "title": "Clinical trial accruals",
+      "group": "Journals & adjustments",
+      "purpose": "Clinical trial period-end accrual and prepayment entries are generated from ABACUS (ACCORD prior to April 2026). Since the ABACUS project went live in April 2026 the posting has been automated through BlackLine AJD, with the team providing BAU support for teething issues.\n\nThe outcome is that the ABACUS AJD is captured and posted in SAP for Embedded Finance and Clinical Finance.",
+      "cadence": "At period end; automated via BlackLine AJD since ABACUS went live in April 2026.",
+      "stages": [
+        {
+          "title": "Receive the ABACUS accrual data",
+          "detail": "ABACUS (ACCORD prior to Apr'2026)",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "ABACUS"
+          ],
+          "displayTitle": "Receive the ABACUS accrual data",
+          "description": "The accrual and prepayment data comes from ABACUS (ACCORD prior to April 2026)."
+        },
+        {
+          "title": "Post the entries automatically via BlackLine AJD",
+          "detail": "This activity has been automated via BlackLine AJD after ABACUS project went live in Apr'26. | ABACUS AJD is captured and posted in SAP.",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "BlackLine",
+            "SAP"
+          ],
+          "displayTitle": "Post the entries automatically via BlackLine AJD",
+          "description": "The period-end accrual and prepayment entries are generated and posted through BlackLine AJD, automated since the ABACUS project went live in April 2026, so that the ABACUS AJD is captured and posted in SAP."
+        },
+        {
+          "title": "Provide BAU support and audit alignment",
+          "detail": "Teething issue required BAU support - e.g. manual correction journal required to submit on behalf of Clinical Warsaw team after the AJD posted. Alignment for centralised audit by KPMG UK to ensure consistency in audit evidence and approach for ABACUS related items. | Embedded Finance Clinical Finance Embedded Finance",
+          "owner": "",
+          "challenges": [
+            "Teething issues require BAU support, for example manual correction journals submitted on behalf of the Clinical Warsaw team after the AJD has posted.",
+            "Alignment is needed for the centralised audit by KPMG UK to ensure consistency in audit evidence and approach for ABACUS-related items."
+          ],
+          "systems": [
+            "BlackLine"
+          ],
+          "displayTitle": "Provide BAU support and audit alignment",
+          "description": "Support teething issues, for example by submitting manual correction journals on behalf of the Clinical Warsaw team after the AJD has posted, and align with the centralised KPMG UK audit on evidence and approach for ABACUS-related items. The posted entries serve Embedded Finance and Clinical Finance."
+        }
+      ],
+      "challenges": [
+        "Teething issues require BAU support, for example manual correction journals submitted on behalf of the Clinical Warsaw team after the AJD has posted.",
+        "Alignment is needed for the centralised audit by KPMG UK to ensure consistency in audit evidence and approach for ABACUS-related items."
+      ],
+      "improvements": [],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: R2R Ops E2E Process Summary(R2R E2E Summary ).csv\n\n- Path: `Tower Subprocesses/R2R/R2R Ops E2E Process Summary(R2R E2E Summary ).csv`\n- Format: CSV\n\n| Column 1 | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 | Column 7 | Column 8 | Column 9 |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Process Sub-Area | Input | Brief description of activity | Output | Customer | Pain points/ Areas for improvement | Areas digitalized/improved | TPI  2026 | AI opportunity (Global support) |\n| Prepare and post Clinical Trials period end accruals/prepayment entries | ABACUS (ACCORD prior to Apr'2026) | This activity has been automated via BlackLine AJD after ABACUS project went live in Apr'26. | ABACUS AJD is captured and posted in SAP. | Embedded Finance Clinical Finance Embedded Finance | Teething issue required BAU support - e.g. manual correction journal required to submit on behalf of Clinical Warsaw team after the AJD posted. Alignment for centralised audit by KPMG UK to ensure consistency in audit evidence and approach for ABACUS related items. |  |  |  |\n",
+      "sourceFile": "R2R - Raw Data.md",
+      "purposeSummary": "Post **clinical trial accruals and prepayments** from ABACUS to SAP automatically through **BlackLine AJD**.",
+      "cadenceSummary": "At **period end**, run automatically via BlackLine AJD since ABACUS go-live in **April 2026**."
+    },
+    {
+      "id": "d0095f712fae",
+      "title": "Distribution cycle maintenance",
+      "group": "Close preparation",
+      "purpose": "Embedded Finance and GFS FP&A submit approved distribution cycle templates to R2R via a ServiceNow ticket: in January for the creation of new cycles, and at their discretion for updates through the year. R2R checks the template with a macro and, if all is in order, creates the cycle in SAP with the creation macro.\n\nThe outcome is a distribution cycle created in SAP for the Middle Office, FP&A and Embedded Finance.",
+      "cadence": "January for new cycle creation; updates are discretionary or optional through the year.",
+      "stages": [
+        {
+          "title": "Receive the approved distribution cycle template",
+          "detail": "1. R2R team receives approved Distribution Cycle creation/maintanence (FISL template and the approval email) | Approved distribution cycles template submitted by Embedded Finance and GFS FP&A to R2R via SNOW ticket",
+          "owner": "R2R",
+          "challenges": [
+            "Volume of cycle requests.",
+            "Cycle requests need more streamlined guidance (under review with FP&A), and an end-to-end efficiency opportunity, including triggering cycle creation automatically in SAP, is to be explored."
+          ],
+          "systems": [
+            "ServiceNow",
+            "Email"
+          ],
+          "displayTitle": "Receive the approved distribution cycle template",
+          "description": "Receive the approved distribution cycle creation or maintenance request (the FISL template and the approval email), submitted by Embedded Finance and GFS FP&A via a ServiceNow ticket."
+        },
+        {
+          "title": "Run the macro check on the template data",
+          "detail": "2. R2R team run Macro checking on the data received.",
+          "owner": "R2R",
+          "challenges": [],
+          "systems": [],
+          "displayTitle": "Run the macro check on the template data",
+          "description": "Run the macro check on the data received to validate the template."
+        },
+        {
+          "title": "Create the cycle in SAP",
+          "detail": "3. If all good, run Macro creation. | Cycle created in SAP | Middle Office FP&AEmbedded Finance",
+          "owner": "R2R",
+          "challenges": [],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Create the cycle in SAP",
+          "description": "If all is in order, run the macro creation so that the cycle is created in SAP for the Middle Office, FP&A and Embedded Finance."
+        }
+      ],
+      "challenges": [
+        "Volume of cycle requests.",
+        "Cycle requests need more streamlined guidance (under review with FP&A), and an end-to-end efficiency opportunity, including triggering cycle creation automatically in SAP, is to be explored."
+      ],
+      "improvements": [
+        "Documented improvements: Macro file incorporated to simplify distribution cycle template checking and cycle creation."
+      ],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: R2R Ops E2E Process Summary(R2R E2E Summary ).csv\n\n- Path: `Tower Subprocesses/R2R/R2R Ops E2E Process Summary(R2R E2E Summary ).csv`\n- Format: CSV\n\n| Column 1 | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 | Column 7 | Column 8 | Column 9 |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Process Sub-Area | Input | Brief description of activity | Output | Customer | Pain points/ Areas for improvement | Areas digitalized/improved | TPI  2026 | AI opportunity (Global support) |\n| Distribution Cycles Creation/ Maintenance | Approved distribution cycles template submitted by Embedded Finance and GFS FP&A to R2R via SNOW ticketNote: January - for new cycles creationAny updates are discretionary/optional through the year | 1. R2R team receives approved Distribution Cycle creation/maintanence (FISL template and the approval email)2. R2R team run Macro checking on the data received. 3. If all good, run Macro creation. | Cycle created in SAP | Middle Office FP&AEmbedded Finance | VolumeCycle request with a more streamline guidance (something under review with FP&A) and also explore opportunity for end to end efficiency (include triggering cycle creation automatically in SAP) | Macro file incorporated to simplify the distribution cycle template checking and cycle creation. |  |  |\n",
+      "sourceFile": "R2R - Raw Data.md",
+      "purposeSummary": "Create and maintain **SAP distribution cycles** from approved templates submitted by Embedded Finance and FP&A.",
+      "cadenceSummary": "**January** for new cycle creation; updates are **discretionary through the year**."
+    },
+    {
+      "id": "ae96d300875b",
+      "title": "Distribution cycle run",
+      "group": "Period close",
+      "purpose": "The team executes the distribution cycles in SAP (t-code GA35) using the cycle and start date details from the distribution cycle template, investigates any warning messages and checks the results in GD13. In specific scenarios the sequence of cycle runs depends on the GL range, which the FP&A team calls out.\n\nThe outcome is that the allocation to the specified brands and cost centres is completed as per the template submitted, for the Middle Office, FP&A and Embedded Finance.",
+      "cadence": "",
+      "stages": [
+        {
+          "title": "Confirm the run sequence and open GA35",
+          "detail": "1. Open SAP t-code GA35. | In specific scenario, sequence of cycle runs has dependency on GL range (to call out by FP&A team)",
+          "owner": "",
+          "challenges": [
+            "At times errors are spotted months after the distribution run has completed; more timely review and a shared understanding of the process between R2R and FP&A are needed for a smoother process."
+          ],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Confirm the run sequence and open GA35",
+          "description": "Open SAP t-code GA35. In specific scenarios the sequence of cycle runs has a dependency on the GL range, which the FP&A team calls out."
+        },
+        {
+          "title": "Enter the cycle and start date from the template",
+          "detail": "2. Copy the cycle and start date details from the distribution cycle template received",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Enter the cycle and start date from the template",
+          "description": "Copy the cycle and start date details from the distribution cycle template received."
+        },
+        {
+          "title": "Execute the distribution run",
+          "detail": "3. Untick test-run and execute the t-code run.",
+          "owner": "",
+          "challenges": [
+            "Limitation in running multiple company codes at one time due to the \"area\" setting in SAP."
+          ],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Execute the distribution run",
+          "description": "Execute the t-code as a live run rather than a test run."
+        },
+        {
+          "title": "Investigate warning messages",
+          "detail": "4. Investigate if any warning message.",
+          "owner": "",
+          "challenges": [],
+          "systems": [],
+          "displayTitle": "Investigate warning messages",
+          "description": "Investigate any warning message raised by the run."
+        },
+        {
+          "title": "Verify the allocation results in GD13",
+          "detail": "5. Once completed, go to GD 13 to check the end results. | Allocation to specific brand and CC is completed as per template submitted | Middle Office FP&AEmbedded Finance",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Verify the allocation results in GD13",
+          "description": "Once the run is complete, check the end results in GD13 to confirm that the allocation to the specified brands and cost centres has been completed as per the template submitted, for the Middle Office, FP&A and Embedded Finance."
+        }
+      ],
+      "challenges": [
+        "At times errors are spotted months after the distribution run has completed; more timely review and a shared understanding of the process between R2R and FP&A are needed for a smoother process.",
+        "Limitation in running multiple company codes at one time due to the \"area\" setting in SAP."
+      ],
+      "improvements": [],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: R2R Ops E2E Process Summary(R2R E2E Summary ).csv\n\n- Path: `Tower Subprocesses/R2R/R2R Ops E2E Process Summary(R2R E2E Summary ).csv`\n- Format: CSV\n\n| Column 1 | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 | Column 7 | Column 8 | Column 9 |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Process Sub-Area | Input | Brief description of activity | Output | Customer | Pain points/ Areas for improvement | Areas digitalized/improved | TPI  2026 | AI opportunity (Global support) |\n| Process Distribution Cycle | In specific scenario, sequence of cycle runs has dependency on GL range (to call out by FP&A team) | 1. Open SAP t-code GA35.2. Copy the cycle and start date details from the distribution cycle template received3. Untick test-run and execute the t-code run. 4. Investigate if any warning message. 5. Once completed, go to GD 13 to check the end results. | Allocation to specific brand and CC is completed as per template submitted | Middle Office FP&AEmbedded Finance | - At times, errors spotted after months of distribution run completed, required more timely review and understanding of process between R2R and FP&A to ensure a smoother process.- Limitation to run multiple company code at one time due to the \"area\" setting in SAP |  |  |  |\n",
+      "sourceFile": "R2R - Raw Data.md",
+      "purposeSummary": "Execute the **SAP distribution cycles** so that costs are allocated to the **brands and cost centres** specified in the template.",
+      "cadenceSummary": "**Timing and frequency are not specified** in the supplied file."
+    },
+    {
+      "id": "1853c8ef2ff3",
+      "title": "ERH reporting - SAP entities",
+      "group": "Group reporting",
+      "purpose": "After SAP module close on WD+2 the team prepares the ERH group reporting for SAP entities, including intercompany. SAP data is interfaced to ERH automatically, with certain Movement Over Time (MOT), MEMO and annual-only schedules requiring manual input; fixed asset data is provided by the Capex team; and intercompany P&L and balance sheet lines are loaded, matched and aligned with counterparties before the ERH intercompany lock at WD+3.\n\nA SAP-to-ERH reconciliation prepared by the Speedy Bot flags variances above USD 100k for investigation. The outcome is ERH promoted to Level 2 and signed off by WD+4, 5pm KL time, with data ready for group reporting by GFR.",
+      "cadence": "Monthly. Preparation starts after SAP module close on WD+2; intercompany mismatches are aligned before the ERH IC lock at WD+3; overall ERH reporting and sign-off is completed by WD+4, 5pm KL time.",
+      "stages": [
+        {
+          "title": "Start ERH reporting after SAP module close",
+          "detail": "1. After SAP module close on WD+2, the team will prepare the ERH reporting (including Intercompany). | SAP Input file from GFS Process Towers",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "SAP",
+            "ERH"
+          ],
+          "displayTitle": "Start ERH reporting after SAP module close",
+          "description": "After SAP module close on WD+2, begin preparing the ERH reporting, including intercompany, using the SAP input file from the GFS Process Towers."
+        },
+        {
+          "title": "Complete the manual MOT, MEMO and annual-only schedules",
+          "detail": "2. For SAP entities, SAP data are interfaced to ERH automatically with certain Movement Over Time (\"MOT\"), MEMO and Annual Only schedules required manual input from the team.",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "ERH"
+          ],
+          "displayTitle": "Complete the manual MOT, MEMO and annual-only schedules",
+          "description": "For SAP entities, SAP data is interfaced to ERH automatically. Certain Movement Over Time (MOT), MEMO and annual-only schedules require manual input from the team."
+        },
+        {
+          "title": "Input fixed asset data from the Capex team",
+          "detail": "3. Fixed Assets related ERH data are provided by Capex team to R2R Ops for ERH input.",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "ERH"
+          ],
+          "displayTitle": "Input fixed asset data from the Capex team",
+          "description": "Fixed asset related ERH data is provided by the Capex team to R2R Ops for input into ERH."
+        },
+        {
+          "title": "Load and match intercompany lines",
+          "detail": "4. Intercompany PL and BS lines are loaded into ERH for matching and posting purposes. Any mismatch will be investigated and aligned with counterparty before ERH IC lock by WD+3.",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "ERH"
+          ],
+          "displayTitle": "Load and match intercompany lines",
+          "description": "Load the intercompany P&L and balance sheet lines into ERH for matching and posting. Investigate any mismatch and align with the counterparty before the ERH intercompany lock at WD+3."
+        },
+        {
+          "title": "Reconcile SAP to ERH via the Speedy Bot",
+          "detail": "5. SAP to ERH reconciliation will be prepared by Speedy Bot and any variance more than USD100k will be investigated and addressed accordingly.",
+          "owner": "",
+          "challenges": [
+            "Checking the completeness of new lines in ERH 101 and 102 (quarterly) is performed manually by the team; the question raised is whether the Speedy Bot could perform this check."
+          ],
+          "systems": [
+            "SAP",
+            "ERH"
+          ],
+          "displayTitle": "Reconcile SAP to ERH via the Speedy Bot",
+          "description": "The SAP-to-ERH reconciliation is prepared by the Speedy Bot. Investigate and address any variance above USD 100k."
+        },
+        {
+          "title": "Sign off ERH by WD+4",
+          "detail": "6. Overall ERH reporting and sign-off completed latest by WD+4, 5pm KL time. | ERH promoted to Level 2 and signed off. Data ready for group reporting. | GFR",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "ERH"
+          ],
+          "displayTitle": "Sign off ERH by WD+4",
+          "description": "Complete the overall ERH reporting and sign-off by WD+4, 5pm KL time. ERH is promoted to Level 2 and signed off, and the data is ready for group reporting by GFR."
+        }
+      ],
+      "challenges": [
+        "Checking the completeness of new lines in ERH 101 and 102 (quarterly) is performed manually by the team; the question raised is whether the Speedy Bot could perform this check."
+      ],
+      "improvements": [
+        "Documented improvements: ERH Bonus MEMO 23 data collection via Power Apps."
+      ],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: R2R Ops E2E Process Summary(R2R E2E Summary ).csv\n\n- Path: `Tower Subprocesses/R2R/R2R Ops E2E Process Summary(R2R E2E Summary ).csv`\n- Format: CSV\n\n| Column 1 | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 | Column 7 | Column 8 | Column 9 |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Process Sub-Area | Input | Brief description of activity | Output | Customer | Pain points/ Areas for improvement | Areas digitalized/improved | TPI  2026 | AI opportunity (Global support) |\n| ERH Reporting - SAP entity (including Intercompany) | SAP Input file from GFS Process Towers | 1. After SAP module close on WD+2, the team will prepare the ERH reporting (including Intercompany). 2. For SAP entities, SAP data are interfaced to ERH automatically with certain Movement Over Time (\"MOT\"), MEMO and Annual Only schedules required manual input from the team. 3. Fixed Assets related ERH data are provided by Capex team to R2R Ops for ERH input.4. Intercompany PL and BS lines are loaded into ERH for matching and posting purposes. Any mismatch will be investigated and aligned with counterparty before ERH IC lock by WD+3.5. SAP to ERH reconciliation will be prepared by Speedy Bot and any variance more than USD100k will be investigated and addressed accordingly.6. Overall ERH reporting and sign-off completed latest by WD+4, 5pm KL time. | ERH promoted to Level 2 and signed off. Data ready for group reporting. | GFR | Speedy Bot - checking the completeness of new lines in ERH 101 and 102 (quarterly basis) performed manually by the team -> Can Bot perform the checking? | ERH Bonus MEMO 23 Data Collection via Power Apps |  |  |\n",
+      "sourceFile": "R2R - Raw Data.md",
+      "purposeSummary": "Prepare and sign off **ERH group reporting** for SAP entities, including **intercompany matching** and the SAP-to-ERH reconciliation.",
+      "cadenceSummary": "**Monthly**: starts after SAP close on **WD+2**, IC lock by **WD+3**, sign-off by **WD+4, 5pm KL time**."
+    },
+    {
+      "id": "e00340355b46",
+      "title": "ERH reporting - non-SAP entities",
+      "group": "Group reporting",
+      "purpose": "For non-SAP entities, the trial balance and MDLE are received from the Middle Office or Embedded Finance, and the MDLE file is prepared manually and uploaded to ERH for month-end reporting, including intercompany.\n\nThe outcome is ERH promoted to Level 2 and signed off, with data ready for group reporting by GFR.",
+      "cadence": "Monthly, as part of month-end ERH reporting.",
+      "stages": [
+        {
+          "title": "Receive the trial balance and MDLE",
+          "detail": "TB and MDLE from Middle Office or Embedded Finance",
+          "owner": "",
+          "challenges": [],
+          "systems": [],
+          "displayTitle": "Receive the trial balance and MDLE",
+          "description": "Receive the trial balance and MDLE for each non-SAP entity from the Middle Office or Embedded Finance."
+        },
+        {
+          "title": "Prepare the MDLE file manually",
+          "detail": "As for non-SAP entities, MDLE file will be prepared manually and upload to ERH for month end reporting.",
+          "owner": "",
+          "challenges": [],
+          "systems": [],
+          "displayTitle": "Prepare the MDLE file manually",
+          "description": "Prepare the MDLE file manually for the non-SAP entities, including intercompany."
+        },
+        {
+          "title": "Upload to ERH and sign off",
+          "detail": "... upload to ERH for month end reporting. | ERH promoted to Level 2 and signed off. Data ready for group reporting. | GFR",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "ERH"
+          ],
+          "displayTitle": "Upload to ERH and sign off",
+          "description": "Upload the MDLE file to ERH for month-end reporting. ERH is promoted to Level 2 and signed off, and the data is ready for group reporting by GFR."
+        }
+      ],
+      "challenges": [],
+      "improvements": [],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: R2R Ops E2E Process Summary(R2R E2E Summary ).csv\n\n- Path: `Tower Subprocesses/R2R/R2R Ops E2E Process Summary(R2R E2E Summary ).csv`\n- Format: CSV\n\n| Column 1 | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 | Column 7 | Column 8 | Column 9 |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Process Sub-Area | Input | Brief description of activity | Output | Customer | Pain points/ Areas for improvement | Areas digitalized/improved | TPI  2026 | AI opportunity (Global support) |\n| ERH Reporting - non-SAP entity (including Intercompany) | TB and MDLE from Middle Office or Embedded Finance | As for non-SAP entities, MDLE file will be prepared manually and upload to ERH for month end reporting. | ERH promoted to Level 2 and signed off. Data ready for group reporting. | GFR |  |  |  |  |\n",
+      "sourceFile": "R2R - Raw Data.md",
+      "purposeSummary": "Prepare the **MDLE file manually** for non-SAP entities and upload it to **ERH** for month-end group reporting.",
+      "cadenceSummary": "**Monthly**, as part of month-end ERH reporting."
+    },
+    {
+      "id": "f510d5321229",
+      "title": "SAP and ERH resubmission",
+      "group": "Group reporting",
+      "purpose": "When a GFS Process Tower or Embedded Finance requests a resubmission, the R2R team assesses materiality and impact against the global standard, and the R2R regional head approves the ServiceNow ticket. The impacted SAP modules are reopened, correction entries are posted via BlackLine journal or directly in SAP, the period is checked for unauthorised postings and closed again, and the ERH resubmission follows.\n\nFor ERH, the impacted entity is demoted to Level 1, the data is updated from SAP or corrected manually in ERH, and the entity is promoted back to Level 2 and signed off. The outcome is a completed resubmission with data ready for group statutory reporting by GFR and a posting period that is closed.",
+      "cadence": "On request. For any resubmission from WD+5 onwards, GFR approval is required before proceeding at local level.",
+      "stages": [
+        {
+          "title": "Receive the resubmission request",
+          "detail": "1. R2R team receive SAP or ERH resub request from user. | Resub request from various GFS Process Towers or Embedded Finance",
+          "owner": "R2R",
+          "challenges": [],
+          "systems": [],
+          "displayTitle": "Receive the resubmission request",
+          "description": "Receive the SAP or ERH resubmission request from the user in a GFS Process Tower or Embedded Finance."
+        },
+        {
+          "title": "Assess materiality and approve the ticket",
+          "detail": "2. Upon checking the materiality and impact in accordance to global standard, R2R regional head will proceed to approve the ticket in SNOW. Note: For any resub on WD+5 onwards, GFR approval is required before proceeding resub at local level.",
+          "owner": "R2R regional head",
+          "challenges": [],
+          "systems": [
+            "ServiceNow"
+          ],
+          "displayTitle": "Assess materiality and approve the ticket",
+          "description": "Check the materiality and impact in accordance with the global standard. The R2R regional head then approves the ticket in ServiceNow. For any resubmission from WD+5 onwards, GFR approval is required before proceeding at local level."
+        },
+        {
+          "title": "Reopen the impacted SAP modules",
+          "detail": "3. R2R team will proceed to reopen the impacted SAP modules for correction entries.",
+          "owner": "R2R",
+          "challenges": [],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Reopen the impacted SAP modules",
+          "description": "Reopen the impacted SAP modules so that correction entries can be posted."
+        },
+        {
+          "title": "Post the correction entries",
+          "detail": "4. Correction entries will be posted via BL journal or directly via SAP.",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "BlackLine",
+            "SAP"
+          ],
+          "displayTitle": "Post the correction entries",
+          "description": "Post the correction entries via a BlackLine journal or directly in SAP."
+        },
+        {
+          "title": "Check for unauthorised postings and close the period",
+          "detail": "5. Once correction entries are posted, R2R team will check to ensure no unauthorised postings during period reopen before proceed to close the period. | Ensured posting period is closed",
+          "owner": "R2R",
+          "challenges": [],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Check for unauthorised postings and close the period",
+          "description": "Once the correction entries are posted, check that no unauthorised postings were made while the period was reopened, then close the period."
+        },
+        {
+          "title": "Resubmit in ERH and sign off",
+          "detail": "6. R2R team will proceed with ERH resub as next step. 7. For ERH resub, the impacted entity will be demoted to Level 1, once the data in ERH is updated (either from SAP) or manual correction directly in ERH by R2R team, the entity will be promoted to Level 2 and signed off. | Resubmission completed and data ready for group statutory reporting | GFR",
+          "owner": "R2R",
+          "challenges": [],
+          "systems": [
+            "ERH",
+            "SAP"
+          ],
+          "displayTitle": "Resubmit in ERH and sign off",
+          "description": "Proceed with the ERH resubmission. The impacted entity is demoted to Level 1; once the data in ERH is updated (from SAP or by manual correction directly in ERH by the R2R team), the entity is promoted to Level 2 and signed off.\n\nThe resubmission is complete and the data is ready for group statutory reporting by GFR."
+        }
+      ],
+      "challenges": [],
+      "improvements": [],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: R2R Ops E2E Process Summary(R2R E2E Summary ).csv\n\n- Path: `Tower Subprocesses/R2R/R2R Ops E2E Process Summary(R2R E2E Summary ).csv`\n- Format: CSV\n\n| Column 1 | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 | Column 7 | Column 8 | Column 9 |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Process Sub-Area | Input | Brief description of activity | Output | Customer | Pain points/ Areas for improvement | Areas digitalized/improved | TPI  2026 | AI opportunity (Global support) |\n| Prepare and complete SAP or ERH resubmission as per request | Resub request from various GFS Process Towers or Embedded Finance | 1. R2R team receive SAP or ERH resub request from user. 2. Upon checking the materiality and impact in accordance to global standard, R2R regional head will proceed to approve the ticket in SNOW. 3. R2R team will proceed to reopen the impacted SAP modules for correction entries. 4. Correction entries will be posted via BL journal or directly via SAP. 5. Once correction entries are posted, R2R team will check to ensure no unauthorised postings during period reopen before proceed to close the period. 6. R2R team will proceed with ERH resub as next step. Note: For any resub on WD+5 onwards, GFR approval is required before proceeding resub at local level. 7. For ERH resub, the impacted entity will be demoted to Level 1, once the data in ERH is updated (either from SAP) or manual correction directly in ERH by R2R team, the entity will be promoted to Level 2 and signed off. | Resubmission completed and data ready for group statutory reportingEnsured posting period is closed | GFR |  |  |  |  |\n",
+      "sourceFile": "R2R - Raw Data.md",
+      "purposeSummary": "Reopen SAP, post **correction entries** and **resubmit ERH** on request, with the period re-closed and data ready for group reporting.",
+      "cadenceSummary": "**On request**; resubmissions from **WD+5 onwards** require GFR approval before proceeding at local level."
+    },
+    {
+      "id": "5be873c0d5eb",
+      "title": "Divestment reporting",
+      "group": "Group reporting",
+      "purpose": "After MM close, the team extracts the divestment sales and COGS data from SAP (GD20) with an Excel macro and checks that divested sales and COGS are posted to the correct profit centre and GL account, including Onco brands posted to the Onco profit centre. Vaccine and the AU Viking and other income / other expense reclassification checks are not currently applicable.\n\nFor new divestment deals notified by Embedded Finance, the Middle Office or the Global Divestment team, the team supports the markets on the accounting treatment, clarifies with the Global Divestment Accountant and ensures the SAP substitution tables are maintained accurately. The outcome is a divestment report submitted for global reporting to the Warsaw PDM team.",
+      "cadence": "Monthly, after MM close; new divestment deals are supported as they arise.",
+      "stages": [
+        {
+          "title": "Extract divestment data from SAP after MM close",
+          "detail": "1. After MM close, execute Excel macro to extract data from SAP GD20. | - SAP divestment Sales & COGS (with proper subtitution tables maintained)",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "Excel",
+            "SAP"
+          ],
+          "displayTitle": "Extract divestment data from SAP after MM close",
+          "description": "After MM close, execute the Excel macro to extract the divestment sales and COGS data from SAP GD20. The extraction relies on the SAP substitution tables being properly maintained."
+        },
+        {
+          "title": "Check divested sales and COGS",
+          "detail": "2. Check Divested Sales and COGS based on criterias below:- correct PC- correct GL - Onco brand posted to Onco PC correctly- vaccine (not applicable now)- AU Viking and other income & other expense reclass (not applicable now)",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Check divested sales and COGS",
+          "description": "Check the divested sales and COGS against the criteria: correct profit centre, correct GL account, and Onco brands posted to the Onco profit centre correctly. The vaccine check and the AU Viking and other income / other expense reclassification are not applicable at present."
+        },
+        {
+          "title": "Support new divestment deals",
+          "detail": "For new divestment deal, the team will also support markets on accounting treatment and clarify with Global Divestment Accountant, ensure that the SAP tables are maintained accurately. | - Any new divestment deals informed by Embedded Finance/ Middle Office/ Global Divestment team",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Support new divestment deals",
+          "description": "For a new divestment deal notified by Embedded Finance, the Middle Office or the Global Divestment team, support the markets on the accounting treatment, clarify with the Global Divestment Accountant and ensure that the SAP tables are maintained accurately."
+        },
+        {
+          "title": "Submit the divestment report",
+          "detail": "Divestment report submitted for Global Reporting | Warsaw PDM team",
+          "owner": "",
+          "challenges": [],
+          "systems": [],
+          "displayTitle": "Submit the divestment report",
+          "description": "Submit the divestment report for global reporting to the Warsaw PDM team."
+        }
+      ],
+      "challenges": [],
+      "improvements": [],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: R2R Ops E2E Process Summary(R2R E2E Summary ).csv\n\n- Path: `Tower Subprocesses/R2R/R2R Ops E2E Process Summary(R2R E2E Summary ).csv`\n- Format: CSV\n\n| Column 1 | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 | Column 7 | Column 8 | Column 9 |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Process Sub-Area | Input | Brief description of activity | Output | Customer | Pain points/ Areas for improvement | Areas digitalized/improved | TPI  2026 | AI opportunity (Global support) |\n| Divestment | - SAP divestment Sales & COGS (with proper subtitution tables maintained)- Any new divestment deals informed by Embedded Finance/ Middle Office/ Global Divestment team | 1. After MM close, execute Excel macro to extract data from SAP GD20. 2. Check Divested Sales and COGS based on criterias below:- correct PC- correct GL - Onco brand posted to Onco PC correctly- vaccine (not applicable now)- AU Viking and other income & other expense reclass (not applicable now)For new divestment deal, the team will also support markets on accounting treatment and clarify with Global Divestment Accountant, ensure that the SAP tables are maintained accurately. | Divestment report submitted for Global Reporting | Warsaw PDM team |  |  |  |  |\n",
+      "sourceFile": "R2R - Raw Data.md",
+      "purposeSummary": "Check **divested sales and COGS** in SAP after MM close and submit the **divestment report** for global reporting.",
+      "cadenceSummary": "**Monthly, after MM close**; new divestment deals are supported as they are notified."
+    },
+    {
+      "id": "cd2c1fd8e650",
+      "title": "Balance sheet reconciliations",
+      "group": "Reconciliations & controls",
+      "purpose": "Balance sheet accounts are reconciled and reviewed according to their risk rating (High, Medium, Low), with due dates correlated to the rating and split by SOx and non-SOx. SAP data extraction for each account is automated via a Python script, and each account is analysed and substantiated with appropriate supporting documentation, with open items reviewed and cleared regularly. Inputs are SAP, BlackLine and the supporting documents for the BSR.\n\nThe outcome is reconciled balance sheet accounts with supporting documentation, agreed action plans for reconciling items where applicable, and BSR data and status fed into the Power BI BSI Pack to support Middle Office Controlling and Embedded Finance in the Balance Sheet Integrity Review. Customers are Middle Office Controlling / Ops, TDT and Embedded Finance.",
+      "cadence": "Due dates are driven by each account's risk rating (High, Medium, Low), split by SOx and non-SOx; the source does not state the underlying frequency.",
+      "stages": [
+        {
+          "title": "Schedule reconciliations by risk rating",
+          "detail": "1. Accounts will be reconciled and reviewed based on their risk rating (High, Medium, Low). 2. Due dates will be directly correlated to the rating, split by SOx and non-SOX. | SAPBlackLineSupporting documents for BSR",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "SAP",
+            "BlackLine"
+          ],
+          "displayTitle": "Schedule reconciliations by risk rating",
+          "description": "Accounts are reconciled and reviewed according to their risk rating (High, Medium, Low). Due dates correlate directly to the rating and are split by SOx and non-SOx. Inputs are SAP, BlackLine and the supporting documents for the BSR."
+        },
+        {
+          "title": "Extract SAP account data via Python",
+          "detail": "3. SAP data extraction for each account is automated via Python script.",
+          "owner": "",
+          "challenges": [
+            "Manual SAP data extraction in preparing the BSR working file is repetitive and time consuming."
+          ],
+          "systems": [
+            "SAP",
+            "Python"
+          ],
+          "displayTitle": "Extract SAP account data via Python",
+          "description": "SAP data extraction for each account is automated via a Python script and saved in the designated location for the team."
+        },
+        {
+          "title": "Analyse and substantiate each account",
+          "detail": "4. Each account will be analysed and substantiated with appropriate supporting documentation.",
+          "owner": "",
+          "challenges": [
+            "Excessive supporting documentation increases file size, affecting working file performance and storage space (currently under review for improvement)."
+          ],
+          "systems": [],
+          "displayTitle": "Analyse and substantiate each account",
+          "description": "Analyse each account and substantiate it with appropriate supporting documentation."
+        },
+        {
+          "title": "Review and clear open items",
+          "detail": "4. Open item are reviewed and cleared on a regular basis.",
+          "owner": "",
+          "challenges": [],
+          "systems": [],
+          "displayTitle": "Review and clear open items",
+          "description": "Review open items and clear them on a regular basis."
+        },
+        {
+          "title": "Agree action plans for reconciling items",
+          "detail": "5. For any item required adjustment or follow-up, action plan will be created, aligned and resolved as per business plan.",
+          "owner": "",
+          "challenges": [],
+          "systems": [],
+          "displayTitle": "Agree action plans for reconciling items",
+          "description": "For any item requiring adjustment or follow-up, create an action plan, align it with the business and resolve it as per the plan."
+        },
+        {
+          "title": "Submit the BSR for approval and feed the BSI Pack",
+          "detail": "6. BSR will be submitted for approval once completed. | - Reconciled balance sheet accounts with supporting documentation. - Action plan agreed for reconciling items where applicable. - BSR data and status will be fed into Power BI BSI Pack to facilitate MO Controlling and EF on Balance Sheet Integrity Review | Middle Office Controlling/ Ops TDTEmbedded Finance",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "BlackLine",
+            "Power BI"
+          ],
+          "displayTitle": "Submit the BSR for approval and feed the BSI Pack",
+          "description": "Submit the BSR for approval once completed. The reconciled accounts with supporting documentation and agreed action plans are delivered to Middle Office Controlling / Ops, TDT and Embedded Finance, and the BSR data and status feed the Power BI BSI Pack for the Balance Sheet Integrity Review."
+        }
+      ],
+      "challenges": [
+        "Manual SAP data extraction in preparing the BSR working file is repetitive and time consuming.",
+        "Excessive supporting documentation increases file size, affecting working file performance and storage space (currently under review for improvement)."
+      ],
+      "improvements": [
+        "Documented improvements: BSR automation - data extraction is automated via Python and saved in a designated location for the team, allowing time to be redirected to BSR analysis and substantiation."
+      ],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: R2R Ops E2E Process Summary(R2R E2E Summary ).csv\n\n- Path: `Tower Subprocesses/R2R/R2R Ops E2E Process Summary(R2R E2E Summary ).csv`\n- Format: CSV\n\n| Column 1 | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 | Column 7 | Column 8 | Column 9 |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Process Sub-Area | Input | Brief description of activity | Output | Customer | Pain points/ Areas for improvement | Areas digitalized/improved | TPI  2026 | AI opportunity (Global support) |\n| Prepare and approve balance sheet reconciliations | SAPBlackLineSupporting documents for BSR | 1. Accounts will be reconciled and reviewed based on their risk rating (High, Medium, Low). 2. Due dates will be directly correlated to the rating, split by SOx and non-SOX.3. SAP data extraction for each account is automated via Python script. 4. Each account will be analysed and substantiated with appropriate supporting documentation. 4. Open item are reviewed and cleared on a regular basis. 5. For any item required adjustment or follow-up, action plan will be created, aligned and resolved as per business plan. 6. BSR will be submitted for approval once completed. | - Reconciled balance sheet accounts with supporting documentation. - Action plan agreed for reconciling items where applicable. - BSR data and status will be fed into Power BI BSI Pack to facilitate MO Controlling and EF on Balance Sheet Integrity Review | Middle Office Controlling/ Ops TDTEmbedded Finance | 1. Manual SAP data extraction in preparing of BSR working file - repetitive and time consuming  2. Excessive supporting document - increasing file size affecting working file performance and storage space (currently under review for improvement) | BSR automation - data extraction is automated via Python and saved in designated location for the team, allowing the team to rechannel the time to focus on BSR analysis and substantion. |  |  |\n",
+      "sourceFile": "R2R - Raw Data.md",
+      "purposeSummary": "Reconcile and substantiate **balance sheet accounts by risk rating**, agree action plans and submit the BSR for approval.",
+      "cadenceSummary": "Due dates follow the account **risk rating (High, Medium, Low)**, split by **SOx and non-SOx**; frequency is not otherwise specified."
+    },
+    {
+      "id": "8d24614f5676",
+      "title": "BSI pack preparation",
+      "group": "Reconciliations & controls",
+      "purpose": "The Balance Sheet Integrity (BSI) pack is prepared manually for the SOx units CN10 and CN20, which are out of scope of the Power BI BSI Pack. The team extracts the BlackLine Management Review & CFO Sign-Off reports (Report 1 Account Reconciliation Detail and Report 2 Action Plan Items) and the SAP trial balance, and prepares the report according to the global template.\n\nThe outcome is a complete BSI pack for the SOx entities, shared with Middle Office Controlling and Embedded Finance for the Balance Sheet Integrity Review.",
+      "cadence": "",
+      "stages": [
+        {
+          "title": "Extract the BlackLine management review reports",
+          "detail": "For BSI Pack preparation, the team extracts:1. Management Review & CFO Sign-Off Report 1 Account Reconciliation Detail2. Management Review & CFO Sign-Off Report 2 Action Plan Items",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "BlackLine"
+          ],
+          "displayTitle": "Extract the BlackLine management review reports",
+          "description": "Extract from BlackLine the Management Review & CFO Sign-Off Report 1 (Account Reconciliation Detail) and Report 2 (Action Plan Items) for the SOx units CN10 and CN20."
+        },
+        {
+          "title": "Extract the SAP trial balance",
+          "detail": "3. SAP TB",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Extract the SAP trial balance",
+          "description": "Extract the SAP trial balance for the SOx units."
+        },
+        {
+          "title": "Prepare the pack to the global template",
+          "detail": "BSI pack prepared manually for SOx units (CN10 and CN20) as these units are out of scope of Power BI BSI Pack. ... and prepare the report as per global template.",
+          "owner": "",
+          "challenges": [
+            "Manual process, as the SOx entities are not in scope for the auto-generated Power BI BSI Pack as part of control governance."
+          ],
+          "systems": [],
+          "displayTitle": "Prepare the pack to the global template",
+          "description": "Prepare the BSI pack for the SOx units CN10 and CN20 according to the global template. These units are out of scope of the auto-generated Power BI BSI Pack, so the pack is prepared manually."
+        },
+        {
+          "title": "Share the pack for Balance Sheet Integrity Review",
+          "detail": "Once completed, the team will share it with stakeholder for Balance Sheet Integrity Review. | Complete BSI Pack for SOx entities | Middle Office ControllingEmbedded Finance",
+          "owner": "",
+          "challenges": [],
+          "systems": [],
+          "displayTitle": "Share the pack for Balance Sheet Integrity Review",
+          "description": "Once completed, share the BSI pack with Middle Office Controlling and Embedded Finance for the Balance Sheet Integrity Review."
+        }
+      ],
+      "challenges": [
+        "Manual process, as the SOx entities are not in scope for the auto-generated Power BI BSI Pack as part of control governance."
+      ],
+      "improvements": [],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: R2R Ops E2E Process Summary(R2R E2E Summary ).csv\n\n- Path: `Tower Subprocesses/R2R/R2R Ops E2E Process Summary(R2R E2E Summary ).csv`\n- Format: CSV\n\n| Column 1 | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 | Column 7 | Column 8 | Column 9 |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Process Sub-Area | Input | Brief description of activity | Output | Customer | Pain points/ Areas for improvement | Areas digitalized/improved | TPI  2026 | AI opportunity (Global support) |\n| BSI Pack preparation | BlackLineSAP | BSI pack prepared manually for SOx units (CN10 and CN20) as these units are out of scope of Power BI BSI Pack. For BSI Pack preparation, the team extracts:1. Management Review & CFO Sign-Off Report 1 Account Reconciliation Detail2. Management Review & CFO Sign-Off Report 2 Action Plan Items3. SAP TBand prepare the report as per global template. Once completed, the team will share it with stakeholder for Balance Sheet Integrity Review. | Complete BSI Pack for SOx entities | Middle Office ControllingEmbedded Finance | Manual process as SOx entities are not in-scoped for the auto-generated Power BI BSI Pack as part of control governance |  |  |  |\n",
+      "sourceFile": "R2R - Raw Data.md",
+      "purposeSummary": "Prepare the **BSI pack manually** for SOx units CN10 and CN20, which sit outside the **Power BI BSI Pack**.",
+      "cadenceSummary": "**Timing and frequency are not specified** in the supplied file."
+    },
+    {
+      "id": "ef982bfad58d",
+      "title": "Controls attestation",
+      "group": "Reconciliations & controls",
+      "purpose": "R2R owns both SOx and FCF controls. The team performs the controls self-assessment and attestation based on the stipulated scope, timeline and frequency, using the control evidence captured during process operations, and the handshake and DER process is carried out yearly.\n\nThe outcome is controls attested and signed off in IRM for GFS Compliance and FCCG.",
+      "cadence": "Per the stipulated scope, timeline and frequency of each control; the handshake and DER process is carried out yearly.",
+      "stages": [
+        {
+          "title": "Capture control evidence during operations",
+          "detail": "Controls evidences captured during process operationsIRMCompliance FCCG | R2R owns both SOx and FCF controls.",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "IRM"
+          ],
+          "displayTitle": "Capture control evidence during operations",
+          "description": "Control evidence is captured during process operations for the SOx and FCF controls that R2R owns, with IRM, Compliance and FCCG as the inputs to the attestation."
+        },
+        {
+          "title": "Perform the self-assessment and attest in IRM",
+          "detail": "Perform controls self sessment and attestation based on the stipulated scope, timeline and frequency. | Control attested and signed off in IRM | GFS ComplianceFCCG",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "IRM"
+          ],
+          "displayTitle": "Perform the self-assessment and attest in IRM",
+          "description": "Perform the controls self-assessment and attestation based on the stipulated scope, timeline and frequency, so that the controls are attested and signed off in IRM for GFS Compliance and FCCG."
+        },
+        {
+          "title": "Complete the yearly handshake and DER process",
+          "detail": "Handshake and DER process is carried out on a yearly basis.",
+          "owner": "",
+          "challenges": [],
+          "systems": [],
+          "displayTitle": "Complete the yearly handshake and DER process",
+          "description": "Carry out the handshake and DER process on a yearly basis."
+        }
+      ],
+      "challenges": [],
+      "improvements": [],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: R2R Ops E2E Process Summary(R2R E2E Summary ).csv\n\n- Path: `Tower Subprocesses/R2R/R2R Ops E2E Process Summary(R2R E2E Summary ).csv`\n- Format: CSV\n\n| Column 1 | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 | Column 7 | Column 8 | Column 9 |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Process Sub-Area | Input | Brief description of activity | Output | Customer | Pain points/ Areas for improvement | Areas digitalized/improved | TPI  2026 | AI opportunity (Global support) |\n| Controls attestation and signed off | Controls evidences captured during process operationsIRMCompliance FCCG | R2R owns both SOx and FCF controls. Perform controls self sessment and attestation based on the stipulated scope, timeline and frequency. Handshake and DER process is carried out on a yearly basis. | Control attested and signed off in IRM | GFS ComplianceFCCG |  |  |  |  |\n",
+      "sourceFile": "R2R - Raw Data.md",
+      "purposeSummary": "Self-assess and attest the **SOx and FCF controls** owned by R2R and sign them off in **IRM**.",
+      "cadenceSummary": "Per the **stipulated scope, timeline and frequency** for each control; handshake and DER process **yearly**."
+    },
+    {
+      "id": "0cd6f123ce21",
+      "title": "Controls and compliance testing",
+      "group": "Reconciliations & controls",
+      "purpose": "For SOx controls, the team coordinates data and testing requests, provides information, prepares process narratives and controls documentation, supports the walkthrough and control testing process, and executes mitigating actions in accordance with the audit plan. For FCF, the team prepares for and supports the bi-annual testing process as control owner and supports as a control tester on a voluntary basis. Inputs are the control evidence and attestation, IRM maintenance and the agreed plan for SOx and FCF testing.\n\nThe outcome is control attestation and evidence ready for the FCF and SOx control audits, for FCCG, Compliance, the Middle Office, Embedded Finance, external auditors and management auditors.",
+      "cadence": "SOx testing follows the agreed audit plan; FCF testing is bi-annual.",
+      "stages": [
+        {
+          "title": "Coordinate SOx data and testing requests",
+          "detail": "SOx controls - Coordinate data and testing request, provide information | Controls evidences and attestation, IRM maintenance Agreed plan for SOx and FCF testing",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "IRM"
+          ],
+          "displayTitle": "Coordinate SOx data and testing requests",
+          "description": "Coordinate the data and testing requests for SOx controls and provide the information requested, drawing on the control evidence and attestation, IRM maintenance and the agreed plan for SOx and FCF testing."
+        },
+        {
+          "title": "Prepare process narratives and controls documentation",
+          "detail": "prepare process narrative and controls documentation",
+          "owner": "",
+          "challenges": [],
+          "systems": [],
+          "displayTitle": "Prepare process narratives and controls documentation",
+          "description": "Prepare the process narrative and controls documentation for the SOx controls."
+        },
+        {
+          "title": "Support walkthroughs and control testing",
+          "detail": "support walkthrough and control testing process",
+          "owner": "",
+          "challenges": [],
+          "systems": [],
+          "displayTitle": "Support walkthroughs and control testing",
+          "description": "Support the walkthrough and control testing process for the SOx controls."
+        },
+        {
+          "title": "Execute mitigating actions per the audit plan",
+          "detail": "execute mitigating actions in accordance to the audit plan.",
+          "owner": "",
+          "challenges": [],
+          "systems": [],
+          "displayTitle": "Execute mitigating actions per the audit plan",
+          "description": "Execute mitigating actions in accordance with the audit plan."
+        },
+        {
+          "title": "Prepare and support bi-annual FCF testing",
+          "detail": "FCF - prepare and support bi-annual testing process (as a control owner). Support as control tester (on voluntary basis) | Control attestation and evidence ready for FCF and SOx control audit | FCCGCompliance Middle OfficeEmbedded Finance External Auditors Management Auditors",
+          "owner": "Control owner",
+          "challenges": [],
+          "systems": [],
+          "displayTitle": "Prepare and support bi-annual FCF testing",
+          "description": "As control owner, prepare for and support the bi-annual FCF testing process, and support as a control tester on a voluntary basis.\n\nThe control attestation and evidence are thereby ready for the FCF and SOx control audits, for FCCG, Compliance, the Middle Office, Embedded Finance, external auditors and management auditors."
+        }
+      ],
+      "challenges": [],
+      "improvements": [],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: R2R Ops E2E Process Summary(R2R E2E Summary ).csv\n\n- Path: `Tower Subprocesses/R2R/R2R Ops E2E Process Summary(R2R E2E Summary ).csv`\n- Format: CSV\n\n| Column 1 | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 | Column 7 | Column 8 | Column 9 |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Process Sub-Area | Input | Brief description of activity | Output | Customer | Pain points/ Areas for improvement | Areas digitalized/improved | TPI  2026 | AI opportunity (Global support) |\n| Controls & Compliance | Controls evidences and attestation, IRM maintenance Agreed plan for SOx and FCF testing | SOx controls - Coordinate data and testing request, provide information, prepare process narrative and controls documentation, support walkthrough and control testing process, execute mitigating actions in accordance to the audit plan.FCF - prepare and support bi-annual testing process (as a control owner). Support as control tester (on voluntary basis) | Control attestation and evidence ready for FCF and SOx control audit | FCCGCompliance Middle OfficeEmbedded Finance External Auditors Management Auditors |  |  |  |  |\n",
+      "sourceFile": "R2R - Raw Data.md",
+      "purposeSummary": "Support **SOx and FCF control testing** with data, narratives, walkthroughs and mitigating actions so evidence is audit-ready.",
+      "cadenceSummary": "SOx testing follows the **agreed audit plan**; FCF testing is **bi-annual**.",
+      "flowNote": "The SOx and FCF activities run as parallel streams under the agreed testing plan rather than as a strict sequence."
+    },
+    {
+      "id": "25b7834175a1",
+      "title": "Statutory and tax audit support",
+      "group": "Reconciliations & controls",
+      "purpose": "The team supports the statutory and tax audits by attending the planning meeting, preparing the audit supporting documents and samples required by the external auditor or regulatory bodies, and supporting the process walkthroughs and understanding requested by the auditors. Inputs are the audit plan, the PBC listing, GSOP and process narratives, SAP, and any unstructured data preparation.\n\nThe outcome is that audit samples are provided and the walkthrough process is completed, for Middle Office Controlling and the external auditors.",
+      "cadence": "",
+      "stages": [
+        {
+          "title": "Attend the audit planning meeting",
+          "detail": "Attend planning meeting | Audit planPBC listing",
+          "owner": "",
+          "challenges": [],
+          "systems": [],
+          "displayTitle": "Attend the audit planning meeting",
+          "description": "Attend the audit planning meeting, using the audit plan and PBC listing as the starting inputs."
+        },
+        {
+          "title": "Prepare audit supporting documents and samples",
+          "detail": "Prepare audit supporting documents and samples required by the external auditor or regulatory bodies | GSOP and process narrativesSAP Any unstructured data preparation",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Prepare audit supporting documents and samples",
+          "description": "Prepare the audit supporting documents and samples required by the external auditor or regulatory bodies, drawing on GSOP and process narratives, SAP and any unstructured data preparation."
+        },
+        {
+          "title": "Support process walkthroughs",
+          "detail": "Support process walkthrough and understanding requested by auditors | Audit samples providedWalkthrough process completed | Middle Office ControllingExternal auditors",
+          "owner": "",
+          "challenges": [],
+          "systems": [],
+          "displayTitle": "Support process walkthroughs",
+          "description": "Support the process walkthroughs and understanding requested by the auditors. Audit samples are provided and the walkthrough process is completed for Middle Office Controlling and the external auditors."
+        }
+      ],
+      "challenges": [],
+      "improvements": [],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: R2R Ops E2E Process Summary(R2R E2E Summary ).csv\n\n- Path: `Tower Subprocesses/R2R/R2R Ops E2E Process Summary(R2R E2E Summary ).csv`\n- Format: CSV\n\n| Column 1 | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 | Column 7 | Column 8 | Column 9 |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Process Sub-Area | Input | Brief description of activity | Output | Customer | Pain points/ Areas for improvement | Areas digitalized/improved | TPI  2026 | AI opportunity (Global support) |\n| Audit support - Statutory & Tax | Audit planPBC listing GSOP and process narrativesSAP Any unstructured data preparation | Attend planning meetingPrepare audit supporting documents and samples required by the external auditor or regulatory bodiesSupport process walkthrough and understanding requested by auditors | Audit samples providedWalkthrough process completed | Middle Office ControllingExternal auditors |  |  |  |  |\n",
+      "sourceFile": "R2R - Raw Data.md",
+      "purposeSummary": "Provide **audit samples, documents and walkthroughs** for statutory and tax audits by external auditors and regulators.",
+      "cadenceSummary": "**Timing and frequency are not specified** in the supplied file."
+    }
+  ]
+}

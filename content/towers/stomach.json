@@ -1,0 +1,998 @@
+{
+  "name": "P2P",
+  "organ": "stomach",
+  "tagline": "Turning supplier invoices into matched, approved and settled payments with a controlled month-end close.",
+  "pickerTitle": "P2P Processes",
+  "pickerIntro": "Twelve accounts payable processes from goods receipt and invoice capture through matching, approval, payment and month-end control.",
+  "context": [
+    {
+      "label": "Solutions",
+      "text": "A Green Belt project (live Q4 2025) auto-maps Kofax data into Coupa and enables multi-bank selection; Xelix duplicate monitoring, a Taiwan non-VAT monitoring change and a tax process redesign with Global C&B are also documented."
+    },
+    {
+      "label": "Automation",
+      "text": "Kofax OCR captures invoices into Coupa, approved iPay down payments post automatically to SAP, and Coupa and iPay invoices post to SAP by interface. Reconciliation, follow-up and interface cut-off automation remain open CI items."
+    },
+    {
+      "label": "AI",
+      "text": "No deployed AI capability is documented in the current process inventory."
+    },
+    {
+      "label": "Cross-Functional Collaboration",
+      "text": "AP works with suppliers, requestors and business approvers on invoice data and approvals, with IT and OpsIT on interface errors, with TDT on withholding tax, and with C&B and Global C&B on bank execution and tax payments."
+    }
+  ],
+  "metrics": {
+    "solutions": 10,
+    "automated": 7,
+    "ai": 0
+  },
+  "collaborators": [
+    "lungs",
+    "spleen"
+  ],
+  "processes": [
+    {
+      "id": "3bd47190afcb",
+      "title": "Goods receipt and service confirmation",
+      "group": "Purchasing",
+      "purpose": "Record the physical or virtual receipt of direct materials and services against the purchase order, including quantity, batch and expiry details. The receipt is the evidence that goods or services have arrived as ordered.\n\nThe goods receipt enables three-way invoice matching in Coupa. If the receipt is late or does not reach Coupa, the supplier invoice cannot be matched and stalls in Pending Receipt status, so receipts must also be corrected when the SAP-to-Coupa integration fails.",
+      "cadence": "",
+      "purposeSummary": "Record **goods receipts and service confirmations** against purchase orders so invoices can be **three-way matched** in Coupa.",
+      "cadenceSummary": "**Timing and frequency are not specified** in the supplied file.",
+      "stages": [
+        {
+          "title": "Record the goods receipt against the PO",
+          "displayTitle": "Record the goods receipt against the PO",
+          "owner": "Business users / Requestors",
+          "detail": "Record physical or virtual receipt of direct materials and services against the PO",
+          "description": "Record the physical or virtual receipt of direct materials and services in SAP against the purchase order once the goods or services have been received.",
+          "systems": [
+            "SAP"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Capture quantity, batch and expiry details",
+          "displayTitle": "Capture quantity, batch and expiry details",
+          "owner": "Business users / Requestors",
+          "detail": "including quantity, batch and expiry details.",
+          "description": "Enter the quantity received together with batch and expiry details as part of the receipt, so that the record reflects exactly what was delivered.",
+          "systems": [
+            "SAP"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Make the receipt available for three-way matching",
+          "displayTitle": "Make the receipt available for three-way matching",
+          "owner": "Business users / Requestors",
+          "detail": "The receipt enables 3-way invoice matching",
+          "description": "The posted receipt flows to Coupa, where it enables three-way matching of the supplier invoice against the purchase order and the receipt.\n\nWhere the receipt is delayed, the invoice cannot be matched and remains in Pending Receipt status in Coupa until the receipt is recorded.",
+          "systems": [
+            "SAP",
+            "Coupa"
+          ],
+          "challenges": [
+            "Delay in goods receipt results in the invoice being stuck in Pending Receipt status during the invoice processing stage in Coupa."
+          ]
+        },
+        {
+          "title": "Correct receipts when the SAP-to-Coupa integration fails",
+          "displayTitle": "Correct receipts when the SAP-to-Coupa integration fails",
+          "owner": "Business users / Requestors",
+          "detail": "must be corrected when SAP-to-Coupa integration fails.",
+          "description": "When the SAP-to-Coupa integration fails, correct the receipt so that the matching record in Coupa is complete and the invoice can proceed.",
+          "systems": [
+            "SAP",
+            "Coupa"
+          ],
+          "challenges": []
+        }
+      ],
+      "challenges": [
+        "Delay in goods receipt results in the invoice being stuck in Pending Receipt status during the invoice processing stage in Coupa."
+      ],
+      "improvements": [],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: Spend to Payment E2E VSM Mapping.xlsx\n\n- Path: `Tower Subprocesses/P2P/Spend to Payment E2E VSM Mapping.xlsx`\n- Format: XLSX\n- Worksheets: 1\n\n### Worksheet: Simplified Activities\n\n| No. | Process Area (L4) | Consolidated Activity | Brief Description | Primary Owner(s) | Systems | Key Challenges / Dependencies | Improvements / CI / TPI |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| 1 | Direct Purchasing SAP Receive/ Return direct materials and services | Goods receipt and service confirmation | Record physical or virtual receipt of direct materials and services against the PO, including quantity, batch and expiry details. The receipt enables 3-way invoice matching and must be corrected when SAP-to-Coupa integration fails. | Business users / Requestors | SAP, Coupa | Delay in GR resulted in invoice stucked in Pending Receipt status during invoice processing stage in Coupa |  |",
+      "sourceFile": "P2P - Raw Data.md"
+    },
+    {
+      "id": "8ebbef2d6a16",
+      "title": "Invoice receipt and scanning",
+      "group": "Invoice processing",
+      "purpose": "Receive supplier invoices and credit notes through the approved electronic and non-electronic channels (Coupa, Coupa Forms and iPay), bring scanned documents into the processing systems, and verify that the captured data is complete and accurate before invoices move into matching and approval.\n\nThe process covers scanning, Kofax OCR verification, reconciliation of items transferred to Coupa or iPay, and the investigation of missing or duplicate submissions. It also includes the submission of invoices, credit notes and payment requests in iPay for China.",
+      "cadence": "",
+      "purposeSummary": "Receive **invoices and credit notes**, verify **Kofax OCR** capture and reconcile what reaches Coupa or iPay.",
+      "cadenceSummary": "**Timing and frequency are not specified** in the supplied file.",
+      "stages": [
+        {
+          "title": "Receive invoices and credit notes through approved channels",
+          "displayTitle": "Receive invoices and credit notes through approved channels",
+          "owner": "Suppliers; Requestors",
+          "detail": "Receive invoices and credit notes through approved electronic/ non electronic portal (i.e. Coupa, Coupa Forms, iPay) ... Invoice/Credit Note & Payment Request Submission in iPay",
+          "description": "Suppliers and requestors submit invoices and credit notes through the approved electronic or non-electronic channels: Coupa, Coupa Forms or iPay. For China, invoices, credit notes and payment requests are submitted in iPay.",
+          "systems": [
+            "Coupa",
+            "iPay"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Upload and scan documents for capture",
+          "displayTitle": "Upload and scan documents for capture",
+          "owner": "Scanning team",
+          "detail": "upload to sharefilder (for China to iPay) and email (CIR integrates to Kofax). Validate file quality",
+          "description": "Upload documents to the share folder (for China, feeding iPay) or send them by email to the CIR mailbox, which integrates with Kofax for capture. Validate the quality of the files before they are processed.",
+          "systems": [
+            "SharePoint",
+            "Email",
+            "Kofax",
+            "iPay"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Verify Kofax OCR output",
+          "displayTitle": "Verify Kofax OCR output",
+          "owner": "AP",
+          "detail": "Kofax verification; OCR verification",
+          "description": "Check the data captured by Kofax OCR against the invoice image and correct any misreads. Because OCR accuracy depends on the quality of the document, this verification is performed manually by AP.",
+          "systems": [
+            "Kofax"
+          ],
+          "challenges": [
+            "Kofax OCR accuracy depends on document quality and requires manual AP verification."
+          ]
+        },
+        {
+          "title": "Reconcile items transferred to Coupa or iPay",
+          "displayTitle": "Reconcile items transferred to Coupa or iPay",
+          "owner": "AP; IT",
+          "detail": "Scanning Reconciliation; reconcile items transferred to Coupa or iPay",
+          "description": "Reconcile the documents scanned and captured against the items that arrived in Coupa or iPay, confirming that every submission has been transferred.\n\nIntegration errors between Kofax or iPay and Coupa are identified through this reconciliation and followed up as exceptions, with IT support where needed.",
+          "systems": [
+            "Coupa",
+            "iPay",
+            "Kofax"
+          ],
+          "challenges": [
+            "Invoice integration errors from Kofax/iPay to Coupa require reconciliation and exception follow-up."
+          ]
+        },
+        {
+          "title": "Investigate missing, duplicate or incomplete submissions",
+          "displayTitle": "Investigate missing, duplicate or incomplete submissions",
+          "owner": "AP",
+          "detail": "investigate missing or duplicate submissions. Invoices/CNs with insufficient information are placed on hold and require manual follow-up.",
+          "description": "Investigate submissions that are missing from the target system or appear more than once. Invoices and credit notes that arrive with insufficient information are placed on hold and followed up manually with the supplier or requestor.",
+          "systems": [
+            "Coupa",
+            "iPay"
+          ],
+          "challenges": [
+            "Invoices and credit notes with insufficient information are placed on hold and require manual follow-up."
+          ]
+        }
+      ],
+      "challenges": [
+        "Kofax OCR accuracy depends on document quality and requires manual AP verification.",
+        "Invoices and credit notes with insufficient information are placed on hold and require manual follow-up.",
+        "Invoice integration errors from Kofax/iPay to Coupa require reconciliation and exception follow-up."
+      ],
+      "improvements": [
+        "CI: Automate the Kofax/iPay to Coupa reconciliation."
+      ],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: Spend to Payment E2E VSM Mapping.xlsx\n\n- Path: `Tower Subprocesses/P2P/Spend to Payment E2E VSM Mapping.xlsx`\n- Format: XLSX\n- Worksheets: 1\n\n### Worksheet: Simplified Activities\n\n| No. | Process Area (L4) | Consolidated Activity | Brief Description | Primary Owner(s) | Systems | Key Challenges / Dependencies | Improvements / CI / TPI |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| 2 | Receive invoice and Credit Note | Invoice Receiption & Scanning; Scanning Reconciliation; Kofax verification; Invoice/Credit Note & Payment Request Submission in iPay | Receive invoices and credit notes through approved electronic/ non electronic portal (i.e. Coupa, Coupa Forms, iPay), upload to sharefilder (for China to iPay) and email (CIR integrates to Kofax). Validate file quality, OCR verification, reconcile items transferred to Coupa or iPay, and investigate missing or duplicate submissions. | Suppliers; Requestors; Scanning team; AP; IT | Coupa, Kofax, iPay, SharePoint, CIR mailbox | 1) Kofax OCR accuracy depends on document quality and requires manual AP verification. 2) Invoices/CNs with insufficient information are placed on hold and require manual follow-up. 3) Invoice integration errors from Kofax/iPay to Coupa require reconciliation and exception follow-up. | CI - Kofax/ ipay to Coupa reconciliation automation |",
+      "sourceFile": "P2P - Raw Data.md"
+    },
+    {
+      "id": "a9e82179066c",
+      "title": "China iPay invoice verification",
+      "group": "Invoice processing",
+      "purpose": "Verify invoices and credit notes submitted in iPay for China before they are routed to Coupa. AP reviews the OCR alerts and mandatory invoice data, confirms whether the request is PO-backed or non-PO, and validates tax, accounting details and supporting documents.\n\nThe process covers the four iPay verification types: PO invoices, non-PO invoices, down payments and non-PO actual-invoice receipts. Approved invoices are routed to Coupa, while approved down payments post automatically to SAP.",
+      "cadence": "",
+      "purposeSummary": "Verify **China iPay invoices** (PO, non-PO, down payment, actual-invoice receipt) and route approved items to **Coupa or SAP**.",
+      "cadenceSummary": "**Timing and frequency are not specified** in the supplied file.",
+      "stages": [
+        {
+          "title": "Review OCR alerts and mandatory invoice data",
+          "displayTitle": "Review OCR alerts and mandatory invoice data",
+          "owner": "AP",
+          "detail": "Review OCR alerts and mandatory invoice data",
+          "description": "Open the iPay request and review the OCR alerts raised on the captured invoice, checking that the mandatory invoice data has been read correctly and completing or correcting it where necessary.",
+          "systems": [
+            "iPay"
+          ],
+          "challenges": [
+            "OCR accuracy in iPay is still under review."
+          ]
+        },
+        {
+          "title": "Validate PO or non-PO classification",
+          "displayTitle": "Validate PO or non-PO classification",
+          "owner": "AP; Requestors",
+          "detail": "validate PO or non-PO classification ... This includes China iPay processing for PO, non-PO, and PO backed actual-invoice requests.",
+          "description": "Confirm whether the request is a PO invoice, a non-PO invoice, a down payment or a PO-backed actual-invoice receipt, so that it follows the correct iPay verification path.",
+          "systems": [
+            "iPay"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Check tax, accounting details and supporting documents",
+          "displayTitle": "Check tax, accounting details and supporting documents",
+          "owner": "AP",
+          "detail": "validate ... tax, multiple accounting details  and supporting documents",
+          "description": "Validate the tax treatment, the accounting details (including invoices with multiple accounting assignments) and the supporting documents attached to the request.",
+          "systems": [
+            "iPay"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Route approved invoices to Coupa",
+          "displayTitle": "Route approved invoices to Coupa",
+          "owner": "AP",
+          "detail": "then route approved items to Coupa. Non-PO invoices (non-contribution) will be exported from iPay to Coupa.",
+          "description": "Route verified PO and non-PO invoices from iPay to Coupa for matching, approval and export to SAP.\n\nBecause Coupa limits split billing uploads to a recommended maximum of 100 lines per invoice, non-PO (non-contribution) invoices with many lines are posted to SAP under a single set of accounting details and reclassified monthly through BL journal entries.",
+          "systems": [
+            "iPay",
+            "Coupa",
+            "SAP"
+          ],
+          "challenges": [
+            "Non-PO (non-contribution) invoices are exported from iPay to Coupa, but Coupa has a limitation on split billing uploads and recommends a maximum of 100 lines per invoice to protect system performance. As a result, AP has to post these invoices into SAP under a single set of accounting details and perform monthly reclassification through BL journal entries."
+          ]
+        },
+        {
+          "title": "Post approved down payments automatically to SAP",
+          "displayTitle": "Post approved down payments automatically to SAP",
+          "owner": "System",
+          "detail": "Downpayment will be posted automatically to SAP once approved in iPay",
+          "description": "Once a down payment is approved in iPay, it is posted automatically to SAP without further AP touch.",
+          "systems": [
+            "iPay",
+            "SAP"
+          ],
+          "challenges": []
+        }
+      ],
+      "challenges": [
+        "OCR accuracy in iPay is still under review.",
+        "Non-PO (non-contribution) invoices are exported from iPay to Coupa, but Coupa has a limitation on split billing uploads and recommends a maximum of 100 lines per invoice to protect system performance. As a result, AP has to post these invoices into SAP under a single set of accounting details and perform monthly reclassification through BL journal entries."
+      ],
+      "improvements": [
+        "CI: Ongoing review and enhancement of iPay OCR accuracy."
+      ],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: Spend to Payment E2E VSM Mapping.xlsx\n\n- Path: `Tower Subprocesses/P2P/Spend to Payment E2E VSM Mapping.xlsx`\n- Format: XLSX\n- Worksheets: 1\n\n### Worksheet: Simplified Activities\n\n| No. | Process Area (L4) | Consolidated Activity | Brief Description | Primary Owner(s) | Systems | Key Challenges / Dependencies | Improvements / CI / TPI |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| 3 | Invoice/ Credit Note Processing - China | iPay Verification - PO invoices; iPay Verification - Non-PO invoices; iPay Verification - Downpayment; iPay Verification - Non-PO Actual Invoice Receipt | Review OCR alerts and mandatory invoice data, validate PO or non-PO classification, tax, multiple accounting details  and supporting documents, then route approved items to Coupa. This includes China iPay processing for PO, non-PO, and PO backed actual-invoice requests. Downpayment will be posted automatically to SAP once approved in iPay | AP; Requestors | iPay, Coupa, SAP | 1. Still reviewing OCR accuracy in iPay 2. Non-PO invoices (non-contribution) will be exported from iPay to Coupa. However, Coupa has a limitation on split billing uploads and recommends a maximum of 100 lines per invoice to ensure system performance. As a result, AP is required to post these invoices into SAP under a single set of accounting details and performing monthly reclassification through BL journal entries. | Ongoing review and enhancement on iPay OCR accuracy |",
+      "sourceFile": "P2P - Raw Data.md"
+    },
+    {
+      "id": "476609b9c927",
+      "title": "Coupa invoice matching and holds",
+      "group": "Invoice processing",
+      "purpose": "Match invoices in Coupa against the purchase order (two-way) or the purchase order and goods receipt (three-way), and work the invoices that fall into Draft, AP Hold, On Hold, Pending Action, Pending Receipt or Booking Hold status.\n\nClearing these statuses involves completing missing fields, applying split accounting and WHT or tax codes, selecting remit-to details, and obtaining the goods receipt or approvals that are outstanding, so that valid invoices can be released into the approval flow.",
+      "cadence": "AP sends a weekly reminder to follow up on pending split-accounting action items. No other timing is stated.",
+      "purposeSummary": "Perform **two-way or three-way matching** in Coupa and clear **Draft, hold and pending statuses** so valid invoices can be released.",
+      "cadenceSummary": "**Weekly reminders** are sent for pending split-accounting actions; other timing and frequency are not specified in the supplied file.",
+      "stages": [
+        {
+          "title": "Perform two-way or three-way matching",
+          "displayTitle": "Perform two-way or three-way matching",
+          "owner": "AP",
+          "detail": "Perform 2-way or 3-way matching",
+          "description": "Match each invoice in Coupa against the purchase order (two-way) or against the purchase order and the goods receipt (three-way).\n\nWhere the match falls outside tolerance, the invoice is not routed to the user's queue, so AP follows up manually with the user to resolve the difference.",
+          "systems": [
+            "Coupa"
+          ],
+          "challenges": [
+            "Review tolerance issue: in most cases this requires manual follow-up with the user, as the invoice is not routed to the user's queue."
+          ]
+        },
+        {
+          "title": "Complete Draft invoices with mandatory information",
+          "displayTitle": "Complete Draft invoices with mandatory information",
+          "owner": "AP",
+          "detail": "Coupa - Draft Status; Complete missing fields. All Non PO invoices submitted through Kofax will be landed into Coupa draft status for AP team to input mandatory information.",
+          "description": "Work the Coupa Draft queue. Non-PO invoices captured through Kofax land in Draft status, and AP inputs the mandatory information that is missing before the invoice can progress.",
+          "systems": [
+            "Coupa",
+            "Kofax"
+          ],
+          "challenges": [
+            "All non-PO invoices submitted through Kofax land in Coupa Draft status for the AP team to input mandatory information."
+          ]
+        },
+        {
+          "title": "Resolve AP Hold and On Hold items",
+          "displayTitle": "Resolve AP Hold and On Hold items",
+          "owner": "AP",
+          "detail": "Coupa - AP Hold Status; Coupa - On Hold Status; WHT/ tax codes, select remit-to details",
+          "description": "Review invoices in AP Hold and On Hold status. Complete the missing fields, apply the correct WHT or tax codes and select the remit-to details so that the hold can be lifted.",
+          "systems": [
+            "Coupa"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Clear Pending Action items with requestors",
+          "displayTitle": "Clear Pending Action items with requestors",
+          "owner": "AP; Requestors",
+          "detail": "Pending Action; split accounting. Split Accounting:: AP will monitor the comments, upload the split accounting template on behalf of the requester, and send weekly reminder to follow up on any pending action items.",
+          "description": "Follow up invoices in Pending Action status with the requestor. Where split accounting is needed, AP monitors the invoice comments, uploads the split accounting template on behalf of the requester and sends a weekly reminder until the pending action is completed.",
+          "systems": [
+            "Coupa"
+          ],
+          "challenges": [
+            "Split accounting: AP monitors the comments, uploads the split accounting template on behalf of the requester, and sends a weekly reminder to follow up on any pending action items."
+          ]
+        },
+        {
+          "title": "Clear Pending Receipt and Booking Hold items",
+          "displayTitle": "Clear Pending Receipt and Booking Hold items",
+          "owner": "Requestors; Business approvers",
+          "detail": "Pending Receipt; Booking Hold; obtain goods receipt or approvals",
+          "description": "For invoices in Pending Receipt status, obtain the outstanding goods receipt from the requestor. For invoices in Booking Hold, obtain the approvals required from the business approvers.",
+          "systems": [
+            "Coupa"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Release valid invoices",
+          "displayTitle": "Release valid invoices",
+          "owner": "AP",
+          "detail": "and release valid invoices.",
+          "description": "Once the invoice is matched and all holds are cleared, release the valid invoice so that it proceeds to approval and export.",
+          "systems": [
+            "Coupa"
+          ],
+          "challenges": []
+        }
+      ],
+      "challenges": [
+        "All non-PO invoices submitted through Kofax land in Coupa Draft status for the AP team to input mandatory information.",
+        "Review tolerance issue: in most cases this requires manual follow-up with the user, as the invoice is not routed to the user's queue.",
+        "Split accounting: AP monitors the comments, uploads the split accounting template on behalf of the requester, and sends a weekly reminder to follow up on any pending action items."
+      ],
+      "improvements": [
+        "Documented improvements: Green Belt Project went live in Q4 2025, releasing invoice processing efficiency of 1 FTE. It auto-maps mandatory information (ship-to address, types and category) from Kofax to Coupa to reduce touch in Coupa Draft status, and enables multi-bank selection in Kofax to reduce manual touch in Coupa.",
+        "CI: Global non-PO processing initiative to bypass Draft status."
+      ],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: Spend to Payment E2E VSM Mapping.xlsx\n\n- Path: `Tower Subprocesses/P2P/Spend to Payment E2E VSM Mapping.xlsx`\n- Format: XLSX\n- Worksheets: 1\n\n### Worksheet: Simplified Activities\n\n| No. | Process Area (L4) | Consolidated Activity | Brief Description | Primary Owner(s) | Systems | Key Challenges / Dependencies | Improvements / CI / TPI |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| 4 | Invoice/ Credit Note Processing | Coupa - Invoice Matching; Coupa - Draft Status; Coupa - AP Hold Status; Coupa - On Hold Status; Pending Action; Pending Receipt; Booking Hold | Perform 2-way or 3-way matching and resolve Draft, AP Hold, On Hold, Pending Action, Pending Receipt and Booking Hold items. Complete missing fields, split accounting, WHT/ tax codes, select remit-to details, obtain goods receipt or approvals,and release valid invoices. | AP; Requestors; Business approvers | Coupa, | 1. All Non PO invoices submitted through Kofax will be landed into Coupa draft status for AP teem to input mandatory information. 2. Review tolerance issue: In most cases, this requires manual follow-up with the user, as the invoice is not routed to the user's queue. 3. Split Accounting:: AP will monitor the comments, upload the split accounting template on behalf of the requester, and send weekly reminder to follow up on any pending action items. | 1. Green Belt Project went live in Q4 2025 release invoice processing efficiency of 1 FTE: Auto mapping of mandatory information (ship to address; types and category from Kofax to Coupa) to reduce touch in Coupa draft status. Enable multi-bank selection in Kofax to reduce manual touch in Coupa. 2. Global Non PO processing inititives to bypass Draft status. |",
+      "sourceFile": "P2P - Raw Data.md"
+    },
+    {
+      "id": "e13dd5ad13e6",
+      "title": "Invoice approval and queue management",
+      "group": "Invoice processing",
+      "purpose": "Manage the Coupa invoice queues and their allocation, and take each invoice or credit note through the sequential approvals required under the applicable financial and procurement authority.\n\nTax treatment, including withholding tax, is reviewed where required before approval. Fully approved invoices are exported to SAP so that they are ready for payment.",
+      "cadence": "",
+      "purposeSummary": "Manage **invoice queues**, obtain **sequential approvals** under financial and procurement authority, and export approved invoices to **SAP**.",
+      "cadenceSummary": "**Timing and frequency are not specified** in the supplied file.",
+      "stages": [
+        {
+          "title": "Manage invoice queues and allocation",
+          "displayTitle": "Manage invoice queues and allocation",
+          "owner": "AP",
+          "detail": "Queue Management; Manage invoice queues and allocation",
+          "description": "Monitor the invoice queues in Coupa and allocate invoices and credit notes to processors so that the work is distributed and nothing is left unattended.",
+          "systems": [
+            "Coupa"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Review tax treatment where required",
+          "displayTitle": "Review tax treatment where required",
+          "owner": "AP",
+          "detail": "review tax where required",
+          "description": "Review the tax treatment of the invoice where required. Withholding tax can need manual effort: the processor may have to check with the user for clarification before deciding the appropriate treatment, and in some cases verify the position with TDT.",
+          "systems": [
+            "Coupa"
+          ],
+          "challenges": [
+            "WHT may require manual effort, as the processor may need to check with the user for further clarification before deciding the appropriate treatment. In some cases, verification with TDT may also be required."
+          ]
+        },
+        {
+          "title": "Obtain sequential approvals",
+          "displayTitle": "Obtain sequential approvals",
+          "owner": "Business approvers",
+          "detail": "obtain sequential approvals under the applicable financial and procurement authority",
+          "description": "Route the invoice or credit note for sequential approval under the applicable financial and procurement authority, following up until every required approver has acted.",
+          "systems": [
+            "Coupa"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Approve or reject the invoice or credit note",
+          "displayTitle": "Approve or reject the invoice or credit note",
+          "owner": "Business approvers",
+          "detail": "Approve and Reject Invoice/Credit Note",
+          "description": "Each approver reviews the invoice or credit note and either approves it or rejects it back for correction.",
+          "systems": [
+            "Coupa"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Export approved invoices to SAP",
+          "displayTitle": "Export approved invoices to SAP",
+          "owner": "AP",
+          "detail": "export fully approved invoices to SAP for payment readiness.",
+          "description": "Export fully approved invoices from Coupa to SAP so that they are posted and ready for the payment run.",
+          "systems": [
+            "Coupa",
+            "SAP"
+          ],
+          "challenges": []
+        }
+      ],
+      "challenges": [
+        "WHT may require manual effort, as the processor may need to check with the user for further clarification before deciding the appropriate treatment. In some cases, verification with TDT may also be required."
+      ],
+      "improvements": [],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: Spend to Payment E2E VSM Mapping.xlsx\n\n- Path: `Tower Subprocesses/P2P/Spend to Payment E2E VSM Mapping.xlsx`\n- Format: XLSX\n- Worksheets: 1\n\n### Worksheet: Simplified Activities\n\n| No. | Process Area (L4) | Consolidated Activity | Brief Description | Primary Owner(s) | Systems | Key Challenges / Dependencies | Improvements / CI / TPI |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| 5 | Invoice/ Credit Note Processing | Approve and Reject Invoice/Credit Note; Queue Management | Manage invoice queues and allocation, obtain sequential approvals under the applicable financial and procurement authority, review tax where required, and export fully approved invoices to SAP for payment readiness. | AP; Business approvers | Coupa, SAP | WHT may require manual effort, as the processor may need to check with the user for further clarification before deciding the appropriate treatment. In some cases, verification with TDT may also be required. |  |",
+      "sourceFile": "P2P - Raw Data.md"
+    },
+    {
+      "id": "17f1b570647f",
+      "title": "Invoice exception handling",
+      "group": "Invoice processing",
+      "purpose": "Handle invoices that cannot follow the standard electronic path. Invoices are corrected before approval, or handled with linked credit notes and corrected copies after approval. Invalid invoices are disputed from any eligible status and the resolution is coordinated with the supplier or requestor. Manual invoice creation is used only when standard electronic processing is unavailable.\n\nThe Actual Invoice Receipt (AIR) process covers Korea, where a manual adjustment is required when the actual invoice is issued with or without tax. The user attaches the actual invoice in the Coupa comment section and AP reviews and processes it.",
+      "cadence": "",
+      "purposeSummary": "Correct, dispute or manually create **exception invoices** and process **actual invoice receipt (AIR)** adjustments.",
+      "cadenceSummary": "**Timing and frequency are not specified** in the supplied file.",
+      "stages": [
+        {
+          "title": "Correct invoices before approval",
+          "displayTitle": "Correct invoices before approval",
+          "owner": "AP",
+          "detail": "Correct invoices before approval",
+          "description": "Where an error is found on an invoice that has not yet been approved, correct the invoice directly in Coupa so that it can continue through matching and approval.",
+          "systems": [
+            "Coupa"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Correct approved invoices via credit notes",
+          "displayTitle": "Correct approved invoices via credit notes",
+          "owner": "AP; Suppliers",
+          "detail": "Correcting Approved Invoices; use linked credit notes and corrected copies after approval.",
+          "description": "Once an invoice has been approved it is not edited. Instead, a linked credit note from the supplier and a corrected copy of the invoice are processed to put the correct values in place.",
+          "systems": [
+            "Coupa"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Dispute invalid invoices and coordinate resolution",
+          "displayTitle": "Dispute invalid invoices and coordinate resolution",
+          "owner": "AP; Suppliers; Requestors",
+          "detail": "Dispute Invoice; Invoice Discrepancy & Resolution Follow Up; Dispute invalid invoices from any eligible status, coordinate supplier or requestor resolution",
+          "description": "Dispute an invalid invoice from any eligible Coupa status and follow up the discrepancy with the supplier or the requestor until it is resolved.",
+          "systems": [
+            "Coupa"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Create manual invoices as an exception",
+          "displayTitle": "Create manual invoices as an exception",
+          "owner": "AP",
+          "detail": "Creating Manual Invoices; handle exceptional manual creation only when standard electronic processing is unavailable.",
+          "description": "As an exception, create the invoice manually only when standard electronic processing is not available.",
+          "systems": [
+            "Coupa"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Process actual invoice receipt (AIR) adjustments",
+          "displayTitle": "Process actual invoice receipt (AIR) adjustments",
+          "owner": "AP; Requestors",
+          "detail": "AIR process - Manual adjustment is required when actual invoice issued with tax/without tax (KR).  User will attach in Coupa comment section, AP will then review and process.",
+          "description": "For Korea, a manual adjustment is required when the actual invoice is issued with or without tax. The user attaches the actual invoice in the Coupa comment section, and AP reviews the attachment, processes the adjustment and updates the invoice number in both Coupa and SAP.\n\nAfter the adjustment, AP monitors the transaction and performs the required clearing to avoid double payment or duplicate posting.",
+          "systems": [
+            "Coupa",
+            "SAP"
+          ],
+          "challenges": [
+            "AIR process: manual adjustments create a risk of double payment or duplicate posting if AP does not effectively monitor the transaction and perform the required clearing after the adjustment. In addition, reviewing invoices that have no VAT impact is a non-value-added activity for AP, since the purpose is only to update the invoice number in both Coupa and SAP."
+          ]
+        }
+      ],
+      "challenges": [
+        "AIR process: manual adjustments create a risk of double payment or duplicate posting if AP does not effectively monitor the transaction and perform the required clearing after the adjustment. In addition, reviewing invoices that have no VAT impact is a non-value-added activity for AP, since the purpose is only to update the invoice number in both Coupa and SAP."
+      ],
+      "improvements": [
+        "Documented improvements: For Taiwan, effective July, AP has aligned with users to stop monitoring actual invoices that have no VAT impact. Comments will be standardised to distinguish VAT from non-VAT invoices, and non-VAT invoices will be excluded from the monitoring report, with estimated time savings of 100 hours annually. This approach cannot be applied in Korea and Vietnam because local VAT reporting requires the invoice number to be updated for reconciliation."
+      ],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: Spend to Payment E2E VSM Mapping.xlsx\n\n- Path: `Tower Subprocesses/P2P/Spend to Payment E2E VSM Mapping.xlsx`\n- Format: XLSX\n- Worksheets: 1\n\n### Worksheet: Simplified Activities\n\n| No. | Process Area (L4) | Consolidated Activity | Brief Description | Primary Owner(s) | Systems | Key Challenges / Dependencies | Improvements / CI / TPI |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| 6 | Invoice/Credit Note Exception Handling | Creating Manual Invoices; Correcting Approved Invoices; Dispute Invoice; Invoice Discrepancy & Resolution Follow Up; Actual Invoice Receive (AIR) Process | Correct invoices before approval or use linked credit notes and corrected copies after approval. Dispute invalid invoices from any eligible status, coordinate supplier or requestor resolution, and handle exceptional manual creation only when standard electronic processing is unavailable. AIR process - Manual adjustment is required when actual invoice issued with tax/without tax (KR).  User will attach in Coupa comment section, AP will then review and process. | AP; Suppliers; Requestors | Coupa, SAP | AIR Process - Manual adjustments create a risk of double payment or duplicate posting if AP does not effectively monitor the transaction and perform the required clearing after the adjustment. In addition, reviewing invoices that have no VAT impact is a non-value-added activity for AP, since the purpose is only to update the invoice number in both systems, Coupa and SAP. | For Taiwan, effective July, we have aligned with users to stop monitoring actual invoices that have no VAT impact. Comments will be standardized to distinguish between VAT and non-VAT invoices, and non-VAT invoices will be excluded from the monitoring report. Estimated time savings of 100 hours annually However, this approach cannot be applied in Korea and Vietnam due to local VAT reporting requirements, as the invoice number must still be updated for reconciliation purposes. |",
+      "sourceFile": "P2P - Raw Data.md"
+    },
+    {
+      "id": "9a2fca48463a",
+      "title": "SAP posting and interface exceptions",
+      "group": "Invoice processing",
+      "purpose": "Monitor the automated posting of approved invoices from iPay, Coupa and other approved source systems into SAP, and manage the exceptions when a posting or interface fails.\n\nErrors are resolved by resetting and re-exporting the invoice where appropriate, or by raising an IT ticket. When the automation cannot be restored, the invoice is posted manually in SAP under control and the SAP document references are updated in the source system.",
+      "cadence": "",
+      "purposeSummary": "Monitor **automated posting to SAP** from iPay and Coupa and resolve **interface errors** by re-export, IT ticket or controlled manual posting.",
+      "cadenceSummary": "**Timing and frequency are not specified** in the supplied file.",
+      "stages": [
+        {
+          "title": "Monitor automated posting to SAP",
+          "displayTitle": "Monitor automated posting to SAP",
+          "owner": "AP; System",
+          "detail": "Monitor automated posting from iPay/Coupa and other approved source systems to SAP.",
+          "description": "Monitor the interfaces that post approved invoices from iPay, Coupa and other approved source systems into SAP, and identify any documents that have failed to post.",
+          "systems": [
+            "iPay",
+            "Coupa",
+            "SAP"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Reset and re-export failed documents",
+          "displayTitle": "Reset and re-export failed documents",
+          "owner": "AP",
+          "detail": "Resolve posting or interface errors, reset and re-export where appropriate",
+          "description": "Investigate the posting or interface error. Where the cause can be corrected in the source system, reset the document and re-export it to SAP.",
+          "systems": [
+            "Coupa",
+            "iPay",
+            "SAP"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Raise IT tickets for unresolved errors",
+          "displayTitle": "Raise IT tickets for unresolved errors",
+          "owner": "IT support",
+          "detail": "raise IT tickets",
+          "description": "Where the error cannot be resolved by AP, raise a ticket in ServiceNow so that IT support can investigate and fix the interface issue.",
+          "systems": [
+            "ServiceNow"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Post manually in SAP and update document references",
+          "displayTitle": "Post manually in SAP and update document references",
+          "owner": "AP; IT support",
+          "detail": "perform controlled manual posting with SAP document updates when automation cannot be restored. ... the exported flag must be manually updated by the AP team, while the SAP document number requires updating by OpsIT.",
+          "description": "When the automation cannot be restored and a Coupa correction is not feasible, post the invoice manually in SAP under control.\n\nAP then updates the exported flag manually in the source system, and OpsIT updates the SAP document number. The document number must be updated promptly, because any delay can result in duplicate accruals.",
+          "systems": [
+            "SAP",
+            "Coupa"
+          ],
+          "challenges": [
+            "Integration failures require manual intervention, with certain issues requiring support from IT. Where Coupa corrections are not feasible, invoices may need to be posted manually in SAP. In addition, the exported flag must be manually updated by the AP team, while the SAP document number requires updating by OpsIT. Any delay in updating the SAP document number may result in duplicate accruals."
+          ],
+          "challengeScope": "Process-wide challenge; the source does not assign it to an individual step."
+        }
+      ],
+      "challenges": [
+        "Integration failures require manual intervention, with certain issues requiring support from IT. Where Coupa corrections are not feasible, invoices may need to be posted manually in SAP. In addition, the exported flag must be manually updated by the AP team, while the SAP document number requires updating by OpsIT. Any delay in updating the SAP document number may result in duplicate accruals."
+      ],
+      "improvements": [],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: Spend to Payment E2E VSM Mapping.xlsx\n\n- Path: `Tower Subprocesses/P2P/Spend to Payment E2E VSM Mapping.xlsx`\n- Format: XLSX\n- Worksheets: 1\n\n### Worksheet: Simplified Activities\n\n| No. | Process Area (L4) | Consolidated Activity | Brief Description | Primary Owner(s) | Systems | Key Challenges / Dependencies | Improvements / CI / TPI |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| 7 | Invoice/Credit Note Exception Handling / SAP Invoice Management | SAP posting and interface exception management | Monitor automated posting from iPay/Coupa and other approved source systems to SAP. Resolve posting or interface errors, reset and re-export where appropriate, raise IT tickets, or perform controlled manual posting with SAP document updates when automation cannot be restored. | AP; IT support; System | Coupa, iPay, SAP, ServiceNow, source interfaces | Integration failures require manual intervention, with certain issues requiring support from IT. Where Coupa corrections are not feasible, invoices may need to be posted manually in SAP. In addition, the exported flag must be manually updated by the AP team, while the SAP document number requires updating by OpsIT. Any delay in updating the SAP document number may result in duplicate accruals. |  |",
+      "sourceFile": "P2P - Raw Data.md"
+    },
+    {
+      "id": "3b85b928f313",
+      "title": "Down-payment and non-invoice payments",
+      "group": "Payments",
+      "purpose": "Process down payments, pre-payments and non-invoice payment requests raised in Coupa. Down and pre-payments require additional approvals in Coupa based on the payment value, in line with the P2P Downpayment Approver Matrix, and are then posted manually in SAP.\n\nNon-invoice payments are requested through the Coupa payment form, with the split account template used where the payment needs to be assigned to multiple cost objects.",
+      "cadence": "",
+      "purposeSummary": "Approve **down payments and non-invoice payment requests** in Coupa under the **Downpayment Approver Matrix** and post them manually in SAP.",
+      "cadenceSummary": "**Timing and frequency are not specified** in the supplied file.",
+      "stages": [
+        {
+          "title": "Submit the payment request in Coupa",
+          "displayTitle": "Submit the payment request in Coupa",
+          "owner": "Requestors",
+          "detail": "Non Invoice payment form request via Coupa. Split account template used if multiple cost assignments needed.",
+          "description": "The requestor raises the down payment, pre-payment or non-invoice payment request in Coupa using the payment form. Where the amount needs to be assigned to multiple cost objects, the split account template is attached.",
+          "systems": [
+            "Coupa"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Review the value against the Downpayment Approver Matrix",
+          "displayTitle": "Review the value against the Downpayment Approver Matrix",
+          "owner": "AP",
+          "detail": "Down/ pre-payment requires additional approvals in Coupa based on the payment value aligned with P2P Downpayment Approver Matrix. The processor must review the amount and determine whether additional approval is required in accordance with the DP matrix.",
+          "description": "The AP processor reviews the payment value and determines, in accordance with the P2P Downpayment Approver Matrix, whether additional approval is required beyond the standard Coupa approval chain.",
+          "systems": [
+            "Coupa"
+          ],
+          "challenges": [
+            "Pre/down payment: the processor must review the amount and determine whether additional approval is required in accordance with the DP matrix. If additional approval is needed, the approver must be added manually, and the posting can only proceed once all required approvals have been obtained."
+          ]
+        },
+        {
+          "title": "Add approvers and obtain the required approvals",
+          "displayTitle": "Add approvers and obtain the required approvals",
+          "owner": "AP; Line manager; Finance / DoA approvers",
+          "detail": "If additional approval is needed, the approver must be added manually, and the posting can only proceed once all required approvals have been obtained.",
+          "description": "If additional approval is needed, AP adds the approver to the Coupa request manually. The line manager and the Finance or DoA approvers then approve the request. Posting cannot proceed until all required approvals have been obtained.",
+          "systems": [
+            "Coupa"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Post the down payment manually in SAP",
+          "displayTitle": "Post the down payment manually in SAP",
+          "owner": "AP",
+          "detail": "and manually post them in SAP.",
+          "description": "Once fully approved, AP posts the down payment or pre-payment manually in SAP so that it can be included in the payment run.",
+          "systems": [
+            "SAP"
+          ],
+          "challenges": []
+        }
+      ],
+      "challenges": [
+        "Pre/down payment: the processor must review the amount and determine whether additional approval is required in accordance with the DP matrix. If additional approval is needed, the approver must be added manually, and the posting can only proceed once all required approvals have been obtained."
+      ],
+      "improvements": [],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: Spend to Payment E2E VSM Mapping.xlsx\n\n- Path: `Tower Subprocesses/P2P/Spend to Payment E2E VSM Mapping.xlsx`\n- Format: XLSX\n- Worksheets: 1\n\n### Worksheet: Simplified Activities\n\n| No. | Process Area (L4) | Consolidated Activity | Brief Description | Primary Owner(s) | Systems | Key Challenges / Dependencies | Improvements / CI / TPI |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| 8 | Exception Payments / SAP Invoice Management | Down-payment and non-invoice payment processing | Down/ pre-payment requires additional approvals in Coupa based on the payment value aligned with P2P Downpayment Approver Matrix and manually post them in SAP. Non Invoice payment form request via Coupa. Split account template used if multiple cost assignments needed. | Requestors; AP; Line manager; Finance / DoA approvers | Coupa, SAP | Pre/ Downpayment - The processor must review the amount and determine whether additional approval is required in accordance with the DP matrix. If additional approval is needed, the approver must be added manually, and the posting can only proceed once all required approvals have been obtained. |  |",
+      "sourceFile": "P2P - Raw Data.md"
+    },
+    {
+      "id": "022574b5601b",
+      "title": "Manual, emergency and early payments",
+      "group": "Payments",
+      "purpose": "Manage payments that fall outside the standard automated payment run. Manual or emergency payments are reviewed when the standard run cannot execute, bank execution is coordinated with C&B, and the vendor account is cleared afterwards.\n\nFor approved early payments, only the permitted SAP days field is updated so that the invoice enters the next available payment run rather than being paid outside the run.",
+      "cadence": "",
+      "purposeSummary": "Handle **manual and emergency payments** outside the standard run with C&B, and bring **approved early payments** into the next run.",
+      "cadenceSummary": "**Timing and frequency are not specified** in the supplied file.",
+      "stages": [
+        {
+          "title": "Review manual or emergency payment requests",
+          "displayTitle": "Review manual or emergency payment requests",
+          "owner": "AP",
+          "detail": "Review manual or emergency payments when standard runs cannot execute",
+          "description": "Review requests for manual or emergency payment that arise when the standard payment run cannot execute, and confirm that a manual payment is justified.",
+          "systems": [
+            "SAP",
+            "ServiceNow"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Raise CROWN for tax payments outside the automated run",
+          "displayTitle": "Raise CROWN for tax payments outside the automated run",
+          "owner": "AP",
+          "detail": "Certain tax payments that are not able to go through automted payment run are currently under manual payment which requires AP to raise CROWN.",
+          "description": "Certain tax payments cannot go through the automated payment run and are handled as manual payments. For these, AP raises the payment in CROWN.",
+          "systems": [
+            "CROWN"
+          ],
+          "challenges": [
+            "Certain tax payments that cannot go through the automated payment run are currently handled as manual payments, which requires AP to raise CROWN."
+          ]
+        },
+        {
+          "title": "Coordinate bank execution with C&B",
+          "displayTitle": "Coordinate bank execution with C&B",
+          "owner": "C&B",
+          "detail": "coordinate with C&B bank execution",
+          "description": "Coordinate with C&B so that the manual or emergency payment is executed at the bank.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Clear the vendor account",
+          "displayTitle": "Clear the vendor account",
+          "owner": "AP",
+          "detail": "and clear the vendor account.",
+          "description": "After the payment has been executed, clear the open item on the vendor account in SAP against the payment.",
+          "systems": [
+            "SAP"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Update the SAP days field for approved early payments",
+          "displayTitle": "Update the SAP days field for approved early payments",
+          "owner": "AP",
+          "detail": "For approved early payments, update only the permitted SAP days field so the invoice enters the next available payment run.",
+          "description": "For an approved early payment, update only the permitted days field in SAP so that the invoice becomes due and enters the next available payment run.",
+          "systems": [
+            "SAP"
+          ],
+          "challenges": []
+        }
+      ],
+      "challenges": [
+        "Certain tax payments that cannot go through the automated payment run are currently handled as manual payments, which requires AP to raise CROWN."
+      ],
+      "improvements": [
+        "CI: Working closely with the Global C&B team on tax process redesign."
+      ],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: Spend to Payment E2E VSM Mapping.xlsx\n\n- Path: `Tower Subprocesses/P2P/Spend to Payment E2E VSM Mapping.xlsx`\n- Format: XLSX\n- Worksheets: 1\n\n### Worksheet: Simplified Activities\n\n| No. | Process Area (L4) | Consolidated Activity | Brief Description | Primary Owner(s) | Systems | Key Challenges / Dependencies | Improvements / CI / TPI |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| 9 | Payments | Manual, emergency and early payment management and Rejections | 1. Review manual or emergency payments when standard runs cannot execute, coordinate with C&B bank execution, and clear the vendor account. 2. For approved early payments, update only the permitted SAP days field so the invoice enters the next available payment run. | AP, C&B | SAP, ServiceNow, CROWN | Certain tax payments that are not able to go through automted payment run are currently under manual payment which requires AP to raise CROWN. | Working closely with Global C&B team on tax process redesign |",
+      "sourceFile": "P2P - Raw Data.md"
+    },
+    {
+      "id": "297c7e27235c",
+      "title": "Refund, rejected and duplicate payments",
+      "group": "Payments",
+      "purpose": "Investigate payments that fail before or after the funds are released, block the affected invoices, and reverse or reallocate the payment documents where required. Once the root cause is resolved, the invoice is released for the next payment run.\n\nXelix duplicate alerts are reviewed and confirmed duplicate invoices are blocked before they are paid.",
+      "cadence": "",
+      "purposeSummary": "Investigate **failed or rejected payments**, correct the payment documents, and block **confirmed duplicates** flagged by Xelix before payment.",
+      "cadenceSummary": "**Timing and frequency are not specified** in the supplied file.",
+      "stages": [
+        {
+          "title": "Investigate failed payments",
+          "displayTitle": "Investigate failed payments",
+          "owner": "AP",
+          "detail": "Investigate failed payments before or after fund release",
+          "description": "Investigate payments that have failed or been rejected, whether the failure occurred before or after the funds were released.",
+          "systems": [
+            "SAP"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Block the affected invoices",
+          "displayTitle": "Block the affected invoices",
+          "owner": "AP",
+          "detail": "block affected invoices",
+          "description": "Block the affected invoices in SAP so that they are not picked up again by the payment run while the failure is being resolved.",
+          "systems": [
+            "SAP"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Reverse or reallocate payment documents",
+          "displayTitle": "Reverse or reallocate payment documents",
+          "owner": "AP",
+          "detail": "reverse or reallocate payment documents when required",
+          "description": "Where required, reverse the payment document or reallocate it so that the vendor account and bank clearing reflect what actually happened, including refunds received.",
+          "systems": [
+            "SAP"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Resolve the root cause and release for the next run",
+          "displayTitle": "Resolve the root cause and release for the next run",
+          "owner": "AP",
+          "detail": "resolve the root cause and release for the next run.",
+          "description": "Resolve the underlying cause of the failure and remove the block so that the invoice is released into the next available payment run.",
+          "systems": [
+            "SAP"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Review Xelix alerts and block confirmed duplicates",
+          "displayTitle": "Review Xelix alerts and block confirmed duplicates",
+          "owner": "AP",
+          "detail": "Review Xelix alerts and block confirmed duplicate invoices before payment.",
+          "description": "Review the duplicate alerts raised by Xelix and block confirmed duplicate invoices before they are paid.\n\nThe monitoring can produce false positives that need to be cleared, and it does not fully cover down payments.",
+          "systems": [
+            "Xelix",
+            "SAP"
+          ],
+          "challenges": [
+            "Duplicate monitoring can produce false positives and does not fully cover down payments."
+          ]
+        }
+      ],
+      "challenges": [
+        "Duplicate monitoring can produce false positives and does not fully cover down payments."
+      ],
+      "improvements": [
+        "CI: Xelix duplicate-monitoring logic refinement is in progress."
+      ],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: Spend to Payment E2E VSM Mapping.xlsx\n\n- Path: `Tower Subprocesses/P2P/Spend to Payment E2E VSM Mapping.xlsx`\n- Format: XLSX\n- Worksheets: 1\n\n### Worksheet: Simplified Activities\n\n| No. | Process Area (L4) | Consolidated Activity | Brief Description | Primary Owner(s) | Systems | Key Challenges / Dependencies | Improvements / CI / TPI |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| 10 | Payments | Refund, Rejected and duplicate payment management | Investigate failed payments before or after fund release, block affected invoices, reverse or reallocate payment documents when required, resolve the root cause and release for the next run. Review Xelix alerts and block confirmed duplicate invoices before payment. | AP | SAP, Xelix | Duplicate monitoring can produce false positives and does not fully cover down payments. | Xelix duplicate-monitoring logic refinement is in progress. |",
+      "sourceFile": "P2P - Raw Data.md"
+    },
+    {
+      "id": "cac6d8b34bc5",
+      "title": "Direct debit and virtual card settlement",
+      "group": "Payments",
+      "purpose": "Settle supplier payments that are collected by direct debit or paid by virtual card. Direct debits are posted and cleared against the related trade invoice in SAP.\n\nFor virtual cards, requests are validated in the Citi bank portal, card validity is monitored, the monthly card statements are reconciled and the balances cleared, with follow-up with the business for down-payment-related transactions.",
+      "cadence": "Virtual card statements are reconciled and cleared monthly. No other timing is stated.",
+      "purposeSummary": "Post and clear **direct debits** against trade invoices and reconcile **virtual card** statements and balances.",
+      "cadenceSummary": "Virtual card statements are reconciled and cleared **monthly**; timing for direct debits is not specified in the supplied file.",
+      "stages": [
+        {
+          "title": "Post and clear direct debits against the trade invoice",
+          "displayTitle": "Post and clear direct debits against the trade invoice",
+          "owner": "AP",
+          "detail": "Post and clear supplier direct debits against the related trade invoice. 1.Direct debits - Manual follow up on invoice",
+          "description": "Post the supplier direct debit in SAP and clear it against the related trade invoice. Where the invoice is not yet available, follow up manually so that the debit can be matched.",
+          "systems": [
+            "SAP"
+          ],
+          "challenges": [
+            "Direct debits: manual follow-up on the invoice is required."
+          ]
+        },
+        {
+          "title": "Validate virtual card requests in the Citi portal",
+          "displayTitle": "Validate virtual card requests in the Citi portal",
+          "owner": "AP",
+          "detail": "For virtual cards, validate requests in the bank portal ... Generation on VCN to request submission and approval in Citi portal",
+          "description": "Validate the virtual card request in the Citi portal, where the virtual card number (VCN) is generated on submission and approval of the request.",
+          "systems": [
+            "Citibank"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Monitor virtual card validity",
+          "displayTitle": "Monitor virtual card validity",
+          "owner": "AP",
+          "detail": "monitor validity",
+          "description": "Monitor the validity of issued virtual cards so that they can be used for the intended supplier payment within their validity period.",
+          "systems": [
+            "Citibank"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Reconcile monthly statements and clear balances",
+          "displayTitle": "Reconcile monthly statements and clear balances",
+          "owner": "AP",
+          "detail": "reconcile monthly statements and clear balances. Monthly reconciliation and manual clearing required.",
+          "description": "Reconcile the monthly virtual card statement against the transactions recorded, and clear the balances manually in SAP.",
+          "systems": [
+            "SAP",
+            "Citibank"
+          ],
+          "challenges": [
+            "Virtual card account: VCN generation on request submission and approval in the Citi portal; monthly reconciliation and manual clearing are required, with additional follow-up with the business for transactions tagged as down payment."
+          ]
+        },
+        {
+          "title": "Follow up down-payment-related card transactions",
+          "displayTitle": "Follow up down-payment-related card transactions",
+          "owner": "AP",
+          "detail": "including follow-up for down-payment-related transactions. Additional follow up with business required for those tagged under Downpayment.",
+          "description": "For virtual card transactions tagged as down payments, follow up with the business to confirm the final invoice so that the down payment can be cleared.",
+          "systems": [],
+          "challenges": []
+        }
+      ],
+      "challenges": [
+        "Direct debits: manual follow-up on the invoice is required.",
+        "Virtual card account: VCN generation on request submission and approval in the Citi portal; monthly reconciliation and manual clearing are required, with additional follow-up with the business for transactions tagged as down payment."
+      ],
+      "improvements": [
+        "CI: Automate the follow-up process."
+      ],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: Spend to Payment E2E VSM Mapping.xlsx\n\n- Path: `Tower Subprocesses/P2P/Spend to Payment E2E VSM Mapping.xlsx`\n- Format: XLSX\n- Worksheets: 1\n\n### Worksheet: Simplified Activities\n\n| No. | Process Area (L4) | Consolidated Activity | Brief Description | Primary Owner(s) | Systems | Key Challenges / Dependencies | Improvements / CI / TPI |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| 11 | Payments / Virtual Card Settlement | Direct debit and virtual card settlement | Post and clear supplier direct debits against the related trade invoice. For virtual cards, validate requests in the bank portal, monitor validity, reconcile monthly statements and clear balances, including follow-up for down-payment-related transactions. | AP | SAP, Citibank | 1.Direct debits - Manual follow up on invoice 2. Virtual Card Account - Generation on VCN to request submission and approval in Citi portal - Monthly reconciliation and manual clearing required. Additional follow up with business required for those tagged under Downpayment. | 1.  CI - automate follow up process |",
+      "sourceFile": "P2P - Raw Data.md"
+    },
+    {
+      "id": "582f83c89fa5",
+      "title": "Month-end control and reporting",
+      "group": "Month-end & reporting",
+      "purpose": "Close the accounts payable sub-ledger each month in line with the R2R calendar. Coupa-to-SAP posting is controlled during the WD-3 month-end freeze, SOX and financial-control self-assessments are executed, and monthly balance sheet reconciliations and manual journal vouchers are performed.\n\nInternal and management reports are prepared and exceptions are followed up as part of the close.",
+      "cadence": "Monthly, in line with the R2R calendar. Coupa-to-SAP posting is controlled during the WD-3 month-end freeze. Balance sheet reconciliations and manual JVs are performed monthly.",
+      "purposeSummary": "Run **month-end AP close**: control the Coupa-to-SAP freeze, execute **SOX self-assessments**, reconcile balances and report.",
+      "cadenceSummary": "**Monthly**, in line with the R2R calendar. Coupa-to-SAP posting is frozen from **WD-3**; balance sheet reconciliations and manual JVs are monthly.",
+      "stages": [
+        {
+          "title": "Control Coupa-to-SAP posting during the WD-3 freeze",
+          "displayTitle": "Control Coupa-to-SAP posting during the WD-3 freeze",
+          "owner": "AP",
+          "detail": "control Coupa-to-SAP posting during the WD-3 month-end freeze in line with the R2R calendar. 2. Manual maintenance on interface cut off timing",
+          "description": "From WD-3, control the posting of invoices from Coupa to SAP in line with the R2R month-end calendar so that no postings land in the closing period after the cut-off.\n\nThe interface cut-off timing is maintained manually.",
+          "systems": [
+            "Coupa",
+            "SAP"
+          ],
+          "challenges": [
+            "Manual maintenance of the interface cut-off timing."
+          ]
+        },
+        {
+          "title": "Execute SOX and financial-control self-assessments",
+          "displayTitle": "Execute SOX and financial-control self-assessments",
+          "owner": "AP",
+          "detail": "Execute SOX and financial-control self-assessments",
+          "description": "Perform the SOX and financial-control self-assessments for the AP controls and record the results in OneGRC.",
+          "systems": [
+            "OneGRC"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Perform monthly balance sheet reconciliations",
+          "displayTitle": "Perform monthly balance sheet reconciliations",
+          "owner": "AP",
+          "detail": "Perform monthly balance Sheet Reconciliations",
+          "description": "Reconcile the AP balance sheet accounts for the month, investigating and explaining any reconciling items.",
+          "systems": [
+            "SAP"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Post manual JVs",
+          "displayTitle": "Post manual JVs",
+          "owner": "AP",
+          "detail": "and Manual JVs. 1.Legacy scope - Non PO accrual",
+          "description": "Prepare and post the manual journal vouchers required at month-end. This includes the non-PO accrual, which remains in scope as a legacy activity.",
+          "systems": [
+            "SAP"
+          ],
+          "challenges": [
+            "Legacy scope: non-PO accrual."
+          ]
+        },
+        {
+          "title": "Prepare reports and follow up exceptions",
+          "displayTitle": "Prepare reports and follow up exceptions",
+          "owner": "AP",
+          "detail": "prepare internal and management reports, follow up exceptions",
+          "description": "Prepare the internal and management reports for the period and follow up the exceptions they surface.",
+          "systems": [
+            "Celonis"
+          ],
+          "challenges": []
+        }
+      ],
+      "challenges": [
+        "Legacy scope: non-PO accrual.",
+        "Manual maintenance of the interface cut-off timing."
+      ],
+      "improvements": [
+        "TPI 2026: Non-PO accrual process review is an identified TPI.",
+        "CI: Automate the SAP interface cut-off timing."
+      ],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: Spend to Payment E2E VSM Mapping.xlsx\n\n- Path: `Tower Subprocesses/P2P/Spend to Payment E2E VSM Mapping.xlsx`\n- Format: XLSX\n- Worksheets: 1\n\n### Worksheet: Simplified Activities\n\n| No. | Process Area (L4) | Consolidated Activity | Brief Description | Primary Owner(s) | Systems | Key Challenges / Dependencies | Improvements / CI / TPI |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| 12 | Month End & Reporting / Payment Closing | Month-end control, compliance and reporting | Execute SOX and financial-control self-assessments, prepare internal and management reports, follow up exceptions, and control Coupa-to-SAP posting during the WD-3 month-end freeze in line with the R2R calendar. Perform monthly balance Sheet Reconciliations and Manual JVs | AP | SAP, Coupa, Celonis, OneGRC | 1.Legacy scope - Non PO accrual 2. Manual maintenance on interface cut off timing | 1. Non-PO accrual process review is an identified TPI. 2. CI - automate SAP interface cut off timing |",
+      "sourceFile": "P2P - Raw Data.md"
+    }
+  ]
+}

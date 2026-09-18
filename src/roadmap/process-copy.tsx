@@ -1,0 +1,10 @@
+import './process-copy.css';
+
+const keywords = /\b(tight timelines|actualisation|working days|late postings|upstream teams|operating models|standardisation|multiple stakeholders|follow-up|cost per unit|output per FTE|COBOU|NTI|MTD|YTD|Hyperion|CoStar|SharePoint|Power BI|Nintex|OneGRC|SOAR|FDH|ASO|GSC|FMC|SCC|CAPEX|manual effort|missing data|inaccurate data|incomplete information|waiting time|rework|misalignment|disagreements|operating profit|cost templates?|system issues|system limitations|data quality|delays?|planning|productivity|inventory|production volumes?|manpower|non-manpower|SAP|CMR|Excel|AZForce|MPC|NMPC|P&L|FTE by Brand|month-end close|period-end close|final validation|master data|source data|line item data|reference data|cost categorisation|cost category|cost centre|cost center|gross margin|net revenue|revenue forecast|sales forecast|cash flow|balance sheet|financial statements|working capital|credit limit|credit notes?|goods receipts?|purchase orders?|invoice matching|payment run|bank reconciliation|exchange rates?|FX rates?|uplift values?|supporting documents?|audit evidence|control evidence|approval evidence|journal entries|manual journals?|fixed assets?|intangible assets?|lease records?|intercompany recharges?|variance analysis|actuals|comparators?|reconciliation|discrepancies|exceptions?|approvals?|sign-off|accruals|prepayments|depreciation|amortisation|impairment|allocation|validation|FBL3N|GD13|FTE|WHT|VAT|SOX|FCF|extract|reconcile|validate|verify|investigate|consolidate|submit|approve|review)\b/gi;
+export function EmphasizedText({text}:{text:string}) {
+ return text.replace(/[—–]/g,'-').replace(/\*\*/g,'').split(keywords).map((part,index)=>index%2?<strong key={index}>{part}</strong>:part);
+}
+export function ProcessCopy({text}:{text:string}) {
+ const lines=text.split(/\n\s*\n|\n/).map(line=>line.replace(/^\s*(?:[-•]|\d+[.)])\s*/, '').trim()).filter(Boolean);
+ return <ul className="source-bullets">{lines.map((line,index)=><li key={index}><EmphasizedText text={line}/></li>)}</ul>;
+}

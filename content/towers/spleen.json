@@ -1,0 +1,288 @@
+{
+  "name": "Tax",
+  "organ": "spleen",
+  "tagline": "Determining, calculating and reporting withholding tax on supplier invoices and payments.",
+  "pickerTitle": "Tax Processes",
+  "pickerIntro": "Two withholding-tax flows, from invoice receipt to payment and reporting, documented as inputs to a proposed WHT engine.",
+  "context": [
+    {
+      "label": "Solutions",
+      "text": "Withholding tax runs today on Coupa, SAP and manual working papers. The source proposes a central WHT engine that becomes the single WHT data source into SAP and the return working papers, with its calculation data linked to certificate issuance."
+    },
+    {
+      "label": "Automation",
+      "text": "Supplier invoices are captured through Coupa and Kofax OCR today. The proposed engine would automate WHT determination, rate selection, tax base identification and calculation, validate WHT before posting, and route exceptions through an automated workflow."
+    },
+    {
+      "label": "AI",
+      "text": "No deployed AI capability is documented. \"Finance AI Assistance\" is mentioned only as a possible reconciliation and analytics layer, alongside Power BI, that the future-state WHT engine could connect to."
+    },
+    {
+      "label": "Cross-Functional Collaboration",
+      "text": "WHT determination spans P2P, TDT (Tax Delivery Team), Direct, Local and Group Tax, CFC / CCFO approvers, Procurement, Controlling, CNB, R2R and the vendors and business users who submit and approve invoices."
+    }
+  ],
+  "metrics": {
+    "solutions": 10,
+    "automated": 2,
+    "ai": 0
+  },
+  "collaborators": [
+    "lungs",
+    "stomach",
+    "kidneys"
+  ],
+  "processes": [
+    {
+      "id": "a3f1c9d02b7e",
+      "title": "WHT determination in order to invoice",
+      "group": "Invoice taxation",
+      "purpose": "This process takes a supplier invoice from submission through P2P receipt and verification to withholding-tax (WHT) determination, calculation, posting and payment. It is documented as the process input for a proposed WHT engine: the engine is expected to check vendor tax status, service type, market rules, tax locality, any existing WHT code and tax treaty or exemption logic, and then calculate the WHT amount on the correct tax base and rate.\n\nUpstream, the flow starts with vendor registration or vendor master maintenance, followed by P2P invoice receipt and invoice verification. The engine should receive key invoice and vendor data from P2P and the vendor master: supplier name and vendor ID, vendor tax status and country or locality code, PO number, goods receipt and invoice reference, invoice amount and taxable base amount, goods or services description, contract and invoice details, any existing WHT code and historical WHT treatment, market-specific WHT rules, tax base and rates, the location of the business (PE) and of the services performed, and the Certificate of Residence.\n\nThe intended outputs are a correct WHT code recommendation, the applicable WHT rate, the tax base for the calculation, the calculated WHT amount, a reason code and audit trail for the WHT decision, an exception report for missing or incorrect data, a posted invoice with the correct WHT treatment, and a data feed for WHT reconciliation, return filing, the payment process and WHT certificate issuance.",
+      "cadence": "Timing and frequency are not specified in the supplied file. The flow is triggered when a user or vendor submits an invoice into the P2P process; WHT is determined and validated before the invoice is posted, and payment and reporting follow.",
+      "purposeSummary": "Determine, calculate and post **withholding tax** on supplier invoices, with a **proposed WHT engine** replacing user-selected WHT codes.",
+      "cadenceSummary": "**Timing and frequency are not specified** in the supplied file.",
+      "flowNote": "This flow includes a proposed WHT engine: engine determination, calculation and pre-posting validation are future-state recommendations rather than current practice.",
+      "stages": [
+        {
+          "title": "Submit the invoice",
+          "displayTitle": "Submit the invoice",
+          "owner": "User / Vendor",
+          "detail": "Invoice submitted by user / vendor\nVendor or user submits invoice into the P2P process\n\nUser / Vendor: submits invoice and provides supporting documents",
+          "description": "The vendor or business user submits the invoice into the P2P process and provides the supporting documents.\n\nAmong the inputs the source lists for WHT determination are the contract and invoice details, any existing WHT code, the goods or services description and, where relevant, the Certificate of Residence and historical WHT treatment.",
+          "systems": [
+            "Coupa"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Receive the invoice in P2P",
+          "displayTitle": "Receive the invoice in P2P",
+          "owner": "P2P",
+          "detail": "2) Invoice received by P2P\nP2P captures invoice details such as PO number, supplier name, amount, tax / locality code and goods / services description",
+          "description": "P2P receives the invoice and captures its details: PO number, supplier name, amount, tax or locality code and the goods or services description. Invoice capture runs in Coupa, the invoice processing system.",
+          "systems": [
+            "Coupa"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Verify the invoice",
+          "displayTitle": "Verify the invoice",
+          "owner": "P2P",
+          "detail": "3) Invoice verification\nP2P validates invoice against PO, goods receipt, vendor master data and basic invoice requirements",
+          "description": "P2P validates the invoice against the purchase order, the goods receipt, vendor master data and basic invoice requirements.\n\nVendor master data, including the vendor's tax status and country or locality code, comes from the upstream vendor registration and vendor master maintenance process.",
+          "systems": [
+            "Coupa"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Determine the WHT treatment",
+          "displayTitle": "Determine the WHT treatment",
+          "owner": "WHT Engine (proposed)",
+          "detail": "4) WHT engine determination\nThe WHT engine checks vendor tax status, service type, market rules, tax locality, existing WHT code and tax treaty or exemption logic where applicable\n\nWHT Engine: performs automated decisioning for WHT determination, rate selection, tax base identification and calculation\n\nDirect Tax / Local Tax / Group Tax, where applicable: provides WHT technical rules, policy position, market-specific interpretation and approval for complex tax treatment",
+          "description": "Future state: the proposed WHT engine checks the vendor's tax status, the service type, market rules, tax locality, any existing WHT code and tax treaty or exemption logic where applicable, and recommends the correct WHT code with a reason code and audit trail for the decision.\n\nThe engine is designed to draw on the vendor master data source, the invoice processing system (Coupa), a WHT rule table by country, vendor type, service type and tax code, and market-specific WHT rules, tax base and rates. Direct Tax, Local Tax or Group Tax provide the WHT technical rules, policy position and market-specific interpretation, and approve complex tax treatments.\n\nToday there is no engine: WHT code selection sits within P2P invoice processing and relies on the user's knowledge of the correct treatment.",
+          "systems": [],
+          "challenges": [
+            "P2P relies on user knowledge to select correct WHT treatment"
+          ]
+        },
+        {
+          "title": "Calculate the WHT amount",
+          "displayTitle": "Calculate the WHT amount",
+          "owner": "WHT Engine (proposed)",
+          "detail": "5) WHT calculation\nThe WHT engine calculates the applicable WHT amount based on the correct tax base and WHT rate",
+          "description": "Future state: the proposed WHT engine identifies the tax base for WHT, selects the applicable WHT rate and calculates the WHT amount, using the invoice amount and taxable base amount received from P2P.\n\nThe outputs of this step are the applicable WHT rate, the tax base for the calculation and the calculated WHT amount.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Route exceptions to the right owner",
+          "displayTitle": "Route exceptions to the right owner",
+          "owner": "TDT / Tax Delivery Team",
+          "detail": "6) Exception handling\nIf data is missing, inconsistent or not aligned with WHT rules, exception is routed to the right owner, for example, P2P, TDT, local market team or tax reviewer.\n\nTDT / Tax Delivery Team: reviews exceptions, performs gather and analyse, supports reconciliation and validates complex cases where required\n\nCFC / CCFO: reviews and approves where required under governance or payment approval process",
+          "description": "If data is missing, inconsistent or not aligned with WHT rules, the exception is routed to the right owner, for example P2P, TDT, the local market team or a tax reviewer. The proposed design produces an exception report for missing or incorrect data and routes exceptions before posting, through an exception dashboard or workflow tool.\n\nTDT reviews the exceptions, gathers and analyses the underlying information and validates complex cases where required. Direct, Local or Group Tax approve complex tax treatments, and CFC / CCFO review and approve where required under governance or the payment approval process.\n\nToday, where the WHT code or rate turns out to be incorrect, a manual adjustment is required.",
+          "systems": [],
+          "challenges": [
+            "Manual adjustment is required where WHT code or rate is incorrect"
+          ]
+        },
+        {
+          "title": "Post the invoice with the correct WHT treatment",
+          "displayTitle": "Post the invoice with the correct WHT treatment",
+          "owner": "P2P",
+          "detail": "7) Invoice posting\nOnce WHT code and calculation are validated, invoice is posted with the correct WHT treatment\n\nP2P: owns invoice receipt, invoice verification, WHT code selection where embedded in invoice processing, invoice posting, payment and reporting",
+          "description": "Once the WHT code and calculation have been validated, P2P posts the invoice in SAP with the correct WHT treatment.\n\nThe target design automates WHT validation before posting; today the WHT code and rate may only be checked after the invoice has been posted, which leads to downstream corrections.",
+          "systems": [
+            "SAP"
+          ],
+          "challenges": [
+            "WHT code and rate may only be checked after invoice posting"
+          ]
+        },
+        {
+          "title": "Process payment and report WHT",
+          "displayTitle": "Process payment and report WHT",
+          "owner": "P2P",
+          "detail": "8) Payment and reporting\nPayment is processed net of WHT where applicable, and WHT data flows into reconciliation, filing, certificate issuance and reporting\n\nFuture-state WHT engine should connect with: Vendor master data source; Invoice processing system / Coupa; SAP posting data; WHT rule table by country, vendor type, service type and tax code; Market WHT certificate and filing tracker; Exception dashboard / workflow tool; Reconciliation and analytics layer, for example Power BI or Finance AI Assistance",
+          "description": "P2P processes the payment net of WHT where applicable. The WHT data then flows into reconciliation, return filing, certificate issuance and reporting. TDT supports the reconciliation and today spends time reconciling SAP against the manual return working papers.\n\nIn the proposed design the engine provides a single data feed for WHT reconciliation, return filing, the payment process and WHT certificate issuance, with certificate issuance logic linked to the calculation data. It would also connect to a market WHT certificate and filing tracker and to a reconciliation and analytics layer such as Power BI or Finance AI Assistance.",
+          "systems": [
+            "SAP"
+          ],
+          "challenges": [
+            "TDT spends time reconciling SAP and return working papers",
+            "Incorrect WHT certificate issuance can happen downstream"
+          ]
+        }
+      ],
+      "challenges": [
+        "P2P relies on user knowledge to select correct WHT treatment",
+        "WHT code and rate may only be checked after invoice posting",
+        "TDT spends time reconciling SAP and return working papers",
+        "Manual adjustment is required where WHT code or rate is incorrect",
+        "Incorrect WHT certificate issuance can happen downstream"
+      ],
+      "improvements": [
+        "Documented improvement: Embed the WHT engine before invoice processing - Expected benefit: reduces incorrect WHT code selection.",
+        "Documented improvement: Automate WHT validation before posting - Expected benefit: prevents downstream corrections and manual adjustments.",
+        "Documented improvement: Create one WHT data source from the engine into SAP and the return working paper - Expected benefit: reduces reconciliation effort.",
+        "Documented improvement: Use exception routing before posting - Expected benefit: reduces rework and late corrections.",
+        "Documented improvement: Link WHT calculation data to certificate issuance logic - Expected benefit: improves accuracy of WHT certificates.",
+        "Proposed: Future-state WHT engine connected to the vendor master data source, the invoice processing system (Coupa), SAP posting data, a WHT rule table by country, vendor type, service type and tax code, the market WHT certificate and filing tracker, an exception dashboard or workflow tool, and a reconciliation and analytics layer such as Power BI or Finance AI Assistance."
+      ],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: Tax Process Flow_MIRO_Aug2026.pptx\n\n- Path: `Tower Subprocesses/Tax/Tax Process Flow_MIRO_Aug2026.pptx`\n- Format: PPTX\n\n### Slide 2: Order to Invoice [WHT Engine Process Input]\n\n| Questions | Answers |\n| --- | --- |\n| Upstream information feed - which tower/process is immediately before this one? | User / Vendor and Vendor Master Data process, followed by P2P Invoice Receipt and Invoice Verification. The upstream feed starts from vendor registration or vendor master maintenance, then invoice verification before WHT determination. |\n| What input is received? | The WHT Engine should receive key invoice and vendor data from P2P and vendor master, including:<br>Supplier / vendor name and vendor ID<br>Vendor tax status and country / locality code<br>PO number, goods receipt and invoice reference<br>Invoice amount and taxable base amount<br>Goods / services description<br>Contract / invoice details<br>Existing WHT code, if available<br>Historical WHT treatment, if applicable<br>Market specific WHT rules, tax base and rates<br>Location of the business (PE), location of the services being performed<br>Certificate of Residence |\n| What are the main steps? | Invoice submitted by user / vendor<br>Vendor or user submits invoice into the P2P process<br><br>2) Invoice received by P2P<br>P2P captures invoice details such as PO number, supplier name, amount, tax / locality code and goods / services description<br><br>3) Invoice verification<br>P2P validates invoice against PO, goods receipt, vendor master data and basic invoice requirements<br><br>4) WHT engine determination<br>The WHT engine checks vendor tax status, service type, market rules, tax locality, existing WHT code and tax treaty or exemption logic where applicable<br><br>5) WHT calculation<br>The WHT engine calculates the applicable WHT amount based on the correct tax base and WHT rate<br><br>6) |\n| Who does them? |  |\n| What system/tool is used? |  |\n| What output is created? |  |\n\n### Slide 3: Order to Invoice [WHT Engine Process Input]\n\n| Questions | Answers |\n| --- | --- |\n| What are the main steps? | 6) Exception handling<br>If data is missing, inconsistent or not aligned with WHT rules, exception is routed to the right owner, for example, P2P, TDT, local market team or tax reviewer.<br><br>7) Invoice posting<br>Once WHT code and calculation are validated, invoice is posted with the correct WHT treatment<br><br>8) Payment and reporting<br>Payment is processed net of WHT where applicable, and WHT data flows into reconciliation, filing, certificate issuance and reporting |\n| Who does them? | User / Vendor: submits invoice and provides supporting documents P2P: owns invoice receipt, invoice verification, WHT code selection where embedded in invoice processing, invoice posting, payment and reporting WHT Engine: performs automated decisioning for WHT determination, rate selection, tax base identification and calculation TDT / Tax Delivery Team: reviews exceptions, performs gather and analyse, supports reconciliation and validates complex cases where required Direct Tax / Local Tax / Group Tax, where applicable: provides WHT technical rules, policy position, market-specific interpretation and approval for complex tax treatment CFC / CCFO: reviews and approves where required under governance or payment approval process |\n\n### Slide 4: Order to Invoice [WHT Engine Process Input]\n\n| Questions | Answers |\n| --- | --- |\n| What system/tool is used? | Coupa / invoice processing system, SAP and manual working papers.<br><br>Future-state WHT engine should connect with: • Vendor master data source • Invoice processing system / Coupa • SAP posting data • WHT rule table by country, vendor type, service type and tax code • Market WHT certificate and filing tracker • Exception dashboard / workflow tool • Reconciliation and analytics layer, for example Power BI or Finance AI Assistance |\n| What output is created? | The WHT engine should create: • Correct WHT code recommendation • Applicable WHT rate • Tax base for WHT calculation • Calculated WHT amount • Reason code / audit trail for the WHT decision • Exception report for missing or incorrect data • Posted invoice with correct WHT treatment • Data feed for WHT reconciliation, return filing, payment process and WHT certificate issuance |\n\n### Slide 5: Order to Invoice [WHT Engine Process Input]\n\n| Current Challenge | Target Improvement | Expected Benefit |\n| --- | --- | --- |\n| P2P relies on user knowledge to select correct WHT treatment | Embed WHT Engine before invoice processing | Reduces incorrect WHT code selection |\n| WHT code and rate may only be checked after invoice posting | Automate WHT validation before posting | Prevents downstream corrections and manual adjustments |\n| TDT spends time reconciling SAP and return working papers | Create one WHT data source from the engine into SAP and return working paper | Reduces reconciliation effort |\n| Manual adjustment is required where WHT code or rate is incorrect | Use exception routing before posting | Reduces rework and late corrections |\n| Incorrect WHT certificate issuance can happen downstream | Link WHT calculation data to certificate issuance logic | Improves accuracy of WHT certificates |\n",
+      "sourceFile": "Tax - Raw Data.md"
+    },
+    {
+      "id": "5e8d2b4c7a91",
+      "title": "WHT in spend to payment",
+      "group": "Payment taxation",
+      "purpose": "This process follows a supplier invoice from receipt through validation, tax determination, approval, posting in SAP, payment proposal and payment execution, and then into the WHT deduction, accounting entries, reporting and reconciliation that feed tax return preparation, WHT certificates and compliance reporting. It is documented as the process input for the proposed central WHT engine.\n\nThe immediate upstream processes are Procurement, Vendor Master Data, Requisition to Purchase Order, Contract Management and P2P Invoice Receipt and Verification; tax-relevant data should already be available from supplier onboarding, PO creation and invoice processing before payment is executed. The inputs are supplier master data (tax residency, tax ID, vendor type), PO details, contract and service descriptions, supplier invoice data, invoice approval status, cost centre and GL coding, WHT tax code and tax classification, gross invoice amount and payment amount, and tax treaty or exemption documentation where applicable.\n\nThe outputs are the approved invoice, the posted accounting document, the correct WHT code and WHT amount, the net payment amount, the payment confirmation, tax posting entries, the WHT audit trail, reconciliation data, WHT return data, WHT certificate issuance data and compliance and reporting outputs.",
+      "cadence": "Timing and frequency are not specified in the supplied file. The flow is triggered when a supplier invoice is received through Coupa or Kofax OCR; WHT applicability is reviewed before approval and posting, and payment, WHT deduction and reporting follow.",
+      "purposeSummary": "Carry **tax-relevant supplier and invoice data** through approval, SAP posting and payment so **WHT is deducted, accounted and reported** correctly.",
+      "cadenceSummary": "**Timing and frequency are not specified** in the supplied file.",
+      "flowNote": "This flow includes a proposed central WHT engine: engine determination, calculation and pre-posting validation are future-state recommendations rather than current practice.",
+      "stages": [
+        {
+          "title": "Receive the supplier invoice",
+          "displayTitle": "Receive the supplier invoice",
+          "owner": "P2P",
+          "detail": "Supplier invoice received via Coupa / Kofax OCR\n\nProcurement: creates supplier and PO information\nP2P: invoice processing, matching, posting and payment preparation",
+          "description": "The supplier invoice arrives through Coupa or is captured by Kofax OCR and enters P2P invoice processing.\n\nBy this point Procurement has created the supplier and PO information, and supplier master data (tax residency, tax ID, vendor type) should already be available from supplier onboarding.",
+          "systems": [
+            "Coupa",
+            "Kofax"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Validate and match the invoice",
+          "displayTitle": "Validate and match the invoice",
+          "owner": "P2P",
+          "detail": "Invoice validation and matching against PO, contract and vendor data",
+          "description": "P2P validates the invoice and matches it against the purchase order details, the contract and service descriptions, and the vendor master data. The supplier invoice data and cost centre and GL coding are part of the information carried forward from this step.",
+          "systems": [
+            "Coupa"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Determine tax and review WHT applicability",
+          "displayTitle": "Determine tax and review WHT applicability",
+          "owner": "P2P / TDT",
+          "detail": "Tax determination including WHT applicability review\n\nTDT: WHT rules, exception reviews and compliance oversight",
+          "description": "Tax is determined for the invoice, including a review of whether WHT applies. The review uses the WHT tax code and tax classification, the supplier's tax residency and vendor type, and any tax treaty or exemption documentation. TDT owns the WHT rules and reviews exceptions; P2P carries the determination within invoice processing.\n\nFuture state: the proposed central WHT engine, supported by a Vendor Tax Repository, would perform this determination automatically, with exceptions handled through an automated workflow and exception management tool.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Approve the invoice",
+          "displayTitle": "Approve the invoice",
+          "owner": "Business user",
+          "detail": "Invoice approval workflow\n\nBusiness user: approves goods / services received",
+          "description": "The invoice passes through the approval workflow. The business user confirms that the goods or services have been received, and the resulting invoice approval status becomes an input to posting.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Post the invoice in SAP",
+          "displayTitle": "Post the invoice in SAP",
+          "owner": "P2P",
+          "detail": "Invoice posting into SAP\n\nControlling: accounting validation and accrual review",
+          "description": "P2P posts the approved invoice into SAP, creating the posted accounting document with its cost centre and GL coding, WHT tax code and gross invoice amount. Controlling validates the accounting and reviews accruals.",
+          "systems": [
+            "SAP"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Generate the payment proposal",
+          "displayTitle": "Generate the payment proposal",
+          "owner": "P2P",
+          "detail": "Payment proposal generated",
+          "description": "As part of payment preparation, P2P generates the payment proposal for the posted invoices, using the gross invoice amount and the payment amount net of any WHT.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Execute the payment",
+          "displayTitle": "Execute the payment",
+          "owner": "CNB",
+          "detail": "Payment execution\n\nCNB: payment execution",
+          "description": "CNB executes the payment. The supplier is paid the net payment amount and a payment confirmation is produced.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Generate WHT deduction and accounting entries",
+          "displayTitle": "Generate WHT deduction and accounting entries",
+          "owner": "R2R",
+          "detail": "WHT deduction and accounting entries generated\n\nR2R: accounting and reconciliation support",
+          "description": "The WHT deduction and the related accounting entries are generated in SAP, producing the tax posting entries, the correct WHT code and WHT amount, and the WHT audit trail. R2R provides the accounting support and Controlling validates the accounting.",
+          "systems": [
+            "SAP"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Report and reconcile payments",
+          "displayTitle": "Report and reconcile payments",
+          "owner": "R2R / TDT",
+          "detail": "Payment reporting and reconciliation\n\nCurrent state: Coupa, Kofax OCR, SAP, Excel working papers, Local tax filings / portals\nFuture state: Coupa, Central WHT Engine, Vendor Tax Repository, Power BI Dashboard, Automated workflow/exception management",
+          "description": "Payments are reported and reconciled, producing the reconciliation data. R2R provides accounting and reconciliation support and TDT provides compliance oversight.\n\nToday this relies on SAP data and Excel working papers; the future state adds a Power BI dashboard on top of the central WHT engine.",
+          "systems": [
+            "SAP",
+            "Excel"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Feed tax returns, certificates and compliance reporting",
+          "displayTitle": "Feed tax returns, certificates and compliance reporting",
+          "owner": "TDT",
+          "detail": "Data flows into tax return preparation, WHT certificates and compliance reporting\n\nTDT: WHT rules, exception reviews and compliance oversight",
+          "description": "The WHT data flows into tax return preparation, WHT certificate issuance and compliance reporting, producing the WHT return data, WHT certificate issuance data and compliance and reporting outputs. TDT provides compliance oversight, and filings are made through local tax filings and portals.",
+          "systems": [
+            "Excel"
+          ],
+          "challenges": []
+        }
+      ],
+      "challenges": [],
+      "improvements": [
+        "Proposed: Central WHT Engine as the future-state determination and calculation tool alongside Coupa.",
+        "Proposed: Vendor Tax Repository holding supplier tax residency, tax ID and vendor type data for the engine.",
+        "Proposed: Power BI dashboard for WHT reporting and reconciliation.",
+        "Proposed: Automated workflow and exception management in place of manual exception handling."
+      ],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: Tax Process Flow_MIRO_Aug2026.pptx\n\n- Path: `Tower Subprocesses/Tax/Tax Process Flow_MIRO_Aug2026.pptx`\n- Format: PPTX\n\n### Slide 6: Spend to Payment [WHT Engine Process Input]\n\n| Questions | Answers |\n| --- | --- |\n| Upstream information feed - which tower/process is immediately before this one? | The immediate upstream processes are Procurement, Vendor Master Data, Requisition to Purchase Order (R2R), Contract Management, and P2P Invoice Receipt & Verification. Tax relevant should already be available from supplier onboarding, PO creation and invoice processing before payment is executed. |\n| What input is received? | Supplier / vendor master data (tax residency, tax ID, vendor type)<br>PO details<br>Contract and service descriptions<br>Supplier invoice data<br>Invoice approval status<br>Cost centre and GL coding<br>WHT tax code and tax classification<br>Gross invoice amount and payment amount<br>Tax treaty or exemption documentation (where applicable) |\n| What are the main steps? | Supplier invoice received via Coupa / Kofax OCR<br>Invoice validation and matching against PO, contract and vendor data<br>Tax determination including WHT applicability review<br>Invoice approval workflow<br>Invoice posting into SAP<br>Payment proposal generated<br>Payment execution<br>WHT deduction and accounting entries generated<br>Payment reporting and reconciliation<br>Data flows into tax return preparation, WHT certificates and compliance reporting |\n| Who does them? | Procurement: creates supplier and PO information<br>Business user: approves goods / services received<br>P2P: invoice processing, matching, posting and payment preparation<br>TDT: WHT rules, exception reviews and compliance oversight<br>Controlling: accounting validation and accrual review<br>CNB: payment execution<br>R2R: accounting and reconciliation support |\n| What system/tool is used? |  |\n| What output is created? |  |\n\n### Slide 7: Spend to Payment [WHT Engine Process Input]\n\n| Questions | Answers |\n| --- | --- |\n| What system/tool is used? | Current state:<br>Coupa<br>Kofax OCR<br>SAP<br>Excel working papers<br>Local tax filings / portals<br><br>Future state:<br>Coupa<br>Central WHT Engine<br>Vendor Tax Repository<br>Power BI Dashboard<br>Automated workflow/exception management |\n| What output is created? | Approved invoice<br>Posted accounting document<br>Correct WHT code and WHT amount<br>Net payment amount<br>Payment confirmation<br>Tax posting entries<br>WHT audit trail<br>Reconciliation data<br>WHT return data<br>WHT certificate issuance data<br>Compliance and reporting outputs |\n\n### Slide 8: Spend to Payment [WHT Engine Process Input]\n\n(Title only; no further text content on this slide.)\n",
+      "sourceFile": "Tax - Raw Data.md"
+    }
+  ]
+}

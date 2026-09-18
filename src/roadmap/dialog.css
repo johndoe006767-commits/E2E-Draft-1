@@ -1,0 +1,7 @@
+/* Layout for the Base UI dialog, replacing the Tailwind utilities used in Draft 1. */
+.ui-dialog-overlay{position:fixed;inset:0;isolation:isolate;z-index:50;background:rgba(0,0,0,.1);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px)}
+.ui-dialog-content{position:fixed;top:50%;left:50%;z-index:50;display:grid;gap:16px;width:100%;max-width:calc(100% - 2rem);translate:-50% -50%;padding:16px;border-radius:12px;background:#fafaf7;color:#303431;font-size:14px;outline:none;box-shadow:0 0 0 1px rgba(48,52,49,.1)}
+.ui-dialog-close{position:absolute;top:8px;right:8px;width:28px;height:28px;border:0;border-radius:8px;background:transparent;font-size:20px;line-height:1;display:grid;place-items:center}
+.ui-dialog-close:hover{background:#e6e6de}
+.ui-dialog-title{font-size:16px;line-height:1;font-weight:500;margin:0}
+.ui-dialog-description{font-size:14px;color:#646961;margin:0}

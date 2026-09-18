@@ -1,0 +1,46 @@
+/* Shared navigation: no container. Logo on the left, links centred, a soft fade
+   behind so text stays legible over content that scrolls beneath it. */
+:root { --site-nav-h: 64px; --site-nav-accent: #830051; --site-nav-ink: #1d1f1d; --site-nav-muted: #6b716a; }
+.site-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 40;
+  height: var(--site-nav-h); display: flex; align-items: center; justify-content: center;
+  padding: 0 32px; box-sizing: border-box;
+  background: linear-gradient(to bottom, rgba(242, 242, 240, 0.92) 0%, rgba(242, 242, 240, 0.6) 60%, rgba(242, 242, 240, 0) 100%);
+  pointer-events: none;
+  font-family: -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+}
+.site-nav > * { pointer-events: auto; }
+.site-nav-brand { position: absolute; left: 32px; top: 50%; translate: 0 -50%; display: flex; align-items: center; text-decoration: none; }
+.site-nav-brand img { display: block; width: 118px; height: auto; }
+.site-nav-links { display: flex; align-items: center; gap: 34px; margin: 0; padding: 0; list-style: none; }
+.site-nav-links a {
+  position: relative; display: flex; align-items: center; height: 40px;
+  color: var(--site-nav-muted); text-decoration: none; font-weight: 500; letter-spacing: -0.005em;
+  transition: color 160ms ease, transform 100ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.site-nav-links { position: relative; }
+/* One underline shared by all links; it slides between them. */
+.site-nav-underline {
+  position: absolute; left: 0; bottom: 6px; height: 2px; width: 0; border-radius: 2px;
+  background: var(--site-nav-accent); opacity: 0; transform-origin: left center; will-change: transform;
+  transition: transform 340ms cubic-bezier(0.77, 0, 0.175, 1), width 340ms cubic-bezier(0.77, 0, 0.175, 1);
+  pointer-events: none;
+}
+.site-nav-links a:hover { color: var(--site-nav-ink); }
+.site-nav-links a:active { transform: scale(0.96); }
+.site-nav-links a[aria-current="page"] { color: var(--site-nav-accent); font-weight: 600; }
+.site-nav a:focus-visible { outline: 2px solid var(--site-nav-accent); outline-offset: 4px; border-radius: 4px; }
+/* Pages with in-flow content reserve room beneath the bar. */
+body[data-page="roadmap"] { padding-top: var(--site-nav-h); }
+@media (max-width: 767px) {
+  :root { --site-nav-h: 56px; }
+  .site-nav { padding: 0 16px; font-size: 13px; }
+  .site-nav-brand { left: 16px; }
+  .site-nav-brand img { width: 92px; }
+  .site-nav-links { gap: 20px; }
+}
+@media (max-width: 480px) { .site-nav-brand { display: none; } }
+@media (prefers-reduced-transparency: reduce) { .site-nav { background: rgba(242, 242, 240, 0.96); } }
+@media (prefers-contrast: more) { .site-nav { background: #fff; border-bottom: 1px solid #1d1f1d; } .site-nav-links a { color: #1d1f1d; } }
+@media (prefers-reduced-motion: reduce) { .site-nav-links a { transition: color 120ms ease; } .site-nav-links a:active { transform: none; } .site-nav-underline { transition: none; } }

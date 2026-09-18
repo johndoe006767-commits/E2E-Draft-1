@@ -1,0 +1,70 @@
+/* The tower overview fills the viewport; keep it below the shared navigation bar.
+   Overlays that use viewport coordinates (neurons, flying organ) intentionally keep inset:0. */
+/* The floating nav overlaps the scene's top edge; the figure is framed with that in mind. */
+.testing { top: 0; }
+.testing-body { inset: var(--site-nav-h, 72px) 0 0; }
+
+/* "Back to anatomy" button shown at the top right while a tower is open. */
+.testing-back {
+  top: 24px;
+  right: 28px;
+  padding: 10px 16px 10px 13px;
+  font-size: 13px;
+  font-weight: 550;
+  color: var(--test-accent);
+  background: var(--test-panel);
+  border: 1px solid var(--test-line);
+  border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(48, 52, 49, 0.08);
+}
+.testing-back:hover { background: #f4edf1; border-color: #cba7ba; }
+@media (max-width: 767px) { .testing-back { top: 12px; right: 12px; } }
+
+/* Motion tokens. */
+.testing { --ease-out: cubic-bezier(0.23, 1, 0.32, 1); --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1); }
+
+/* Tower detail: the organ flies to centre stage (680ms in the scene), then the overview
+   rises in behind it, one block after another. Delays start as the flight settles. */
+@keyframes tower-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.testing-commercial .testing-intro > *,
+.testing-commercial .testing-journey,
+.testing-commercial .testing-process-caption,
+.testing-back {
+  animation: tower-rise 420ms var(--ease-out) both;
+}
+.testing-back { animation-delay: 380ms; }
+.testing-intro > :nth-child(1) { animation-delay: 460ms; }
+.testing-intro > :nth-child(2) { animation-delay: 520ms; }
+.testing-intro > :nth-child(3) { animation-delay: 580ms; }
+.testing-journey { animation-delay: 640ms; }
+.testing-process-caption { animation: none; }
+.testing-caption-content { animation: tower-rise 300ms var(--ease-out) both; }
+.testing-tower-metrics > div { animation: tower-rise 380ms var(--ease-out) both; }
+.testing-tower-metrics > div:nth-child(1) { animation-delay: 600ms; }
+.testing-tower-metrics > div:nth-child(2) { animation-delay: 640ms; }
+.testing-tower-metrics > div:nth-child(3) { animation-delay: 680ms; }
+.testing-tower-metrics > div:nth-child(4) { animation-delay: 720ms; }
+.testing-tower-metrics > div:nth-child(5) { animation-delay: 760ms; }
+.testing-tower-metrics > div:nth-child(6) { animation-delay: 800ms; }
+.testing-tower-metrics > div:nth-child(7) { animation-delay: 840ms; }
+
+/* Process and process-list dialogs: rise and settle, backdrop fades. */
+.testing-dialog[open] { animation: tower-dialog-in 260ms var(--ease-out); }
+.testing-dialog[open]::backdrop { animation: tower-backdrop-in 220ms var(--ease-out); }
+@keyframes tower-dialog-in { from { opacity: 0; transform: translateY(16px) scale(0.965); } to { opacity: 1; transform: none; } }
+@keyframes tower-backdrop-in { from { opacity: 0; } to { opacity: 1; } }
+
+/* Anatomy labels and tower buttons respond to the pointer, mouse only. */
+@media (hover: hover) and (pointer: fine) {
+  .organ-label-button { transition: transform 200ms var(--ease-out); }
+  .organ-label-button:hover { transform: translateY(-2px); }
+  .testing-collab-chip { transition: transform 160ms var(--ease-out), background-color 160ms ease; }
+  .testing-collab-chip:hover { transform: translateY(-1px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testing-commercial .testing-intro > *, .testing-commercial .testing-journey, .testing-back, .testing-caption-content,
+  .testing-tower-metrics > div:nth-child(n) { animation: tower-fade 200ms ease both; animation-delay: 0ms; }
+  .testing-dialog[open] { animation: tower-fade 160ms ease; }
+  @keyframes tower-fade { from { opacity: 0; } to { opacity: 1; } }
+}

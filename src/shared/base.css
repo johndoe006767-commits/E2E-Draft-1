@@ -1,0 +1,69 @@
+:root { color-scheme: light; --font-geist-sans:"Helvetica Neue",Helvetica,Arial,sans-serif; --font-geist-mono:ui-monospace,Consolas,monospace; --surface:#f2f2f0; --ink:#303431; --muted:#646961; --accent:#830051; --line:#d9d9d3; /* Layers: scene 0, labels 1, controls/loading 2. */ }
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--surface);color:var(--ink)}body{font-family:var(--font-geist-sans),Arial,sans-serif}button,input{font:inherit}button,a{-webkit-tap-highlight-color:transparent}button{cursor:pointer}button:disabled{cursor:wait;opacity:.45}button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:5px}button:active{transform:scale(.98)}
+.anatomy-page{min-height:100dvh;display:flex;flex-direction:column}.site-header{height:76px;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;padding:0 44px;border-bottom:1px solid var(--line)}.identity{display:flex;align-items:center;gap:22px}.brand{font-size:25px;font-weight:650;letter-spacing:-1px}.brand-description{font-size:13px;color:var(--muted);border-left:1px solid #c7c9c1;padding-left:22px}.company{font-size:19px;letter-spacing:-.65px;color:var(--accent);font-weight:550}
+.page-switcher{height:68px;display:flex;align-items:center;justify-content:space-between;width:calc(100% - 64px);max-width:1200px;margin:0 auto;border-bottom:1px solid var(--line);font-size:14px;flex-shrink:0}.page-switcher-brand{display:flex;align-items:center;flex-shrink:0;text-decoration:none}.page-switcher-brand img{display:block;width:150px;height:auto}.page-switcher-nav{display:flex;align-items:center;gap:30px;height:100%}.page-switcher-nav a{position:relative;display:flex;align-items:center;min-height:44px;color:var(--muted);text-decoration:none;font-size:14px;transition:color .18s ease}.page-switcher-nav a:hover,.page-switcher-nav a[aria-current="page"]{color:var(--accent)}.page-switcher-nav a[aria-current="page"]{font-weight:600}.page-switcher-nav a[aria-current="page"]::after{content:"";position:absolute;bottom:3px;left:0;right:0;height:2px;background:var(--accent);border-radius:2px}.page-switcher a:focus-visible{outline:2px solid var(--accent);outline-offset:5px;border-radius:2px}
+.anatomy-stage{position:relative;height:calc(100dvh - 232px);min-height:490px;flex:1;isolation:isolate}.scene-host{position:absolute;inset:0;overflow:hidden}.scene-host canvas{width:100%;height:100%;display:block}.introduction{position:absolute;top:32px;left:44px;pointer-events:none;z-index:1}.introduction h1{font-size:clamp(25px,2.5vw,39px);font-weight:430;line-height:1.1;letter-spacing:-1.6px;margin:0}.introduction p{font-size:14px;color:var(--muted);margin-top:13px}.organ-labels{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden}.organ-label{position:absolute;top:0;left:0;opacity:0;width:180px;will-change:transform,opacity}.organ-name{display:block;color:#686c64;font-size:12px;line-height:1.8}.tower-name{display:block;font-size:17px;font-weight:520;line-height:1.2;letter-spacing:-.35px}.organ-label.left{text-align:right}.organ-label.right{text-align:left}.organ-label.emphasized .tower-name{color:var(--accent)}
+.control-region{position:relative;z-index:2;padding:6px 24px 15px}.slider-panel{display:flex;width:min(650px,100%);padding:19px 23px 16px 27px;margin:auto;border:1px solid #e0e1db;background:#fafbf8;border-radius:16px;box-shadow:0 8px 34px #3944370a;gap:25px}.slider-main{flex:1;min-width:0}.slider-heading{display:flex;justify-content:space-between;gap:12px;align-items:center}.slider-heading label{font-size:15px;font-weight:500}.slider-heading output{font-size:13px;color:var(--accent);font-variant-numeric:tabular-nums;min-width:40px;text-align:right}.anatomy-slider{padding:18px 0 11px}.anatomy-slider [data-slot=slider-track]{background:#d9dcd4;height:3px}.anatomy-slider [data-slot=slider-range]{background:var(--accent)}.anatomy-slider [data-slot=slider-thumb]{width:19px;height:19px;background:var(--accent);border:4px solid #fafbf8;box-shadow:0 0 0 1px #b3b8ac;outline-offset:4px}.anatomy-slider [data-slot=slider-thumb]:focus-visible{outline:2px solid var(--accent)}.slider-captions{display:flex;justify-content:space-between;font-size:12px;color:var(--muted)}.control-buttons{display:flex;border-left:1px solid var(--line);padding-left:17px;gap:13px;align-items:center}.icon-button{border:0;color:#5b6259;background:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;min-height:52px;min-width:39px;padding:2px}.icon-button:hover{color:var(--accent)}.icon-button span{font-size:12px}.site-footer{display:flex;align-items:center;justify-content:space-between;padding:0 44px 15px;gap:20px;font-size:12px;color:#697065}.site-footer a{color:inherit;text-decoration:underline;text-underline-offset:3px}.loading-panel{position:absolute;z-index:2;inset:0;display:flex;justify-content:center;align-items:center;flex-direction:column;background:#f2f2f0f5}.loading-panel p{font-size:16px;margin:20px 24px 8px;text-align:center;max-width:400px}.loading-panel small{color:var(--muted);font-size:13px}.loading-panel button{border:1px solid var(--line);border-radius:8px;padding:10px 20px;background:#fafbf8;margin-top:12px}.loading-silhouette{height:120px;width:36px;border-radius:45%;background:linear-gradient(90deg,#e2e3dc,#f8f8f5,#e2e3dc);background-size:200%;animation:loading 2s linear infinite;filter:blur(6px)}@keyframes loading{to{background-position:200%}}
+@media(min-width:1500px){.introduction{left:4vw;top:42px}.site-header{padding:0 4vw}.site-footer{padding-left:4vw;padding-right:4vw}}
+@media(max-width:1100px){.introduction h1{font-size:26px}.introduction{left:25px;top:24px}.organ-label{width:135px}.tower-name{font-size:15px}.site-header{padding:0 25px}}
+@media(max-width:767px){.site-header{height:62px;padding:0 20px}.brand{font-size:22px}.brand-description{display:none}.company{font-size:16px}.anatomy-stage{height:calc(100dvh - 237px);min-height:520px}.introduction{top:16px;left:20px}.introduction h1{font-size:23px;letter-spacing:-.9px}.introduction p{font-size:12px;margin-top:8px}.organ-label{width:118px;text-align:center!important}.organ-name{font-size:12px}.tower-name{font-size:13px;letter-spacing:-.25px}.heart-label{padding-left:13px}.heart-label:before{width:8px;top:10px}.heart-label>span{font-size:16px}.heart-label small{display:none}.control-region{padding:4px 12px 14px}.slider-panel{padding:17px 17px 14px;gap:13px;border-radius:16px}.slider-heading label{font-size:13px}.control-buttons{padding-left:10px;gap:3px}.icon-button{min-width:32px}.icon-button span{font-size:11px}.slider-captions{font-size:11px}.site-footer{padding:0 20px 14px;font-size:11px}.loading-panel p{font-size:14px}}
+@media(max-height:650px) and (min-width:768px){.anatomy-stage{min-height:340px}.site-header{height:58px}.introduction h1{font-size:24px}.control-region{padding-bottom:8px}.slider-panel{padding-top:13px;padding-bottom:10px}.site-footer{padding-bottom:10px}}
+/* Reduced motion is handled per component (gentler, not none); only scroll snapping is reset globally. */@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}.organ-label{will-change:auto}}
+
+/* Anatomy surface keeps the model primary beneath the shared two-page switcher. */
+.anatomy-stage{height:calc(100dvh - 158px);min-height:520px}
+.control-region{padding:0 24px 25px}
+.slider-panel{display:block;width:min(510px,100%);padding:0;margin:auto;border:0;background:none;border-radius:0;box-shadow:none}
+.anatomy-slider{padding:18px 0 13px}
+.slider-captions{font-size:13px}
+.organ-label .tower-name{transition:color .25s ease}
+@media(max-width:767px){.page-switcher{height:58px;width:calc(100% - 32px)}.page-switcher-brand img{width:122px}.page-switcher-nav{gap:18px}.page-switcher-nav a{font-size:13px}.anatomy-stage{height:calc(100dvh - 138px);min-height:520px}.control-region{padding:0 28px 22px}.slider-captions{font-size:12px}}
+@media(prefers-reduced-motion:reduce){.page-switcher-nav a{transition:none}}
+
+.heart-label>span{transform-origin:left center;align-self:flex-start;will-change:transform,opacity}
+@media(prefers-reduced-motion:reduce){.heart-label>span{will-change:auto}}
+
+.brain-trigger{position:absolute;top:0;left:0;pointer-events:auto;background:transparent;border:0;border-radius:45%;z-index:2}.brain-trigger:focus-visible{outline:2px solid var(--accent);background:#8300510b}.flying-brain{position:fixed;inset:0;z-index:60;pointer-events:none}
+.organ-trigger:focus-visible{outline:2px solid var(--accent);outline-offset:4px;background:#8300510a}
+.tower-load-status{position:fixed;z-index:80;bottom:30px;left:50%;transform:translateX(-50%);padding:18px 24px;background:#fafaf7;border:1px solid var(--line);border-radius:12px;box-shadow:0 8px 30px #0002;max-width:90vw}
+.tower-load-status button{margin:8px 12px 0 0;text-decoration:underline}
+
+
+
+/* Shared motion: occasional transitions, immediate keyboard interaction. */
+:root{--motion-out:cubic-bezier(.23,1,.32,1);--motion-move:cubic-bezier(.65,0,.35,1)}
+[data-slot=dialog-overlay]{opacity:1;transition:opacity 220ms var(--motion-out)}
+[data-slot=dialog-overlay][data-starting-style],[data-slot=dialog-overlay][data-ending-style]{opacity:0}
+[data-slot=dialog-content]{opacity:1;scale:1;transition:opacity 220ms var(--motion-out),scale 220ms var(--motion-out);box-shadow:0 24px 80px #25202826,0 2px 8px #2520280a}
+[data-slot=dialog-content][data-starting-style]{opacity:0;scale:.975}
+[data-slot=dialog-content][data-ending-style]{opacity:0;scale:.985;transition-duration:140ms}
+[data-slot=dialog-overlay][data-ending-style]{transition-duration:140ms}
+.slider-panel{background:#fafbf8e8;border-color:#d8d8d1;box-shadow:0 2px 5px #30343104,0 12px 32px #30343107}
+.anatomy-slider [data-slot=slider-thumb]{transition:scale 140ms var(--motion-out),box-shadow 140ms ease;cursor:grab}
+.anatomy-slider [data-slot=slider-thumb]:active{scale:1.15;cursor:grabbing;box-shadow:0 0 0 5px #83005112}
+:is(.tower-popup,.roadmap-page,.roadmap-dialog) button{transition:transform 140ms var(--motion-out),background-color 160ms ease,color 160ms ease,border-color 160ms ease}
+:is(.tower-popup,.roadmap-page,.roadmap-dialog) button:active:not(:disabled){transform:scale(.98)}
+.tower-popup .process-node>svg{transition:transform 180ms var(--motion-out)}
+.tower-popup .process-detail{animation:none}
+@media(hover:hover) and (pointer:fine){
+ .anatomy-slider [data-slot=slider-thumb]:hover{box-shadow:0 0 0 5px #8300510c}
+ .tower-popup .process-node:hover{background:#f6f0f4}
+}
+@media(prefers-reduced-motion:reduce){
+ [data-slot=dialog-content]{scale:1!important;transition:opacity 120ms ease}
+ button:active{transform:none!important}
+ .anatomy-slider [data-slot=slider-thumb]{transition:none;scale:1!important}
+}
+html[data-input=keyboard] *,html[data-input=keyboard] *::before,html[data-input=keyboard] *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+html[data-input=keyboard] [data-slot=dialog-content]{scale:1!important}
+
+/* The anatomy now occupies the space previously reserved for its slider. */
+.anatomy-stage{height:calc(100dvh - 68px);min-height:0;overscroll-behavior:contain}
+.anatomy-stage:focus-visible{outline:2px solid var(--accent);outline-offset:-4px}
+@media(max-width:767px){.anatomy-stage{height:calc(100dvh - 58px)}}
+
+/* Center navigation independently of the brand width. */
+.page-switcher{position:relative;justify-content:center}.page-switcher-brand{position:absolute;left:0}.page-switcher-nav{justify-content:center}
+@media(max-width:600px){.page-switcher-brand img{width:65px}.page-switcher-nav{gap:12px}.page-switcher-nav a{font-size:13px}}
+@media(max-width:360px){.page-switcher-brand{display:none}}
+

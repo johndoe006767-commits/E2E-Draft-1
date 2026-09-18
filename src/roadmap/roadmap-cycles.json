@@ -1,0 +1,278 @@
+[
+  {
+    "id": "close",
+    "title": "Monthly close",
+    "short": "Monthly close",
+    "description": "Convert the month’s transactions into a controlled and reportable financial position.",
+    "stops": [
+      {
+        "day": 0,
+        "label": "WD-7",
+        "title": "Preliminary accruals"
+      },
+      {
+        "day": 1,
+        "label": "WD-4",
+        "title": "Pre-close review"
+      },
+      {
+        "day": 2,
+        "label": "WD-3",
+        "title": "AP and accruals"
+      },
+      {
+        "day": 3,
+        "label": "WD-2",
+        "title": "Asset and market close"
+      },
+      {
+        "day": 4,
+        "label": "WD-1",
+        "title": "Final pre-close"
+      },
+      {
+        "day": 5,
+        "label": "WD+1",
+        "title": "Intercompany close"
+      },
+      {
+        "day": 6,
+        "label": "WD+2",
+        "title": "General ledger close"
+      },
+      {
+        "day": 7,
+        "label": "WD+3",
+        "title": "Intercompany lock"
+      },
+      {
+        "day": 8,
+        "label": "WD+4",
+        "title": "Reporting and review"
+      },
+      {
+        "day": 9,
+        "label": "WD+5",
+        "title": "Resubmission controls"
+      },
+      {
+        "day": 10,
+        "label": "WD+7",
+        "title": "Statutory P&L review"
+      }
+    ],
+    "phases": [
+      "Prepare the close",
+      "Close the ledgers",
+      "Report and control"
+    ],
+    "note": "Buildings show documented WD milestones. Gaps are intentional. Activities with no assigned WD are listed under Across this cycle; market-specific windows are not daily deadlines."
+  },
+  {
+    "id": "performance",
+    "title": "Monthly performance and forecasting",
+    "short": "Performance & forecast",
+    "description": "Explain actual performance, identify risks and opportunities, and update the expected outlook.",
+    "stops": [
+      {
+        "day": 0,
+        "label": "WD-4",
+        "title": "Begin pre-close analysis"
+      },
+      {
+        "day": 1,
+        "label": "WD-3",
+        "title": "Refresh accruals"
+      },
+      {
+        "day": 2,
+        "label": "WD-2",
+        "title": "Investigate movements"
+      },
+      {
+        "day": 3,
+        "label": "WD-1",
+        "title": "Revenue reporting opens"
+      },
+      {
+        "day": 4,
+        "label": "WD+1",
+        "title": "Forecast and control review"
+      },
+      {
+        "day": 5,
+        "label": "WD+2",
+        "title": "Cost reporting opens"
+      },
+      {
+        "day": 6,
+        "label": "WD+3",
+        "title": "Quarter-month forecast window"
+      },
+      {
+        "day": 7,
+        "label": "WD+4",
+        "title": "Review financial movements"
+      },
+      {
+        "day": 8,
+        "label": "WD+5",
+        "title": "Cost reporting window ends"
+      },
+      {
+        "day": 9,
+        "label": "WD+6",
+        "title": "Forecast and approval window"
+      },
+      {
+        "day": 10,
+        "label": "WD+7",
+        "title": "Forecast and control deadlines"
+      }
+    ],
+    "phases": [
+      "Review actuals",
+      "Report and forecast",
+      "Complete reviews"
+    ],
+    "note": "A building marks a documented execution window or deadline, not a separate daily task. Quarter-month forecast deadlines and market calendars vary."
+  },
+  {
+    "id": "planning",
+    "title": "Annual planning",
+    "short": "Annual planning",
+    "description": "Translate commercial strategy and business assumptions into financial plans over different planning horizons.",
+    "stops": [
+      {
+        "day": 0,
+        "label": "February",
+        "title": "RBU2 cost planning begins"
+      },
+      {
+        "day": 1,
+        "label": "March",
+        "title": "RBU2 planning and submission"
+      },
+      {
+        "day": 2,
+        "label": "April",
+        "title": "RBU2 review window"
+      },
+      {
+        "day": 3,
+        "label": "May",
+        "title": "RBU2 completes; MTP begins"
+      },
+      {
+        "day": 4,
+        "label": "June",
+        "title": "MTP cost planning"
+      },
+      {
+        "day": 5,
+        "label": "July",
+        "title": "MTP submission and review"
+      },
+      {
+        "day": 6,
+        "label": "August",
+        "title": "MTP review window"
+      },
+      {
+        "day": 7,
+        "label": "September",
+        "title": "MTP planning completes"
+      },
+      {
+        "day": 8,
+        "label": "October",
+        "title": "Phased Budget cost planning"
+      },
+      {
+        "day": 9,
+        "label": "November",
+        "title": "Phased Budget submission"
+      },
+      {
+        "day": 10,
+        "label": "December",
+        "title": "Annual budget planning completes"
+      }
+    ],
+    "phases": [
+      "RBU2",
+      "MTP",
+      "Phased Budget"
+    ],
+    "note": "The source defines calendar-month windows, not fixed WDs, for annual planning. Buildings therefore show months. Market deadlines differ; activities spanning a window appear at each relevant stop."
+  },
+  {
+    "id": "continuous",
+    "title": "Continuous transactional and control activities",
+    "short": "Continuous operations",
+    "description": "Keep finance operating throughout the month, beyond any single planning or closing window.",
+    "stops": [
+      {
+        "day": 0,
+        "label": "Daily",
+        "title": "Daily customer and cash work"
+      },
+      {
+        "day": 1,
+        "label": "On receipt",
+        "title": "Receive transactions"
+      },
+      {
+        "day": 2,
+        "label": "Validation",
+        "title": "Validate records"
+      },
+      {
+        "day": 3,
+        "label": "Approval",
+        "title": "Approve requests"
+      },
+      {
+        "day": 4,
+        "label": "Payment",
+        "title": "Execute and settle payments"
+      },
+      {
+        "day": 5,
+        "label": "Exceptions",
+        "title": "Resolve exceptions"
+      },
+      {
+        "day": 6,
+        "label": "Weekly",
+        "title": "Recurring monitoring"
+      },
+      {
+        "day": 7,
+        "label": "Monthly",
+        "title": "Monthly recurring work"
+      },
+      {
+        "day": 8,
+        "label": "Quarterly",
+        "title": "Quarterly reviews"
+      },
+      {
+        "day": 9,
+        "label": "Annual",
+        "title": "Annual controls and audit"
+      },
+      {
+        "day": 10,
+        "label": "Ad hoc",
+        "title": "Event-driven finance work"
+      }
+    ],
+    "phases": [
+      "Receive and process",
+      "Approve and resolve",
+      "Monitor and maintain"
+    ],
+    "note": "These buildings show recurring frequencies and transaction triggers, not consecutive WDs. Follow each process’s timing and conditions; ongoing work has no single start or finish."
+  }
+]

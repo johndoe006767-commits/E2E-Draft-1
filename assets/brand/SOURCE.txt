@@ -1,0 +1,3 @@
+AstraZeneca logo: https://www.logo.wine/logo/AstraZeneca
+Asset: https://www.logo.wine/a/logo/AstraZeneca/AstraZeneca-Logo.wine.svg
+Outer blank canvas cropped; logo paths and colors preserved.

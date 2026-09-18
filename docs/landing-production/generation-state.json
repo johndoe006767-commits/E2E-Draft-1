@@ -1,0 +1,41 @@
+{
+  "background": "#F2F2F0",
+  "accent": "#8A0051",
+  "approvedBudgetApproxCredits": 90.5,
+  "desktopOnly": true,
+  "opening": {
+    "jobId": "5276a050-6964-4f0e-9e3d-2312173c4f87",
+    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3BQn6GlgDAZMs6TChvJatNDYMrp/hf_20260910_224140_5276a050-6964-4f0e-9e3d-2312173c4f87.png"
+  },
+  "legs": [
+    {
+      "index": 1,
+      "jobId": "ef567880-313f-4d0d-ae11-f9f52bf743a9",
+      "status": "completed",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3BQn6GlgDAZMs6TChvJatNDYMrp/hf_20260910_224347_ef567880-313f-4d0d-ae11-f9f52bf743a9.mp4"
+    },
+    {
+      "index": 2,
+      "jobId": "4691db72-1fc1-40ce-b5fe-95b287b3ef75",
+      "status": "completed",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3BQn6GlgDAZMs6TChvJatNDYMrp/hf_20260910_224818_4691db72-1fc1-40ce-b5fe-95b287b3ef75.mp4"
+    },
+    {
+      "index": 3,
+      "jobId": "0583b387-8c13-452f-aa08-fbd1e50409f8",
+      "status": "completed",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3BQn6GlgDAZMs6TChvJatNDYMrp/hf_20260910_225303_0583b387-8c13-452f-aa08-fbd1e50409f8.mp4"
+    },
+    {
+      "index": 4,
+      "jobId": "2c327024-f1d6-410a-9f16-9a44e2a7b149",
+      "status": "completed",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3BQn6GlgDAZMs6TChvJatNDYMrp/hf_20260910_225745_2c327024-f1d6-410a-9f16-9a44e2a7b149.mp4"
+    }
+  ],
+  "spentCredits": 90.5,
+  "remainingCredits": 9.5,
+  "status": "rendered and assembled",
+  "film": "assets/gfs-kl-four-rhythms.mp4",
+  "backgroundFinish": "Continuous neutral-highlight colour correction to #F2F2F0"
+}

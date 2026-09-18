@@ -1,0 +1,550 @@
+{
+  "name": "FP&A Operations",
+  "organ": "pancreas",
+  "tagline": "Turning production, site cost and logistics data into plans and actuals that steer operations.",
+  "pickerTitle": "FP&A Operations Processes",
+  "pickerIntro": "Four processes covering planning and actual close for source-to-manufacture and warehouse and distribution finance.",
+  "context": [
+    {
+      "label": "Solutions",
+      "text": "Documented solutions are dashboards: APAC Volume & COGM @ Standard, APAC PPV and APAC Site Cost & FTE dashboards for manufacturing actuals, a Global Logistic Finance Dashboard that supports closing with a planning comparative, and a Zuellig Pharma Volume Analysis Dashboard still in progress."
+    },
+    {
+      "label": "Automation",
+      "text": "The actuals processes list Python, Power BI and Nintex alongside Hyperion, SAP, Coupa, Workday, CoStar and the Office tools; planning adds Capex Tool and AZForce and produces a Hyperion loading template. The source does not describe individual automated routines."
+    },
+    {
+      "label": "AI",
+      "text": "Two commentary agents are documented as TPI solutions: Agent Charlie consolidates and summarises APAC commentaries for Source to Manufacture planning, and Agent Rhy does the same for Source to Manufacture actuals."
+    },
+    {
+      "label": "Cross-Functional Collaboration",
+      "text": "Inputs come from GSC, HR, Embedded Finance, PET, GERE, Global IT and Quality, Procurement, Product Costing, Distribution and Logistics leads, and the R2R, P2P and payroll teams; outputs go to Embedded Finance, GFS Ops FP&A, Global Ops Reporting and the logistics heads."
+    }
+  ],
+  "metrics": {
+    "solutions": 5,
+    "automated": 2,
+    "ai": 2
+  },
+  "collaborators": [
+    "brain",
+    "lungs",
+    "liver",
+    "stomach",
+    "kidneys"
+  ],
+  "processes": [
+    {
+      "id": "3135d977f9f1",
+      "title": "Source to Manufacture - Planning",
+      "group": "Planning",
+      "purpose": "Source to Manufacture - Planning calculates and simulates the manufacturing P&L for the planning cycle. GFS Ops brings together production volume and inventory inputs from Global Supply Chain, manpower and FTE inputs from HR and Embedded Finance, non-manpower costs from the Departmental Heads, capex from GERE, the Site Project Managers, Global IT, Global Quality and EF, standard costing (FMC and SCC) from Global Product Costing, targets and productivity from Global Ops, and lease information from R2R Lease and Embedded Finance.\n\nThe work covers inventory and capacity planning, resources planning (material, manpower, non-manpower, depreciation and amortisation, capex and productivity) and the annual full manufacturing costs. It produces the loading template, planning deck, P&L results, draft commentaries and the FMC sign-off dashboard, which feed Embedded Finance and the Operation Business, GFS Ops FP&A and Global Ops Reporting.",
+      "cadence": "",
+      "stages": [
+        {
+          "title": "Finalise planning production volumes",
+          "displayTitle": "Finalise planning production volumes",
+          "owner": "GFS Ops",
+          "detail": "Calculate and Simulate P&L: Inventory and capacity planning: Planning production volume finalised (GSC)",
+          "description": "Confirm the finalised planning production volume supplied by Global Supply Chain - Network Supply (GSC). This is the manufacturing input that opens the inventory and capacity planning block of the P&L calculation and simulation.",
+          "systems": [
+            "Hyperion",
+            "Capex Tool",
+            "AZForce",
+            "SAP",
+            "CoStar",
+            "Excel",
+            "PowerPoint",
+            "SharePoint"
+          ],
+          "challenges": [
+            "Multiple streams of information feeds create consolidation effort and waiting time.",
+            "Stretched timeline.",
+            "Incomplete information creates back-and-forth communication."
+          ],
+          "challengeScope": "Process-wide challenge; the source does not assign it to an individual step."
+        },
+        {
+          "title": "Finalise inventory balances",
+          "displayTitle": "Finalise inventory balances",
+          "owner": "GFS Ops",
+          "detail": "Inventory balance finalised (GSC)",
+          "description": "Confirm the finalised inventory balance using the inventory volume and NPI provision supplied by Global Supply Chain - Inventory (GSC).",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Plan the inventory and write-off provision",
+          "displayTitle": "Plan the inventory and write-off provision",
+          "owner": "GFS Ops",
+          "detail": "Provision for inventory/write off",
+          "description": "Plan the provision for inventory and write-off as the last element of inventory and capacity planning, drawing on the inventory volume and NPI provision received from GSC. The source does not describe the provisioning method.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Plan material costs at standard yield and PPV",
+          "displayTitle": "Plan material costs at standard yield and PPV",
+          "owner": "GFS Ops",
+          "detail": "Resources planning: Material: Cost of Goods Manufacture at Standard Yield, Purchase Price Variances",
+          "description": "Open the resources planning block by planning material cost: Cost of Goods Manufacture at standard yield and purchase price variances. This draws on the standard costing inputs, FMC and SCC, supplied by Global Product Costing (PC).",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Plan FTE, manpower and manpower-driven costs",
+          "displayTitle": "Plan FTE, manpower and manpower-driven costs",
+          "owner": "GFS Ops",
+          "detail": "FTE & Manpower and manpower driven cost planning",
+          "description": "Plan FTE and manpower, and the costs driven by manpower, using the manpower and related cost inputs from HR and the FTE inputs from HR and Embedded Finance (EF).\n\nHR provides its input through AZForce; EF reviews it and GFS makes the adjustments, so this step waits on each party in turn.",
+          "systems": [
+            "AZForce"
+          ],
+          "challenges": [
+            "Collaboration increases waiting time, e.g. AZForce input from HR, review by EF and adjustment by GFS; Global IT and Global Quality delays on recharge communication block depreciation finalisation and impact P&L finalisation."
+          ]
+        },
+        {
+          "title": "Plan non-manpower costs and simulate D&A",
+          "displayTitle": "Plan non-manpower costs and simulate D&A",
+          "owner": "GFS Ops",
+          "detail": "Non-manpower cost planning, including depreciation and amortisation simulation and calculation",
+          "description": "Plan non-manpower costs using the non-manpower related cost inputs from the Departmental Heads and EF, including the simulation and calculation of depreciation and amortisation. Lease inputs from R2R Lease and Embedded Finance also form part of the planning inputs.\n\nDepreciation finalisation depends on recharge communication from Global IT and Global Quality.",
+          "systems": [],
+          "challenges": [
+            "Collaboration increases waiting time, e.g. AZForce input from HR, review by EF and adjustment by GFS; Global IT and Global Quality delays on recharge communication block depreciation finalisation and impact P&L finalisation."
+          ]
+        },
+        {
+          "title": "Plan capex for new and in-flight projects",
+          "displayTitle": "Plan capex for new and in-flight projects",
+          "owner": "GFS Ops",
+          "detail": "Capex planning: new flight and inflight",
+          "description": "Plan capital expenditure for new-flight and in-flight projects, using the capex inputs supplied by GERE, the Site Project Managers, Global IT, Global Quality and EF.",
+          "systems": [
+            "Capex Tool"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Track productivity",
+          "displayTitle": "Track productivity",
+          "owner": "GFS Ops",
+          "detail": "Productivity tracking (EF, Procurements, PET)",
+          "description": "Track productivity with Embedded Finance, Procurement and Production (PET), against the target and productivity inputs supplied by Global Ops.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Compile annual full manufacturing costs",
+          "displayTitle": "Compile annual full manufacturing costs",
+          "owner": "GFS Ops",
+          "detail": "Annual Full Manufacturing costs",
+          "description": "Bring the planning blocks together into the annual full manufacturing costs and the calculated and simulated P&L.\n\nThe outputs are the loading template, planning deck, P&L results, draft commentaries and the FMC sign-off dashboard. They feed Embedded Finance and the Operation Business, GFS Ops FP&A and Global Ops Reporting.\n\nAcross the process GFS Ops works in Hyperion, Capex Tool, AZForce, SAP, CoStar, Excel, PowerPoint and SharePoint.",
+          "systems": [],
+          "challenges": [
+            "Multiple systems create reconciliation effort.",
+            "Rework due to changes and global direction.",
+            "Actualisation information in the system took 8 working days.",
+            "System issues (missing data, inaccurate data, current flow not supporting process change, etc.)."
+          ],
+          "challengeScope": "Process-wide challenge; the source does not assign it to an individual step."
+        }
+      ],
+      "challenges": [
+        "Multiple streams of information feeds create consolidation effort and waiting time.",
+        "Multiple systems create reconciliation effort.",
+        "Rework due to changes and global direction.",
+        "Stretched timeline.",
+        "Collaboration increases waiting time, e.g. AZForce input from HR, review by EF and adjustment by GFS; Global IT and Global Quality delays on recharge communication block depreciation finalisation and impact P&L finalisation.",
+        "Incomplete information creates back-and-forth communication.",
+        "Actualisation information in the system took 8 working days.",
+        "System issues (missing data, inaccurate data, current flow not supporting process change, etc.)."
+      ],
+      "improvements": [
+        "TPI: Agent Charlie - APAC commentaries consolidation and summary."
+      ],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "flowNote": "Activities are listed in source order under the headings Inventory and capacity planning and Resources planning; the source presents them as planning workstreams rather than a strict sequence.",
+      "source": "## Source file: Ops Process Flow_MIRO_Aug2026.pptx\n\n- Path: `Tower Subprocesses/FP&A Ops/Ops Process Flow_MIRO_Aug2026.pptx`\n- Format: PPTX\n\n### Slide 2: Source to Manufacture - Planning\n\n| Questions | Answers |\n| --- | --- |\n| Upstream information feed - which tower/process is immediately before this one? | Global Supply Chain - Network Supply (GSC), Human Resource (HR), Embedded Finance (EF), Departmental Heads, Production (PET) Global Supply Chain - Inventory (GSC), Global Product Costing (PC), Global Engineering & Real Estate (GERE), Enabling team - Quality, IT, Logistics, Global Ops, Procurement |\n| What input is received? | Manufacturing: Production volume (from GSC)\n    Inventory: Inventory volume and NPI provision (from GSC)\n    Site Cost and FTE: Manpower and related costs (HR), FTE (HR and EF), Non-manpower related costs (Departmental Heads and EF)\n    Capex (GERE, Site Project Managers, Global IT, Global Quality and EF)\n    Standard costing: FMC and SCC (PC)\n    Target & Productivity (Global Ops)\n    Lease (R2R Lease and Embedded Finance) |\n| What are the main steps? | Calculate and Simulate P&L:\n    Inventory and capacity planning:\n    Planning production volume finalised (GSC)\n    Inventory balance finalised (GSC)\n    Provision for inventory/write off\n    Resources planning:\n    Material: Cost of Goods Manufacture at Standard Yield, Purchase Price Variances\n    FTE & Manpower and manpower driven cost planning\n    Non-manpower cost planning, including depreciation and amortisation simulation and calculation\n    Capex planning: new flight and inflight\n    Productivity tracking (EF, Procurements, PET)\n    Annual Full Manufacturing costs |\n| Who does them? | GFS Ops |\n| What system/tool is used? | Hyperion, Capex Tool, AZForce, SAP, CoStar, Excel, Powerpoint, Sharepoint |\n| What output is created? | Loading template, Planning deck, P&L results, Draft commentaries, FMC sign-off dashboard |\n\n### Slide 3: Source to Manufacture - Planning\n\n| Questions | Answers |\n| --- | --- |\n| Downstream information feed - which tower/process is immediately after this one? | Embedded Finance and Operation Business, GFS Ops FP&A, Global Ops Reporting |\n| Controls & Issues? | Multiple stream of information feeds creates consolidation effort, waiting time\n    Multiple systems creates reconciliation\n    Rework due to changes and global direction\n    Stretch timeline\n    Collaboration increase waiting time e.g. AZForce input from HR, review by EF, adjustment by GFS, Global IT and Global Quality delay on recharge communication blocker for depreciation finalization and impact P&L finalization\n    Incomplete information creates back and forth communication flow\n    Actualization information in system took 8 WDs\n    System issues (missing data, inaccurate, current flow not supporting process change, etc.) |\n| Solution/TPI? | Agent Charlie - APAC commentaries consolidation and summary |\n",
+      "sourceFile": "FP&A Ops - Raw Data.md",
+      "purposeSummary": "Plan the **manufacturing P&L** - volumes, inventory, resources, capex and productivity - for **Embedded Finance, GFS Ops FP&A and Global Ops Reporting**.",
+      "cadenceSummary": "**Timing and frequency are not specified** in the supplied file."
+    },
+    {
+      "id": "3f1cb83d5850",
+      "title": "Source to Manufacture - Actual",
+      "group": "Actuals",
+      "purpose": "Source to Manufacture - Actual supports the month-end close for manufacturing sites and reviews the actual results. GFS Ops monitors and reviews production volume and Cost of Goods Manufacture at standard, FTE and site and quality cost, inventory provisioning and capex spending, using inputs from Production (PET), R2R (including R2R Capex, R2R Lease and R2R ICT), P2P, T&E, CnB, Controlling, Embedded Finance, Site Quality, HR and Payroll/People Services.\n\nThe close work runs from sub-module, MM and SAP close through system-to-system reconciliation, material adjustment review, P&L and balance sheet review and sign-off, controls attestation, recharges, productivity and KPIs. It produces the volume and COGM report, FTE and site and quality cost report, inventory provision, capex spend report, MI pack, P&L results and draft commentaries for Embedded Finance and the Operation Business, GFS Ops FP&A and Global Ops Reporting.",
+      "cadence": "",
+      "stages": [
+        {
+          "title": "Close the FA, AP and AR sub-modules",
+          "displayTitle": "Close the FA, AP and AR sub-modules",
+          "owner": "GFS Ops",
+          "detail": "Sub-module close: FA, AP, AR",
+          "description": "Support the sub-module close for fixed assets, accounts payable and accounts receivable. This consumes the AP cut-off for Coupa PO and non-PO invoices and the T&E cut-off from P2P, bank clearing from CnB, the depreciation and amortisation run from R2R Capex and the lease amortisation run from R2R Lease.\n\nCapex spending is monitored and reviewed alongside the fixed asset close: opex-to-capex reclassification (consumption from process orders and NTI recharge), capex spending GR/IR from Coupa POs and VoWD accruals.",
+          "systems": [
+            "Hyperion",
+            "SAP",
+            "CoStar",
+            "Coupa",
+            "Nintex",
+            "OneGRC",
+            "Python",
+            "Power BI",
+            "Excel",
+            "PowerPoint",
+            "Workday",
+            "Utmost",
+            "SharePoint"
+          ],
+          "challenges": [
+            "Late posting from upstream."
+          ]
+        },
+        {
+          "title": "Support intra-month checks and MM close",
+          "displayTitle": "Support intra-month checks and MM close",
+          "owner": "GFS Ops",
+          "detail": "MM close: support on intra-month check and MM close co-ordination",
+          "description": "Support the intra-month check and coordinate the materials management (MM) close. The inputs are the completion of process orders and the material movement cut-off from Production (PET), together with the consumption of spares; these underpin the monitoring and review of production volume and COGM at standard.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Support SAP close with non-judgemental journals",
+          "displayTitle": "Support SAP close with non-judgemental journals",
+          "owner": "GFS Ops",
+          "detail": "SAP close: support on non-judgemental journals",
+          "description": "Support the SAP close by preparing the non-judgemental journals. The inputs at this point are the Workday (HR) cut-off and payroll posting from HR, Payroll/People Services and R2R, the intercompany recharge, and the month-end close accruals from R2R and P2P, which feed the monitoring and review of FTE and site and quality cost.",
+          "systems": [
+            "SAP",
+            "Workday"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Reconcile data across systems",
+          "displayTitle": "Reconcile data across systems",
+          "owner": "GFS Ops",
+          "detail": "System-to-system reconciliation",
+          "description": "Reconcile system to system so that the close data ties across SAP, SOAR, FDH and ASO.",
+          "systems": [
+            "SAP",
+            "SOAR",
+            "FDH",
+            "ASO"
+          ],
+          "challenges": [
+            "Multiple systems create reconciliation effort (SAP-SOAR-FDH-ASO)."
+          ]
+        },
+        {
+          "title": "Review and monitor material adjustments",
+          "displayTitle": "Review and monitor material adjustments",
+          "owner": "GFS Ops",
+          "detail": "Material adjustment review & monitoring: PPV, WIP, TP change, duty true up",
+          "description": "Review and monitor the material adjustments: purchase price variance (PPV), work in progress (WIP), transfer price changes and duty true-up.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Review P&L results and obtain EF sign-off",
+          "displayTitle": "Review P&L results and obtain EF sign-off",
+          "owner": "GFS Ops",
+          "detail": "P&L results (including material variance assessment), review and sign off by EF",
+          "description": "Prepare the P&L results, including the material variance assessment, for review and sign-off by Embedded Finance.\n\nThe inventory provision proposed by GFS Ops is also reviewed at this point, with input and review from EF.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Review and sign off the balance sheet",
+          "displayTitle": "Review and sign off the balance sheet",
+          "owner": "GFS Ops",
+          "detail": "Balance Sheet review and sign-off",
+          "description": "Review the balance sheet and obtain sign-off.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Complete controls attestation and sign-off",
+          "displayTitle": "Complete controls attestation and sign-off",
+          "owner": "GFS Ops",
+          "detail": "Controls attestation and sign off",
+          "description": "Attest the controls for the period and obtain sign-off.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Process NTI and COBOU recharges",
+          "displayTitle": "Process NTI and COBOU recharges",
+          "owner": "GFS Ops",
+          "detail": "Recharges (NTI and COBOU)",
+          "description": "Process the NTI and COBOU recharges.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Report productivity",
+          "displayTitle": "Report productivity",
+          "owner": "GFS Ops",
+          "detail": "Productivity",
+          "description": "Report productivity for the period. The source lists productivity as a step without further detail.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Report KPIs and issue the MI pack",
+          "displayTitle": "Report KPIs and issue the MI pack",
+          "owner": "GFS Ops",
+          "detail": "KPIs (Cost per unit, Output per FTE)",
+          "description": "Report the KPIs: cost per unit and output per FTE.\n\nThe outputs of the close are the volume and COGM report, the FTE and site and quality cost report, the inventory provision, the capex spend report, the MI pack, the P&L results and the draft commentaries. They feed Embedded Finance and the Operation Business, GFS Ops FP&A and Global Ops Reporting.\n\nAcross the process GFS Ops works in Hyperion, SAP, CoStar, Coupa, Nintex, OneGRC, Python, Power BI, Excel, PowerPoint, Workday, Utmost and SharePoint.",
+          "systems": [],
+          "challenges": [
+            "System issues (missing data, inaccurate data, current flow not supporting process change, etc.)."
+          ],
+          "challengeScope": "Process-wide challenge; the source does not assign it to an individual step."
+        }
+      ],
+      "challenges": [
+        "Late posting from upstream.",
+        "Multiple systems create reconciliation effort (SAP-SOAR-FDH-ASO).",
+        "System issues (missing data, inaccurate data, current flow not supporting process change, etc.)."
+      ],
+      "improvements": [
+        "TPI: APAC Volume & COGM @ Standard Dashboards, APAC PPV Dashboards and APAC Site Cost & FTE Dashboards.",
+        "TPI: Agent Rhy - APAC commentaries consolidation and summary."
+      ],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "flowNote": "Activities follow the close-support order given in the source; the source does not state dependencies between them.",
+      "source": "## Source file: Ops Process Flow_MIRO_Aug2026.pptx\n\n- Path: `Tower Subprocesses/FP&A Ops/Ops Process Flow_MIRO_Aug2026.pptx`\n- Format: PPTX\n\n### Slide 4: Source to Manufacture - Actual\n\n| Questions | Answers |\n| --- | --- |\n| Upstream information feed - which tower/process is immediately before this one? | Production (PET), R2R, R2R Capex, R2R Lease, R2R ICT, P2P, T&E, CnB, Controlling, Embedded Finance (EF), Site Quality, Human Resources (HR), Payroll/People Service (PS) |\n| What input is received? | Production volume & Cost of Goods Manufacture at Standard (COGM @ Std) monitoring & review:\n    Completion of Process Order\n    Material movement cut off\n\n    FTE & Site and Quality Cost monitoring & review:\n    Workday (HR) cut off and payroll posting (HR, Payroll/PS, R2R)\n    Consumption of spares\n    AP cut off: Coupa PO and non-PO (P2P)\n    T&E cut off (P2P)\n    Bank Clearing (CnB)\n    IC recharge\n    Month end close accruals (R2R, P2P)\n    Depreciation and amortisation run (R2R Capex)\n    Lease amortisation run (R2R Lease)\n\n    Inventory provisioning & review:\n    EF input & review on provisioning proposed by GFS Ops\n\n    CAPEX spending monitoring & review:\n    Opex to Capex reclassification: consumption from Process Oder, NTI recharge\n    Capex spending GR/IR from Coupa PO\n    VoWD accruals |\n\n### Slide 5: Source to Manufacture - Actual\n\n| Questions | Answers |\n| --- | --- |\n| What are the main steps? | Sub-module close: FA, AP, AR\n    MM close: support on intra-month check and MM close co-ordination\n    SAP close: support on non-judgemental journals\n    System-to-system reconciliation\n    Material adjustment review & monitoring: PPV, WIP, TP change, duty true up\n    P&L results (including material variance assessment), review and sign off by EF\n    Balance Sheet review and sign-off\n    Controls attestation and sign off\n    Recharges (NTI and COBOU)\n    Productivity\n    KPIs (Cost per unit, Output per FTE) |\n| Who does them? | GFS Ops |\n| What system/tool is used? | Hyperion, SAP, CoStar, Coupa, Nintex, OneGRC, Python, PowerBI, Excel, Powerpoint, Workday, Utmost, Sharepoint |\n| What output is created? | Voume & COGM report, FTE & Site and Quality cost report, Inventory provision, Capex spend report, MI Pack, P&L results, Draft commentaries |\n| Downstream information feed - which tower/process is immediately after this one? | Embedded Finance and Operation Business, GFS Ops FP&A, Global Ops Reporting |\n| Controls & Issues? | Late posting from upstream\n    Multiple systems creates reconciliation (SAP-SOAR-FDH-ASO)\n    System issues (missing data, inaccurate, current flow not supporting process change, etc.) |\n| Solution/TPI? | APAC Volume & COGM @ Standard Dashboards, APAC PPV Dashboards, APAC Site Cost & FTE Dashboards\n    Agent Rhy - APAC commentaries consolidation and summary |\n",
+      "sourceFile": "FP&A Ops - Raw Data.md",
+      "purposeSummary": "Support **manufacturing site close** and review **volume, COGM, site cost, inventory provision and capex actuals** into P&L results and an MI pack.",
+      "cadenceSummary": "**Timing and frequency are not specified** in the supplied file."
+    },
+    {
+      "id": "491929a7d76e",
+      "title": "Warehouse & Distribution - Planning",
+      "group": "Planning",
+      "purpose": "Warehouse & Distribution - Planning calculates and simulates logistics and distribution costs for the planning cycle. GFS Ops and Embedded Finance (GFS) use production volume from Global Supply Chain, manpower and related costs from HR, FTE from HR and Embedded Finance, non-manpower costs from the Distribution Heads, capex from GERE and IT, and targets and productivity from Global Ops.\n\nThe planning covers primary and secondary distribution costs, manpower and non-manpower costs, FTE, warehouse management costs, depreciation and amortisation, capex, business cases and productivity savings. It produces the loading template, planning deck, P&L results and draft commentaries for Embedded Finance, the Logistics & Supply Chain Heads, GFS Ops FP&A, Global Ops Reporting and the Global Product Costing Team.",
+      "cadence": "",
+      "stages": [
+        {
+          "title": "Plan primary and secondary distribution costs",
+          "displayTitle": "Plan primary and secondary distribution costs",
+          "owner": "GFS Ops & Embedded Finance (GFS)",
+          "detail": "Calculate and Simulate Logistic & Distribution costs: Primary and Secondary distribution costs",
+          "description": "Open the calculation and simulation of logistics and distribution costs by planning the primary and secondary distribution costs, driven by the production volume supplied by Global Supply Chain - Network Supply (GSC).",
+          "systems": [
+            "Hyperion",
+            "Capex Tool",
+            "AZForce",
+            "SAP",
+            "CoStar",
+            "Excel",
+            "PowerPoint",
+            "SharePoint",
+            "Power BI"
+          ],
+          "challenges": [
+            "Multiple streams of information feeds create consolidation effort and waiting time.",
+            "Different operating models create complexity for standardisation.",
+            "Stretched timeline."
+          ],
+          "challengeScope": "Process-wide challenge; the source does not assign it to an individual step."
+        },
+        {
+          "title": "Plan manpower and non-manpower costs",
+          "displayTitle": "Plan manpower and non-manpower costs",
+          "owner": "GFS Ops & Embedded Finance (GFS)",
+          "detail": "Manpower and related costs and Non-manpower costs",
+          "description": "Plan manpower and related costs using the inputs from HR, and non-manpower related costs using the inputs from the Distribution Heads.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Plan FTE",
+          "displayTitle": "Plan FTE",
+          "owner": "GFS Ops & Embedded Finance (GFS)",
+          "detail": "FTE planning",
+          "description": "Plan FTE using the FTE inputs supplied by HR and Embedded Finance.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Plan warehouse management costs",
+          "displayTitle": "Plan warehouse management costs",
+          "owner": "GFS Ops & Embedded Finance (GFS)",
+          "detail": "Warehouse management costs planning",
+          "description": "Plan warehouse management costs as part of the logistics and distribution cost simulation.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Simulate and calculate depreciation and amortisation",
+          "displayTitle": "Simulate and calculate depreciation and amortisation",
+          "owner": "GFS Ops & Embedded Finance (GFS)",
+          "detail": "Depreciation and amortisation simulation and calculation",
+          "description": "Simulate and calculate depreciation and amortisation for the logistics and distribution cost base.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Plan capex for new and in-flight projects",
+          "displayTitle": "Plan capex for new and in-flight projects",
+          "owner": "GFS Ops & Embedded Finance (GFS)",
+          "detail": "Capex planning: new flight and inflight",
+          "description": "Plan capital expenditure for new-flight and in-flight projects using the capex inputs supplied by GERE and IT.",
+          "systems": [
+            "Capex Tool"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Build business cases",
+          "displayTitle": "Build business cases",
+          "owner": "GFS Ops & Embedded Finance (GFS)",
+          "detail": "Business case (new warehouse, system integration, Temperature Management System)",
+          "description": "Prepare business cases where required, for a new warehouse, a system integration or a Temperature Management System.",
+          "systems": [],
+          "challenges": [
+            "Business case simulation."
+          ]
+        },
+        {
+          "title": "Plan and track productivity savings",
+          "displayTitle": "Plan and track productivity savings",
+          "owner": "GFS Ops & Embedded Finance (GFS)",
+          "detail": "Productivity savings & tracking",
+          "description": "Plan productivity savings and track them against the target and productivity inputs supplied by Global Ops.\n\nThe outputs are the loading template, planning deck, P&L results and draft commentaries, which feed Embedded Finance, the Logistics & Supply Chain Heads, GFS Ops FP&A, Global Ops Reporting and the Global Product Costing Team.\n\nAcross the process GFS Ops and Embedded Finance (GFS) work in Hyperion, Capex Tool, AZForce, SAP, CoStar, Excel, PowerPoint, SharePoint and Power BI.",
+          "systems": [],
+          "challenges": [
+            "Multiple systems create reconciliation effort.",
+            "Rework due to changes and global direction.",
+            "Actualisation information in the system will take a few days.",
+            "System issues (missing data, inaccurate data, current flow not supporting process change, etc.)."
+          ],
+          "challengeScope": "Process-wide challenge; the source does not assign it to an individual step."
+        }
+      ],
+      "challenges": [
+        "Multiple streams of information feeds create consolidation effort and waiting time.",
+        "Different operating models create complexity for standardisation.",
+        "Multiple systems create reconciliation effort.",
+        "Rework due to changes and global direction.",
+        "Stretched timeline.",
+        "Actualisation information in the system will take a few days.",
+        "System issues (missing data, inaccurate data, current flow not supporting process change, etc.).",
+        "Business case simulation."
+      ],
+      "improvements": [
+        "TPI: Global Logistic Finance Dashboard to support closing with a planning comparative."
+      ],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "flowNote": "Activities are listed in source order under the heading Calculate and Simulate Logistic & Distribution costs; the source presents them as planning workstreams rather than a strict sequence.",
+      "source": "## Source file: Ops Process Flow_MIRO_Aug2026.pptx\n\n- Path: `Tower Subprocesses/FP&A Ops/Ops Process Flow_MIRO_Aug2026.pptx`\n- Format: PPTX\n\n### Slide 6: Warehouse & Distribution- Planning\n\n| Questions | Answers |\n| --- | --- |\n| Upstream information feed - which tower/process is immediately before this one? | Global Supply Chain - Network Supply (GSC), Human Resource (HR), Embedded Finance (EF), Distribution Lead, Logistics & Supply Chain |\n| What input is received? | Production volume (from GSC), Manpower and related costs (HR), FTE (HR and EF), Non-manpower related costs (Distribution Heads), Capex (GERE and IT), Target & Productivity (Global Ops) |\n| What are the main steps? | Calculate and Simulate Logistic & Distribution costs:\n    Primary and Secondary distribution costs\n    Manpower and related costs and Non-manpower costs\n    FTE planning\n    Warehouse management costs planning\n    Depreciation and amortisation simulation and calculation\n    Capex planning: new flight and inflight\n    Business case (new warehouse, system integration, Temperature Management System)\n    Productivity savings & tracking |\n| Who does them? | GFS Ops & Embedded Finance (GFS) |\n| What system/tool is used? | Hyperion, Capex Tool, AZForce, SAP, CoStar, Excel, Powerpoint, Sharepoint, PowerBI |\n| What output is created? | Loading template, Planning deck, P&L results, Draft commentaries |\n\n### Slide 7: Warehouse & Distribution- Planning\n\n| Questions | Answers |\n| --- | --- |\n| Downstream information feed - which tower/process is immediately after this one? | Embedded Finance, Logistics & Supply Chain Heads, GFS Ops FP&A, Global Ops Reporting, Global Product Costing Team |\n| Controls & Issues? | Multiple stream of information feeds creates consolidation effort, waiting time\n    Different operating model creates complexity for standardization\n    Multiple systems creates reconciliation\n    Rework due to changes and global direction\n    Stretch timeline\n    Actualization information in system will take few days\n    System issues (missing data, inaccurate, current flow not supporting process change, etc.)\n    Business case simulation |\n| Solution/TPI? | Global Logistic Finance Dashboard to support closing with planning comparative |\n",
+      "sourceFile": "FP&A Ops - Raw Data.md",
+      "purposeSummary": "Calculate and simulate **logistics and distribution costs** - distribution, manpower, warehouse, capex and business cases - into a **planning deck and P&L results**.",
+      "cadenceSummary": "**Timing and frequency are not specified** in the supplied file."
+    },
+    {
+      "id": "01b98265b549",
+      "title": "Warehouse & Distribution - Actual",
+      "group": "Actuals",
+      "purpose": "Warehouse & Distribution - Actual closes and reviews the actual logistics and distribution results. GFS Ops receives logistics costs, warehouse costs, medium of transportation, manpower cost, distributor volumes, warehouse capacity, journals and project spend and tracking from the Distribution Specialists, the Logistic & Distribution Associate Directors and Directors, the Regional Distribution Lead, Embedded Finance and the R2R (including R2R Capex, R2R Lease and R2R ICT), P2P, T&E, HR and Payroll/People Services processes.\n\nThe close covers SAP close, P&L review and sign-off by Embedded Finance, month-to-date and year-to-date variance analysis of operation cost, T&E and FTE, SAP-ASO reconciliation and recharges. It produces the MI pack, P&L results and commentaries for the Global Logistics Heads and Global Ops Reporting.",
+      "cadence": "",
+      "stages": [
+        {
+          "title": "Close SAP",
+          "displayTitle": "Close SAP",
+          "owner": "GFS Ops",
+          "detail": "SAP close",
+          "description": "Complete the SAP close for warehouse and distribution, drawing on the journals supplied by Embedded Finance, GFS Ops FP&A, the Distribution Specialists and the Logistic & Distribution Associate Directors and Directors, together with the upstream R2R (including R2R Capex, R2R Lease and R2R ICT), P2P, T&E, HR and Payroll/People Services feeds.",
+          "systems": [
+            "Hyperion",
+            "SAP",
+            "Coupa",
+            "CoStar",
+            "Nintex",
+            "Excel",
+            "PowerPoint",
+            "Workday",
+            "SharePoint",
+            "Power BI",
+            "Python"
+          ],
+          "challenges": [
+            "System issues (missing data, inaccurate data, current flow not supporting process change, etc.).",
+            "Multiple stakeholders are involved."
+          ],
+          "challengeScope": "Process-wide challenge; the source does not assign it to an individual step."
+        },
+        {
+          "title": "Review P&L results and obtain EF sign-off",
+          "displayTitle": "Review P&L results and obtain EF sign-off",
+          "owner": "GFS Ops",
+          "detail": "P&L results, review and sign off by EF",
+          "description": "Prepare the P&L results for review and sign-off by Embedded Finance, using the logistics costs, warehouse costs, medium of transportation, manpower cost, distributor volumes, warehouse capacity and project spend and tracking inputs.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Analyse MTD and YTD variances",
+          "displayTitle": "Analyse MTD and YTD variances",
+          "owner": "GFS Ops",
+          "detail": "MTD & YTD Variance analysis: Operation cost, T&E and FTE",
+          "description": "Analyse the month-to-date and year-to-date variances for operation cost, T&E and FTE.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Reconcile SAP and ASO",
+          "displayTitle": "Reconcile SAP and ASO",
+          "owner": "GFS Ops",
+          "detail": "SAP-ASO reconciliation",
+          "description": "Reconcile SAP to ASO so that the close data ties across the two systems.",
+          "systems": [
+            "SAP",
+            "ASO"
+          ],
+          "challenges": [
+            "Multiple systems create reconciliation effort (SAP-FDH-ASO)."
+          ]
+        },
+        {
+          "title": "Process NTI and Coubu recharges",
+          "displayTitle": "Process NTI and Coubu recharges",
+          "owner": "GFS Ops",
+          "detail": "Recharges (NTI and Coubu)",
+          "description": "Process the NTI and Coubu recharges.\n\nThe outputs are the MI pack, P&L results and commentaries, which feed the Global Logistics Heads and Global Ops Reporting.\n\nAcross the process GFS Ops works in Hyperion, SAP, Coupa, CoStar, Nintex, Excel, PowerPoint, Workday, SharePoint, Power BI and Python.",
+          "systems": [],
+          "challenges": []
+        }
+      ],
+      "challenges": [
+        "Multiple systems create reconciliation effort (SAP-FDH-ASO).",
+        "System issues (missing data, inaccurate data, current flow not supporting process change, etc.).",
+        "Multiple stakeholders are involved."
+      ],
+      "improvements": [
+        "TPI: Global Logistic Finance Dashboard and Zuellig Pharma Volume Analysis Dashboard (work in progress)."
+      ],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "flowNote": "Activities follow the close order given in the source; the source does not state dependencies between them.",
+      "source": "## Source file: Ops Process Flow_MIRO_Aug2026.pptx\n\n- Path: `Tower Subprocesses/FP&A Ops/Ops Process Flow_MIRO_Aug2026.pptx`\n- Format: PPTX\n\n### Slide 8: Warehouse & Distribution - Actual\n\n| Questions | Answers |\n| --- | --- |\n| Upstream information feed - which tower/process is immediately before this one? | Distribution Specialists, Logistic & Distribution Associate Directors & Directors, Regional Distribution Lead, Embedded Finance (EF), R2R, R2R Capex, R2R Lease, R2R ICT, P2P, T&E, Human Resources (HR), Payroll/People Service (PS) |\n| What input is received? | Logistics costs, warehouse costs, medium of transportation, manpower cost, distributors volume, warehouse capacity, journals (Embedded Finance, GFS Ops FP&A, Distribution Specialists, Logistic & Distribution Associate Directors & Directors), Project spend and track |\n| What are the main steps? | SAP close\n    P&L results, review and sign off by EF\n    MTD & YTD Variance analysis: Operation cost, T&E and FTE\n    SAP-ASO reconciliation\n    Recharges (NTI and Coubu) |\n| Who does them? | GFS Ops |\n| What system/tool is used? | Hyperion, SAP, Coupa, CoStar, Nintex, Excel, Powerpoint, Workday, Sharepoint, PowerBI, Python |\n| What output is created? | MI Pack, P&L results, Commentaries |\n| Downstream information feed - which tower/process is immediately after this one? | Global Logistics Heads, Global Ops Reporting |\n| Controls & Issues? | Multiple systems creates reconciliation (SAP-FDH-ASO)\n    System issues (missing data, inaccurate, current flow not supporting process change, etc.)\n    Multiple stakeholders |\n| Solution/TPI? | Global Logistic Finance Dashboard & Zuellig Pharma Volume Analysis Dashboard (WIP) |\n",
+      "sourceFile": "FP&A Ops - Raw Data.md",
+      "purposeSummary": "Close and review **warehouse and distribution actuals**, with variance analysis and SAP-ASO reconciliation, into an **MI pack, P&L results and commentaries**.",
+      "cadenceSummary": "**Timing and frequency are not specified** in the supplied file."
+    }
+  ]
+}

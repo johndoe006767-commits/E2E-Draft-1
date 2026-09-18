@@ -1,0 +1,61 @@
+{
+  "clips": [
+    {
+      "name": "01-close",
+      "frames": 145,
+      "width": 1280,
+      "height": 720,
+      "fps": 24.0,
+      "duration": 6.041666666666667,
+      "background": "#F2F2F0",
+      "maxBackdropFraction": 0.7491056323051453
+    },
+    {
+      "name": "02-performance",
+      "frames": 145,
+      "width": 1280,
+      "height": 720,
+      "fps": 24.0,
+      "duration": 6.041666666666667,
+      "background": "#F2F2F0",
+      "maxBackdropFraction": 0.5162225961685181
+    },
+    {
+      "name": "03-planning",
+      "frames": 145,
+      "width": 1280,
+      "height": 720,
+      "fps": 24.0,
+      "duration": 6.041666666666667,
+      "background": "#F2F2F0",
+      "maxBackdropFraction": 0.8124864101409912
+    },
+    {
+      "name": "04-operations",
+      "frames": 145,
+      "width": 1280,
+      "height": 720,
+      "fps": 24.0,
+      "duration": 6.041666666666667,
+      "background": "#F2F2F0",
+      "maxBackdropFraction": 0.7541944980621338
+    }
+  ],
+  "seams": [
+    {
+      "from": "01-close",
+      "to": "02-performance",
+      "psnr": 19.83978810427026
+    },
+    {
+      "from": "02-performance",
+      "to": "03-planning",
+      "psnr": 16.472017139944455
+    },
+    {
+      "from": "03-planning",
+      "to": "04-operations",
+      "psnr": 17.20359578390003
+    }
+  ]
+}

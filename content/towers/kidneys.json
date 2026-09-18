@@ -1,0 +1,1284 @@
+{
+  "name": "Controlling",
+  "organ": "kidneys",
+  "tagline": "Safeguarding the numbers behind every entity: journals, cash, transfer pricing and statutory compliance.",
+  "pickerTitle": "Controlling Processes",
+  "pickerIntro": "Fourteen Controlling processes spanning revenue accruals, cash and working capital, month-end close, transfer pricing and statutory audit.",
+  "context": [
+    {
+      "label": "Solutions",
+      "text": "A Global MJV Playbook and MJV dashboard are being deployed for month-end journals, centralised NTI governance was set up in July 2025, an RPT dashboard is being piloted for FS disclosure and local TP review, and an end-to-end statutory audit support model is planned."
+    },
+    {
+      "label": "Automation",
+      "text": "Global automation of the FSC011 and FSC009c review templates removes manual working-file preparation, bad debt journal preparation is being automated for global scale-up, and the Power BI BSI pack underpins the balance sheet integrity review."
+    },
+    {
+      "label": "AI",
+      "text": "All AI items are proposals: an AI journal agent, a variance analysis agent, an AI-enabled cash flow control tower, AI-driven DSO prediction, AI support across the audit cycle, and AI-enabled control monitoring with automated evidence collection. None is documented as deployed."
+    },
+    {
+      "label": "Cross-Functional Collaboration",
+      "text": "Controlling works with CBP, FBP and CFOs on accruals and forecasts, Market Access on pricing and rebates, Treasury on cash flow, Group Tax, GTTP and CFC on intercompany and transfer pricing, GBS and Embedded Finance on close and spend, and external auditors on statutory audits."
+    }
+  ],
+  "metrics": {
+    "solutions": 46,
+    "automated": 7,
+    "ai": 0
+  },
+  "collaborators": [
+    "brain",
+    "liver",
+    "spleen"
+  ],
+  "processes": [
+    {
+      "id": "4f28a1df8d20",
+      "title": "Selling price maintenance",
+      "group": "Revenue & receivables",
+      "purpose": "Selling price maintenance keeps AZ SAP selling prices aligned with the prices agreed by the local Market Access team. When Market Access issues a price change memo, GFS Controllers update the selling prices in SAP for the wholesaler and direct-plus-consignment business models, while the Market Access team itself updates prices for pure consignment model markets.\n\nThe output is a maintained selling price in SAP. Keeping the price current matters because any gap between the AZ SAP price and the distributor's system creates a mismatch risk at invoicing.",
+      "cadence": "The process is triggered by a price change memo from the local Market Access team. No fixed frequency is documented.",
+      "purposeSummary": "Update **SAP selling prices** from Market Access price change memos, split by **business model** between GFS Controllers and Market Access.",
+      "cadenceSummary": "Triggered **on receipt of a price change memo** from the local Market Access team; no fixed frequency is documented.",
+      "stages": [
+        {
+          "title": "Receive the price change memo",
+          "displayTitle": "Receive the price change memo",
+          "owner": "Local Market Access team",
+          "detail": "The local Market Access team issues a price change memo, which is the input that starts the update. Changes need to be communicated completely and on time so that GFS Controllers can act on them.",
+          "description": "The local Market Access team issues a price change memo, which is the input that starts the update. Changes need to be communicated completely and on time so that GFS Controllers can act on them.",
+          "systems": [],
+          "challenges": [
+            "Incomplete or untimely selling price changes communicated by the local team to GFS Controllers, creating a risk of selling price mismatch between AZ SAP and the distributor system."
+          ]
+        },
+        {
+          "title": "Confirm who owns the update by business model",
+          "displayTitle": "Confirm who owns the update by business model",
+          "owner": "",
+          "detail": "Ownership of the update depends on the business model: GFS Controllers maintain prices for the wholesaler and direct-plus-consignment models, while the Market Access team maintains prices for pure consignment model markets.",
+          "description": "Ownership of the update depends on the business model: GFS Controllers maintain prices for the wholesaler and direct-plus-consignment models, while the Market Access team maintains prices for pure consignment model markets.",
+          "systems": [],
+          "challenges": [
+            "Inconsistency in ownership for updating the selling price according to the business model."
+          ]
+        },
+        {
+          "title": "Update selling prices in SAP",
+          "displayTitle": "Update selling prices in SAP",
+          "owner": "GFS Controllers",
+          "detail": "GFS Controllers update the selling prices in SAP for the wholesaler and direct-plus-consignment models.",
+          "description": "GFS Controllers update the selling prices in SAP for the wholesaler and direct-plus-consignment models.",
+          "systems": [
+            "SAP"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Update pure consignment market prices",
+          "displayTitle": "Update pure consignment market prices",
+          "owner": "Market Access team",
+          "detail": "For pure consignment model markets, the Market Access team updates the selling price itself. The result across both routes is a maintained selling price in SAP.",
+          "description": "For pure consignment model markets, the Market Access team updates the selling price itself. The result across both routes is a maintained selling price in SAP.",
+          "systems": [
+            "SAP"
+          ],
+          "challenges": []
+        }
+      ],
+      "challenges": [
+        "Inconsistency in ownership for updating the selling price according to the business model.",
+        "Incomplete or untimely selling price changes communicated by the local team to GFS Controllers, creating a risk of selling price mismatch between AZ SAP and the distributor system."
+      ],
+      "improvements": [
+        "AI opportunity (proposal): AI agent to update the selling price whenever a change occurs."
+      ],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: Controlling E2E summary(Controlling ).csv\n\n- Path: `Tower Subprocesses/Controlling/Controlling E2E summary(Controlling ).csv`\n- Format: CSV\n\n| Sub process | Input | Brief description of activity | Output | Pain Points | Pain points that already digitalized/improved | TPI  2026 | AI opportunity (Global support) |  |\n| 5. Order --> Invoice Update Selling Price | Price change memo from local market access team | GFS Controllers will update selling prices in SAP for wholesaler, direct + consignment models. Market access team will update selling price for pure consignment model markets. | Selling price maintenance in SAP | 1. Inconsistency in ownership to update selling price according to the business models. 2. Incomplete/non timely selling price changes communicated by local team to GFS Controllers, creating risk of selling price mismatch between AZ SAP and Distributor system. |  |  | AI agent to update selling price if any changes. |  |\n",
+      "sourceFile": "Controlling - Raw Data.md"
+    },
+    {
+      "id": "cb40802ed145",
+      "title": "Gross-to-Net accruals",
+      "group": "Revenue & receivables",
+      "purpose": "GFS Controlling reviews customer contractual obligations and calculates Gross-to-Net (GTN) accruals so that revenue is recognised at its expected net realisable value. The accruals cover incentive rebates, promotional discounts, patient affordability programmes (PAP), hospital paybacks, government clawbacks and product return provisions.\n\nControlling validates the assumptions, reviews the calculations with CBP, FBP and the CFO where required, determines the appropriate accounting treatment and posts the accrual journals in BlackLine and SAP. The process also covers the review of automated sales module postings and the reclassification of entries to comply with Sales Accounting GSOP requirements. The output is the GTN accrual manual journal.",
+      "cadence": "",
+      "purposeSummary": "Calculate and post **Gross-to-Net accruals** for rebates, discounts, paybacks, clawbacks and returns so revenue reflects **net realisable value**.",
+      "cadenceSummary": "**Timing and frequency are not specified** in the supplied file.",
+      "stages": [
+        {
+          "title": "Gather contractual and sales inputs",
+          "displayTitle": "Gather contractual and sales inputs",
+          "owner": "",
+          "detail": "Collect customer invoices, net sales reports, rebate and discount agreements, patient affordability programme reports, clawback agreements, hospital payback agreements, expired product claims and the supporting calculations provided by the CBP, FBP and market teams.",
+          "description": "Collect customer invoices, net sales reports, rebate and discount agreements, patient affordability programme reports, clawback agreements, hospital payback agreements, expired product claims and the supporting calculations provided by the CBP, FBP and market teams.",
+          "systems": [],
+          "challenges": [
+            "Timely receipt of supporting data from CBP, FBP, Market Access and third-party vendors."
+          ]
+        },
+        {
+          "title": "Review customer contractual obligations",
+          "displayTitle": "Review customer contractual obligations",
+          "owner": "GFS Controlling",
+          "detail": "Review the customer contractual obligations that give rise to GTN deductions. The scope covers incentive rebates, promotional discounts, patient affordability programmes (PAP), hospital paybacks, government clawbacks and product return provisions.",
+          "description": "Review the customer contractual obligations that give rise to GTN deductions. The scope covers incentive rebates, promotional discounts, patient affordability programmes (PAP), hospital paybacks, government clawbacks and product return provisions.",
+          "systems": [],
+          "challenges": [
+            "Different accrual methodologies across markets and programmes."
+          ]
+        },
+        {
+          "title": "Calculate the GTN accruals",
+          "displayTitle": "Calculate the GTN accruals",
+          "owner": "GFS Controlling",
+          "detail": "Calculate the Gross-to-Net accruals for each programme so that revenue is recognised at the expected net realisable value.",
+          "description": "Calculate the Gross-to-Net accruals for each programme so that revenue is recognised at the expected net realisable value.",
+          "systems": [],
+          "challenges": [
+            "High dependence on manual calculations and market inputs; the journal is time-consuming to prepare."
+          ]
+        },
+        {
+          "title": "Validate assumptions and agree the accounting treatment",
+          "displayTitle": "Validate assumptions and agree the accounting treatment",
+          "owner": "GFS Controlling",
+          "detail": "Validate the assumptions behind the calculations, review them with CBP, FBP and the CFO where required, and determine the appropriate accounting treatment.",
+          "description": "Validate the assumptions behind the calculations, review them with CBP, FBP and the CFO where required, and determine the appropriate accounting treatment.",
+          "systems": [],
+          "challenges": [
+            "Risk of over- or under-accruals impacting revenue recognition."
+          ]
+        },
+        {
+          "title": "Post the accrual journals",
+          "displayTitle": "Post the accrual journals",
+          "owner": "GFS Controlling",
+          "detail": "Post the GTN accrual journals in BlackLine and SAP. The output of the process is the GTN accrual manual journal.",
+          "description": "Post the GTN accrual journals in BlackLine and SAP. The output of the process is the GTN accrual manual journal.",
+          "systems": [
+            "BlackLine",
+            "SAP"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Review and reclassify sales module postings",
+          "displayTitle": "Review and reclassify sales module postings",
+          "owner": "GFS Controlling",
+          "detail": "Review the automated sales module postings and reclassify entries where needed to ensure compliance with Sales Accounting GSOP requirements.",
+          "description": "Review the automated sales module postings and reclassify entries where needed to ensure compliance with Sales Accounting GSOP requirements.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Raise credit-note requests for sales rebates",
+          "displayTitle": "Raise credit-note requests for sales rebates",
+          "owner": "",
+          "detail": "Jeanne: ANZ & PH : Help to raise crown for some sales rebates (AU: DOHA; PH: Distribution fees, Early discount settlement) related CN.",
+          "description": "In ANZ and the Philippines, Controlling also helps raise CROWN requests for credit notes related to certain sales rebates: DOHA in Australia, and distribution fees and early discount settlement in the Philippines.",
+          "systems": [
+            "CROWN"
+          ],
+          "challenges": []
+        }
+      ],
+      "challenges": [
+        "High dependence on manual calculations and market inputs; the journal is time-consuming to prepare.",
+        "Different accrual methodologies across markets and programmes.",
+        "Timely receipt of supporting data from CBP, FBP, Market Access and third-party vendors.",
+        "Risk of over- or under-accruals impacting revenue recognition."
+      ],
+      "improvements": [],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: Controlling E2E summary(Controlling ).csv\n\n- Path: `Tower Subprocesses/Controlling/Controlling E2E summary(Controlling ).csv`\n- Format: CSV\n\n| Sub process | Input | Brief description of activity | Output | Pain Points | Pain points that already digitalized/improved | TPI  2026 | AI opportunity (Global support) |  |\n| 5. Order --> Invoice Customer Invoice (Gross to Net (\"GTN\") accruals) | Customer invoices, net sales reports, rebate agreements, discount agreements, patient affordability programme reports, clawback agreements, hospital payback agreements, expired product claims and supporting calculations from CBP/FBP/Market team | GFS Controlling reviews customer contractual obligations and calculates Gross-to-Net (GTN) accruals to ensure revenue is recognised at expected net realisable value. The process includes Incentive Rebates, Promotional Discounts, Patient Affordability Programs (PAP), Hospital Paybacks, Government Clawbacks and Product Return provisions. Controlling validates assumptions, reviews calculations with CBP/FBP/CFO where required, determines the appropriate accounting treatment, and posts accrual journals in BlackLine/SAP. The process also includes review of automated sales module postings and reclassification of entries to ensure compliance with Sales Accounting GSOP requirements | GTN accrual manual journal | 1. High dependence on manual calculations and market inputs, time consuming to prepare the journal. 2. Different accrual methodologies across markets and programmes.3. Timely receipt of supporting data from CBP, FBP, Market Access and third-party vendors.4. Risk of over/under accruals impacting revenue recognition |  |  |  |  |\n|  |  | Jeanne: ANZ & PH : Help to raise crown for some sales rebates (AU: DOHA; PH: Distribution fees, Early discount settlement) related CN. |  |  |  |  |  |  |\n",
+      "sourceFile": "Controlling - Raw Data.md"
+    },
+    {
+      "id": "8163f948c6e9",
+      "title": "Bad debt provision",
+      "group": "Revenue & receivables",
+      "purpose": "GFS Controlling reviews overdue trade receivables and disputed customer balances every month to assess expected credit losses (ECL). The bad debt provision is calculated under the AstraZeneca Bad Debt Provision Policy, applying a provision matrix based on ageing buckets and incorporating entity-specific risk factors and forward-looking information where appropriate.\n\nThe proposed provision is reviewed with the Finance Controller or CFO and posted during month-end close as the bad debt provision manual journal.",
+      "cadence": "Monthly review of overdue receivables; the provision journal is posted during month-end close.",
+      "purposeSummary": "Assess **expected credit losses** on overdue and disputed receivables and post the **bad debt provision** journal at month-end.",
+      "cadenceSummary": "**Monthly** review of overdue receivables; the provision is reviewed and posted during **month-end close**.",
+      "stages": [
+        {
+          "title": "Obtain the provision report and policy",
+          "displayTitle": "Obtain the provision report and policy",
+          "owner": "GBS (report provider)",
+          "detail": "Start from the country Bad Debt Provision report prepared by GBS and held in Box, together with the AZ Group Accounting Manual (Bad and Doubtful Debts Policy).",
+          "description": "Start from the country Bad Debt Provision report prepared by GBS and held in Box, together with the AZ Group Accounting Manual (Bad and Doubtful Debts Policy).",
+          "systems": [
+            "Box"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Review overdue and disputed receivables",
+          "displayTitle": "Review overdue and disputed receivables",
+          "owner": "GFS Controlling",
+          "detail": "Review overdue trade receivables and disputed customer balances each month to assess the expected credit losses.",
+          "description": "Review overdue trade receivables and disputed customer balances each month to assess the expected credit losses.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Calculate the provision under the policy",
+          "displayTitle": "Calculate the provision under the policy",
+          "owner": "GFS Controlling",
+          "detail": "Calculate the bad debt provision using the AstraZeneca Bad Debt Provision Policy: apply the provision matrix based on ageing buckets and incorporate entity-specific risk factors and forward-looking information where appropriate.",
+          "description": "Calculate the bad debt provision using the AstraZeneca Bad Debt Provision Policy: apply the provision matrix based on ageing buckets and incorporate entity-specific risk factors and forward-looking information where appropriate.",
+          "systems": [],
+          "challenges": [
+            "Manual calculation for this straightforward journal."
+          ]
+        },
+        {
+          "title": "Review the proposed provision",
+          "displayTitle": "Review the proposed provision",
+          "owner": "Finance Controller / CFO",
+          "detail": "Review the proposed provision with the Finance Controller or CFO.",
+          "description": "Review the proposed provision with the Finance Controller or CFO.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Post the provision journal at month-end",
+          "displayTitle": "Post the provision journal at month-end",
+          "owner": "GFS Controlling",
+          "detail": "Post the bad debt provision manual journal during month-end close.",
+          "description": "Post the bad debt provision manual journal during month-end close.",
+          "systems": [],
+          "challenges": []
+        }
+      ],
+      "challenges": [
+        "Manual calculation for this straightforward journal."
+      ],
+      "improvements": [
+        "Documented improvements: An automation for the preparation of this journal is being introduced, with plans to scale it globally."
+      ],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: Controlling E2E summary(Controlling ).csv\n\n- Path: `Tower Subprocesses/Controlling/Controlling E2E summary(Controlling ).csv`\n- Format: CSV\n\n| Sub process | Input | Brief description of activity | Output | Pain Points | Pain points that already digitalized/improved | TPI  2026 | AI opportunity (Global support) |  |\n| 6. Invoice --> Cash Collection & Dispute management (bad debt provision) | Country Bad Debt Provision report from GBS (in BoX),AZ Group Accounting Manual (Bad and Doubtful Debts Policy) | GFS Controlling performs monthly review of overdue trade receivables and disputed customer balances to assess expected credit losses (ECL). Bad debt provisions are calculated using the AstraZeneca Bad Debt Provision Policy, applying a provision matrix based on ageing buckets and incorporating entity-specific risk factors and forward-looking information where appropriate. The proposed provision is reviewed with Finance Controller/CFO and posted during month-end close. | Bad debt provision manual journal | Manual calculation for this straightforward journal | We are introducing an automation for this journal preparation and planning to scale it globally |  |  |  |\n",
+      "sourceFile": "Controlling - Raw Data.md"
+    },
+    {
+      "id": "b7138219e192",
+      "title": "Spend-to-payment market support",
+      "group": "Spend & payments",
+      "purpose": "GFS Controlling supports Embedded Finance (EF) in resolving ad hoc spend-to-payment issues raised by market and local users, working from vendor invoices, accrual submissions and open PO reports. Typical topics are stuck invoice accruals and Coupa GR accrual increases, urgent payments, T&E cost capture in Concur, system access requests, open PO reporting, Other G&A budgeting support and CAPEX budget control.\n\nSeveral activities are market-specific: in ANZ the team prepares a monthly Coupa PO status ahead of MEC and raises a non-PO invoice on behalf of the market; in the Philippines it supports the Other G&A budget cycle and the OBIEE Capex report; in Taiwan it sends weekly open PO reports to EF, supports Finance cost centre forecasting each budget cycle and maintains the CAPEX budget in SAP. Across all markets, Controllers monitor the timely creation and closure of audit and tax fee POs.",
+      "cadence": "Ad hoc, on request from EF and local users. Open PO Coupa reports are scheduled monthly for the markets (weekly to EF for Taiwan); the ANZ Coupa PO status is prepared every month two weeks before MEC; budget support recurs every budgeting cycle.",
+      "purposeSummary": "Support **EF and market users** with invoice accruals, urgent payments, T&E cost capture, open PO reporting and **budget control** issues.",
+      "cadenceSummary": "**Ad hoc** market support. Open PO reports are **monthly** (**weekly** to EF for Taiwan); the ANZ PO status is prepared **two weeks before MEC**; budget support recurs **every budgeting cycle**.",
+      "stages": [
+        {
+          "title": "Receive market issues from EF and local users",
+          "displayTitle": "Receive market issues from EF and local users",
+          "owner": "GFS Controlling",
+          "detail": "Support EF in resolving ad hoc issues faced by market and local users. The inputs are vendor invoices, accrual submissions and open PO reports.",
+          "description": "Support EF in resolving ad hoc issues faced by market and local users. The inputs are vendor invoices, accrual submissions and open PO reports.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Resolve stuck invoice and GR accruals",
+          "displayTitle": "Resolve stuck invoice and GR accruals",
+          "owner": "",
+          "detail": "For stuck invoice accruals, follow up with the users to understand the issues they face. Similarly for Coupa GR accruals: if balances increase significantly, EF asks the Controller to check and identify which users are involved.",
+          "description": "For stuck invoice accruals, follow up with the users to understand the issues they face. Similarly for Coupa GR accruals: if balances increase significantly, EF asks the Controller to check and identify which users are involved.",
+          "systems": [
+            "Coupa"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Expedite urgent payments",
+          "displayTitle": "Expedite urgent payments",
+          "owner": "",
+          "detail": "Support and expedite the urgent payment process when a market raises an urgent payment.",
+          "description": "Support and expedite the urgent payment process when a market raises an urgent payment.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Correct T&E cost capture in Concur",
+          "displayTitle": "Correct T&E cost capture in Concur",
+          "owner": "",
+          "detail": "Ensure T&E costs are captured against the right cost centre. For example, if a member of staff in a market moves to a regional role, their Concur report has to be separated across different cost centres so that costs are reflected accurately in management reporting.",
+          "description": "Ensure T&E costs are captured against the right cost centre. For example, if a member of staff in a market moves to a regional role, their Concur report has to be separated across different cost centres so that costs are reflected accurately in management reporting.",
+          "systems": [
+            "Concur"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Route system access issues",
+          "displayTitle": "Route system access issues",
+          "owner": "",
+          "detail": "Where users face system access problems, connect them to the right person in charge.",
+          "description": "Where users face system access problems, connect them to the right person in charge.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Distribute open PO reports and pre-close PO status",
+          "displayTitle": "Distribute open PO reports and pre-close PO status",
+          "owner": "",
+          "detail": "The GFS Controlling manager schedules monthly open PO Coupa reports to the markets; Taiwan requires weekly reports to be sent to EF.\n\nIn ANZ, every month (two weeks before MEC) the team also prepares a Coupa PO status for CBP, FBP and FP&A to highlight potential under-GR by business area, because Celonis cannot retrieve the multiple-line breakdown of a PO by user.",
+          "description": "The GFS Controlling manager schedules monthly open PO Coupa reports to the markets; Taiwan requires weekly reports to be sent to EF.\n\nIn ANZ, every month (two weeks before MEC) the team also prepares a Coupa PO status for CBP, FBP and FP&A to highlight potential under-GR by business area, because Celonis cannot retrieve the multiple-line breakdown of a PO by user.",
+          "systems": [
+            "Coupa",
+            "Celonis"
+          ],
+          "challenges": [
+            "In ANZ, Celonis cannot retrieve the multiple-line breakdown of a PO by user, so the team prepares a Coupa PO status manually every month (two weeks before MEC) to highlight potential under-GR by business area."
+          ]
+        },
+        {
+          "title": "Support Other G&A budgeting and CAPEX budget control",
+          "displayTitle": "Support Other G&A budgeting and CAPEX budget control",
+          "owner": "",
+          "detail": "In Taiwan, Controlling supports forecasting of the Finance cost centre (Other G&A) in every budgeting cycle and updates the CAPEX budget in SAP to control spending by users purchasing fixed assets. In the Philippines, Controlling supports the Other G&A budget cycle and updates the OBIEE Capex report.",
+          "description": "In Taiwan, Controlling supports forecasting of the Finance cost centre (Other G&A) in every budgeting cycle and updates the CAPEX budget in SAP to control spending by users purchasing fixed assets. In the Philippines, Controlling supports the Other G&A budget cycle and updates the OBIEE Capex report.",
+          "systems": [
+            "SAP",
+            "OBIEE"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Raise non-PO invoices and monitor audit and tax fee POs",
+          "displayTitle": "Raise non-PO invoices and monitor audit and tax fee POs",
+          "owner": "",
+          "detail": "In ANZ, the Controller raises the non-PO invoice for Tag Worldwide Australia Pty Ltd on behalf of the market.\n\nIn all markets, the Controller informs local users to create audit and tax fee POs in time; otherwise the Controller has to raise a manual accrual before year end. Controllers monitor PO creation and close status for audit fees.",
+          "description": "In ANZ, the Controller raises the non-PO invoice for Tag Worldwide Australia Pty Ltd on behalf of the market.\n\nIn all markets, the Controller informs local users to create audit and tax fee POs in time; otherwise the Controller has to raise a manual accrual before year end. Controllers monitor PO creation and close status for audit fees.",
+          "systems": [],
+          "challenges": [
+            "If local users do not create audit and tax fee POs in time, the Controller has to raise a manual accrual before year end, so PO creation and close status for audit fees must be monitored."
+          ]
+        }
+      ],
+      "challenges": [
+        "In ANZ, Celonis cannot retrieve the multiple-line breakdown of a PO by user, so the team prepares a Coupa PO status manually every month (two weeks before MEC) to highlight potential under-GR by business area.",
+        "If local users do not create audit and tax fee POs in time, the Controller has to raise a manual accrual before year end, so PO creation and close status for audit fees must be monitored."
+      ],
+      "improvements": [],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: Controlling E2E summary(Controlling ).csv\n\n- Path: `Tower Subprocesses/Controlling/Controlling E2E summary(Controlling ).csv`\n- Format: CSV\n\n| Sub process | Input | Brief description of activity | Output | Pain Points | Pain points that already digitalized/improved | TPI  2026 | AI opportunity (Global support) |  |\n| 7. Spend --> Payment | Vendor invoices, accrual submissions, open PO reports | YL: Support EF in resolve ad-hoc issues faced by market/ local users, e.g. : -1. Invoice processing - For stucked invoice accruals - we will need to follow up wi users to understand what are the issues faced; Similar to Coupa GR accruals - if balances increased significantly, EF will ask controller to check & identify who are the users 2. Urgent payments - To support/ expedite the urgent payment process3. T&E concur cost capturing - E.g. if a staff in market moved roles to regional, their concur report will need to be separated with different CC to ensure cost aligned are reflected in mgt reporting accurately4. System access faced by the users where we will connect them to the right PIC 5. Open PO Coupa Reports - Currently GFS Controlling manager scheduled monthly reports to the markets; TW requires weekly reports to be sent to EF6. TW involved in supporting forecasting Finance CC (Other G&A) cost in every budgeting cycle7. TW involved in updating CAPEX budget in SAP to control spending by users in purchasing FA |  |  |  |  |  |  |\n|  |  | JeanneANZ: 1) Every month team is preparing Coupa PO status (2 weeks prior to MEC) for CBP/FBP/FPA to highlight potential under GR by Business Area due to limitation within Celonis not able to retrieve the multiple line breakdown of the PO by users2) Controller raise NonPO invoice - Tag Worldwide Australia Pty Ltd on behalf of market.  PH : Supporting budget cycle for Other G&A; in updating the OBIEE (Capex Report) ALL: Audit & Tax Fees PO creation - Controller need to inform local user to create PO timely, otherwise Controller need to raise manual accrual before YE. Controllers need to monitor the PO creation , close status for Audit fees . |  |  |  |  |  |  |\n",
+      "sourceFile": "Controlling - Raw Data.md",
+      "flowNote": "These are parallel support activities triggered by market requests rather than a strict sequence; each applies only where the relevant issue or market requirement arises."
+    },
+    {
+      "id": "d60b2bfbd00c",
+      "title": "Month-end manual journals",
+      "group": "Month-end & reporting",
+      "purpose": "GFS Controlling prepares the judgmental manual journals required during month-end close, using data from SAP and Coupa and inputs from EF, local users and the GFS process towers. The journals fall into two types: globally SOP-approved journals such as stock provisions, bonus accruals and unutilised leave accruals, and preventable journals such as corrections and reclassifications, manual accruals, Coupa accruals, COBOU and indirect tax entries.\n\nThe output is the set of manual journals for the close. The volume of preventable journals is the focus of the TPI 2026 month-end close transformation, which aims to standardise journal governance and shift the close to a prevention-driven, right-first-time model.",
+      "cadence": "Monthly, during month-end close.",
+      "purposeSummary": "Prepare the **judgmental manual journals** for month-end close, covering SOP-approved provisions and accruals and **preventable correction journals**.",
+      "cadenceSummary": "**Monthly**, during **month-end close**.",
+      "stages": [
+        {
+          "title": "Gather journal inputs",
+          "displayTitle": "Gather journal inputs",
+          "owner": "",
+          "detail": "Collect the inputs to the manual journals from EF, local users and the GFS process towers, drawing on data held in SAP and Coupa.",
+          "description": "Collect the inputs to the manual journals from EF, local users and the GFS process towers, drawing on data held in SAP and Coupa.",
+          "systems": [
+            "SAP",
+            "Coupa"
+          ],
+          "challenges": [
+            "Heavy reliance on manual journals (MJV) and human intervention during close activities.",
+            "Competing priorities between manual close activities and automation initiatives."
+          ],
+          "challengeScope": "Process-wide challenge; the source does not assign it to an individual step."
+        },
+        {
+          "title": "Prepare globally SOP-approved journals",
+          "displayTitle": "Prepare globally SOP-approved journals",
+          "owner": "GFS Controlling",
+          "detail": "Prepare the judgmental journals that are approved under global SOPs, such as the stock provision, bonus accruals and unutilised leave accruals.",
+          "description": "Prepare the judgmental journals that are approved under global SOPs, such as the stock provision, bonus accruals and unutilised leave accruals.",
+          "systems": [],
+          "challenges": [
+            "Lack of consistent accounting interpretation and governance across markets."
+          ]
+        },
+        {
+          "title": "Prepare preventable journals",
+          "displayTitle": "Prepare preventable journals",
+          "owner": "GFS Controlling",
+          "detail": "Prepare the preventable journals: corrections and reclassification journals, manual accrual journals, Coupa accruals, COBOU and indirect tax entries.",
+          "description": "Prepare the preventable journals: corrections and reclassification journals, manual accrual journals, Coupa accruals, COBOU and indirect tax entries.",
+          "systems": [
+            "Coupa"
+          ],
+          "challenges": [
+            "Errors, inconsistencies and audit scrutiny risks arising from manual corrections.",
+            "Focus on downstream symptom correction rather than upstream root-cause prevention.",
+            "High volume of rework and correction journals impacting productivity."
+          ]
+        },
+        {
+          "title": "Deliver the manual journals into the close",
+          "displayTitle": "Deliver the manual journals into the close",
+          "owner": "GFS Controlling",
+          "detail": "The prepared manual journals are the output of the process and form part of the month-end close.",
+          "description": "The prepared manual journals are the output of the process and form part of the month-end close.",
+          "systems": [],
+          "challenges": []
+        }
+      ],
+      "challenges": [
+        "Heavy reliance on manual journals (MJV) and human intervention during close activities.",
+        "Errors, inconsistencies and audit scrutiny risks arising from manual corrections.",
+        "Focus on downstream symptom correction rather than upstream root-cause prevention.",
+        "Lack of consistent accounting interpretation and governance across markets.",
+        "High volume of rework and correction journals impacting productivity.",
+        "Competing priorities between manual close activities and automation initiatives."
+      ],
+      "improvements": [
+        "TPI 2026: Month-End Close Transformation - MJV reduction and Global MJV Playbook deployment.",
+        "TPI 2026: Deploy the Global MJV Playbook across APAC to standardise journal governance and accounting treatment.",
+        "TPI 2026: Implement an MJV dashboard providing 100% visibility of APAC journals, root causes and preventable journal trends.",
+        "TPI 2026: Introduce a root cause analysis and prevention framework to eliminate recurring correction journals.",
+        "TPI 2026: Target around a 30% reduction in preventable MJVs and approximately 250 hours of annual productivity gain.",
+        "TPI 2026: Shift from a reactive correction model to a prevention-driven, Right-First-Time (RFT) close process.",
+        "TPI 2026: Automation opportunity for the MJV dashboard identified in Miro - data quality check to flag missing mappings, blanks, suspicious values and unexpected GL/cost-centre patterns.",
+        "TPI 2026: Automation opportunity for the MJV dashboard identified in Miro - AI insight narrative generating monthly commentary on volumes, trends, exceptions and root-cause patterns.",
+        "AI opportunity (proposal): AI Journal Agent - auto-classify journal requests according to Global MJV Playbook categories.",
+        "AI opportunity (proposal): AI Journal Agent - generate draft journal entries automatically based on predefined accounting rules, historical postings and approved templates.",
+        "AI opportunity (proposal): AI Journal Agent - validate journal coding, accounting treatment, supporting documentation and approval requirements before posting.",
+        "AI opportunity (proposal): AI Journal Agent - highlight recurring root causes and recommend remediation actions to eliminate future manual journals.",
+        "AI opportunity (proposal): AI Journal Agent - provide policy compliance checks to reduce review effort and improve consistency across markets."
+      ],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: Controlling E2E summary(Controlling ).csv\n\n- Path: `Tower Subprocesses/Controlling/Controlling E2E summary(Controlling ).csv`\n- Format: CSV\n\n| Sub process | Input | Brief description of activity | Output | Pain Points | Pain points that already digitalized/improved | TPI  2026 | AI opportunity (Global support) |  |\n| 8. Transactions --> Insights Financial close and reporting |  |  |  |  |  |  |  |  |\n| 8.1 Month end close Manual Journal Preparation | Input to manual journal:System: SAP, Coupa Source: EF, local users, GFS process towers | GFS Controlling prepares judgmental manual journals during month end close. The type of manual journals are: - Globally SOP approved journals - stock provision, bonus accruals, unutilized leave accruals, etc - Preventable journals - corrections/reclass journals, manual accruals journals, Coupa Accruals, COBOU, Indirect tax, etc. | Manual journals | 1. Heavy reliance on manual journals (MJV) and human intervention during close activities. 2. Errors, inconsistencies and audit scrutiny risks arising from manual corrections. 3. Focus on downstream symptom correction rather than upstream root-cause prevention. 4. Lack of consistent accounting interpretation and governance across markets. 5. High volume of rework and correction journals impacting productivity. 6. Competing priorities between manual close activities and automation initiatives. |  | Month-End Close Transformation – MJV Reduction & Global MJV Playbook Deployment1. Deploy Global MJV Playbook across APAC to standardise journal governance and accounting treatment.2. Implement MJV Dashboard providing 100% visibility of APAC journals, root causes and preventable journal trends.3.  Introduce root cause analysis and prevention framework to eliminate recurring correction journals.4. Target ~30% reduction in preventable MJVs and approximately 250 hours annual productivity gain.5. Shift from reactive correction model to prevention-driven, Right-First-Time (RFT) close processAutomation Opportunities for MJV dashboard identified by Miro: 1. Data quality check - Flag missing mappings, blanks, suspicious values and unexpected GL/cost-centre patterns.2. AI insight narrative - Generate monthly commentary on volumes, trends, exceptions and root-cause patterns. | AI Journal Agent1.  Auto-classify journal requests according to Global MJV Playbook categories.2. Generate draft journal entries automatically based on predefined accounting rules, historical postings and approved templates.3. Validate journal coding, accounting treatment, supporting documentation and approval requirements before posting.4. Highlight recurring root causes and recommend remediation actions to eliminate future manual journals.5. Provide policy compliance checks to reduce review effort and improve consistency across markets. |  |\n",
+      "sourceFile": "Controlling - Raw Data.md"
+    },
+    {
+      "id": "5e8fc6da7082",
+      "title": "Month-end balance sheet review",
+      "group": "Month-end & reporting",
+      "purpose": "During month-end close, GFS performs a set of variance analyses from SAP and the CFO pack dashboard: a balance sheet review on WD4 for fluctuations above $1m, a review of manual accruals and prepayments on WD4, a COGS reconciliation review on WD4 and a statutory P&L review for WD7. The team investigates material movements, validates the accounting treatment and provides business explanations to support management decision-making and financial governance.\n\nThe outputs are the CFO sign-off control for the balance sheet review (FSC018), the manual accruals and prepayment review (FSC011), the COGS reconciliation review (FSC009c) and the statutory P&L review.",
+      "cadence": "Monthly: balance sheet, manual accruals and prepayments, and COGS reconciliation reviews on WD4; statutory P&L review for WD7.",
+      "purposeSummary": "Explain **balance sheet and P&L movements** at close and evidence the **FSC018, FSC011 and FSC009c** controls with business commentary.",
+      "cadenceSummary": "**Monthly**: balance sheet, accruals and prepayments, and COGS reconciliation reviews on **WD4**; statutory P&L review for **WD7**.",
+      "stages": [
+        {
+          "title": "Identify in-scope accounts and extract GL detail",
+          "displayTitle": "Identify in-scope accounts and extract GL detail",
+          "owner": "",
+          "detail": "Working from SAP and the CFO pack dashboard, identify which accounts require commentary this month and obtain the GL detail needed to analyse what contributed to each movement.",
+          "description": "Working from SAP and the CFO pack dashboard, identify which accounts require commentary this month and obtain the GL detail needed to analyse what contributed to each movement.",
+          "systems": [
+            "SAP"
+          ],
+          "challenges": [
+            "As the accounts requiring commentaries vary every month, the team needs to identify which accounts are in scope and obtain the GL detail to analyse what contributed to the movement."
+          ]
+        },
+        {
+          "title": "Review balance sheet fluctuations on WD4",
+          "displayTitle": "Review balance sheet fluctuations on WD4",
+          "owner": "GFS",
+          "detail": "Perform the balance sheet review on WD4 for fluctuations above $1m. This review supports the CFO sign-off control for the balance sheet review (FSC018).",
+          "description": "Perform the balance sheet review on WD4 for fluctuations above $1m. This review supports the CFO sign-off control for the balance sheet review (FSC018).",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Review manual accruals and prepayments on WD4",
+          "displayTitle": "Review manual accruals and prepayments on WD4",
+          "owner": "GFS",
+          "detail": "Review manual accruals and prepayments on WD4 to evidence the manual accruals and prepayment review control (FSC011).",
+          "description": "Review manual accruals and prepayments on WD4 to evidence the manual accruals and prepayment review control (FSC011).",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Review the COGS reconciliation on WD4",
+          "displayTitle": "Review the COGS reconciliation on WD4",
+          "owner": "GFS",
+          "detail": "Review the COGS reconciliation on WD4 to evidence the COGS reconciliation review control (FSC009c).",
+          "description": "Review the COGS reconciliation on WD4 to evidence the COGS reconciliation review control (FSC009c).",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Review the statutory P&L for WD7",
+          "displayTitle": "Review the statutory P&L for WD7",
+          "owner": "GFS",
+          "detail": "Perform the statutory P&L review for WD7.",
+          "description": "Perform the statutory P&L review for WD7.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Investigate movements and provide business explanations",
+          "displayTitle": "Investigate movements and provide business explanations",
+          "owner": "GFS",
+          "detail": "Investigate the material movements, validate the accounting treatment and provide business explanations that support management decision-making and financial governance.",
+          "description": "Investigate the material movements, validate the accounting treatment and provide business explanations that support management decision-making and financial governance.",
+          "systems": [],
+          "challenges": [
+            "Due to tight close timelines, teams sometimes focus on explaining \"what moved\" rather than fully understanding \"why it moved\", limiting business insights and proactive decision-making."
+          ]
+        }
+      ],
+      "challenges": [
+        "As the accounts requiring commentaries vary every month, the team needs to identify which accounts are in scope and obtain the GL detail to analyse what contributed to the movement.",
+        "Due to tight close timelines, teams sometimes focus on explaining \"what moved\" rather than fully understanding \"why it moved\", limiting business insights and proactive decision-making."
+      ],
+      "improvements": [
+        "Documented improvements: Global automation of the FSC011 and FSC009c templates removes the need to prepare the working file manually.",
+        "AI opportunity (proposal): AI-enabled Variance Analysis Agent - automatically analyse CFO Pack and SAP financial data.",
+        "AI opportunity (proposal): AI-enabled Variance Analysis Agent - generate draft balance sheet and P&L variance commentaries.",
+        "AI opportunity (proposal): AI-enabled Variance Analysis Agent - highlight potential root causes and upstream process impacts.",
+        "AI opportunity (proposal): AI-enabled Variance Analysis Agent - enable finance teams to focus on decision support rather than data gathering."
+      ],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: Controlling E2E summary(Controlling ).csv\n\n- Path: `Tower Subprocesses/Controlling/Controlling E2E summary(Controlling ).csv`\n- Format: CSV\n\n| Sub process | Input | Brief description of activity | Output | Pain Points | Pain points that already digitalized/improved | TPI  2026 | AI opportunity (Global support) |  |\n| 8.2 Month end close Balance sheet review | SAP, CFO pack dashboard | GFS performs the following variance analysi:- Balance sheet review on WD4 for fluctuations > $1m - Manual accruals and prepayments on WD4 - COGS recon review on WD4- Statutory P&L review for WD7 The team investigates material movements, validates accounting treatment, and provides business explanations to support management decision-making and financial governance. | - CFO Sign off control for Balance sheet review (FSC018)- Manual accruals & prepayment review (FSC011)- COGS Recon review (FSC009c) - Statutory P&L | As the accounts requiring commentaries varies every month, team need to identify which account is in scoped and get the GL detail to analyze what contribute to the movement (\"what cause the movement\"). Due to tight close timelines, sometimes teams focus on explaining \"what moved\" rather than fully understanding \"why it moved\", limiting business insights and proactive decision-making. | We have global automation for FSC011 and FSC009c template, removing the need to manual prepare the working file. |  | AI-Enabled Variance Analysis Agent1. Automatically analyse CFO Pack and SAP financial data.2. Generate draft balance sheet and P&L variance commentaries.3. Highlight potential root causes and upstream process impacts.4. Enable finance teams to focus on decision support rather than data gathering. |  |\n",
+      "sourceFile": "Controlling - Raw Data.md"
+    },
+    {
+      "id": "babfae5dcc0d",
+      "title": "Ad hoc intercompany recharges (NTI)",
+      "group": "Intercompany & transfer pricing",
+      "purpose": "GFS Controlling reviews ad hoc intercompany recharge requests (NTI) from local users and EF to ensure they comply with intercompany policy, transfer pricing requirements and accounting standards. The team validates whether the transaction meets the NTI criteria, reviews the supporting documentation and approvals, establishes or validates the intercompany agreement, determines the appropriate recharge type and accounting treatment, and submits approved requests through the NTI process for invoicing and settlement.\n\nGFS Controlling also supports master data setup and governance for intercompany recharges. The outputs are the approved NTI request, the intercompany recharge documentation, the intercompany invoice and settlement, and compliant intercompany accounting and reporting.",
+      "cadence": "Ad hoc, triggered by an intercompany recharge request.",
+      "purposeSummary": "Validate **ad hoc intercompany recharge requests (NTI)** against policy, transfer pricing rules and approvals, then submit them for **invoicing and settlement**.",
+      "cadenceSummary": "**Ad hoc**, triggered when an intercompany recharge request is received from local users or EF.",
+      "stages": [
+        {
+          "title": "Receive the NTI request and supporting documents",
+          "displayTitle": "Receive the NTI request and supporting documents",
+          "owner": "",
+          "detail": "Receive the NTI Request Form and intercompany recharge request from local users or EF, with the supporting documents (invoice, transaction listing, PO and cost support).",
+          "description": "Receive the NTI Request Form and intercompany recharge request from local users or EF, with the supporting documents (invoice, transaction listing, PO and cost support).",
+          "systems": [],
+          "challenges": [
+            "Different practices across markets leading to inconsistent recharge submissions and interpretations.",
+            "Incomplete or unclear information received from requestors, causing multiple clarification cycles and processing delays; a common confusion for requestors is COBOU versus NTI treatment."
+          ]
+        },
+        {
+          "title": "Validate the transaction against NTI criteria",
+          "displayTitle": "Validate the transaction against NTI criteria",
+          "owner": "GFS Controlling",
+          "detail": "Validate whether the transaction meets the NTI criteria and complies with intercompany policy, transfer pricing requirements and accounting standards.",
+          "description": "Validate whether the transaction meets the NTI criteria and complies with intercompany policy, transfer pricing requirements and accounting standards.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Review supporting documentation and approvals",
+          "displayTitle": "Review supporting documentation and approvals",
+          "owner": "GFS Controlling",
+          "detail": "Review the supporting documentation and the required approvals: counterparty cost centre owner approval, accounting treatment alignment between EF, GFS FP&A and GFS Controlling, and Group Tax approval.",
+          "description": "Review the supporting documentation and the required approvals: counterparty cost centre owner approval, accounting treatment alignment between EF, GFS FP&A and GFS Controlling, and Group Tax approval.",
+          "systems": [],
+          "challenges": [
+            "Slow response rate from Group Tax when consultation or exceptional approval is sought."
+          ]
+        },
+        {
+          "title": "Establish or validate the intercompany agreement",
+          "displayTitle": "Establish or validate the intercompany agreement",
+          "owner": "GFS Controlling",
+          "detail": "Establish a new intercompany agreement or validate the existing agreement that covers the recharge.",
+          "description": "Establish a new intercompany agreement or validate the existing agreement that covers the recharge.",
+          "systems": [],
+          "challenges": [
+            "Missing intercompany agreements."
+          ]
+        },
+        {
+          "title": "Determine the recharge type and accounting treatment",
+          "displayTitle": "Determine the recharge type and accounting treatment",
+          "owner": "GFS Controlling",
+          "detail": "Determine the appropriate recharge type and the accounting treatment for the transaction.",
+          "description": "Determine the appropriate recharge type and the accounting treatment for the transaction.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Submit the approved request for invoicing and settlement",
+          "displayTitle": "Submit the approved request for invoicing and settlement",
+          "owner": "GFS Controlling",
+          "detail": "Submit the approved request through the NTI process for invoicing and settlement. The outputs are the approved NTI request, the recharge documentation, the intercompany invoice and settlement, and compliant intercompany accounting and reporting.",
+          "description": "Submit the approved request through the NTI process for invoicing and settlement. The outputs are the approved NTI request, the recharge documentation, the intercompany invoice and settlement, and compliant intercompany accounting and reporting.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Support intercompany master data and governance",
+          "displayTitle": "Support intercompany master data and governance",
+          "owner": "GFS Controlling",
+          "detail": "Support master data setup and ongoing governance for intercompany recharges.",
+          "description": "Support master data setup and ongoing governance for intercompany recharges.",
+          "systems": [],
+          "challenges": []
+        }
+      ],
+      "challenges": [
+        "Different practices across markets leading to inconsistent recharge submissions and interpretations.",
+        "Incomplete or unclear information received from requestors, causing multiple clarification cycles and processing delays; a common confusion for requestors is COBOU versus NTI treatment.",
+        "Slow response rate from Group Tax when consultation or exceptional approval is sought.",
+        "Missing intercompany agreements."
+      ],
+      "improvements": [
+        "Documented improvements: Centralised NTI governance within GFS Controlling was set up in July 2025, which resolved pain point 1 (different practices across markets)."
+      ],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: Controlling E2E summary(Controlling ).csv\n\n- Path: `Tower Subprocesses/Controlling/Controlling E2E summary(Controlling ).csv`\n- Format: CSV\n\n| Sub process | Input | Brief description of activity | Output | Pain Points | Pain points that already digitalized/improved | TPI  2026 | AI opportunity (Global support) |  |\n| 8.3 Ad hoc Intercompany recharges (NTI) | NTI Request Form, intercompany recharge requests from local users and EF, intercompany agreements, supporting documents (invoice, transaction listing, PO, cost support), counterparty cost centre owner approval, accounting treatment alignment with EF / GFS FP&A / GFS Controlling, Group Tax approval | GFS Controlling reviews ad hoc intercompany recharge requests (NTI) to ensure compliance with intercompany policy, transfer pricing requirements and accounting standards. The team validates whether the transaction meets NTI criteria, reviews supporting documentation and approvals, establishes or validates intercompany agreements, determines the appropriate recharge type and accounting treatment, and submits approved requests through the NTI process for invoicing and settlement. GFS Controlling also supports master data setup and governance for intercompany recharges | Approved NTI request, intercompany recharge documentation, intercompany invoice, recharge settlement, compliant intercompany accounting and reporting | 1. Different practices across markets leading to inconsistent recharge submissions and interpretations.2. Incomplete or unclear information received from requestors, causing multiple clarification cycles and processing delays. Common confusion from requestor is COBOU vs NTI treatment 3. Slow response rate from Group Tax when we seek for consultation or ask for exceptional approval4. Missing intercompany agreements | GFS Controlling Centralized NTI governance was setup in July 2025 - Solved Pain point #1 |  |  |  |\n",
+      "sourceFile": "Controlling - Raw Data.md"
+    },
+    {
+      "id": "7c022117aab6",
+      "title": "Working capital: cash flow forecast",
+      "group": "Cash & working capital",
+      "purpose": "GFS Controlling prepares and reviews a monthly six-month rolling cash flow forecast to support liquidity management, funding decisions and working capital optimisation across Asia Area markets. The forecast consolidates cash inflows and outflows: AR collections, AP payments, payroll, taxes, customs and duties, intercompany netting, loan movements and dividend payments. One of the key cash outflow elements is the purchase plan forecast obtained each month from the Asia Area Demand Planners.\n\nThe process gives visibility of the key cash drivers, forecast accuracy, liquidity exposures and funding requirements, enabling proactive management of working capital and early identification of cash risks. A cash flow dashboard shows forecast versus actual performance, trend analysis, accuracy tracking and cash position monitoring across the Asia Area markets.",
+      "cadence": "Monthly, producing a six-month rolling forecast.",
+      "purposeSummary": "Build the **six-month rolling cash flow forecast** for Asia Area markets to steer **liquidity, funding and working capital** decisions.",
+      "cadenceSummary": "**Monthly**, producing a **six-month rolling** cash flow forecast.",
+      "stages": [
+        {
+          "title": "Obtain the purchase plan forecast from Demand Planners",
+          "displayTitle": "Obtain the purchase plan forecast from Demand Planners",
+          "owner": "Asia Area Demand Planners (input provider)",
+          "detail": "Each month, obtain the purchase plan forecast from the Asia Area Demand Planners (from the v4cast, APO and OMP demand planning tools). The purchase plan is one of the key cash outflow elements in the six-month rolling forecast.",
+          "description": "Each month, obtain the purchase plan forecast from the Asia Area Demand Planners (from the v4cast, APO and OMP demand planning tools). The purchase plan is one of the key cash outflow elements in the six-month rolling forecast.",
+          "systems": [
+            "v4cast",
+            "APO",
+            "OMP"
+          ],
+          "challenges": [
+            "Inaccurate purchase plans, with no accuracy KPI in place.",
+            "The APO-to-OMP migration created data inconsistencies: freight lead times and dispatch dates differ between APO and OMP, invoicing dates are not mapped consistently, some SKUs were missing because of master data or update timing issues, and APO did not always correctly reflect OMP information."
+          ]
+        },
+        {
+          "title": "Collect the remaining cash inflow and outflow inputs",
+          "displayTitle": "Collect the remaining cash inflow and outflow inputs",
+          "owner": "",
+          "detail": "Gather the other forecast inputs: the intercompany settlement report from Quantum, AP forecasts from SAP, customs duties from the demand planner (v4cast), tax payments from TDT, payroll from HR, loan receipts and payments and dividend payouts from EF, and sales forecasts from CMR.",
+          "description": "Gather the other forecast inputs: the intercompany settlement report from Quantum, AP forecasts from SAP, customs duties from the demand planner (v4cast), tax payments from TDT, payroll from HR, loan receipts and payments and dividend payouts from EF, and sales forecasts from CMR.",
+          "systems": [
+            "Quantum",
+            "SAP",
+            "v4cast",
+            "CMR"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Validate purchase plans, inventory and AP forecasts",
+          "displayTitle": "Validate purchase plans, inventory and AP forecasts",
+          "owner": "GFS Controlling",
+          "detail": "Validate the purchase plans, inventory investments and AP forecasts before they are consolidated into the forecast.",
+          "description": "Validate the purchase plans, inventory investments and AP forecasts before they are consolidated into the forecast.",
+          "systems": [],
+          "challenges": [
+            "Significant effort is required to validate purchase plans, inventory investments and AP forecasts.",
+            "Disconnect between demand plans and actual demand causes excess inventory and locks up cash in certain markets."
+          ]
+        },
+        {
+          "title": "Consolidate the six-month rolling forecast",
+          "displayTitle": "Consolidate the six-month rolling forecast",
+          "owner": "GFS Controlling",
+          "detail": "Consolidate the cash inflows and outflows (AR collections, AP payments, payroll, taxes, customs and duties, intercompany netting, loan movements and dividend payments) into the six-month rolling cash flow forecast for each market.",
+          "description": "Consolidate the cash inflows and outflows (AR collections, AP payments, payroll, taxes, customs and duties, intercompany netting, loan movements and dividend payments) into the six-month rolling cash flow forecast for each market.",
+          "systems": [],
+          "challenges": [
+            "Unexpected cash events, such as a tax audit payment, increase cash flow volatility."
+          ]
+        },
+        {
+          "title": "Manage intercompany payment timing where deferrals apply",
+          "displayTitle": "Manage intercompany payment timing where deferrals apply",
+          "owner": "GFS Controlling",
+          "detail": "Janice: For markets with intercompany payment deferrals, significant manual effort is required to continuously monitor, coordinate, and manage payment timing to optimize short-term liquidity positions, creating administrative burden and increasing the risk of forecast variances.",
+          "description": "For markets with intercompany payment deferrals, continuously monitor, coordinate and manage payment timing to optimise short-term liquidity positions.",
+          "systems": [],
+          "challenges": [
+            "For markets with intercompany payment deferrals, significant manual effort is required to continuously monitor, coordinate and manage payment timing to optimise short-term liquidity, creating an administrative burden and increasing the risk of forecast variances."
+          ]
+        },
+        {
+          "title": "Review the forecast and lead cash flow calls with Treasury",
+          "displayTitle": "Review the forecast and lead cash flow calls with Treasury",
+          "owner": "GFS Controlling",
+          "detail": "Review the forecast and lead the cash flow calls with Treasury. The forecast supports liquidity management, funding decisions and working capital optimisation across the Asia Area markets.",
+          "description": "Review the forecast and lead the cash flow calls with Treasury. The forecast supports liquidity management, funding decisions and working capital optimisation across the Asia Area markets.",
+          "systems": [],
+          "challenges": [
+            "Lack of ownership from markets to drive cash flow management, with GFS Controlling leading most cash flow calls with Treasury."
+          ]
+        },
+        {
+          "title": "Monitor forecast accuracy on the cash flow dashboard",
+          "displayTitle": "Monitor forecast accuracy on the cash flow dashboard",
+          "owner": "",
+          "detail": "Use the cash flow dashboard to monitor forecast versus actual performance, trend analysis, accuracy tracking and the cash position across Asia Area markets, giving early visibility of key cash drivers, liquidity exposures and funding requirements.",
+          "description": "Use the cash flow dashboard to monitor forecast versus actual performance, trend analysis, accuracy tracking and the cash position across Asia Area markets, giving early visibility of key cash drivers, liquidity exposures and funding requirements.",
+          "systems": [],
+          "challenges": [
+            "Forecast accuracy varies by market depending on forecast quality and business inputs."
+          ]
+        }
+      ],
+      "challenges": [
+        "Inaccurate purchase plans, with no accuracy KPI in place.",
+        "The APO-to-OMP migration created data inconsistencies: freight lead times and dispatch dates differ between APO and OMP, invoicing dates are not mapped consistently, some SKUs were missing because of master data or update timing issues, and APO did not always correctly reflect OMP information.",
+        "Lack of ownership from markets to drive cash flow management, with GFS Controlling leading most cash flow calls with Treasury.",
+        "Significant effort is required to validate purchase plans, inventory investments and AP forecasts.",
+        "Disconnect between demand plans and actual demand causes excess inventory and locks up cash in certain markets.",
+        "Unexpected cash events, such as a tax audit payment, increase cash flow volatility.",
+        "Forecast accuracy varies by market depending on forecast quality and business inputs.",
+        "For markets with intercompany payment deferrals, significant manual effort is required to continuously monitor, coordinate and manage payment timing to optimise short-term liquidity, creating an administrative burden and increasing the risk of forecast variances."
+      ],
+      "improvements": [
+        "AI opportunity (proposal): AI-enabled Cash Flow Control Tower - AI identification of forecast risks, unusual trends and potential liquidity pressures.",
+        "AI opportunity (proposal): AI-enabled Cash Flow Control Tower - predictive alerts for inventory stock build-up, purchase plan misalignment, vendor payment spikes, intercompany settlement deferrals and borrowing facility utilisation risks.",
+        "AI opportunity (proposal): AI-enabled Cash Flow Control Tower - AI-driven forecast accuracy analysis identifying recurring forecast misses and root causes by market."
+      ],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: Controlling E2E summary(Controlling ).csv\n\n- Path: `Tower Subprocesses/Controlling/Controlling E2E summary(Controlling ).csv`\n- Format: CSV\n\n| Sub process | Input | Brief description of activity | Output | Pain Points | Pain points that already digitalized/improved | TPI  2026 | AI opportunity (Global support) |  |\n| 2. Demand --> Supply PlanCash flow management | Purchase plan forecast System:  v4cast, APO, OMP (demand planner forecast tool) | Monthly, we obtain the purchase plan forecast from Asia Area Demand Planners to input as one of the key 'cash outflow' elements in our 6 months cash flow rolling forecast | Cash flow forecast | 1. Inaccurate purchase plans - lack of accuracy KPI2. Disconnect between demand plans and actual demand causing excess inventory in certain markets 3. The APO-to-OMP migration created data inconsistencies: Specific issues identified:- Freight lead times differ between APO and OMP.- Dispatch dates differ between systems.- Invoicing dates are not mapped consistently.- Some SKUs were missing due to master data or update timing issues.- APO did not always correctly reflect OMP information. |  |  |  |  |\n| 8.4 Working capital management - Cash flow forecast | - Intercompany settlement report (Quantum)- AP forecasts (SAP) - Purchase plans and custom duties (demand planner v4cast) - Tax payments (from TDT)- Payroll (HR)- Loan receipt & payment (EF) - Dividend payout (EF) - Sales forecasts (CMR) | GFS Controlling prepares and reviews monthly rolling cash flow forecasts to support liquidity management, funding decisions and working capital optimisation across Asia Area markets. The forecast consolidates cash inflows and outflows including AR collections, AP payments, payroll, taxes, customs & duties, intercompany netting, loan movements and dividend payments.This process provides visibility over key cash drivers, forecast accuracy, liquidity exposures and funding requirements, enabling proactive management of working capital and early identification of potential cash risks.The cash flow dashboard provides visibility of forecast versus actual performance, trend analysis, accuracy tracking and cash position monitoring across Asia Area markets | 6 months cashflow rolling forecast | 1. Lack of ownership from market to drive cashflow management, GFS controlling leading most cashflow calls with Treasury.2. Significant effort required to validate purchase plans, inventory investments and AP forecasts.3. Disconnect between demand plans and actual demand causing excess inventory and locking up cash in certain markets. 4. Unexpected cash events (tax audit payment) impact cashflow volatility. 5. Accuracy varies by market depending on forecast quality and business inputs.Janice: For markets with intercompany payment deferrals, significant manual effort is required to continuously monitor, coordinate, and manage payment timing to optimize short-term liquidity positions, creating administrative burden and increasing the risk of forecast variances. |  |  | AI-enabled Cash Flow Control Tower 1. AI identification of forecast risks, unusual trends and potential liquidity pressures.2. Predictive alerts for:- Inventory stock build-up- Purchase plan misalignment- Vendor payment spikes- Intercompany settlement deferrals- Borrowing facility utilisation risks3. AI-driven forecast accuracy analysis identifying recurring forecast misses and root causes by market. |  |\n",
+      "sourceFile": "Controlling - Raw Data.md"
+    },
+    {
+      "id": "04136dc5dd55",
+      "title": "Working capital: DSO forecast",
+      "group": "Cash & working capital",
+      "purpose": "GFS Controlling prepares and reviews DSO projections using the global countback methodology. The team updates the forecast assumptions, analyses DSO movements against target and forecast, assesses overdue receivables, runs scenario simulations, prepares commentaries and submits the forecast to Cash Hub and stakeholders, with consolidation at Asia Area level.\n\nThe outputs are the DSO forecast submission, the DSO dashboard variance analysis, the cash deck and commentaries, and the DSO outturn.",
+      "cadence": "Built on the monthly sales forecast; Asia Area consolidation follows the submission timelines set by International / Asia Area, including the PB cycle.",
+      "purposeSummary": "Project **DSO** with the global countback method, analyse movements and scenarios, and submit forecasts and commentary to **Cash Hub**.",
+      "cadenceSummary": "Built on the **monthly sales forecast**; Asia Area consolidation follows **International / Asia Area** submission timelines, including the **PB cycle**.",
+      "stages": [
+        {
+          "title": "Gather receivables and forecast inputs",
+          "displayTitle": "Gather receivables and forecast inputs",
+          "owner": "",
+          "detail": "Collect the monthly sales forecast, trade receivable balances, customer payment terms, overdue AR data, rebate and clawback assumptions, forecast collections, sales channel mix, VAT/GST assumptions and the Cash Hub / DSO dashboard data.",
+          "description": "Collect the monthly sales forecast, trade receivable balances, customer payment terms, overdue AR data, rebate and clawback assumptions, forecast collections, sales channel mix, VAT/GST assumptions and the Cash Hub / DSO dashboard data.",
+          "systems": [],
+          "challenges": [
+            "In Vietnam, DSO forecast accuracy was impacted by the absence of key assumptions, i.e. expected sales rebates not being shared with Controlling by the market (FBP), coupled with a lack of collaboration between the Market Access/Commercial team and the FBP."
+          ]
+        },
+        {
+          "title": "Prepare DSO projections and update assumptions",
+          "displayTitle": "Prepare DSO projections and update assumptions",
+          "owner": "GFS Controlling",
+          "detail": "Prepare the DSO projections using the global countback methodology and update the forecast assumptions.",
+          "description": "Prepare the DSO projections using the global countback methodology and update the forecast assumptions.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Analyse DSO movements and overdue receivables",
+          "displayTitle": "Analyse DSO movements and overdue receivables",
+          "owner": "GFS Controlling",
+          "detail": "Analyse DSO movements versus target and forecast, and assess the overdue receivables.",
+          "description": "Analyse DSO movements versus target and forecast, and assess the overdue receivables.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Run scenario simulations",
+          "displayTitle": "Run scenario simulations",
+          "owner": "GFS Controlling",
+          "detail": "Perform scenario simulations on the DSO projections.",
+          "description": "Perform scenario simulations on the DSO projections.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Prepare commentaries and the cash deck",
+          "displayTitle": "Prepare commentaries and the cash deck",
+          "owner": "GFS Controlling",
+          "detail": "Prepare the commentaries and the cash deck, together with the DSO dashboard variance analysis and the DSO outturn.",
+          "description": "Prepare the commentaries and the cash deck, together with the DSO dashboard variance analysis and the DSO outturn.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Consolidate at Asia Area level and submit to Cash Hub",
+          "displayTitle": "Consolidate at Asia Area level and submit to Cash Hub",
+          "owner": "Asia Area GFS Controller",
+          "detail": "Consolidate the market forecasts at Asia Area level and submit the DSO forecast to Cash Hub and stakeholders.",
+          "description": "Consolidate the market forecasts at Asia Area level and submit the DSO forecast to Cash Hub and stakeholders.",
+          "systems": [],
+          "challenges": [
+            "Consolidation at Asia Area level runs to a short turnaround timeline set by International / Asia Area, and there is room to improve the current DSO files.",
+            "The stretch timeline for Asia Area consolidation, particularly during last year's PB cycle, was extremely tight; although the issue was escalated, the timeline remained non-negotiable."
+          ]
+        }
+      ],
+      "challenges": [
+        "Consolidation at Asia Area level runs to a short turnaround timeline set by International / Asia Area, and there is room to improve the current DSO files.",
+        "In Vietnam, DSO forecast accuracy was impacted by the absence of key assumptions, i.e. expected sales rebates not being shared with Controlling by the market (FBP), coupled with a lack of collaboration between the Market Access/Commercial team and the FBP.",
+        "The stretch timeline for Asia Area consolidation, particularly during last year's PB cycle, was extremely tight; although the issue was escalated, the timeline remained non-negotiable."
+      ],
+      "improvements": [
+        "Improvement idea raised by the Asia Area GFS Controller: automate both consolidated manual files to reduce the time spent on Asia Area consolidation.",
+        "AI opportunity (proposal): AI-driven DSO prediction using historical collection behaviour, automated overdue risk identification, cash collection forecasting, variance commentary generation, scenario simulation, anomaly detection for AR balances, and automated cash deck preparation."
+      ],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: Controlling E2E summary(Controlling ).csv\n\n- Path: `Tower Subprocesses/Controlling/Controlling E2E summary(Controlling ).csv`\n- Format: CSV\n\n| Sub process | Input | Brief description of activity | Output | Pain Points | Pain points that already digitalized/improved | TPI  2026 | AI opportunity (Global support) |  |\n| 8.5 Working capital management - DSO forecast | Monthly sales forecast, Trade Receivable balances, customer payment terms, overdue AR data, rebate/clawback assumptions, forecast collections, sales channel mix, VAT/GST assumptions, Cash Hub / DSO Dashboard data | Prepare and review DSO projections using the global countback methodology, update forecast assumptions, analyse DSO movements versus target/forecast, assess overdue receivables, perform scenario simulations, prepare commentaries, and submit forecasts to Cash Hub and stakeholders. | DSO forecast submission, DSO dashboard variance analysis, Cash deck/commentaries, DSO Outturn | YL: Consolidation at AA level - Short turnaround timeline by International/ AA. Potential room to improve the current DSO filesJeanne: In Vietnam,  DSO forecast accuracy was impacted by the absence of key assumptions, ie expected sales rebates not being shared with Controlling by the market (FPB), coupled with lack of collaboration between the Market Access/Commercial team and FBP.Janice : The stretch timeline for Asia Area Consolidation, particularly during last year's PB cycle, was extremely tight. While the issue was escalated, the timeline remained non-negotiable. AA GFS Controller has raised idea to automate both consolidated manual files to seek for opportunity to reduce time spent. |  |  | AI-driven DSO prediction using historical collection behaviour, automated overdue risk identification, cash collection forecasting, variance commentary generation, scenario simulation, anomaly detection for AR balances, and automated cash deck preparation. |  |\n",
+      "sourceFile": "Controlling - Raw Data.md"
+    },
+    {
+      "id": "6da6bf20a1e4",
+      "title": "Operational transfer pricing review",
+      "group": "Intercompany & transfer pricing",
+      "purpose": "GFS Controlling performs periodic operational transfer pricing (OTP) reviews to assess whether actual entity profitability is aligned with the transfer pricing targets. The team analyses entity margins, reviews variances against target returns, identifies the TP adjustments required and collaborates with GTTP, CFC and business stakeholders to ensure compliance with TP policy.\n\nThe outputs are the OTP review analysis and the TP adjustment recommendations.",
+      "cadence": "Periodic, including a mid-year TP review; new transfer prices are set up in August/September.",
+      "purposeSummary": "Compare **actual entity profitability with transfer pricing targets** and recommend **TP adjustments** with GTTP and CFC.",
+      "cadenceSummary": "**Periodic** reviews, including a **mid-year** TP review; new transfer prices are set up in **August/September**.",
+      "stages": [
+        {
+          "title": "Assemble the OTP analysis inputs",
+          "displayTitle": "Assemble the OTP analysis inputs",
+          "owner": "",
+          "detail": "Gather the OTP analysis file, SAP transaction data, the actual P&L, the TP targets, intercompany revenue and cost data and the entity financial results.",
+          "description": "Gather the OTP analysis file, SAP transaction data, the actual P&L, the TP targets, intercompany revenue and cost data and the entity financial results.",
+          "systems": [
+            "SAP"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Analyse entity margins against TP targets",
+          "displayTitle": "Analyse entity margins against TP targets",
+          "owner": "GFS Controlling",
+          "detail": "Analyse the entity margins to assess whether actual profitability is aligned with the transfer pricing targets.",
+          "description": "Analyse the entity margins to assess whether actual profitability is aligned with the transfer pricing targets.",
+          "systems": [],
+          "challenges": [
+            "Segmentation reporting logic and accuracy in the OTP tool could be further improved and made holistic so that it ties to local TP data collection requirements."
+          ]
+        },
+        {
+          "title": "Review variances and identify TP adjustments",
+          "displayTitle": "Review variances and identify TP adjustments",
+          "owner": "GFS Controlling",
+          "detail": "Review the variances against target returns and identify the TP adjustments required.",
+          "description": "Review the variances against target returns and identify the TP adjustments required.",
+          "systems": [],
+          "challenges": [
+            "The mid-year TP review adds little value to EF: once new transfer prices are set up in August/September, the ROS% impact only starts to show three months later, because POs are usually set up with the TP three months ahead."
+          ]
+        },
+        {
+          "title": "Align with GTTP, CFC and the business",
+          "displayTitle": "Align with GTTP, CFC and the business",
+          "owner": "GFS Controlling",
+          "detail": "Collaborate with GTTP, CFC and business stakeholders to ensure compliance with TP policy, and issue the OTP review analysis and TP adjustment recommendations.",
+          "description": "Collaborate with GTTP, CFC and business stakeholders to ensure compliance with TP policy, and issue the OTP review analysis and TP adjustment recommendations.",
+          "systems": [],
+          "challenges": []
+        }
+      ],
+      "challenges": [
+        "The mid-year TP review adds little value to EF: once new transfer prices are set up in August/September, the ROS% impact only starts to show three months later, because POs are usually set up with the TP three months ahead.",
+        "Segmentation reporting logic and accuracy in the OTP tool could be further improved and made holistic so that it ties to local TP data collection requirements."
+      ],
+      "improvements": [],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: Controlling E2E summary(Controlling ).csv\n\n- Path: `Tower Subprocesses/Controlling/Controlling E2E summary(Controlling ).csv`\n- Format: CSV\n\n| Sub process | Input | Brief description of activity | Output | Pain Points | Pain points that already digitalized/improved | TPI  2026 | AI opportunity (Global support) |  |\n| 8.6 Operational Transfer Pricing Review | OTP analysis file, SAP transaction data, Actual P&L, TP targets, intercompany revenue/cost data, Entity financial results. | GFS Controlling performs periodic OTP reviews to assess whether actual profitability is aligned with Transfer Pricing targets. The team analyses entity margins, identifies TP adjustments required, reviews variances against target returns and collaborates with GTTP, CFC and business stakeholders to ensure compliance with TP policy. | OTP review analysis, TP adjustment recommendations | YL:1. Mid year TP review exercise does not add value to EF as once the new TPs are setup in Aug/Sep, the ROS% impact will only start to reflect 3 months later (usually POs are setup with TP 3 mths ahead)2. Segmentation reporting logic & accuracy in OTP tool could be further improved, and be holistic to tie it to Local TP data collection requirements |  |  |  |  |\n",
+      "sourceFile": "Controlling - Raw Data.md"
+    },
+    {
+      "id": "3c46e9bfbb65",
+      "title": "Local transfer pricing documentation",
+      "group": "Intercompany & transfer pricing",
+      "purpose": "GFS Controlling prepares and reviews the annual local transfer pricing documentation. The team validates the related-party transactions, reconciles the financial data to the statutory accounts, updates the TP working papers and reviews the draft TP local file with GTTP, CFC and the CFO.\n\nThe output is the local TP documentation file, which must be finalised within tight statutory filing deadlines.",
+      "cadence": "Annual, aligned with statutory filing deadlines.",
+      "purposeSummary": "Prepare and review the **annual local transfer pricing file**, reconciling related-party transactions to the **statutory accounts**.",
+      "cadenceSummary": "**Annual**, within the statutory filing deadlines.",
+      "stages": [
+        {
+          "title": "Gather the transfer pricing inputs",
+          "displayTitle": "Gather the transfer pricing inputs",
+          "owner": "",
+          "detail": "Collect the audited financial statements, SAP related-party transaction data, NTI reports, the OTP analysis, the TP working papers and the draft TP local file.",
+          "description": "Collect the audited financial statements, SAP related-party transaction data, NTI reports, the OTP analysis, the TP working papers and the draft TP local file.",
+          "systems": [
+            "SAP"
+          ],
+          "challenges": [
+            "Manual extraction and reconciliation from multiple sources."
+          ]
+        },
+        {
+          "title": "Validate related-party transactions",
+          "displayTitle": "Validate related-party transactions",
+          "owner": "GFS Controlling",
+          "detail": "Validate the related-party transactions that will be documented in the local file.",
+          "description": "Validate the related-party transactions that will be documented in the local file.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Reconcile financial data to the statutory accounts",
+          "displayTitle": "Reconcile financial data to the statutory accounts",
+          "owner": "GFS Controlling",
+          "detail": "Reconcile the financial data used in the TP file to the statutory accounts so that the TP file, statutory accounts and RPT disclosures are consistent.",
+          "description": "Reconcile the financial data used in the TP file to the statutory accounts so that the TP file, statutory accounts and RPT disclosures are consistent.",
+          "systems": [],
+          "challenges": [
+            "Ensuring consistency between TP files, statutory accounts and RPT disclosures."
+          ]
+        },
+        {
+          "title": "Update the TP working papers",
+          "displayTitle": "Update the TP working papers",
+          "owner": "GFS Controlling",
+          "detail": "Update the transfer pricing working papers with the validated and reconciled data.",
+          "description": "Update the transfer pricing working papers with the validated and reconciled data.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Review the draft local file with GTTP, CFC and CFO",
+          "displayTitle": "Review the draft local file with GTTP, CFC and CFO",
+          "owner": "GFS Controlling",
+          "detail": "Review the draft TP local file with GTTP, CFC and the CFO and finalise the local TP documentation file.",
+          "description": "Review the draft TP local file with GTTP, CFC and the CFO and finalise the local TP documentation file.",
+          "systems": [],
+          "challenges": [
+            "Multiple stakeholders and country-specific requirements.",
+            "Tight statutory filing deadlines.",
+            "Slow turnaround from the Group TP team to finalise the local file documentation, despite a timeline agreed upfront."
+          ]
+        }
+      ],
+      "challenges": [
+        "Manual extraction and reconciliation from multiple sources.",
+        "Ensuring consistency between TP files, statutory accounts and RPT disclosures.",
+        "Multiple stakeholders and country-specific requirements.",
+        "Tight statutory filing deadlines.",
+        "Slow turnaround from the Group TP team to finalise the local file documentation, despite a timeline agreed upfront."
+      ],
+      "improvements": [
+        "Documented improvements: An RPT dashboard for FS disclosure is being piloted, and the team is testing how to roll it out to the local TP documentation review."
+      ],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: Controlling E2E summary(Controlling ).csv\n\n- Path: `Tower Subprocesses/Controlling/Controlling E2E summary(Controlling ).csv`\n- Format: CSV\n\n| Sub process | Input | Brief description of activity | Output | Pain Points | Pain points that already digitalized/improved | TPI  2026 | AI opportunity (Global support) |  |\n| 8.7 Local Transfer Pricing Documentation Review | Audited Financial Statements, SAP related-party transaction data, NTI reports, OTP analysis, TP working papers, draft TP local file. | Prepare and review annual Local Transfer Pricing documentation by validating related-party transactions, reconciling financial data to statutory accounts, updating TP working papers and reviewing draft TP local files with GTTP, CFC and CFO. | Local TP Doc file | 1.  Manual extraction and reconciliation from multiple sources.2. Ensuring consistency between TP files, statutory accounts and RPT disclosures.3. Multiple stakeholders and country-specific requirements.4. Tight statutory filing deadlines.5. Slow turnaround from Group TP team to finalize the local file documentation, despite timeline agree upfront. | We are piloting RPT dashboard for FS disclosure and testing how to roll out to local TP doc review |  |  |  |\n",
+      "sourceFile": "Controlling - Raw Data.md"
+    },
+    {
+      "id": "b3bd3720bb8e",
+      "title": "Balance sheet integrity review",
+      "group": "Month-end & reporting",
+      "purpose": "The Controller reviews the Power BI Balance Sheet Integrity (BSI) pack, analyses aged reconciling items, required adjustments and unreconciled balances, prepares management commentary, finalises the pack and submits it to the CFO or CFO delegate for sign-off. The review covers reconciliation quality, action plans and balance sheet risks.\n\nThe outputs are the finalised BSI pack, the CFO sign-off, documented action plans and the quarterly balance sheet control evidence (FSC015-024).",
+      "cadence": "Provides quarterly balance sheet control evidence (FSC015-024); in ANZ, follow-up with GBS Payroll on aged items takes place each month.",
+      "purposeSummary": "Review the **Power BI BSI pack**, resolve aged reconciling items and secure **CFO sign-off** as balance sheet control evidence.",
+      "cadenceSummary": "**Quarterly** balance sheet control evidence (FSC015-024); in ANZ, follow-up with GBS Payroll on aged items takes place **each month**.",
+      "stages": [
+        {
+          "title": "Review the Power BI BSI pack",
+          "displayTitle": "Review the Power BI BSI pack",
+          "owner": "Controller",
+          "detail": "Open and review the Power BI BSI pack from the BSI dashboard.",
+          "description": "Open and review the Power BI BSI pack from the BSI dashboard.",
+          "systems": [
+            "Power BI"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Analyse aged items, adjustments and unreconciled balances",
+          "displayTitle": "Analyse aged items, adjustments and unreconciled balances",
+          "owner": "Controller",
+          "detail": "Analyse the aged reconciling items, the adjustments required and the unreconciled balances, and review reconciliation quality, action plans and balance sheet risks.",
+          "description": "Analyse the aged reconciling items, the adjustments required and the unreconciled balances, and review reconciliation quality, action plans and balance sheet risks.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Drive closure of aged items with GBS Payroll",
+          "displayTitle": "Drive closure of aged items with GBS Payroll",
+          "owner": "Controller",
+          "detail": "Jeanne: Aged BSR items remain unresolved due to limited ownership and follow-through from the Payroll team. As a result, Controllers must continuously chase and coordinate with GBS Payroll each month to obtain the necessary inputs and drive closure of outstanding items.",
+          "description": "In ANZ, chase and coordinate with GBS Payroll each month to obtain the inputs needed and drive closure of outstanding aged BSR items.",
+          "systems": [],
+          "challenges": [
+            "In ANZ, aged BSR items remain unresolved due to limited ownership and follow-through from the Payroll team; Controllers must continuously chase and coordinate with GBS Payroll each month to obtain the necessary inputs and drive closure of outstanding items."
+          ]
+        },
+        {
+          "title": "Prepare management commentary and finalise the pack",
+          "displayTitle": "Prepare management commentary and finalise the pack",
+          "owner": "Controller",
+          "detail": "Prepare the management commentary, document the action plans and finalise the BSI pack.",
+          "description": "Prepare the management commentary, document the action plans and finalise the BSI pack.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Submit for CFO sign-off",
+          "displayTitle": "Submit for CFO sign-off",
+          "owner": "CFO / CFO delegate",
+          "detail": "Submit the finalised pack to the CFO or CFO delegate for sign-off. The sign-off provides the quarterly balance sheet control evidence (FSC015-024).",
+          "description": "Submit the finalised pack to the CFO or CFO delegate for sign-off. The sign-off provides the quarterly balance sheet control evidence (FSC015-024).",
+          "systems": [],
+          "challenges": []
+        }
+      ],
+      "challenges": [
+        "In ANZ, aged BSR items remain unresolved due to limited ownership and follow-through from the Payroll team; Controllers must continuously chase and coordinate with GBS Payroll each month to obtain the necessary inputs and drive closure of outstanding items."
+      ],
+      "improvements": [],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: Controlling E2E summary(Controlling ).csv\n\n- Path: `Tower Subprocesses/Controlling/Controlling E2E summary(Controlling ).csv`\n- Format: CSV\n\n| Sub process | Input | Brief description of activity | Output | Pain Points | Pain points that already digitalized/improved | TPI  2026 | AI opportunity (Global support) |  |\n| 8.6 Balance Sheet Integrity Review | BSI dashboard | Controller reviews the Power BI BSI Pack, analyses aged reconciling items, required adjustments and unreconciled balances, prepares management commentary, finalises the pack and submits to CFO/CFO delegate for sign-off. The process includes review of reconciliation quality, action plans and balance sheet risks | • Finalised BSI Pack• CFO Sign-off• Documented action plans• Quarterly Balance Sheet control evidence (FSC015-024) | Jeanne: Aged BSR items remain unresolved due to limited ownership and follow-through from the Payroll team. As a result, Controllers must continuously chase and coordinate with GBS Payroll each month to obtain the necessary inputs and drive closure of outstanding items. |  |  |  |  |\n",
+      "sourceFile": "Controlling - Raw Data.md"
+    },
+    {
+      "id": "f04d3d8dd6ca",
+      "title": "Statutory audit support",
+      "group": "Statutory audit",
+      "purpose": "GFS Controlling supports the statutory audit end to end, from planning with the auditors, EF, Tax and GFS teams through walkthroughs, evidence (PBC) preparation, fieldwork and query management, financial statement review, audit adjustments, statutory filing and the post-audit review.\n\nEach step has its own inputs and deliverables, from the agreed audit plan and completed walkthroughs to the audit evidence package, the final audited financial statements, posted P13 adjustments, filed statutory accounts and a retained audit repository with lessons learned. The TPI 2026 ambition is an end-to-end audit support model with centralised planning, repositories and testing.",
+      "cadence": "Follows the compliance calendar and the statutory filing deadlines of each country; the audit cycle is not otherwise dated in the supplied file.",
+      "purposeSummary": "Run the **statutory audit end to end**, from planning and evidence through **financial statement review, adjustments and filing**.",
+      "cadenceSummary": "Follows the **compliance calendar** and country **statutory filing deadlines**; the audit cycle is not otherwise dated in the supplied file.",
+      "stages": [
+        {
+          "title": "Audit planning and kick-off",
+          "displayTitle": "Audit planning and kick-off",
+          "owner": "",
+          "detail": "Audit Planning & Kick-off | Compliance calendar, prior year audit findings, business/accounting updates | Conduct planning meeting with auditors, EF, Tax and GFS teams. Align scope, timeline, walkthroughs and audit approach. | Agreed audit plan and timeline",
+          "description": "Using the compliance calendar, prior-year audit findings and business and accounting updates, conduct the planning meeting with the auditors, EF, Tax and GFS teams. Align the scope, timeline, walkthroughs and audit approach. The output is an agreed audit plan and timeline.",
+          "systems": [],
+          "challenges": [
+            "Late stakeholder alignment and incomplete planning information."
+          ]
+        },
+        {
+          "title": "Process walkthroughs and risk assessment",
+          "displayTitle": "Process walkthroughs and risk assessment",
+          "owner": "",
+          "detail": "Process Walkthrough & Risk Assessment | SOPs, process documentation, control narratives | Support auditor walkthroughs and explain key finance processes and controls. | Completed walkthroughs and risk assessment",
+          "description": "Using the SOPs, process documentation and control narratives, support the auditor walkthroughs and explain the key finance processes and controls. The output is the completed walkthroughs and risk assessment.",
+          "systems": [],
+          "challenges": [
+            "Coordination across multiple process towers."
+          ]
+        },
+        {
+          "title": "PBC preparation and submission",
+          "displayTitle": "PBC preparation and submission",
+          "owner": "",
+          "detail": "Audit PBC Preparation & Submission | Trial balance, GL listings, reconciliations, supporting schedules | Coordinate collection and submission of audit evidence (PBCs) from process towers and local teams. | Complete audit evidence package",
+          "description": "Coordinate the collection and submission of audit evidence (PBCs) from the process towers and local teams: trial balance, GL listings, reconciliations and supporting schedules. The output is a complete audit evidence package.",
+          "systems": [],
+          "challenges": [
+            "High manual effort, duplicate requests and incorrect request routing."
+          ]
+        },
+        {
+          "title": "Fieldwork and query management",
+          "displayTitle": "Fieldwork and query management",
+          "owner": "",
+          "detail": "Audit Fieldwork & Query Management | Audit samples, auditor queries, additional requests | Coordinate responses to audit samples, information requests and follow-up queries. | Audit samples completed and queries resolved",
+          "description": "Coordinate responses to the audit samples, information requests and follow-up queries raised during fieldwork, until the samples are completed and the queries resolved.",
+          "systems": [],
+          "challenges": [
+            "Large sample sizes, multi-tower dependencies and repeated follow-ups."
+          ]
+        },
+        {
+          "title": "Financial statement review",
+          "displayTitle": "Financial statement review",
+          "owner": "",
+          "detail": "Financial Statement Review | Draft FS, tax disclosures, audit adjustments | Review financial statements, disclosures and audit comments with EF and auditors. | Final audited financial statements",
+          "description": "Review the draft financial statements, tax disclosures, audit adjustments and audit comments with EF and the auditors, working towards the final audited financial statements. Reviews are conducted in Wdesk/Workiva; where local auditors raise queries by email instead, Controllers transfer them into Wdesk for Deloitte Stat to reflect.",
+          "systems": [
+            "Wdesk"
+          ],
+          "challenges": [
+            "Multiple review rounds and version control.",
+            "Some local auditors refuse to use Wdesk/Workiva to review the financial statements, or report access issues at the last minute, so queries are raised by email and Controllers have to transfer them into Wdesk for Deloitte Stat to reflect.",
+            "Multiple quality issues in the financial statements prepared by SG Deloitte (disclosure errors, casting inaccuracies, cross-referencing issues and incorrect balance presentation) resulted in significant additional review effort and multiple revision cycles, ultimately leading to overrun fees charged by SG PwC."
+          ]
+        },
+        {
+          "title": "Audit adjustment management",
+          "displayTitle": "Audit adjustment management",
+          "owner": "",
+          "detail": "Audit Adjustment Management | Auditor-proposed adjustments, CLA, AJE, PYA, RJE | Validate, approve and post audit adjustments (P13) and reconcile retained earnings. | Posted audit adjustments and reconciled balances",
+          "description": "Validate, approve and post the audit adjustments (P13) arising from auditor-proposed adjustments, CLA, AJE, PYA and RJE, and reconcile retained earnings. The output is the posted audit adjustments and reconciled balances.",
+          "systems": [],
+          "challenges": [
+            "Tracking adjustments, supporting documentation and manual reconciliation."
+          ]
+        },
+        {
+          "title": "Statutory filing and sign-off",
+          "displayTitle": "Statutory filing and sign-off",
+          "owner": "",
+          "detail": "Statutory Filing & Sign-off | Signed FS, audit opinion, board approvals | Obtain approvals and submit accounts to local authorities before statutory deadlines. | Filed statutory accounts",
+          "description": "With the signed financial statements, audit opinion and board approvals in hand, obtain the remaining approvals and submit the accounts to the local authorities before the statutory deadlines. The output is the filed statutory accounts.",
+          "systems": [],
+          "challenges": [
+            "Filing deadline extensions and country-specific requirements."
+          ]
+        },
+        {
+          "title": "Post-audit review and continuous improvement",
+          "displayTitle": "Post-audit review and continuous improvement",
+          "owner": "",
+          "detail": "Post Audit & Continuous Improvement | Audit feedback, P13 postings, retained audit documents | Conduct post-mortem review, retain documents and identify improvement actions. | Lessons learned and retained audit repository",
+          "description": "Conduct the post-mortem review using the audit feedback, P13 postings and retained audit documents, retain the documents and identify improvement actions. The output is the lessons learned and a retained audit repository.",
+          "systems": [],
+          "challenges": [
+            "Inconsistent documentation retention and feedback collection."
+          ]
+        }
+      ],
+      "challenges": [
+        "Late stakeholder alignment and incomplete planning information.",
+        "Coordination across multiple process towers.",
+        "High manual effort, duplicate requests and incorrect request routing.",
+        "Large sample sizes, multi-tower dependencies and repeated follow-ups.",
+        "Multiple review rounds and version control.",
+        "Some local auditors refuse to use Wdesk/Workiva to review the financial statements, or report access issues at the last minute, so queries are raised by email and Controllers have to transfer them into Wdesk for Deloitte Stat to reflect.",
+        "Multiple quality issues in the financial statements prepared by SG Deloitte (disclosure errors, casting inaccuracies, cross-referencing issues and incorrect balance presentation) resulted in significant additional review effort and multiple revision cycles, ultimately leading to overrun fees charged by SG PwC.",
+        "Tracking adjustments, supporting documentation and manual reconciliation.",
+        "Filing deadline extensions and country-specific requirements.",
+        "Inconsistent documentation retention and feedback collection."
+      ],
+      "improvements": [
+        "TPI 2026: End-to-end audit support model.",
+        "TPI 2026: Audit planning and kick-off - centralised KPMG planning model and \"test once, use often\" approach.",
+        "AI opportunity (proposal): Audit planning and kick-off - AI-generated audit readiness checklist and timeline tracker.",
+        "TPI 2026: Process walkthroughs and risk assessment - centralised walkthrough repository.",
+        "AI opportunity (proposal): Process walkthroughs and risk assessment - AI-powered walkthrough documentation and risk summarisation.",
+        "TPI 2026: PBC preparation and submission - KPMG Clara / KCC central repository.",
+        "AI opportunity (proposal): PBC preparation and submission - AI assistant to identify, collect and package supporting documents automatically.",
+        "TPI 2026: Fieldwork and query management - centralised audit testing performed by KL and Group teams.",
+        "AI opportunity (proposal): Fieldwork and query management - AI chatbot to draft responses, track queries and suggest supporting documents.",
+        "TPI 2026: Financial statement review - keep to a three-revision approach for the financial statements.",
+        "AI opportunity (proposal): Financial statement review - AI review of FS consistency, disclosure checks and variance analysis.",
+        "TPI 2026: Audit adjustment management - standardised P13 governance and templates.",
+        "AI opportunity (proposal): Audit adjustment management - AI classification of adjustments and automated retained earnings reconciliation.",
+        "TPI 2026: Statutory filing and sign-off - improved governance and escalation process.",
+        "AI opportunity (proposal): Statutory filing and sign-off - AI deadline monitoring and filing compliance tracker.",
+        "TPI 2026: Post-audit review - audit feedback standardisation and central repository.",
+        "AI opportunity (proposal): Post-audit review - AI analysis of audit findings and recurring root causes."
+      ],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: Controlling E2E summary(Controlling ).csv\n\n- Path: `Tower Subprocesses/Controlling/Controlling E2E summary(Controlling ).csv`\n- Format: CSV\n\n| Sub process | Input | Brief description of activity | Output | Pain Points | Pain points that already digitalized/improved | TPI  2026 | AI opportunity (Global support) |  |\n| 8.7 Statutory audit |  |  |  |  |  | End to End audit support model |  |  |\n| Audit Planning & Kick-off | Compliance calendar, prior year audit findings, business/accounting updates | Conduct planning meeting with auditors, EF, Tax and GFS teams. Align scope, timeline, walkthroughs and audit approach. | Agreed audit plan and timeline | Late stakeholder alignment, incomplete planning information |  | Centralised KPMG planning model and \"test once, use often\" approach | AI-generated audit readiness checklist and timeline tracker |  |\n| Process Walkthrough & Risk Assessment | SOPs, process documentation, control narratives | Support auditor walkthroughs and explain key finance processes and controls. | Completed walkthroughs and risk assessment | Multiple process tower coordination |  | Centralised walkthrough repository | AI-powered walkthrough documentation and risk summarisation |  |\n| Audit PBC Preparation & Submission | Trial balance, GL listings, reconciliations, supporting schedules | Coordinate collection and submission of audit evidence (PBCs) from process towers and local teams. | Complete audit evidence package | High manual effort, duplicate requests, incorrect request routing |  | KPMG Clara / KCC central repository | AI assistant to identify, collect and package supporting documents automatically |  |\n| Audit Fieldwork & Query Management | Audit samples, auditor queries, additional requests | Coordinate responses to audit samples, information requests and follow-up queries. | Audit samples completed and queries resolved | Large sample sizes, multi-tower dependencies, repeated follow-ups |  | Centralised audit testing performed by KL and Group teams | AI chatbot to draft responses, track queries and suggest supporting documents |  |\n| Financial Statement Review | Draft FS, tax disclosures, audit adjustments | Review financial statements, disclosures and audit comments with EF and auditors. | Final audited financial statements | 1. Multiple review rounds and version controlJeanne2. Some local auditors refuse to use Wdesk/Workiva to review FS/ Last min informed having access issue to Wdesk/Workiva, resulted queries raised via emails and Controllers need to transfer the queries to Wdesk for Deloitte Stat to reflect accordingly. Janice: 3. Multiple quality issues in the financial statements prepared by SG Deloitte, including disclosure errors, casting inaccuracies, cross-referencing issues, and incorrect balance presentation, resulted in significant additional review effort and multiple revision cycles. This ultimately led to overrun fees being charged by SG PwC. |  | Keep to 3x FS revision approach | AI review of FS consistency, disclosure checks and variance analysis |  |\n| Audit Adjustment Management | Auditor-proposed adjustments, CLA, AJE, PYA, RJE | Validate, approve and post audit adjustments (P13) and reconcile retained earnings. | Posted audit adjustments and reconciled balances | Tracking adjustments, supporting documentation, manual reconciliation |  | Standardised P13 governance and templates | AI classification of adjustments and automated RE reconciliation |  |\n| Statutory Filing & Sign-off | Signed FS, audit opinion, board approvals | Obtain approvals and submit accounts to local authorities before statutory deadlines. | Filed statutory accounts | Filing deadline extensions, country-specific requirements |  | Improved governance and escalation process | AI deadline monitoring and filing compliance tracker |  |\n| Post Audit & Continuous Improvement | Audit feedback, P13 postings, retained audit documents | Conduct post-mortem review, retain documents and identify improvement actions. | Lessons learned and retained audit repository | Inconsistent documentation retention and feedback collection |  | Audit feedback standardisation and central repository | AI analysis of audit findings and recurring root causes |  |\n",
+      "sourceFile": "Controlling - Raw Data.md"
+    },
+    {
+      "id": "0748b8d47ff4",
+      "title": "Compliance and controls",
+      "group": "Controls & compliance",
+      "purpose": "GFS Controlling monitors and executes the Financial Control Framework (FCF) controls. The team performs control self-assessments and attestations, coordinates compliance testing, supports internal and external audits, tracks remediation actions, maintains SOP adherence and ensures that control sign-offs and governance reviews are completed on time.\n\nThe inputs are the FCF control attestations, control evidence, compliance testing results, remediation actions, IRM notifications and CFO/CFC approvals; the output is the completed FCF control attestation recorded in IRM.",
+      "cadence": "",
+      "purposeSummary": "Execute and evidence **Financial Control Framework** controls, coordinate testing and remediation, and complete **attestations in IRM**.",
+      "cadenceSummary": "**Timing and frequency are not specified** in the supplied file.",
+      "stages": [
+        {
+          "title": "Monitor and execute FCF controls",
+          "displayTitle": "Monitor and execute FCF controls",
+          "owner": "GFS Controlling",
+          "detail": "Monitor and execute the Financial Control Framework controls, acting on the IRM notifications that flag the controls due.",
+          "description": "Monitor and execute the Financial Control Framework controls, acting on the IRM notifications that flag the controls due.",
+          "systems": [
+            "IRM"
+          ],
+          "challenges": []
+        },
+        {
+          "title": "Perform control self-assessments and attestations",
+          "displayTitle": "Perform control self-assessments and attestations",
+          "owner": "GFS Controlling",
+          "detail": "Perform the control self-assessments and attestations, collecting the control evidence that supports each attestation.",
+          "description": "Perform the control self-assessments and attestations, collecting the control evidence that supports each attestation.",
+          "systems": [],
+          "challenges": [
+            "Manual evidence collection."
+          ]
+        },
+        {
+          "title": "Coordinate compliance testing and audit support",
+          "displayTitle": "Coordinate compliance testing and audit support",
+          "owner": "GFS Controlling",
+          "detail": "Coordinate compliance testing and support internal and external audits, using the compliance testing results as they become available.",
+          "description": "Coordinate compliance testing and support internal and external audits, using the compliance testing results as they become available.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Track remediation actions and SOP adherence",
+          "displayTitle": "Track remediation actions and SOP adherence",
+          "owner": "GFS Controlling",
+          "detail": "Track remediation actions to closure and maintain adherence to the SOPs.",
+          "description": "Track remediation actions to closure and maintain adherence to the SOPs.",
+          "systems": [],
+          "challenges": []
+        },
+        {
+          "title": "Complete sign-offs and record the attestation in IRM",
+          "displayTitle": "Complete sign-offs and record the attestation in IRM",
+          "owner": "GFS Controlling",
+          "detail": "Ensure the timely completion of control sign-offs (CFO/CFC approvals) and governance reviews, and record the completed FCF control attestation in IRM.",
+          "description": "Ensure the timely completion of control sign-offs (CFO/CFC approvals) and governance reviews, and record the completed FCF control attestation in IRM.",
+          "systems": [
+            "IRM"
+          ],
+          "challenges": [
+            "Late approvals."
+          ]
+        }
+      ],
+      "challenges": [
+        "Manual evidence collection.",
+        "Late approvals."
+      ],
+      "improvements": [
+        "AI opportunity (proposal): AI-enabled control monitoring.",
+        "AI opportunity (proposal): Automated evidence collection."
+      ],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: Controlling E2E summary(Controlling ).csv\n\n- Path: `Tower Subprocesses/Controlling/Controlling E2E summary(Controlling ).csv`\n- Format: CSV\n\n| Sub process | Input | Brief description of activity | Output | Pain Points | Pain points that already digitalized/improved | TPI  2026 | AI opportunity (Global support) |  |\n| 8.8 Compliance and controls | FCF control attestations,  control evidence, compliance testing results, remediation actions, IRM notifications, CFO/CFC approvals. | Monitor and execute Financial Control Framework (FCF) controls, perform control self-assessments and attestations, coordinate compliance testing, support internal/external audits, track remediation actions, maintain SOP adherence, and ensure timely completion of control sign-offs and governance reviews | Completed FCF control attestation in IRM | Manual evidence collectionLate approvals |  |  | 1. AI-enabled control monitoring, 2. Automated evidence collection |  |\n",
+      "sourceFile": "Controlling - Raw Data.md"
+    }
+  ]
+}

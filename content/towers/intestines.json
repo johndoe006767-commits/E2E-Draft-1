@@ -1,0 +1,664 @@
+{
+  "name": "O2C",
+  "organ": "intestines",
+  "tagline": "Turning customer orders into cash through credit, billing, collections and banking control.",
+  "pickerTitle": "O2C Processes",
+  "pickerIntro": "Eight processes covering credit risk, sales orders, billing, collections, disputes, cash application and banking.",
+  "context": [
+    {
+      "label": "Solutions",
+      "text": "Python scripts now automate Alexion order processing (returns and rebates), advance-payment clearing for China and Korea, China tax receipt journals for BlackLine and credit-control parameter extraction; a Global CN dashboard and Crown manual-payment simplification are in progress."
+    },
+    {
+      "label": "Automation",
+      "text": "High Radius sends statements and reminders and auto-matches cash to invoices; SAP creates orders from daily EDI feeds, releases billing, runs the automated payment run and posts MT940 / CAMT53 bank statements."
+    },
+    {
+      "label": "AI",
+      "text": "An AI solution for the credit review process is underway, alongside an agentic AI solution to match credit-limit changes to supporting emails; neither is documented as deployed yet."
+    },
+    {
+      "label": "Cross-Functional Collaboration",
+      "text": "O2C relies on the Distribution team and DMT for EDI account and stock fixes, local markets, FP&A and GFS Controlling for pricing, credit approvals and forecasts, Key Account Managers and Finance Controllers for collection escalations, and GBS, Controlling and the banks for payments and reconciliations."
+    }
+  ],
+  "metrics": {
+    "solutions": 14,
+    "automated": 8,
+    "ai": 1
+  },
+  "collaborators": [
+    "brain",
+    "kidneys",
+    "spleen"
+  ],
+  "processes": [
+    {
+      "id": "7ba335340ed9",
+      "title": "Credit risk management",
+      "group": "Credit management",
+      "purpose": "Credit risk management assesses and approves the credit extended to customers so that sales orders can be released without exposing AZ to undue default risk. It covers new customer credit risk assessment at on-boarding, periodic review of existing customers based on their next review date, credit limit utilisation monitoring, release of credit-held orders, investigation of D&B risk alerts and monthly controls.\n\nThe outputs are an approved credit limit (or a credit limit increase or decrease), a risk rating or score, and where necessary an account placed on hold or blocked.",
+      "cadence": "Risk alerts arrive daily from D&B and the utilisation report is shared weekly with MC. Periodic reviews of existing customers are based on the next review date; for Europe and Alexion new customers, smaller default credit limits are reviewed again after six months and larger limits in the next annual cycle. Monthly controls run each month. New-customer reviews, credit-held orders and ad hoc MC requests are handled as they arise.",
+      "stages": [
+        {
+          "title": "Review new customer credit",
+          "detail": "New customers\n1. New customer reviews are triggered through our internal report for new customers, ad hoc MC requests, or credit-held sales orders.\n2. The issue is where the customer can start before a CL is assigned, therefore leading to blocked orders. We have on-going discussion with the market about subject to credit (STC).\n3. All markets follow an appropriate review process based on the size of the credit limit. However, in Europe and Alexion, a default credit limit and risk category are assigned to new customers due to volumes and blocking considerations. This process is managed by DMT. Smaller credit limits are reviewed again in six months to assess payment experience, while larger limits are reviewed in the next annual cycle.\n4. For new customers with credit-held orders, the review is completed and the order release team is informed whether the order can be released.",
+          "owner": "Credit risk team (DMT for Europe / Alexion default limits)",
+          "challenges": [
+            "New customer process for Europe / Alexion: material volume (around 3K a year); using GDM to complete the reviews is still effort."
+          ],
+          "systems": [],
+          "displayTitle": "Review new customer credit",
+          "description": "New customer reviews are triggered by the internal new-customer report, ad hoc MC requests or credit-held sales orders. A known on-boarding issue is that a customer can start trading before a credit limit is assigned, which leads to blocked orders; discussions with the market about subject-to-credit (STC) are ongoing.\n\nAll markets follow a review process appropriate to the size of the credit limit. In Europe and Alexion, a default credit limit and risk category are assigned to new customers because of volumes and blocking considerations; this process is managed by DMT. Smaller credit limits are reviewed again after six months to assess payment experience, while larger limits are reviewed in the next annual cycle.\n\nFor new customers with credit-held orders, the review is completed and the order release team is informed whether the order can be released."
+        },
+        {
+          "title": "Assess existing customers and select review type",
+          "detail": "2. Periodical Review (based on next review date)\nExisting customers\n1. The credit analyst reviews accounts in their market, checks the customer's credit profile, and determines whether a simple review (credit limit < $1M) or Full review (credit limit > $1M) is required.",
+          "owner": "Credit analyst",
+          "challenges": [],
+          "systems": [],
+          "displayTitle": "Assess existing customers and select review type",
+          "description": "On the periodic review cycle (based on each account's next review date), the credit analyst reviews the accounts in their market, checks the customer's credit profile and determines whether a simple review (credit limit below $1M) or a full review (credit limit above $1M) is required."
+        },
+        {
+          "title": "Complete simple reviews in Global Decision Maker",
+          "detail": "2. Simple review process is completed through the Global Decision Maker (GDM). GDM is a semi-automated application to accelerate accurate credit risk decision in real time through a blend of scoring methodology which includes D&B risk band (failure score, paydex etc) & AZ payment experience (ageing, DSO).",
+          "owner": "Credit analyst",
+          "challenges": [],
+          "systems": [
+            "Global Decision Maker",
+            "D&B"
+          ],
+          "displayTitle": "Complete simple reviews in Global Decision Maker",
+          "description": "Simple reviews are completed through the Global Decision Maker (GDM), a semi-automated application that accelerates accurate credit risk decisions in real time. GDM blends a scoring methodology that combines the D&B risk band (failure score, paydex and similar measures) with AZ payment experience (ageing and DSO)."
+        },
+        {
+          "title": "Perform full reviews and obtain DOA 2002 approval",
+          "detail": "3. Full reviews require validation of customer information (a limited KYC is done at market level) and supporting documents such as sales forecasts, financial statements, payment term changes, and contracts where needed, followed by an assessment of sales trends, financial position, ageing, DSO, country risk, and D&B criteria. We will perform a deep dive into the customer's financials and assess the customer's credit worthiness against the credit limit required.  A credit proposal is then submitted by email with supporting documents for multi-level approval under DOA 2002 (up to Group CFO) after which the data team updates the relevant credit details in SAP via service now ticketing system.",
+          "owner": "Credit analyst; data team for the SAP update",
+          "challenges": [
+            "Sales forecast: the team does not receive forecasts at customer level with monthly phasing, nor does it have access to the approved budget submission. It relies on the markets / FP&A to provide the forecast, which is time consuming.",
+            "Manual credit review process: financial spreading, financial analysis, proposal write-up and approvals."
+          ],
+          "systems": [
+            "D&B",
+            "Email",
+            "SAP",
+            "ServiceNow"
+          ],
+          "displayTitle": "Perform full reviews and obtain DOA 2002 approval",
+          "description": "Full reviews start with validation of the customer information (a limited KYC is done at market level) and collection of supporting documents such as sales forecasts, financial statements, payment term changes and contracts where needed. The analyst then assesses sales trends, financial position, ageing, DSO, country risk and D&B criteria, performing a deep dive into the customer's financials to judge creditworthiness against the credit limit required.\n\nA credit proposal is submitted by email with the supporting documents for multi-level approval under DOA 2002 (up to Group CFO). Once approved, the data team updates the relevant credit details in SAP via a ServiceNow ticket."
+        },
+        {
+          "title": "Monitor credit limit utilisation",
+          "detail": "Monitor credit limit utilization\n1. A weekly utilization report is shared with MC, highlighting customers above 80% or 90% of their credit limit to prevent blocked orders.\n2. Based on MC feedback, the credit analyst performs a review where a limit increase is required, for example due to sales growth or new product launches.",
+          "owner": "Credit analyst",
+          "challenges": [],
+          "systems": [],
+          "displayTitle": "Monitor credit limit utilisation",
+          "description": "A weekly utilisation report is shared with MC, highlighting customers above 80% or 90% of their credit limit so that blocked orders can be prevented.\n\nBased on MC feedback, the credit analyst performs a review where a limit increase is required, for example because of sales growth or new product launches."
+        },
+        {
+          "title": "Review and release credit-held orders",
+          "detail": "Credit held order management\n1. Depending on the value, the credit risk team would need to review the customer for an increased credit limit before the blocked order is manually released.\n2. Credit-blocked orders must follow the global credit risk standard before manual release. If blocked due to insufficient credit limit, payment status may be confirmed with collections, and if payment is received in the AZ bank statement, the order can be released without approval. If there is no payment found, the order can be manually released if approved in line with GDOA 2002 based on the customer's total exposure including the order value.\n3. If an order is blocked due to overdue, the collection team must be informed and ensure that the relevant approvals according to the matrix in the credit risk standard (who can release it based on value and overdue allowance) before release.\n4. Where an order is blocked due to payment terms (order PT being different to SAP PT), the order value must be checked and approval obtained from MC following the DOA 2000 before any modifications made to the PT in the sales order and address any other credit related issues before releasing the order.\n5. Alexion orders are not blocked in the system due to its life-saving nature.",
+          "owner": "Credit risk team, with Collections and MC approvals",
+          "challenges": [
+            "Blocked orders: Greece cash in advance (CIA) customers are blocked due to legacy practice."
+          ],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Review and release credit-held orders",
+          "description": "Depending on the order value, the credit risk team may need to review the customer for an increased credit limit before a blocked order is released manually. Credit-blocked orders must follow the global credit risk standard before manual release.\n\nIf the block is due to an insufficient credit limit, payment status may be confirmed with Collections: if payment has been received in the AZ bank statement the order can be released without approval, otherwise it can be released manually only if approved in line with GDOA 2002 based on the customer's total exposure including the order value. If the block is due to overdue balances, the collection team must be informed and the relevant approvals obtained according to the matrix in the credit risk standard (who can release based on value and overdue allowance).\n\nWhere an order is blocked because its payment terms differ from the SAP payment terms, the order value must be checked and approval obtained from MC under DOA 2000 before the payment terms on the sales order are modified; any other credit-related issues are addressed before release. Alexion orders are not blocked in the system because of their life-saving nature."
+        },
+        {
+          "title": "Investigate daily D&B risk alerts",
+          "detail": "Risk alerts investigation\n1. The team receives daily D&B alerts covering legal events, rating changes, ownership changes, and customer name changes across active global customers.\n2. The objective of alerts process is for the team to identify potential credit risk / defaults.\n3. Based on alerts received the credit risk team will take the necessary action or trigger an ad hoc credit review. When a credit event occurs e.g. bankruptcy and ceased trading, this is considered high priority, and the team would deactivate the customer where necessary.",
+          "owner": "Credit risk team",
+          "challenges": [],
+          "systems": [
+            "D&B"
+          ],
+          "displayTitle": "Investigate daily D&B risk alerts",
+          "description": "The team receives daily D&B alerts covering legal events, rating changes, ownership changes and customer name changes across active global customers. The objective is to identify potential credit risk or defaults early.\n\nBased on the alerts received, the credit risk team takes the necessary action or triggers an ad hoc credit review. A credit event such as bankruptcy or ceased trading is treated as high priority, and the team deactivates the customer where necessary."
+        },
+        {
+          "title": "Run monthly credit controls",
+          "detail": "6. Monthly Controls\nChallenges: 3. Manual controls process - manual SAP extraction for parameters, working file and remarks. Manual email search for supporting evidence on credit limit changes\nTPI 2026: 2. Implemented python solution for extraction of control parameter, working file and remarks.  Agentic AI solution is underway to match CL changes to supporting emails.",
+          "owner": "Credit risk team",
+          "challenges": [
+            "Manual controls process: manual SAP extraction for parameters, working file and remarks, and manual email search for supporting evidence on credit limit changes."
+          ],
+          "systems": [
+            "SAP",
+            "Python",
+            "Email"
+          ],
+          "displayTitle": "Run monthly credit controls",
+          "description": "Monthly controls are run over credit limit changes. The control parameters, working file and remarks are extracted from SAP (now through a Python solution rather than manual extraction), and supporting evidence for each credit limit change is gathered by searching emails. The source lists this control as a sub-process but does not describe its steps in more detail."
+        }
+      ],
+      "challenges": [
+        "Sales forecast: the team does not receive forecasts at customer level with monthly phasing, nor does it have access to the approved budget submission. It relies on the markets / FP&A to provide the forecast, which is time consuming.",
+        "Manual credit review process: financial spreading, financial analysis, proposal write-up and approvals.",
+        "Manual controls process: manual SAP extraction for parameters, working file and remarks, and manual email search for supporting evidence on credit limit changes.",
+        "New customer process for Europe / Alexion: material volume (around 3K a year); using GDM to complete the reviews is still effort.",
+        "Blocked orders: Greece cash in advance (CIA) customers are blocked due to legacy practice."
+      ],
+      "improvements": [
+        "TPI 2026 (in progress): AI solution underway for the credit review process.",
+        "TPI 2026 (completed): Implemented a Python solution for extraction of control parameters, working file and remarks.",
+        "TPI 2026 (in progress): Agentic AI solution underway to match credit limit changes to supporting emails, with potential broader scope and integration with the credit review AI solution.",
+        "TPI 2026 (completed): Applied a default credit limit process for Europe / Alexion, managed by DMT.",
+        "TPI 2026 (proposed): Conversion of Greek CIA low-risk customers to normal credit with a direct debit 7-day term, potentially freeing up 27 FTE days on order release activities.",
+        "TPI 2026: Collaborate with the International controller to engage markets / FP&A on forecast provision."
+      ],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: O2C E2E summary.xlsx\n\n- Path: `Tower Subprocesses/O2C/O2C E2E summary.xlsx`\n- Format: XLSX\n\n### Worksheet: Sheet1\n\n| Column 1 | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 |\n| --- | --- | --- | --- | --- | --- |\n| Sub process | Input | Brief description of activity | Output | Challenges | TPI  2026 |\n| Credit risk management | 1. New customer credit risk assessment (on-boarding issues)\n2. Periodical Review (based on next review date)\n3. Credit limit utilization monitoring\n4. Credit Held order block (insufficient credit limit)\n5. Risk alerts investigation\n6. Monthly Controls | New customers\n1. New customer reviews are triggered through our internal report for new customers, ad hoc MC requests, or credit-held sales orders.\n2. The issue is where the customer can start before a CL is assigned, therefore leading to blocked orders. We have on-going discussion with the market about subject to credit (STC).\n3. All markets follow an appropriate review process based on the size of the credit limit. However, in Europe and Alexion, a default credit limit and risk category are assigned to new customers due to volumes and blocking considerations. This process is managed by DMT. Smaller credit limits are reviewed again in six months to assess payment experience, while larger limits are reviewed in the next annual cycle.\n4. For new customers with credit-held orders, the review is completed and the order release team is informed whether the order can be released.\n\nExisting customers\n1. The credit analyst reviews accounts in their market, checks the customer's credit profile, and determines whether a simple review (credit limit < $1M) or Full review (credit limit > $1M) is required.\n2. Simple review process is completed through the Global Decision Maker (GDM). GDM is a semi-automated application to accelerate accurate credit risk decision in real time through a blend of scoring methodology which includes D&B risk band (failure score, paydex etc) & AZ payment experience (ageing, DSO).\n3. Full reviews require validation of customer information (a limited KYC is done at market level) and supporting documents such as sales forecasts, financial statements, payment term changes, and contracts where needed, followed by an assessment of sales trends, financial position, ageing, DSO, country risk, and D&B criteria. We will perform a deep dive into the customer's financials and assess the customer's credit worthiness against the credit limit required.  A credit proposal is then submitted by email with supporting documents for multi-level approval under DOA 2002 (up to Group CFO) after which the data team updates the relevant credit details in SAP via service now ticketing system.\n\nMonitor credit limit utilization\n1. A weekly utilization report is shared with MC, highlighting customers above 80% or 90% of their credit limit to prevent blocked orders.\n2. Based on MC feedback, the credit analyst performs a review where a limit increase is required, for example due to sales growth or new product launches.\n\nCredit held order management\n1. Depending on the value, the credit risk team would need to review the customer for an increased credit limit before the blocked order is manually released.\n2. Credit-blocked orders must follow the global credit risk standard before manual release. If blocked due to insufficient credit limit, payment status may be confirmed with collections, and if payment is received in the AZ bank statement, the order can be released without approval. If there is no payment found, the order can be manually released if approved in line with GDOA 2002 based on the customer's total exposure including the order value.\n3. If an order is blocked due to overdue, the collection team must be informed and ensure that the relevant approvals according to the matrix in the credit risk standard (who can release it based on value and overdue allowance) before release.\n4. Where an order is blocked due to payment terms (order PT being different to SAP PT), the order value must be checked and approval obtained from MC following the DOA 2000 before any modifications made to the PT in the sales order and address any other credit related issues before releasing the order.\n5. Alexion orders are not blocked in the system due to its life-saving nature.\n\nRisk alerts investigation\n1. The team receives daily D&B alerts covering legal events, rating changes, ownership changes, and customer name changes across active global customers.\n2. The objective of alerts process is for the team to identify potential credit risk / defaults.\n3. Based on alerts received the credit risk team will take the necessary action or trigger an ad hoc credit review. When a credit event occurs e.g. bankruptcy and ceased trading, this is considered high priority, and the team would deactivate the customer where necessary. | 1. Approved credit limit, credit limit increase or decrease\n2. Risk rating / score\n3. Account placed on hold / blocked | 1. Sales forecast - we do not receive forecasts regarding customer level and monthly phasing, nor do we have access to the approved budget submission. We rely on the markets / FP&A to provide us with the forecast which is time consuming.\n2. Manual credit review process - financial spreading, financial analysis, proposal write-up and approvals.\n3. Manual controls process - manual SAP extraction for parameters, working file and remarks. Manual email search for supporting evidence on credit limit changes\n4. New customer process Europe / Alexion. Material volume (3K a year), use GDM to complete which is still effort.\n5. Blocked orders - Greece cash in advance (CIA) customers are blocked due to legacy practice | 1. AI solution underway for the credit review process\n2. Implemented python solution for extraction of control parameter, working file and remarks.  Agentic AI solution is underway to match CL changes to supporting emails. Potential broader scope and integration with credit review AI solution.\n3. Applied default credit limit process for Europe / Alexion managed by DMT.\n4. Proposed conversion of Greek CIA low risk customers to normal credit with direct debit 7-day term. Potentially free up 27 FTE days on order release activities.\n5. Collaborate with International controller to engage markets / FP&A. |\n",
+      "sourceFile": "O2C - Raw Data.md",
+      "purposeSummary": "Assess and approve **customer credit limits**, release **credit-held orders** and investigate **risk alerts** to control default exposure.",
+      "cadenceSummary": "**Daily** D&B alerts, **weekly** utilisation reporting and **monthly** controls; smaller new-customer limits are re-reviewed after **six months**, larger limits in the next **annual** cycle.",
+      "flowNote": "The activities are separate triggers (new customers, review dates, utilisation, blocked orders, alerts and month-end controls) that run alongside each other rather than as one strict sequence."
+    },
+    {
+      "id": "5508b37bef7c",
+      "title": "Sales order management",
+      "group": "Orders & billing",
+      "purpose": "Sales order management creates sales orders in SAP from three inputs: daily EDI sales reports interfaced by distributors, customers' purchase orders for manual orders, and customers' returns and rebate settlements. It resolves EDI errors with the Distribution, DMT, local market and GFS Controlling teams, applies the system credit check to manual orders, routes blocked orders to the right approver and creates credit notes for approved returns and rebates.\n\nThe output is a created sales order, which feeds delivery and billing.",
+      "cadence": "Distributors interface daily EDI sales reports to SAP, so EDI order creation runs daily. Manual orders, returns and rebate credit notes are processed as customer purchase orders and settlement requests are received.",
+      "stages": [
+        {
+          "title": "Create sales orders from daily EDI reports",
+          "detail": "a) EDI: daily sales reports which are interfaced by Distributors to AZ's SAP\nEDI (sales and returns)\n1. SAP automatically creates sales orders based on the daily EDI report which interfaced by distributors.",
+          "owner": "System (SAP)",
+          "challenges": [
+            "EDI interface risk related to deliveries spanning across month-end."
+          ],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Create sales orders from daily EDI reports",
+          "description": "Distributors interface their daily sales reports (sales and returns) to AZ's SAP through EDI. SAP automatically creates the corresponding sales orders from each daily EDI report."
+        },
+        {
+          "title": "Resolve EDI errors with the relevant teams",
+          "detail": "2. When system identifies an error, the Sales Order team reviews the issue and follows up with the relevant teams to resolve the EDI errors.\na) For a missing end-customer account, the team liaises with the Distribution team to submit a request to DMT for account creation.\nb) For missing pricing, the team liaises with the local market and GFS Controlling team to update the pricing details.\nc) For insufficient stock, the team liaises with the Distribution team to carry out the necessary stock movements.",
+          "owner": "Sales Order team",
+          "challenges": [
+            "EDI errors arising from missing end-customer accounts, missing pricing and insufficient stock."
+          ],
+          "systems": [],
+          "displayTitle": "Resolve EDI errors with the relevant teams",
+          "description": "When the system identifies an error in the EDI feed, the Sales Order team reviews the issue and follows up with the relevant teams to resolve it.\n\nFor a missing end-customer account, the team liaises with the Distribution team to submit a request to DMT for account creation. For missing pricing, the team liaises with the local market and the GFS Controlling team to update the pricing details. For insufficient stock, the team liaises with the Distribution team to carry out the necessary stock movements."
+        },
+        {
+          "title": "Validate and create manual sales orders",
+          "detail": "b) Customer's purchase order\nManual order (sales)\nThe Sales Order team validates the completeness of the data and manually creates the order in SAP.\nOrders are then subjected to a system credit check. The system will block an order if the customer account has an insufficient credit limit or overdue outstanding balances.",
+          "owner": "Sales Order team",
+          "challenges": [
+            "Manual creation of sales orders.",
+            "Incorrect price or VAT classification in the master data, resulting in inaccurate invoicing.",
+            "Local markets have signed contracts with customers that include non-standard payment terms or multiple payment terms for a single customer, or without confirming whether the system can support them, which has created challenges for O2C in processing sales orders."
+          ],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Validate and create manual sales orders",
+          "description": "For manual orders, the Sales Order team validates the completeness of the data on the customer's purchase order and manually creates the order in SAP.\n\nOrders are then subjected to a system credit check. The system blocks an order if the customer account has an insufficient credit limit or overdue outstanding balances.",
+          "challengeScope": "Process-wide challenge; the source does not assign it to an individual step."
+        },
+        {
+          "title": "Route credit-blocked orders for approval",
+          "detail": "If an order is blocked:\na) For blocks due to credit limit exceeded, the Credit Risk team reviews the case and obtains the necessary approval in accordance with GDOA 2002.\nb) For blocks due to overdue balances, the Collection team reviews the case and obtains the necessary approval in accordance to Global Credit Risk Policy.\nc) For blocks due to a change in payment term, the Credit Risk team reviews the case and obtains the necessary approval in accordance with GDOA 2000.",
+          "owner": "Credit Risk team / Collection team",
+          "challenges": [
+            "High volume of order blocks in CNXX markets."
+          ],
+          "systems": [],
+          "displayTitle": "Route credit-blocked orders for approval",
+          "description": "If an order is blocked, the reason for the block determines who reviews it. For blocks due to the credit limit being exceeded, the Credit Risk team reviews the case and obtains the necessary approval in accordance with GDOA 2002. For blocks due to overdue balances, the Collection team reviews the case and obtains approval in accordance with the Global Credit Risk Policy. For blocks due to a change in payment terms, the Credit Risk team reviews the case and obtains approval in accordance with GDOA 2000."
+        },
+        {
+          "title": "Create credit notes for approved returns and rebates",
+          "detail": "c) Customer's returns, rebates settlement\nManual order (returns, rebates)\nThe Sales Order team verifies whether the appropriate approvals for returns and rebate requests have been obtained before creating the credit notes.",
+          "owner": "Sales Order team",
+          "challenges": [],
+          "systems": [],
+          "displayTitle": "Create credit notes for approved returns and rebates",
+          "description": "For customer returns and rebate settlements, the Sales Order team verifies that the appropriate approvals for the return or rebate request have been obtained before creating the credit notes."
+        }
+      ],
+      "challenges": [
+        "EDI errors arising from missing end-customer accounts, missing pricing and insufficient stock.",
+        "Manual creation of sales orders.",
+        "Incorrect price or VAT classification in the master data, resulting in inaccurate invoicing.",
+        "High volume of order blocks in CNXX markets.",
+        "EDI interface risk related to deliveries spanning across month-end.",
+        "Local markets have signed contracts with customers that include non-standard payment terms or multiple payment terms for a single customer, or without confirming whether the system can support them, which has created challenges for O2C in processing sales orders."
+      ],
+      "improvements": [
+        "TPI 2026 (completed): Developed a Python script to automate order processing for Alexion transactions, returns and rebates.",
+        "TPI 2026 (in progress): System change request to exclude Banker's Acceptance from the credit exposure calculation for CNXX markets (expected to go live in October).",
+        "TPI 2026 (in progress): Developing a Global CN Dashboard to provide insights and identify potential improvement opportunities."
+      ],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: O2C E2E summary.xlsx\n\n- Path: `Tower Subprocesses/O2C/O2C E2E summary.xlsx`\n- Format: XLSX\n\n### Worksheet: Sheet1\n\n| Column 1 | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 |\n| --- | --- | --- | --- | --- | --- |\n| Sub process | Input | Brief description of activity | Output | Challenges | TPI  2026 |\n| Sales order & Billing | a) EDI: daily sales reports which are interfaced by Distributors to AZ's SAP\n\nb) Customer's purchase order\n\nc) Customer's returns, rebates settlement | EDI (sales and returns)\n1. SAP automatically creates sales orders based on the daily EDI report which interfaced by distributors.\n2. When system identifies an error, the Sales Order team reviews the issue and follows up with the relevant teams to resolve the EDI errors.\na) For a missing end-customer account, the team liaises with the Distribution team to submit a request to DMT for account creation.\nb) For missing pricing, the team liaises with the local market and GFS Controlling team to update the pricing details.\nc) For insufficient stock, the team liaises with the Distribution team to carry out the necessary stock movements.\n\nManual order (sales)\nThe Sales Order team validates the completeness of the data and manually creates the order in SAP.\nOrders are then subjected to a system credit check. The system will block an order if the customer account has an insufficient credit limit or overdue outstanding balances.\nIf an order is blocked:\na) For blocks due to credit limit exceeded, the Credit Risk team reviews the case and obtains the necessary approval in accordance with GDOA 2002.\nb) For blocks due to overdue balances, the Collection team reviews the case and obtains the necessary approval in accordance to Global Credit Risk Policy.\nc) For blocks due to a change in payment term, the Credit Risk team reviews the case and obtains the necessary approval in accordance with GDOA 2000.\n\nManual order (returns, rebates)\nThe Sales Order team verifies whether the appropriate approvals for returns and rebate requests have been obtained before creating the credit notes. | Sales order created | 1. EDI errors arising from missing end-customer accounts, missing pricing, and insufficient stock.\n\n2. Manual creation of sales orders.\n\n3. Incorrect price or VAT classification in the master data, resulting in inaccurate invoicing.\n\n4. High volume of order blocks in CNXX markets.\n\n5. EDI interface risk related to deliveries spanning across month-end.\n\n6. Local markets signed contracts with customers that include non-standard payment terms, multiple payment terms for a single customer, or  without confirming whether the system can support them, which has created challenges for O2C in processing sales orders. | 1.Completed: Developed a Python script to automate the order processing or Alexion transactions, returns, and rebates.\n\n2. Work in Progress:  System change request to exclude Banker's Acceptance from the credit exposure calculation for CNXX markets (expected to go live in Oct)\n\n3. Work in Progress: Developing a Global CN Dashboard to provide insights and identify potential improvement opportunities. |\n",
+      "sourceFile": "O2C - Raw Data.md",
+      "purposeSummary": "Create **sales orders** in SAP from EDI feeds and customer purchase orders, resolving **EDI errors** and **credit blocks** along the way.",
+      "cadenceSummary": "**Daily** EDI sales reports trigger automatic order creation; manual orders, returns and rebates are processed as customer requests arrive.",
+      "flowNote": "EDI orders (activities 1-2) and manual orders (activities 3-5) are alternative entry routes; credit-block handling applies only to orders the system blocks."
+    },
+    {
+      "id": "c49c738d23cd",
+      "title": "Delivery and billing",
+      "group": "Orders & billing",
+      "purpose": "Delivery and billing turns a created sales order into a delivery and then into an invoice. The system creates the delivery order (automatically for EDI orders, or for the warehouse team to pick and pack for manual orders), posts the goods issue to record cost of goods sold, releases billing to enable revenue recognition and sends invoices to customers.\n\nWhere local rules require it, the Billing team prepares local tax invoices (for example in Vietnam and Korea) and, in countries that have implemented e-invoicing, sales data is submitted to the local tax authority. The outputs are the delivery and the invoices and credit notes.",
+      "cadence": "",
+      "stages": [
+        {
+          "title": "Create EDI delivery orders and post goods issue",
+          "detail": "Sales order | EDI\nThe system automatically creates the corresponding delivery order and posts the goods issue.",
+          "owner": "System (SAP)",
+          "challenges": [],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Create EDI delivery orders and post goods issue",
+          "description": "For EDI sales orders, the system automatically creates the corresponding delivery order and posts the goods issue."
+        },
+        {
+          "title": "Generate delivery orders for warehouse pick and pack",
+          "detail": "Manual order\n1. The system generates the corresponding delivery order for the warehouse team to carry out the pick-and-pack process.",
+          "owner": "Warehouse team",
+          "challenges": [],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Generate delivery orders for warehouse pick and pack",
+          "description": "For manual orders, the system generates the corresponding delivery order, which the warehouse team uses to carry out the pick-and-pack process."
+        },
+        {
+          "title": "Post goods issue to record COGS",
+          "detail": "2. The goods issue is posted to record the cost of goods sold (COGS). | Delivery",
+          "owner": "",
+          "challenges": [],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Post goods issue to record COGS",
+          "description": "Once the goods leave the warehouse, the goods issue is posted to record the cost of goods sold (COGS). The delivery is the output of this step and the input to billing."
+        },
+        {
+          "title": "Release billing and send invoices to customers",
+          "detail": "Delivery | 1. The system automatically releases the billing to enable revenue recognition.\n2. The system automatically send the invoices to customers.",
+          "owner": "System (SAP)",
+          "challenges": [],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Release billing and send invoices to customers",
+          "description": "The system automatically releases billing on the delivery to enable revenue recognition, and automatically sends the invoices to customers. Invoices and credit notes are the output of this step."
+        },
+        {
+          "title": "Prepare local tax invoices and e-invoicing submissions",
+          "detail": "3. For certain markets such as Vietnam and Korea, the Billing team prepares the local tax invoice.\n4. For countries that have implemented e-invoicing, the sales data is submitted to the local tax authority.",
+          "owner": "Billing team",
+          "challenges": [
+            "E-invoicing requirement mandated by the local government."
+          ],
+          "systems": [],
+          "displayTitle": "Prepare local tax invoices and e-invoicing submissions",
+          "description": "For certain markets such as Vietnam and Korea, the Billing team prepares the local tax invoice in addition to the system invoice.\n\nFor countries that have implemented e-invoicing, the sales data is submitted to the local tax authority as mandated by the local government."
+        }
+      ],
+      "challenges": [
+        "E-invoicing requirement mandated by the local government."
+      ],
+      "improvements": [],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: O2C E2E summary.xlsx\n\n- Path: `Tower Subprocesses/O2C/O2C E2E summary.xlsx`\n- Format: XLSX\n\n### Worksheet: Sheet1\n\n| Column 1 | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 |\n| --- | --- | --- | --- | --- | --- |\n| Sub process | Input | Brief description of activity | Output | Challenges | TPI  2026 |\n|  | Sales order | EDI\nThe system automatically creates the corresponding delivery order and posts the goods issue.\n\nManual order\n1. The system generates the corresponding delivery order for the warehouse team to carry out the pick-and-pack process.\n2. The goods issue is posted to record the cost of goods sold (COGS). | Delivery |  |  |\n|  | Delivery | 1. The system automatically releases the billing to enable revenue recognition.\n2. The system automatically send the invoices to customers.\n3. For certain markets such as Vietnam and Korea, the Billing team prepares the local tax invoice.\n4. For countries that have implemented e-invoicing, the sales data is submitted to the local tax authority. | Invoices, credit notes | E-invoicing requirement mandated by the local government. |  |\n",
+      "sourceFile": "O2C - Raw Data.md",
+      "purposeSummary": "Turn sales orders into **deliveries**, post goods issue, and release **billing and invoices** including local tax and e-invoicing requirements.",
+      "cadenceSummary": "**Timing and frequency are not specified** in the supplied file.",
+      "flowNote": "Activities 1 (EDI orders) and 2-3 (manual orders) are alternative routes to the same delivery; billing follows once the delivery exists."
+    },
+    {
+      "id": "f720b88e5401",
+      "title": "Collection management",
+      "group": "Collections & disputes",
+      "purpose": "Collection management secures payment of the invoices and credit notes billed to customers. It issues statements of account and pre-due reminders, follows up with customers before the invoice due date, escalates customers that will not commit to a payment, and ensures that any payment hold requested by a customer is approved by the local market.\n\nThe output is payment collection from the customer.",
+      "cadence": "Statements of account and pre-due reminders are sent monthly by the High Radius Collection tool (excluding China). Customer follow-up takes place before the invoice due date.",
+      "stages": [
+        {
+          "title": "Send statements of account and pre-due reminders",
+          "detail": "1. The High Radius Collection tool automatically sends the statement of account (SOA) and pre-due reminders to customers on a monthly basis, excluding China market. For the China market, the Collection team follows up with sales representatives via WeCom.",
+          "owner": "Collection team",
+          "challenges": [
+            "Manual SOA and pre-due reminders for Alexion Australia (not on the High Radius Collection system)."
+          ],
+          "systems": [
+            "High Radius",
+            "WeCom"
+          ],
+          "displayTitle": "Send statements of account and pre-due reminders",
+          "description": "The High Radius Collection tool automatically sends the statement of account (SOA) and pre-due reminders to customers on a monthly basis, excluding the China market.\n\nFor the China market, the Collection team follows up with the sales representatives via WeCom instead."
+        },
+        {
+          "title": "Follow up customer payments before the due date",
+          "detail": "2. The Collection team follows up with customers by call or email to ensure payment is received before the invoice due date. All follow-up actions and outcomes are recorded in the High Radius Collection tool.",
+          "owner": "Collection team",
+          "challenges": [
+            "Follow-up on aged overpayments from China customers for refund processing."
+          ],
+          "systems": [
+            "High Radius",
+            "Email"
+          ],
+          "displayTitle": "Follow up customer payments before the due date",
+          "description": "The Collection team follows up with customers by call or email to ensure payment is received before the invoice due date. All follow-up actions and outcomes are recorded in the High Radius Collection tool.",
+          "challengeScope": "Process-wide challenge; the source does not assign it to an individual step."
+        },
+        {
+          "title": "Escalate refused payment commitments",
+          "detail": "3. If a customer refuses to provide a payment commitment, the team member will escalate the case to the Team Lead or Manager for support. If necessary, the Collection team will further escalate to the local market, such as the Key Account Manager or Finance Controller, to seek additional support.",
+          "owner": "Collection team; Team Lead / Manager; local market",
+          "challenges": [],
+          "systems": [],
+          "displayTitle": "Escalate refused payment commitments",
+          "description": "If a customer refuses to provide a payment commitment, the team member escalates the case to the Team Lead or Manager for support. If necessary, the Collection team escalates further to the local market, such as the Key Account Manager or Finance Controller, to seek additional support."
+        },
+        {
+          "title": "Obtain local market approval for payment holds",
+          "detail": "4. Any customer request for payment hold must be aligned with and approved by the local market.",
+          "owner": "Local market",
+          "challenges": [],
+          "systems": [],
+          "displayTitle": "Obtain local market approval for payment holds",
+          "description": "Any customer request for a payment hold must be aligned with and approved by the local market before it is applied."
+        }
+      ],
+      "challenges": [
+        "Manual SOA and pre-due reminders for Alexion Australia (not on the High Radius Collection system).",
+        "Follow-up on aged overpayments from China customers for refund processing."
+      ],
+      "improvements": [],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: O2C E2E summary.xlsx\n\n- Path: `Tower Subprocesses/O2C/O2C E2E summary.xlsx`\n- Format: XLSX\n\n### Worksheet: Sheet1\n\n| Column 1 | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 |\n| --- | --- | --- | --- | --- | --- |\n| Sub process | Input | Brief description of activity | Output | Challenges | TPI  2026 |\n| Collection management | Invoices / credit notes billed to customers | 1. The High Radius Collection tool automatically sends the statement of account (SOA) and pre-due reminders to customers on a monthly basis, excluding China market. For the China market, the Collection team follows up with sales representatives via WeCom.\n2. The Collection team follows up with customers by call or email to ensure payment is received before the invoice due date. All follow-up actions and outcomes are recorded in the High Radius Collection tool.\n3. If a customer refuses to provide a payment commitment, the team member will escalate the case to the Team Lead or Manager for support. If necessary, the Collection team will further escalate to the local market, such as the Key Account Manager or Finance Controller, to seek additional support.\n4. Any customer request for payment hold must be aligned with and approved by the local market. | Payment collection from customer | 1. Manual SOA and pre-due reminders for Alexion Australia (not on High Radius Collection system).\n\n2. Follow up on aged overpayments from China customers for refund processing. |  |\n",
+      "sourceFile": "O2C - Raw Data.md",
+      "purposeSummary": "Collect **customer payments** through statements, reminders and follow-up, escalating **refused commitments** and approving payment holds with the local market.",
+      "cadenceSummary": "**Monthly** statements and pre-due reminders (excluding China); follow-up with customers **before the invoice due date**."
+    },
+    {
+      "id": "e577e60c7dd4",
+      "title": "Dispute management",
+      "group": "Collections & disputes",
+      "purpose": "Dispute management handles disputed invoices and short payments. The Collection team validates the customer's claim with the relevant stakeholders and resolves it through a credit note, an invoice correction or a rejection where the claim is invalid, and records every dispute in High Radius and SAP so that disputed items are excluded from the system credit check.\n\nThe outputs are payment collection from the customer, credit note issuance or invoice correction.",
+      "cadence": "Triggered when a customer disputes an invoice or deducts a claim from a payment (short payment).",
+      "stages": [
+        {
+          "title": "Review and validate disputed invoices",
+          "detail": "1.If a customer disputes an invoice, the Collection team will review the dispute details and validate them with the relevant stakeholders to resolve the issue through credit notes, invoice corrections, or dispute rejection if the claim is found to be invalid.",
+          "owner": "Collection team",
+          "challenges": [
+            "The team spends significant time and effort following up with the relevant teams to investigate and resolve disputes."
+          ],
+          "systems": [],
+          "displayTitle": "Review and validate disputed invoices",
+          "description": "If a customer disputes an invoice, the Collection team reviews the dispute details and validates them with the relevant stakeholders. The issue is resolved through a credit note, an invoice correction, or rejection of the dispute if the claim is found to be invalid."
+        },
+        {
+          "title": "Investigate customer deductions from payments",
+          "detail": "2. When a customer deducts claims such as returns, rebates, or AP due invoices from the payment made to AZ, the Collection team will obtain the relevant details from the customer, follow up as needed, and validate the deduction with the appropriate stakeholders for resolution or rejection if the claim is determined to be invalid.",
+          "owner": "Collection team",
+          "challenges": [
+            "Customers often deduct claim amounts from payments before a credit note (CN) is issued."
+          ],
+          "systems": [],
+          "displayTitle": "Investigate customer deductions from payments",
+          "description": "When a customer deducts claims such as returns, rebates or AP due invoices from the payment made to AZ, the Collection team obtains the relevant details from the customer, follows up as needed, and validates the deduction with the appropriate stakeholders for resolution, or rejection if the claim is determined to be invalid."
+        },
+        {
+          "title": "Record disputes in High Radius and SAP",
+          "detail": "3. All disputes are recorded in the High Radius Collection system and SAP to ensure that disputed items are excluded from the system credit check.",
+          "owner": "Collection team",
+          "challenges": [],
+          "systems": [
+            "High Radius",
+            "SAP"
+          ],
+          "displayTitle": "Record disputes in High Radius and SAP",
+          "description": "All disputes are recorded in the High Radius Collection system and in SAP so that disputed items are excluded from the system credit check."
+        }
+      ],
+      "challenges": [
+        "The team spends significant time and effort following up with the relevant teams to investigate and resolve disputes.",
+        "Customers often deduct claim amounts from payments before a credit note (CN) is issued."
+      ],
+      "improvements": [],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: O2C E2E summary.xlsx\n\n- Path: `Tower Subprocesses/O2C/O2C E2E summary.xlsx`\n- Format: XLSX\n\n### Worksheet: Sheet1\n\n| Column 1 | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 |\n| --- | --- | --- | --- | --- | --- |\n| Sub process | Input | Brief description of activity | Output | Challenges | TPI  2026 |\n| Dispute management | Disputed invoices/ Short payment | 1.If a customer disputes an invoice, the Collection team will review the dispute details and validate them with the relevant stakeholders to resolve the issue through credit notes, invoice corrections, or dispute rejection if the claim is found to be invalid.\n2. When a customer deducts claims such as returns, rebates, or AP due invoices from the payment made to AZ, the Collection team will obtain the relevant details from the customer, follow up as needed, and validate the deduction with the appropriate stakeholders for resolution or rejection if the claim is determined to be invalid.\n3. All disputes are recorded in the High Radius Collection system and SAP to ensure that disputed items are excluded from the system credit check. | Payment collection from customer/ credit note issuance/ invoice correction | The team spends significant time and effort following up with the relevant teams to investigate and resolve disputes.\nCustomers often deduct claim amounts from payments before a credit note (CN) is issued. |  |\n",
+      "sourceFile": "O2C - Raw Data.md",
+      "purposeSummary": "Resolve **disputed invoices and payment deductions** through credit notes, corrections or rejection, and record disputes in High Radius and SAP.",
+      "cadenceSummary": "Triggered by a **disputed invoice** or **short payment**; no fixed review interval is documented."
+    },
+    {
+      "id": "bf413d292fd3",
+      "title": "Cash application",
+      "group": "Cash & banking",
+      "purpose": "Cash application clears customer payments against the corresponding invoices in the customer accounts. Daily bank statements flow into the High Radius Cash Application (HRC) system, which matches payments to invoices using the remittance advice or rules configured in the system and interfaces the results to SAP. Some manual intervention remains for exceptions such as withholding tax deductions.\n\nThe output is payments cleared against the corresponding invoices in the customer accounts.",
+      "cadence": "Daily, as bank statements are sent to the High Radius Cash Application system.",
+      "stages": [
+        {
+          "title": "Receive daily bank statements in High Radius",
+          "detail": "1. Daily bank statements are sent to the High Radius Cash Application (HRC) system.",
+          "owner": "System (High Radius)",
+          "challenges": [],
+          "systems": [
+            "High Radius"
+          ],
+          "displayTitle": "Receive daily bank statements in High Radius",
+          "description": "Daily bank statements are sent to the High Radius Cash Application (HRC) system, which is the starting point for matching customer payments."
+        },
+        {
+          "title": "Match payments to invoices automatically",
+          "detail": "2. The HRC system automatically matches payments to paid invoices based on the remittance advice or specific rules configured in the system, such as FIFO clearing for the China and Korea markets.",
+          "owner": "System (High Radius)",
+          "challenges": [
+            "Advance payments from China and Korea customers."
+          ],
+          "systems": [
+            "High Radius"
+          ],
+          "displayTitle": "Match payments to invoices automatically",
+          "description": "The HRC system automatically matches payments to the invoices they pay, based on the remittance advice or on specific rules configured in the system, such as FIFO clearing for the China and Korea markets.",
+          "challengeScope": "Process-wide challenge; the source does not assign it to an individual step."
+        },
+        {
+          "title": "Interface payment output files to SAP",
+          "detail": "3. Once the matching process is completed, HRC generates the payment output files and interfaces them with SAP.",
+          "owner": "System (High Radius)",
+          "challenges": [],
+          "systems": [
+            "High Radius",
+            "SAP"
+          ],
+          "displayTitle": "Interface payment output files to SAP",
+          "description": "Once the matching process is completed, HRC generates the payment output files and interfaces them with SAP so that the payments are cleared against the invoices in the customer accounts."
+        },
+        {
+          "title": "Clear manual exceptions such as Philippines WHT",
+          "detail": "4. There is still some manual intervention required in the cash application process, for example withholding tax (WHT) deduction clearing for AZ Philippines.",
+          "owner": "",
+          "challenges": [],
+          "systems": [],
+          "displayTitle": "Clear manual exceptions such as Philippines WHT",
+          "description": "Some manual intervention is still required in the cash application process, for example clearing withholding tax (WHT) deductions for AZ Philippines."
+        }
+      ],
+      "challenges": [
+        "Advance payments from China and Korea customers."
+      ],
+      "improvements": [
+        "TPI 2026 (completed): Developed a Python script to automatically clear the advance payment against the invoice once the invoice has been processed."
+      ],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: O2C E2E summary.xlsx\n\n- Path: `Tower Subprocesses/O2C/O2C E2E summary.xlsx`\n- Format: XLSX\n\n### Worksheet: Sheet1\n\n| Column 1 | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 |\n| --- | --- | --- | --- | --- | --- |\n| Sub process | Input | Brief description of activity | Output | Challenges | TPI  2026 |\n| Cash application | Payment collection from customer | 1. Daily bank statements are sent to the High Radius Cash Application (HRC) system.\n2. The HRC system automatically matches payments to paid invoices based on the remittance advice or specific rules configured in the system, such as FIFO clearing for the China and Korea markets.\n3. Once the matching process is completed, HRC generates the payment output files and interfaces them with SAP.\n4. There is still some manual intervention required in the cash application process, for example withholding tax (WHT) deduction clearing for AZ Philippines. | Payments are cleared against the corresponding invoices in customer accounts | Advance payments from China and Korea customers | Completed: Developed a Python script to automatically clear the advance payment against the invoice once the invoice has been processed. |\n",
+      "sourceFile": "O2C - Raw Data.md",
+      "purposeSummary": "Match **customer payments to invoices** automatically in High Radius, interface the results to SAP and clear **exceptions manually**.",
+      "cadenceSummary": "**Daily**, as bank statements reach the High Radius Cash Application system; exceptions are cleared manually."
+    },
+    {
+      "id": "93c9a94422be",
+      "title": "Payments (cash and banking)",
+      "group": "Cash & banking",
+      "purpose": "The Cash & Banking payments process makes payments to vendors and other payees from two inputs: vendor postings settled through the automated SAP payment run, and manual payment requests raised through Crown (including customer refunds). The team reconciles payment runs against the bank acknowledgement, investigates failures, and validates and processes manual payments through the FIS Payment Hub or the bank portal.\n\nThe output is payments successfully made to vendors.",
+      "cadence": "The source does not state payment run dates. Manual payment requests are processed as they are received; approximately 400 manual payments are processed each month.",
+      "stages": [
+        {
+          "title": "Send automated payment run files to the bank",
+          "detail": "Vendor postings\n1. Automated payment run: SAP sends payment files to the bank.",
+          "owner": "System (SAP)",
+          "challenges": [],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Send automated payment run files to the bank",
+          "description": "Vendor postings are settled through the automated payment run: SAP generates the payment files and sends them to the bank."
+        },
+        {
+          "title": "Reconcile the settlement list with the bank acknowledgement",
+          "detail": "The Cash & Banking team reconciles the SAP payment settlement list with the bank acknowledgment file and investigates any payment failures with the relevant teams.",
+          "owner": "Cash & Banking team",
+          "challenges": [
+            "Payment rejections."
+          ],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Reconcile the settlement list with the bank acknowledgement",
+          "description": "The Cash & Banking team reconciles the SAP payment settlement list with the bank acknowledgment file and investigates any payment failures with the relevant teams."
+        },
+        {
+          "title": "Validate manual payment requests and approvals",
+          "detail": "Crown manual payment request (including customer refund)\n2. Manual payments: The Cash & Banking team validates whether all required info has been provided and confirms that the appropriate approvals have been received before processing the payment",
+          "owner": "Cash & Banking team",
+          "challenges": [
+            "Gateway payments: tax payments and FDA payments that cannot be supported through the automated payment run (approximately 400 manual payments are processed each month).",
+            "Urgent payment requests from users (due to various reasons)."
+          ],
+          "systems": [
+            "CROWN"
+          ],
+          "displayTitle": "Validate manual payment requests and approvals",
+          "description": "Manual payments, including customer refunds, are requested through Crown. The Cash & Banking team validates whether all the required information has been provided and confirms that the appropriate approvals have been received before the payment is processed."
+        },
+        {
+          "title": "Process manual payments via FIS Payment Hub or bank portal",
+          "detail": "... before processing the payment through the FIS Payment Hub or the bank portal.",
+          "owner": "Cash & Banking team",
+          "challenges": [],
+          "systems": [
+            "FIS Payment Hub"
+          ],
+          "displayTitle": "Process manual payments via FIS Payment Hub or bank portal",
+          "description": "Once validated and approved, the manual payment is processed through the FIS Payment Hub or the bank portal."
+        }
+      ],
+      "challenges": [
+        "Gateway payments: tax payments and FDA payments that cannot be supported through the automated payment run (approximately 400 manual payments are processed each month).",
+        "Payment rejections.",
+        "Urgent payment requests from users (due to various reasons)."
+      ],
+      "improvements": [
+        "TPI 2026 (completed): Requested users to raise Crown for intracompany fund transfers, without using the vendor account process.",
+        "TPI 2026 (in progress): Crown manual payment simplification, so that users submit manual payment requests through Crown without routing them through the vendor account process; a bulk payment form for ServiceNow is being developed."
+      ],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: O2C E2E summary.xlsx\n\n- Path: `Tower Subprocesses/O2C/O2C E2E summary.xlsx`\n- Format: XLSX\n\n### Worksheet: Sheet1\n\n| Column 1 | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 |\n| --- | --- | --- | --- | --- | --- |\n| Sub process | Input | Brief description of activity | Output | Challenges | TPI  2026 |\n| Cash & Banking | Vendor postings or Crown manual payment request (including customer refund) | 1. Automated payment run: SAP sends payment files to the bank. The Cash & Banking team reconciles the SAP payment settlement list with the bank acknowledgment file and investigates any payment failures with the relevant teams.\n\n2. Manual payments: The Cash & Banking team validates whether all required info has been provided and confirms that the appropriate approvals have been received before processing the payment through the FIS Payment Hub or the bank portal. | Payments successfully make to vendors | 1. Gateway payments: tax payments and FDA payments that cannot be supported through the automated payment run. (Approximately 400 manual payments are processed each month)\n\n2. Payment rejections\n\n3. Urgent payment request from users (due to various reasons) | 1. Completed: requested user to raise Crown for intracompany fund transfer, without using vendor account process.\n\n2. Work in Progress: Crown manual payment simplification which users submit manual payment requests through Crown, without routing them through the vendor account process.\n(in progress of developing bulk payment form for ServiceNow) |\n",
+      "sourceFile": "O2C - Raw Data.md",
+      "purposeSummary": "Execute **automated and manual payments** to vendors, reconcile runs against bank acknowledgements and validate manual requests raised through Crown.",
+      "cadenceSummary": "Run dates are not documented; around **400 manual payments** are processed **each month** alongside the automated payment run."
+    },
+    {
+      "id": "8fd46d55a45c",
+      "title": "Bank reconciliation (cash and banking)",
+      "group": "Cash & banking",
+      "purpose": "Bank reconciliation posts and clears bank statements in SAP, whether they arrive electronically (MT940 / CAMT53, spelt \"CAM53\" in the source) or as manual bank statements, follows up bank open items such as T&E, payroll and vendor refunds with the responsible stakeholders, and completes the bank reconciliation in BlackLine.\n\nThe output is the bank reconciliation.",
+      "cadence": "",
+      "stages": [
+        {
+          "title": "Post and clear MT940 / CAMT53 statements in SAP",
+          "detail": "Bank statement\n1. MT940/ CAM53\n1. SAP automatically perform bank statemnet posting and cleasring based on MT940/ CAM53 statement vhich interfaced from bank.",
+          "owner": "System (SAP)",
+          "challenges": [],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Post and clear MT940 / CAMT53 statements in SAP",
+          "description": "SAP automatically performs bank statement posting and clearing based on the MT940 / CAMT53 statements interfaced from the bank."
+        },
+        {
+          "title": "Post manual bank statements",
+          "detail": "2. Manual bank statement\n2. For manual bank statement, the Cash & Banking team perform manual bank statement posting.",
+          "owner": "Cash & Banking team",
+          "challenges": [],
+          "systems": [
+            "SAP"
+          ],
+          "displayTitle": "Post manual bank statements",
+          "description": "For bank statements that are not interfaced electronically, the Cash & Banking team performs the bank statement posting manually."
+        },
+        {
+          "title": "Follow up bank open items with stakeholders",
+          "detail": "3. The Cash & Banking team follows up with respective stakeholders on bank open items eg related to T&E, payroll, vendor refund etc.",
+          "owner": "Cash & Banking team",
+          "challenges": [
+            "Challenges in following up bank open items."
+          ],
+          "systems": [],
+          "displayTitle": "Follow up bank open items with stakeholders",
+          "description": "The Cash & Banking team follows up with the respective stakeholders on bank open items, for example items related to T&E, payroll and vendor refunds."
+        },
+        {
+          "title": "Reconcile bank accounts in BlackLine",
+          "detail": "4. The Cash & Banking team  perform bank reconciliation in Blackline. | Bank reconciliation",
+          "owner": "Cash & Banking team",
+          "challenges": [],
+          "systems": [
+            "BlackLine"
+          ],
+          "displayTitle": "Reconcile bank accounts in BlackLine",
+          "description": "The Cash & Banking team performs the bank reconciliation in BlackLine, producing the reconciled bank position."
+        }
+      ],
+      "challenges": [
+        "Challenges in following up bank open items."
+      ],
+      "improvements": [
+        "TPI 2026 (completed): Developed a Python script to automatically read the information from China tax receipt PDFs and prepare the BlackLine journal entries.",
+        "TPI 2026 (in progress): Payroll payment hold posting - working with GBS and the Controlling team to post payroll payment holds to an accrual GL instead of bank clearing."
+      ],
+      "loopFrom": null,
+      "loopTo": null,
+      "loopLabel": "",
+      "source": "## Source file: O2C E2E summary.xlsx\n\n- Path: `Tower Subprocesses/O2C/O2C E2E summary.xlsx`\n- Format: XLSX\n\n### Worksheet: Sheet1\n\n| Column 1 | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 |\n| --- | --- | --- | --- | --- | --- |\n| Sub process | Input | Brief description of activity | Output | Challenges | TPI  2026 |\n| Cash & Banking | Bank statement\n1. MT940/ CAM53\n2. Manual bank statement | 1. SAP automatically perform bank statemnet posting and cleasring based on MT940/ CAM53 statement vhich interfaced from bank.\n2. For manual bank statement, the Cash & Banking team perform manual bank statement posting.\n3. The Cash & Banking team follows up with respective stakeholders on bank open items eg related to T&E, payroll, vendor refund etc.\n4. The Cash & Banking team  perform bank reconciliation in Blackline. | Bank reconciliation | Challenges in bank open items follow up | 1. Completed: The team developed a Python script to automatically read the info from China tax receipt PDFs and prepare BlackLine journal entries.\n\n2. Work in Progress: Payroll payment hold posting. Working with GBS and Controlling team to post payroll payment hold to accrual GL instead of bank clearing |\n",
+      "sourceFile": "O2C - Raw Data.md",
+      "purposeSummary": "Post and clear **bank statements** in SAP, follow up **open items** and complete the **BlackLine** bank reconciliation.",
+      "cadenceSummary": "**Timing and frequency are not specified** in the supplied file."
+    }
+  ]
+}
